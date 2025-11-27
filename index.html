@@ -213,7 +213,7 @@
             animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
             border-radius: 10px;
             overflow: hidden;
-            cursor: grab;
+            cursor: grab; /* Allow dragging */
             transition: transform 0.2s;
         }
 
@@ -225,7 +225,7 @@
             object-fit: cover;
             display: block;
             border-radius: 10px;
-            pointer-events: none;
+            pointer-events: none; /* Pass clicks to container */
         }
 
         @keyframes popIn {
@@ -290,7 +290,7 @@
         .clipboard-section {
             padding: 100px 0;
             position: relative;
-            perspective: 1200px;
+            perspective: 1200px; /* Deep perspective for 3D effect */
         }
 
         .clipboard-container {
@@ -298,8 +298,11 @@
             margin: 0 auto;
             position: relative;
             transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
+            transform: rotateX(2deg);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        .clipboard-container:hover { transform: rotateX(0deg) scale(1.02); }
 
         .clipboard-board {
             background-color: #2c2c2c;
@@ -784,20 +787,6 @@
 
         .clean-link:hover { color: var(--accent-blue); }
 
-        /* Behance embed wrapper */
-        .behance-embed-wrapper {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 15px;
-        }
-
-        .behance-embed-wrapper iframe {
-            width: 100%;
-            border: none;
-            display: block;
-        }
-
         /* Political section */
         .political-section {
             margin-top: 120px;
@@ -837,6 +826,7 @@
             margin: 0 8px;
         }
 
+        /* --- New Scattered Layout CSS --- */
         .political-scatter-container {
             position: relative;
             height: 800px;
@@ -868,12 +858,13 @@
             position: absolute;
             width: 300px;
             background: white;
-            padding: 10px 10px 40px 10px;
+            padding: 10px 10px 40px 10px; /* Polaroid style bottom */
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Only animate transform by default */
             z-index: 1;
             cursor: grab;
             border-radius: 3px;
+            will-change: transform;
         }
 
         .scatter-card:active { cursor: grabbing; }
@@ -886,24 +877,51 @@
             pointer-events: none;
         }
 
+        /* On Hover: Lift up slightly and pause float */
         .scatter-card:hover {
             z-index: 100 !important;
-            transform: scale(1.15) rotate(0deg) !important;
             box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            /* We will handle 'pause' in JS by checking if hovered */
         }
 
+        /* Class added by JS during drag */
         .is-dragging {
-            transition: none !important;
             z-index: 9999 !important;
             cursor: grabbing !important;
         }
 
+        /* Card Positioning (Random pile effect) */
         .sc-1 { top: 0%; left: 10%; transform: rotate(-12deg); z-index: 1; }
         .sc-2 { top: 5%; right: 15%; transform: rotate(8deg); z-index: 2; }
         .sc-3 { top: 30%; left: 20%; transform: rotate(5deg); z-index: 3; }
         .sc-4 { top: 35%; right: 25%; transform: rotate(-6deg); z-index: 2; }
         .sc-5 { top: 60%; left: 15%; transform: rotate(-15deg); z-index: 4; }
         .sc-6 { top: 65%; right: 10%; transform: rotate(10deg); z-index: 3; }
+
+        @media (max-width: 900px) {
+            .political-scatter-container {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                padding: 20px;
+                margin-top: 0;
+            }
+            .scatter-card {
+                position: relative;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                width: 100%;
+                transform: rotate(0deg) !important;
+                padding: 15px 15px 40px 15px;
+            }
+            .scatter-bg-text {
+                font-size: 3rem;
+                top: 50px;
+                white-space: normal;
+            }
+        }
 
         /* CONTACT SECTION */
         .contact-section {
@@ -1044,29 +1062,6 @@
                 left: -27px;
                 width: 12px;
                 height: 12px;
-            }
-
-            .political-scatter-container {
-                height: auto;
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-                padding: 20px;
-                margin-top: 0;
-            }
-            .scatter-card {
-                position: relative;
-                top: auto !important;
-                left: auto !important;
-                right: auto !important;
-                width: 100%;
-                transform: rotate(0deg) !important;
-                padding: 15px 15px 40px 15px;
-            }
-            .scatter-bg-text {
-                font-size: 3rem;
-                top: 50px;
-                white-space: normal;
             }
 
             .political-list { padding: 0 10px; }
@@ -1297,105 +1292,92 @@
                 </div>
             </div>
 
-            <!-- MAIN PROJECTS GRID – Behance Embeds -->
+            <!-- MAIN PROJECTS GRID -->
             <div class="projects-grid">
-
-                <!-- Project 1 – 238580093 -->
+                <!-- Project 1 -->
                 <div class="project-card-clean">
-                    <div class="behance-embed-wrapper">
-                        <iframe
-                            src="https://www.behance.net/embed/project/238580093?ilo0=1"
-                            height="316"
-                            width="404"
-                            allowfullscreen
-                            loading="lazy"
-                            frameborder="0"
-                            allow="clipboard-write"
-                            refererPolicy="strict-origin-when-cross-origin">
-                        </iframe>
+                    <img src="live stream.png" alt="Uncover Treasures" class="clean-img">
+                    <div class="clean-info">
+                        <h4 class="clean-title">UNCOVER TREASURES</h4>
+                        <div class="clean-tags">Real-Time V.S.T Technology • 3D Visualization</div>
+                        <div class="clean-footer">
+                            <span style="color:#666; font-size:0.8rem;">
+                                <i class="far fa-eye"></i> 88
+                            </span>
+                            <a href="https://www.behance.net/gallery/238580093/Product-Design-Visualization" target="_blank" class="clean-link" rel="noopener noreferrer">
+                                VIEW PROJECT <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 2 – 218895573 -->
+                <!-- Project 2 -->
                 <div class="project-card-clean">
-                    <div class="behance-embed-wrapper">
-                        <iframe
-                            src="https://www.behance.net/embed/project/218895573?ilo0=1"
-                            height="316"
-                            width="404"
-                            allowfullscreen
-                            loading="lazy"
-                            frameborder="0"
-                            allow="clipboard-write"
-                            refererPolicy="strict-origin-when-cross-origin">
-                        </iframe>
+                    <img src="made in germany.png" alt="Ergonomic Design" class="clean-img">
+                    <div class="clean-info">
+                        <h4 class="clean-title">ERGONOMIC DESIGN</h4>
+                        <div class="clean-tags">German Design • Built for Professionals</div>
+                        <div class="clean-footer">
+                            <span style="color:#666; font-size:0.8rem;">
+                                <i class="far fa-eye"></i> 45
+                            </span>
+                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link" rel="noopener noreferrer">
+                                VIEW PROJECT <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 3 – 199606419 -->
+                <!-- Project 3 -->
                 <div class="project-card-clean">
-                    <div class="behance-embed-wrapper">
-                        <iframe
-                            src="https://www.behance.net/embed/project/199606419?ilo0=1"
-                            height="316"
-                            width="404"
-                            allowfullscreen
-                            loading="lazy"
-                            frameborder="0"
-                            allow="clipboard-write"
-                            refererPolicy="strict-origin-when-cross-origin">
-                        </iframe>
+                    <img src="6 SYS.png" alt="6 Search Modes" class="clean-img">
+                    <div class="clean-info">
+                        <h4 class="clean-title">6 SEARCH MODES</h4>
+                        <div class="clean-tags">Smart Detect System • System Architecture</div>
+                        <div class="clean-footer">
+                            <span style="color:#666; font-size:0.8rem;">
+                                <i class="far fa-eye"></i> 32
+                            </span>
+                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link" rel="noopener noreferrer">
+                                VIEW PROJECT <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 4 – 182476029 -->
+                <!-- Project 4 -->
                 <div class="project-card-clean">
-                    <div class="behance-embed-wrapper">
-                        <iframe
-                            src="https://www.behance.net/embed/project/182476029?ilo0=1"
-                            height="316"
-                            width="404"
-                            allowfullscreen
-                            loading="lazy"
-                            frameborder="0"
-                            allow="clipboard-write"
-                            refererPolicy="strict-origin-when-cross-origin">
-                        </iframe>
+                    <img src="pulse.png" alt="Pulse Induction Power" class="clean-img">
+                    <div class="clean-info">
+                        <h4 class="clean-title">PULSE INDUCTION POWER</h4>
+                        <div class="clean-tags">Real-Time Sound • Visual Feedback</div>
+                        <div class="clean-footer">
+                            <span style="color:#666; font-size:0.8rem;">
+                                <i class="far fa-eye"></i> 60
+                            </span>
+                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link" rel="noopener noreferrer">
+                                VIEW PROJECT <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 5 – 181868927 -->
+                <!-- Project 5 -->
                 <div class="project-card-clean">
-                    <div class="behance-embed-wrapper">
-                        <iframe
-                            src="https://www.behance.net/embed/project/181868927?ilo0=1"
-                            height="316"
-                            width="404"
-                            allowfullscreen
-                            loading="lazy"
-                            frameborder="0"
-                            allow="clipboard-write"
-                            refererPolicy="strict-origin-when-cross-origin">
-                        </iframe>
+                    <img src="lrl.png" alt="3 Long-Range Modes" class="clean-img">
+                    <div class="clean-info">
+                        <h4 class="clean-title">3 LONG-RANGE MODES</h4>
+                        <div class="clean-tags">Auto • Manual • Custom</div>
+                        <div class="clean-footer">
+                            <span style="color:#666; font-size:0.8rem;">
+                                <i class="far fa-eye"></i> 28
+                            </span>
+                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link" rel="noopener noreferrer">
+                                VIEW PROJECT <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Project 6 – 219706527 -->
-                <div class="project-card-clean">
-                    <div class="behance-embed-wrapper">
-                        <iframe
-                            src="https://www.behance.net/embed/project/219706527?ilo0=1"
-                            height="316"
-                            width="404"
-                            allowfullscreen
-                            loading="lazy"
-                            frameborder="0"
-                            allow="clipboard-write"
-                            refererPolicy="strict-origin-when-cross-origin">
-                        </iframe>
-                    </div>
-                </div>
-
             </div>
 
             <!-- POLITICAL DESIGNS SECTION (New Layout) -->
@@ -1412,31 +1394,37 @@
 
                     <!-- Card 1 -->
                     <div class="scatter-card sc-1">
+                        <div class="pin red"></div>
                         <img src="001 copy.png" alt="Political Post 1">
                     </div>
 
                     <!-- Card 2 -->
                     <div class="scatter-card sc-2">
+                        <div class="pin blue"></div>
                         <img src="002.png" alt="Political Post 2">
                     </div>
 
                     <!-- Card 3 -->
                     <div class="scatter-card sc-3">
+                        <div class="pin red"></div>
                         <img src="٠٠٢.png" alt="Political Post 3">
                     </div>
 
                     <!-- Card 4 -->
                     <div class="scatter-card sc-4">
+                        <div class="pin blue"></div>
                         <img src="003.png" alt="Political Post 4">
                     </div>
 
                     <!-- Card 5 -->
                     <div class="scatter-card sc-5">
+                        <div class="pin red"></div>
                         <img src="٠٠٠٦.png" alt="Political Post 5">
                     </div>
 
                     <!-- Card 6 -->
                     <div class="scatter-card sc-6">
+                        <div class="pin blue"></div>
                         <img src="٣٨٢٩٥.png" alt="Political Post 6">
                     </div>
                 </div>
@@ -1484,59 +1472,96 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        // 2. Interactive 3D Tilt for Clipboard
-        const section = document.querySelector('.clipboard-section');
-        const clipboard = document.querySelector('.clipboard-container');
-
-        if(section && clipboard) {
-            section.addEventListener('mousemove', (e) => {
-                if (window.innerWidth > 900) {
-                    const xAxis = (window.innerWidth / 2 - e.pageX) / 35;
-                    const yAxis = (window.innerHeight / 2 - e.pageY) / 35;
-                    clipboard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-                }
-            });
-
-            section.addEventListener('mouseleave', () => {
-                if (window.innerWidth > 900) {
-                    clipboard.style.transform = `rotateY(0deg) rotateX(0deg)`;
-                }
-            });
-        }
-
-        // 3. Draggable Functionality for Notes and Cards
+        // 2. Draggable & Auto-Floating Functionality
         let highestZ = 100;
 
-        function makeDraggable(selector) {
+        function makeDraggableAndFloat(selector) {
             const elements = document.querySelectorAll(selector);
             
-            elements.forEach(elmnt => {
-                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            elements.forEach((elmnt, index) => {
+                // Randomize start times for floating
+                let floatAngle = Math.random() * 360;
+                let isDragging = false;
+                let isHovered = false;
+                
+                // Initial Random Positioning offset to make floating less uniform
+                let floatSpeed = 0.01 + Math.random() * 0.01; 
+                let floatRange = 3 + Math.random() * 5; // Pixels to float
+
+                // Store original positions (simplified) - mostly relying on css positioning + transform
+                // We will use transform translate for the floating effect
+                
+                function autoFloat() {
+                    if(!isDragging && !isHovered && window.innerWidth > 900) {
+                        floatAngle += floatSpeed;
+                        const yOffset = Math.sin(floatAngle) * floatRange;
+                        const xOffset = Math.cos(floatAngle * 0.5) * (floatRange * 0.5);
+                        
+                        // Apply floating while preserving current drag rotation if any
+                        // Note: direct rotation style is applied via CSS class usually
+                        // We simply add translation to the element's current style
+                        
+                        // To mix drag position (top/left) with float (transform), we just use transform
+                        // But drag uses Top/Left. So transform won't conflict.
+                        
+                        // Check if element has specific rotation class to preserve
+                        let rotation = 0;
+                        if(elmnt.classList.contains('sc-1')) rotation = -12;
+                        else if(elmnt.classList.contains('sc-2')) rotation = 8;
+                        else if(elmnt.classList.contains('sc-3')) rotation = 5;
+                        else if(elmnt.classList.contains('sc-4')) rotation = -6;
+                        else if(elmnt.classList.contains('sc-5')) rotation = -15;
+                        else if(elmnt.classList.contains('sc-6')) rotation = 10;
+                        
+                        // Add slight rotation wobble
+                        let wobble = Math.sin(floatAngle) * 1;
+
+                        elmnt.style.transform = `translate(${xOffset}px, ${yOffset}px) rotate(${rotation + wobble}deg)`;
+                    }
+                    requestAnimationFrame(autoFloat);
+                }
+                autoFloat();
+
+                // Event Listeners
+                elmnt.addEventListener('mouseenter', () => { isHovered = true; });
+                elmnt.addEventListener('mouseleave', () => { isHovered = false; });
 
                 elmnt.onmousedown = dragMouseDown;
 
                 function dragMouseDown(e) {
                     if(window.innerWidth <= 900) return;
+                    isDragging = true;
+                    isHovered = true; // Treat drag as hover
 
                     e = e || window.event;
                     e.preventDefault();
+                    // get the mouse cursor position at startup:
                     pos3 = e.clientX;
                     pos4 = e.clientY;
                     document.onmouseup = closeDragElement;
+                    // call a function whenever the cursor moves:
                     document.onmousemove = elementDrag;
                     
+                    // Visual feedback and Z-index layering
                     highestZ++;
                     elmnt.style.zIndex = highestZ;
                     elmnt.classList.add('is-dragging');
+                    
+                    // Reset transform so it snaps to mouse and removes float offset instantly
+                    elmnt.style.transform = 'none';
                 }
+
+                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
                 function elementDrag(e) {
                     e = e || window.event;
                     e.preventDefault();
+                    // calculate the new cursor position:
                     pos1 = pos3 - e.clientX;
                     pos2 = pos4 - e.clientY;
                     pos3 = e.clientX;
                     pos4 = e.clientY;
+                    // set the element's new position:
                     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
                 }
@@ -1545,13 +1570,44 @@
                     document.onmouseup = null;
                     document.onmousemove = null;
                     elmnt.classList.remove('is-dragging');
+                    isDragging = false;
+                    isHovered = false; // Resume floating
                 }
             });
         }
 
-        makeDraggable('.sticky');
-        makeDraggable('.scatter-card');
-        makeDraggable('.profile-frame-hero');
+        // Initialize drag and auto-float
+        makeDraggableAndFloat('.sticky');
+        makeDraggableAndFloat('.scatter-card');
+        // Only drag for profile (no float)
+        
+        // Simple drag for profile (no float logic needed)
+        const profile = document.querySelector('.profile-frame-hero');
+        if(profile) {
+            profile.onmousedown = function(e) {
+                if(window.innerWidth <= 900) return;
+                e.preventDefault();
+                let pos3 = e.clientX;
+                let pos4 = e.clientY;
+                document.onmouseup = closeDrag;
+                document.onmousemove = eleDrag;
+                
+                function eleDrag(e) {
+                    e.preventDefault();
+                    let pos1 = pos3 - e.clientX;
+                    let pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    profile.style.top = (profile.offsetTop - pos2) + "px";
+                    profile.style.left = (profile.offsetLeft - pos1) + "px";
+                }
+                function closeDrag() {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+        }
+
     </script>
 
 </body>
