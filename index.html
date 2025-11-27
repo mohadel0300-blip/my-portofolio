@@ -31,6 +31,9 @@
             --cb-paper: #fdfbf7; 
             --cb-text-blue: #1565C0;
             --cb-text-dark: #333333;
+
+            /* Contact Card */
+            --contact-bg: rgba(15, 23, 42, 0.9);
         }
 
         * {
@@ -81,7 +84,6 @@
             transform: translateY(0) scale(1);
         }
 
-        /* Staggered Delays for Hero Items */
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
@@ -195,20 +197,20 @@
 
         .btn:hover { transform: scale(1.05); }
 
-        /* Updated Sticky Notes (No Frame, Rounded) */
+        /* Sticky notes */
         .sticky {
             position: absolute;
             width: 140px;
             height: 140px; 
-            padding: 0; /* Removed padding for no frame */
-            background: transparent; /* Transparent bg */
+            padding: 0;
+            background: transparent;
             box-shadow: 2px 5px 15px rgba(0,0,0,0.5);
             z-index: 5;
             transform-origin: center;
             opacity: 0; 
             animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            border-radius: 10px; /* Rounded corners */
-            overflow: hidden; /* Clip image to border radius */
+            border-radius: 10px;
+            overflow: hidden;
         }
         
         .sticky img {
@@ -238,7 +240,6 @@
         .pin.red { background: radial-gradient(circle at 30% 30%, #ff6b6b, #d32f2f); }
         .pin.blue { background: radial-gradient(circle at 30% 30%, #64b5f6, #1976d2); }
 
-        /* Sticky Positioning */
         .note-1 { top: 15%; left: 8%; --rot: -5deg; animation-delay: 0.2s; }
         .note-2 { top: 22%; left: 20%; --rot: 3deg; animation-delay: 0.4s; }
         .note-3 { top: 12%; right: 12%; --rot: 2deg; width: 150px; height: auto; animation-delay: 0.6s; } 
@@ -281,7 +282,7 @@
         }
 
         .clipboard-container {
-            width: 900px; /* Actual Size */
+            width: 900px;
             margin: 0 auto;
             position: relative;
             transform-style: preserve-3d;
@@ -406,13 +407,11 @@
         .projects-sub { text-align: center; color: var(--accent-blue); font-size: 1rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .projects-sub::before, .projects-sub::after { content: ""; width: 30px; height: 2px; background: var(--accent-blue); opacity: 0.5; }
         
-        /* Filter Nav */
         .project-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 50px; }
         .nav-btn { background: #1e293b; border: none; padding: 10px 20px; border-radius: 30px; color: #94a3b8; font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .nav-btn:hover { background: #334155; color: white; }
         .nav-btn.active { background: var(--accent-blue); color: white; box-shadow: 0 0 15px rgba(33, 150, 243, 0.4); }
 
-        /* Featured Card */
         .featured-card {
             position: relative;
             width: 100%;
@@ -421,7 +420,7 @@
             overflow: hidden;
             margin-bottom: 60px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            background-image: url('water line.jpg');
+            background-image: url('water line.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -436,15 +435,7 @@
         .featured-title { font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 10px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
         .featured-desc { color: #ccc; font-size: 1rem; max-width: 600px; line-height: 1.6; }
 
-        /* Project Grid */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        
-        /* New Card Style (Dark, Clean) to match "Projects" section screenshot if preferred, 
-           BUT user asked for "pinned polaroids" style for the rest. 
-           I will keep the pinned polaroid style for the grid as per previous instructions unless 
-           the screenshot implies ALL cards should look like the featured one. 
-           The screenshot shows a "Featured" header and filters. 
-           I will blend the styles: Clean cards for grid. */
         
         .project-card-clean {
             background: var(--card-bg);
@@ -481,11 +472,9 @@
             .folio-text { font-size: 3rem; }
             .profile-frame-hero { position: relative; top: auto; right: auto; margin: 20px auto; transform: rotate(5deg); }
             
-            /* Sticky notes on mobile: stack or hide? Stacking */
             .sticky { position: relative; margin: 10px; display: inline-block; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; }
             .hero-wrapper { margin-top: 20px; }
             
-            /* Clipboard mobile */
             .clipboard-container { width: 95%; transform: none; }
             .clipboard-container:hover { transform: none; }
             .clipboard-paper { padding: 80px 20px 30px 20px; height: auto; }
@@ -507,34 +496,34 @@
             <path d="M0,100 Q300,180 600,100 T1200,100" />
         </svg>
 
-        <!-- Sticky Notes with Uploaded Images (Now Scalable) -->
+        <!-- Sticky Notes with Uploaded Images -->
         <div class="sticky note-1 reveal delay-1">
             <div class="pin red"></div>
-            <img src="001 copy.jpg" alt="Project 1">
+            <img src="001 copy.png" alt="Project 1">
         </div>
         
         <div class="sticky note-2 reveal delay-2">
             <div class="pin blue"></div>
-            <img src="٠٠٠٦.jpg" alt="Project 2">
+            <img src="live stream.png" alt="Project 2">
         </div>
         
         <div class="sticky note-3 reveal delay-3">
             <div class="pin blue"></div>
-            <img src="6 SYS.jpg" alt="Project 3">
+            <img src="6 SYS.png" alt="Project 3">
         </div>
         
         <div class="sticky note-4 reveal delay-4">
             <div class="pin blue"></div>
-            <img src="pulse.jpg" alt="Project 4">
+            <img src="pulse.png" alt="Project 4">
         </div>
         
         <div class="sticky note-5 reveal delay-5">
             <div class="pin red"></div>
-            <img src="water line.jpg" alt="Project 5">
+            <img src="water line.png" alt="Project 5">
         </div>
 
         <div class="profile-frame-hero reveal delay-2">
-            <img src="MINED.jpg" alt="Mohamed 3amer">
+            <img src="MINED.png" alt="Mohamed 3amer">
             <div class="profile-name-hero">Mohamed 3amer</div>
         </div>
 
@@ -569,7 +558,7 @@
                 <div class="clipboard-paper">
                     <div class="polaroid-cv">
                         <div class="pin" style="top:-10px; right: 50%;"></div>
-                        <img src="MINED.jpg" alt="Mohamed 3amer">
+                        <img src="MINED.png" alt="Mohamed 3amer">
                     </div>
 
                     <div class="paper-header">
@@ -617,7 +606,7 @@
         </div>
     </section>
 
-    <!-- SKILLS SECTION (Dark) -->
+    <!-- SKILLS SECTION -->
     <section class="skills-section reveal">
         <div class="container">
             <h2 class="section-title">SKILLS</h2>
@@ -644,7 +633,7 @@
         </div>
     </section>
 
-    <!-- EXPERIENCE SECTION (Dark) -->
+    <!-- EXPERIENCE SECTION -->
     <section class="experience-section reveal">
         <div class="container">
             <h2 class="section-title">EXPERIENCE</h2>
@@ -705,13 +694,12 @@
         </div>
     </section>
 
-    <!-- PROJECTS SECTION (Redesigned to match screenshot) -->
+    <!-- PROJECTS SECTION -->
     <section id="projects" class="projects-section reveal">
         <div class="container">
             <h2 class="projects-header-text">✨ PROJECTS ✨</h2>
             <div class="projects-sub">6 WORKS</div>
             
-            <!-- Filter Navigation -->
             <div class="project-nav">
                 <button class="nav-btn active">ALL</button>
                 <button class="nav-btn">PRODUCT DESIGN</button>
@@ -722,12 +710,12 @@
                 <button class="nav-btn">PRODUCT MARKETING</button>
             </div>
 
-            <!-- Featured Project (Water Line) -->
+            <!-- Featured Project -->
             <div class="featured-card">
                 <div class="featured-overlay">
-                    <span class="featured-badge"> <i class="fas fa-star"></i> FEATURED</span>
+                    <span class="featured-badge"><i class="fas fa-star"></i> FEATURED</span>
                     <h3 class="featured-title">WATER DETECTION TECHNOLOGY</h3>
-                    <p class="featured-desc">Advanced metal detector visualization showcasing water resistance capabilities across multiple environments and terrains</p>
+                    <p class="featured-desc">Advanced metal detector visualization showcasing water resistance capabilities across multiple environments and terrains.</p>
                 </div>
             </div>
 
@@ -735,7 +723,7 @@
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card-clean">
-                    <img src="live stream.jpg" alt="Product Design" class="clean-img">
+                    <img src="live stream.png" alt="Product Design" class="clean-img">
                     <div class="clean-info">
                         <h4 class="clean-title">UNCOVER TREASURES</h4>
                         <div class="clean-tags">Product Design • 3D Visualization</div>
@@ -748,7 +736,7 @@
 
                 <!-- Project 2 -->
                 <div class="project-card-clean">
-                    <img src="made in germany.jpg" alt="Made in Germany" class="clean-img">
+                    <img src="made in germany.png" alt="Made in Germany" class="clean-img">
                     <div class="clean-info">
                         <h4 class="clean-title">GERMAN PRECISION</h4>
                         <div class="clean-tags">Industrial Design • Engineering</div>
@@ -761,7 +749,7 @@
 
                 <!-- Project 3 -->
                 <div class="project-card-clean">
-                    <img src="6 SYS.jpg" alt="6 Systems" class="clean-img">
+                    <img src="6 SYS.png" alt="6 Systems" class="clean-img">
                     <div class="clean-info">
                         <h4 class="clean-title">6 SEARCH MODES</h4>
                         <div class="clean-tags">UI Design • System Architecture</div>
@@ -774,7 +762,7 @@
                 
                 <!-- Project 4 -->
                 <div class="project-card-clean">
-                    <img src="pulse.jpg" alt="Pulse Power" class="clean-img">
+                    <img src="pulse.png" alt="Pulse Power" class="clean-img">
                     <div class="clean-info">
                         <h4 class="clean-title">PULSE INDUCTION</h4>
                         <div class="clean-tags">Tech Visualization • Marketing</div>
@@ -787,7 +775,7 @@
                 
                 <!-- Project 5 -->
                 <div class="project-card-clean">
-                    <img src="lrl.jpg" alt="Wide Search" class="clean-img">
+                    <img src="lrl.png" alt="Wide Search" class="clean-img">
                     <div class="clean-info">
                         <h4 class="clean-title">WIDE AREA SEARCH</h4>
                         <div class="clean-tags">Concept Art • Environment</div>
@@ -821,7 +809,6 @@
     </section>
 
     <script>
-        // Scroll Animation: Apple-style ease-in
         const revealElements = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
@@ -836,7 +823,6 @@
         };
 
         window.addEventListener('scroll', revealOnScroll);
-        // Trigger once on load
         revealOnScroll();
     </script>
 
