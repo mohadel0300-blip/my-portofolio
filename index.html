@@ -698,16 +698,18 @@
     <section id="projects" class="projects-section reveal">
         <div class="container">
             <h2 class="projects-header-text">✨ PROJECTS ✨</h2>
-            <div class="projects-sub">6 WORKS</div>
+            <div class="projects-sub">
+                <span id="projects-count">0</span> WORKS
+            </div>
             
             <div class="project-nav">
-                <button class="nav-btn active">ALL</button>
-                <button class="nav-btn">PRODUCT DESIGN</button>
-                <button class="nav-btn">BRAND DESIGN</button>
-                <button class="nav-btn">SOCIAL DESIGN</button>
-                <button class="nav-btn">BRAND IDENTITY</button>
-                <button class="nav-btn">SOCIAL MEDIA</button>
-                <button class="nav-btn">PRODUCT MARKETING</button>
+                <button class="nav-btn active" data-filter="all">ALL</button>
+                <button class="nav-btn" data-filter="product-design">PRODUCT DESIGN</button>
+                <button class="nav-btn" data-filter="brand-design">BRAND DESIGN</button>
+                <button class="nav-btn" data-filter="social-design">SOCIAL DESIGN</button>
+                <button class="nav-btn" data-filter="brand-identity">BRAND IDENTITY</button>
+                <button class="nav-btn" data-filter="social-media">SOCIAL MEDIA</button>
+                <button class="nav-btn" data-filter="product-marketing">PRODUCT MARKETING</button>
             </div>
 
             <!-- Featured Project -->
@@ -719,73 +721,8 @@
                 </div>
             </div>
 
-            <!-- Projects Grid -->
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card-clean">
-                    <img src="live stream.png" alt="Product Design" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">UNCOVER TREASURES</h4>
-                        <div class="clean-tags">Product Design • 3D Visualization</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 88</span>
-                            <a href="https://www.behance.net/gallery/238580093/Product-Design-Visualization" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card-clean">
-                    <img src="made in germany.png" alt="Made in Germany" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">GERMAN PRECISION</h4>
-                        <div class="clean-tags">Industrial Design • Engineering</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 45</span>
-                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card-clean">
-                    <img src="6 SYS.png" alt="6 Systems" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">6 SEARCH MODES</h4>
-                        <div class="clean-tags">UI Design • System Architecture</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 32</span>
-                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="project-card-clean">
-                    <img src="pulse.png" alt="Pulse Power" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">PULSE INDUCTION</h4>
-                        <div class="clean-tags">Tech Visualization • Marketing</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 60</span>
-                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 5 -->
-                <div class="project-card-clean">
-                    <img src="lrl.png" alt="Wide Search" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">WIDE AREA SEARCH</h4>
-                        <div class="clean-tags">Concept Art • Environment</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 28</span>
-                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Projects Grid (dynamic) -->
+            <div id="projects-grid" class="projects-grid"></div>
         </div>
     </section>
 
@@ -809,6 +746,7 @@
     </section>
 
     <script>
+        // ====== REVEAL ANIMATION ======
         const revealElements = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
@@ -824,6 +762,119 @@
 
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
+
+        // ====== PROJECTS DATA (EDIT HERE ONLY) ======
+        // categories: product-design, brand-design, social-design, brand-identity, social-media, product-marketing
+        const projects = [
+            {
+                title: "UNCOVER TREASURES",
+                image: "live stream.png",
+                tags: "Product Design • 3D Visualization",
+                views: 88,
+                url: "https://www.behance.net/gallery/238580093/Product-Design-Visualization",
+                categories: ["product-design", "product-marketing"]
+            },
+            {
+                title: "GERMAN PRECISION",
+                image: "made in germany.png",
+                tags: "Industrial Design • Engineering",
+                views: 45,
+                url: "https://www.behance.net/mohamedadel526",
+                categories: ["product-design", "brand-design", "product-marketing"]
+            },
+            {
+                title: "6 SEARCH MODES",
+                image: "6 SYS.png",
+                tags: "UI Design • System Architecture",
+                views: 32,
+                url: "https://www.behance.net/mohamedadel526",
+                categories: ["product-design", "ui-ux", "product-marketing"]
+            },
+            {
+                title: "PULSE INDUCTION",
+                image: "pulse.png",
+                tags: "Tech Visualization • Marketing",
+                views: 60,
+                url: "https://www.behance.net/mohamedadel526",
+                categories: ["product-design", "product-marketing", "social-media"]
+            },
+            {
+                title: "WIDE AREA SEARCH",
+                image: "lrl.png",
+                tags: "Concept Art • Environment",
+                views: 28,
+                url: "https://www.behance.net/mohamedadel526",
+                categories: ["product-design", "social-design"]
+            }
+            // تقدر تضيف مشاريع جديدة هنا بنفس الشكل
+        ];
+
+        // ====== RENDER PROJECTS & FILTERING ======
+        const projectsGrid = document.getElementById("projects-grid");
+        const projectsCountEl = document.getElementById("projects-count");
+        const navButtons = document.querySelectorAll(".project-nav .nav-btn");
+
+        function renderProjects(filter = "all") {
+            if (!projectsGrid) return;
+
+            projectsGrid.innerHTML = "";
+
+            const filteredProjects = projects.filter(project => {
+                if (filter === "all") return true;
+                return project.categories && project.categories.includes(filter);
+            });
+
+            // Update works counter
+            if (projectsCountEl) {
+                projectsCountEl.textContent = filteredProjects.length;
+            }
+
+            if (filteredProjects.length === 0) {
+                projectsGrid.innerHTML = `
+                    <p style="color:#94a3b8; text-align:center;">
+                        No projects in this category yet.
+                    </p>
+                `;
+                return;
+            }
+
+            filteredProjects.forEach(project => {
+                const card = document.createElement("div");
+                card.className = "project-card-clean";
+
+                card.innerHTML = `
+                    <img src="${project.image}" alt="${project.title}" class="clean-img">
+                    <div class="clean-info">
+                        <h4 class="clean-title">${project.title}</h4>
+                        <div class="clean-tags">${project.tags}</div>
+                        <div class="clean-footer">
+                            <span style="color:#666; font-size:0.8rem;">
+                                <i class="far fa-eye"></i> ${project.views}
+                            </span>
+                            <a href="${project.url}" target="_blank" class="clean-link">
+                                VIEW PROJECT <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                projectsGrid.appendChild(card);
+            });
+        }
+
+        // Handle filter buttons
+        navButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                navButtons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                const filter = btn.getAttribute("data-filter") || "all";
+                renderProjects(filter);
+            });
+        });
+
+        // Initial render
+        renderProjects("all");
     </script>
 
 </body>
