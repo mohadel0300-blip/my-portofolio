@@ -1010,8 +1010,6 @@
                 transform: none;
             }
 
-            .clipboard-container:hover { transform: none; }
-
             .clipboard-paper {
                 padding: 80px 20px 30px 20px;
                 height: auto;
@@ -1484,27 +1482,7 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        // 2. Interactive 3D Tilt for Clipboard
-        const section = document.querySelector('.clipboard-section');
-        const clipboard = document.querySelector('.clipboard-container');
-
-        if(section && clipboard) {
-            section.addEventListener('mousemove', (e) => {
-                if (window.innerWidth > 900) {
-                    const xAxis = (window.innerWidth / 2 - e.pageX) / 35;
-                    const yAxis = (window.innerHeight / 2 - e.pageY) / 35;
-                    clipboard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-                }
-            });
-
-            section.addEventListener('mouseleave', () => {
-                if (window.innerWidth > 900) {
-                    clipboard.style.transform = `rotateY(0deg) rotateX(0deg)`;
-                }
-            });
-        }
-
-        // 3. Draggable Functionality for Notes and Cards
+        // 2. Draggable Functionality for Notes and Cards
         let highestZ = 100;
 
         function makeDraggable(selector) {
