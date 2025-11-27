@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed 3amer - Graphic Design Portfolio</title>
+    <title>Mohamed Amer - Graphic Design Portfolio</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -173,10 +173,11 @@
             font-family: 'Open Sans', sans-serif;
             font-weight: 600;
             text-decoration: none;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
         }
 
         .btn-primary {
@@ -184,6 +185,10 @@
             color: white;
             box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
             border: none;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.6);
         }
 
         .btn-secondary {
@@ -208,7 +213,11 @@
             animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
             border-radius: 10px;
             overflow: hidden;
+            cursor: grab; /* Allow dragging */
+            transition: transform 0.2s;
         }
+
+        .sticky:active { cursor: grabbing; }
 
         .sticky img {
             width: 100%;
@@ -216,6 +225,7 @@
             object-fit: cover;
             display: block;
             border-radius: 10px;
+            pointer-events: none; /* Pass clicks to container */
         }
 
         @keyframes popIn {
@@ -257,14 +267,17 @@
             z-index: 8;
             opacity: 0;
             animation: floatIn 1.5s ease-out forwards 0.5s;
+            cursor: grab;
         }
+
+        .profile-frame-hero:active { cursor: grabbing; }
 
         @keyframes floatIn {
             from { opacity: 0; transform: translateY(50px) rotate(0deg); }
             to { opacity: 1; transform: translateY(0) rotate(5deg); }
         }
 
-        .profile-frame-hero img { width: 100%; display: block; }
+        .profile-frame-hero img { width: 100%; display: block; pointer-events: none; }
         .profile-name-hero {
             color: #333;
             font-family: 'Shadows Into Light', cursive;
@@ -277,7 +290,7 @@
         .clipboard-section {
             padding: 100px 0;
             position: relative;
-            perspective: 1000px;
+            perspective: 1200px; /* Deep perspective for 3D effect */
         }
 
         .clipboard-container {
@@ -285,11 +298,8 @@
             margin: 0 auto;
             position: relative;
             transform-style: preserve-3d;
-            transform: rotateX(2deg);
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.1s ease-out; /* Smooth follow */
         }
-
-        .clipboard-container:hover { transform: rotateX(0deg) scale(1.02); }
 
         .clipboard-board {
             background-color: #2c2c2c;
@@ -518,7 +528,9 @@
             font-weight: 900;
             color: white;
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            transition: transform 0.3s;
         }
+        .app-icon:hover { transform: translateY(-5px) rotate(5deg); }
 
         .app-name {
             font-size: 0.9rem;
@@ -544,6 +556,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .pill:hover {
+            background: rgba(255,255,255,0.15);
+            transform: scale(1.05);
+            border-color: var(--accent-blue);
         }
 
         .pill i { color: var(--accent-blue); }
@@ -567,7 +587,9 @@
             padding: 30px;
             margin-bottom: 35px;
             position: relative;
+            transition: transform 0.3s;
         }
+        .exp-card:hover { transform: translateX(10px); }
 
         .timeline-dot {
             position: absolute;
@@ -670,7 +692,9 @@
             background-position: center;
             display: flex;
             align-items: flex-end;
+            transition: transform 0.4s;
         }
+        .featured-card:hover { transform: scale(1.02); }
 
         .featured-overlay {
             width: 100%;
@@ -715,6 +739,11 @@
             border-radius: 15px;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card-clean:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
 
         .clean-img {
@@ -757,7 +786,8 @@
 
         /* Political section */
         .political-section {
-            margin-top: 80px;
+            margin-top: 120px;
+            position: relative;
         }
 
         .political-title {
@@ -767,6 +797,8 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 5;
         }
 
         .political-sub {
@@ -776,6 +808,8 @@
             margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            position: relative;
+            z-index: 5;
         }
 
         .political-sub::before,
@@ -789,16 +823,101 @@
             margin: 0 8px;
         }
 
-        .political-list {
-            max-width: 750px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
+        /* --- New Scattered Layout CSS --- */
+        .political-scatter-container {
+            position: relative;
+            height: 800px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 50px auto;
         }
 
-        .political-list .project-card-clean {
+        .scatter-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10rem;
+            font-weight: 900;
+            opacity: 0.04;
+            color: white;
+            pointer-events: none;
+            z-index: 0;
+            text-align: center;
             width: 100%;
+            line-height: 0.8;
+            white-space: nowrap;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .scatter-card {
+            position: absolute;
+            width: 300px;
+            background: white;
+            padding: 10px 10px 40px 10px; /* Polaroid style bottom */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Only animate transform by default */
+            z-index: 1;
+            cursor: grab;
+            border-radius: 3px;
+        }
+
+        .scatter-card:active { cursor: grabbing; }
+
+        .scatter-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .scatter-card:hover {
+            z-index: 100 !important;
+            transform: scale(1.15) rotate(0deg) !important;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+        }
+
+        /* Class added by JS during drag */
+        .is-dragging {
+            transition: none !important; /* Disable transitions for instant follow */
+            z-index: 9999 !important;
+            cursor: grabbing !important;
+            /* We allow transform to be handled by JS or keep current state */
+        }
+
+        /* Card Positioning (Random pile effect) */
+        .sc-1 { top: 0%; left: 10%; transform: rotate(-12deg); z-index: 1; }
+        .sc-2 { top: 5%; right: 15%; transform: rotate(8deg); z-index: 2; }
+        .sc-3 { top: 30%; left: 20%; transform: rotate(5deg); z-index: 3; }
+        .sc-4 { top: 35%; right: 25%; transform: rotate(-6deg); z-index: 2; }
+        .sc-5 { top: 60%; left: 15%; transform: rotate(-15deg); z-index: 4; }
+        .sc-6 { top: 65%; right: 10%; transform: rotate(10deg); z-index: 3; }
+
+        @media (max-width: 900px) {
+            .political-scatter-container {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                padding: 20px;
+                margin-top: 0;
+            }
+            .scatter-card {
+                position: relative;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                width: 100%;
+                transform: rotate(0deg) !important;
+                padding: 15px 15px 40px 15px;
+            }
+            .scatter-bg-text {
+                font-size: 3rem;
+                top: 50px;
+                white-space: normal;
+            }
         }
 
         /* CONTACT SECTION */
@@ -957,32 +1076,32 @@
         <!-- Sticky Notes with Uploaded Images -->
         <div class="sticky note-1 reveal delay-1">
             <div class="pin red"></div>
-            <img src="001 copy.png" alt="Project 1">
+            <img src="001 copy.png" alt="Political Project">
         </div>
 
         <div class="sticky note-2 reveal delay-2">
             <div class="pin blue"></div>
-            <img src="live stream.png" alt="Project 2">
+            <img src="live stream.png" alt="Uncover Treasures">
         </div>
 
         <div class="sticky note-3 reveal delay-3">
             <div class="pin blue"></div>
-            <img src="6 SYS.png" alt="Project 3">
+            <img src="6 SYS.png" alt="6 Search Modes">
         </div>
 
         <div class="sticky note-4 reveal delay-4">
             <div class="pin blue"></div>
-            <img src="pulse.png" alt="Project 4">
+            <img src="pulse.png" alt="Pulse Induction">
         </div>
 
         <div class="sticky note-5 reveal delay-5">
             <div class="pin red"></div>
-            <img src="water line.png" alt="Project 5">
+            <img src="water line.png" alt="Water Detection">
         </div>
 
         <div class="profile-frame-hero reveal delay-2">
-            <img src="MINED.png" alt="Mohamed 3amer">
-            <div class="profile-name-hero">Mohamed 3amer</div>
+            <img src="MINED.png" alt="Mohamed Amer">
+            <div class="profile-name-hero">Mohamed Amer</div>
         </div>
 
         <div class="container">
@@ -1016,12 +1135,12 @@
                 <div class="clipboard-paper">
                     <div class="polaroid-cv">
                         <div class="pin" style="top:-10px; right: 50%;"></div>
-                        <img src="MINED.png" alt="Mohamed 3amer">
+                        <img src="MINED.png" alt="Mohamed Amer">
                     </div>
 
                     <div class="paper-header">
                         <h3 class="paper-role">Graphic Designer | 2D Artist</h3>
-                        <h1 class="paper-name">Mohamed 3amer</h1>
+                        <h1 class="paper-name">Mohamed Amer</h1>
                         <p class="paper-tagline">Creative - Meticulous - Professional</p>
                         <div class="contact-bar">
                             <span><i class="fas fa-phone"></i> 00905534766703</span>
@@ -1165,8 +1284,8 @@
             <div class="featured-card">
                 <div class="featured-overlay">
                     <span class="featured-badge"><i class="fas fa-star"></i> FEATURED</span>
-                    <h3 class="featured-title">WATER DETECTION TECHNOLOGY</h3>
-                    <p class="featured-desc">Advanced metal detector visualization showcasing water resistance capabilities across multiple environments and terrains.</p>
+                    <h3 class="featured-title">DETECTS 3 WATER TYPES</h3>
+                    <p class="featured-desc">Normal Water • Fresh Water • Salty Water</p>
                 </div>
             </div>
 
@@ -1174,10 +1293,10 @@
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card-clean">
-                    <img src="live stream.png" alt="Product Design" class="clean-img">
+                    <img src="live stream.png" alt="Uncover Treasures" class="clean-img">
                     <div class="clean-info">
                         <h4 class="clean-title">UNCOVER TREASURES</h4>
-                        <div class="clean-tags">Product Design • 3D Visualization</div>
+                        <div class="clean-tags">Real-Time V.S.T Technology • 3D Visualization</div>
                         <div class="clean-footer">
                             <span style="color:#666; font-size:0.8rem;">
                                 <i class="far fa-eye"></i> 88
@@ -1191,10 +1310,10 @@
 
                 <!-- Project 2 -->
                 <div class="project-card-clean">
-                    <img src="made in germany.png" alt="Made in Germany" class="clean-img">
+                    <img src="made in germany.png" alt="Ergonomic Design" class="clean-img">
                     <div class="clean-info">
-                        <h4 class="clean-title">GERMAN PRECISION</h4>
-                        <div class="clean-tags">Industrial Design • Engineering</div>
+                        <h4 class="clean-title">ERGONOMIC DESIGN</h4>
+                        <div class="clean-tags">German Design • Built for Professionals</div>
                         <div class="clean-footer">
                             <span style="color:#666; font-size:0.8rem;">
                                 <i class="far fa-eye"></i> 45
@@ -1208,10 +1327,10 @@
 
                 <!-- Project 3 -->
                 <div class="project-card-clean">
-                    <img src="6 SYS.png" alt="6 Systems" class="clean-img">
+                    <img src="6 SYS.png" alt="6 Search Modes" class="clean-img">
                     <div class="clean-info">
                         <h4 class="clean-title">6 SEARCH MODES</h4>
-                        <div class="clean-tags">UI Design • System Architecture</div>
+                        <div class="clean-tags">Smart Detect System • System Architecture</div>
                         <div class="clean-footer">
                             <span style="color:#666; font-size:0.8rem;">
                                 <i class="far fa-eye"></i> 32
@@ -1225,10 +1344,10 @@
 
                 <!-- Project 4 -->
                 <div class="project-card-clean">
-                    <img src="pulse.png" alt="Pulse Power" class="clean-img">
+                    <img src="pulse.png" alt="Pulse Induction Power" class="clean-img">
                     <div class="clean-info">
-                        <h4 class="clean-title">PULSE INDUCTION</h4>
-                        <div class="clean-tags">Tech Visualization • Marketing</div>
+                        <h4 class="clean-title">PULSE INDUCTION POWER</h4>
+                        <div class="clean-tags">Real-Time Sound • Visual Feedback</div>
                         <div class="clean-footer">
                             <span style="color:#666; font-size:0.8rem;">
                                 <i class="far fa-eye"></i> 60
@@ -1242,10 +1361,10 @@
 
                 <!-- Project 5 -->
                 <div class="project-card-clean">
-                    <img src="lrl.png" alt="Wide Search" class="clean-img">
+                    <img src="lrl.png" alt="3 Long-Range Modes" class="clean-img">
                     <div class="clean-info">
-                        <h4 class="clean-title">WIDE AREA SEARCH</h4>
-                        <div class="clean-tags">Concept Art • Environment</div>
+                        <h4 class="clean-title">3 LONG-RANGE MODES</h4>
+                        <div class="clean-tags">Auto • Manual • Custom</div>
                         <div class="clean-footer">
                             <span style="color:#666; font-size:0.8rem;">
                                 <i class="far fa-eye"></i> 28
@@ -1258,112 +1377,46 @@
                 </div>
             </div>
 
-            <!-- POLITICAL DESIGNS SECTION -->
+            <!-- POLITICAL DESIGNS SECTION (New Layout) -->
             <div class="political-section">
                 <h3 class="political-title">Political Designs</h3>
                 <div class="political-sub">SOCIAL & POLITICAL AWARENESS POSTS</div>
 
-                <div class="political-list">
-                    <!-- Political 1 -->
-                    <div class="project-card-clean">
-                        <img src="001 copy.png" alt="Political Post 1" class="clean-img">
-                        <div class="clean-info">
-                            <h4 class="clean-title">Stand for Justice</h4>
-                            <div class="clean-tags">Political • Awareness • Poster</div>
-                            <div class="clean-footer">
-                                <span style="color:#666; font-size:0.8rem;">
-                                    <i class="far fa-eye"></i> 210
-                                </span>
-                                <a href="#" class="clean-link" rel="noopener noreferrer">
-                                    VIEW DESIGN <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                <!-- Scattered Container -->
+                <div class="political-scatter-container">
+                    <!-- Background Typography -->
+                    <div class="scatter-bg-text">
+                        POLITICAL<br>IMPACT
                     </div>
 
-                    <!-- Political 2 -->
-                    <div class="project-card-clean">
-                        <img src="002.png" alt="Political Post 2" class="clean-img">
-                        <div class="clean-info">
-                            <h4 class="clean-title">Voice of the People</h4>
-                            <div class="clean-tags">Typography • Social Message</div>
-                            <div class="clean-footer">
-                                <span style="color:#666; font-size:0.8rem;">
-                                    <i class="far fa-eye"></i> 185
-                                </span>
-                                <a href="#" class="clean-link" rel="noopener noreferrer">
-                                    VIEW DESIGN <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <!-- Card 1 -->
+                    <div class="scatter-card sc-1">
+                        <img src="001 copy.png" alt="Political Post 1">
                     </div>
 
-                    <!-- Political 3 -->
-                    <div class="project-card-clean">
-                        <img src="٠٤.png" alt="Political Post 3" class="clean-img">
-                        <div class="clean-info">
-                            <h4 class="clean-title">Hope & Resistance</h4>
-                            <div class="clean-tags">Illustration • Political Art</div>
-                            <div class="clean-footer">
-                                <span style="color:#666; font-size:0.8rem;">
-                                    <i class="far fa-eye"></i> 170
-                                </span>
-                                <a href="#" class="clean-link" rel="noopener noreferrer">
-                                    VIEW DESIGN <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <!-- Card 2 -->
+                    <div class="scatter-card sc-2">
+                        <img src="002.png" alt="Political Post 2">
                     </div>
 
-                    <!-- Political 4 -->
-                    <div class="project-card-clean">
-                        <img src="003.png" alt="Political Post 4" class="clean-img">
-                        <div class="clean-info">
-                            <h4 class="clean-title">Freedom Poster</h4>
-                            <div class="clean-tags">Campaign • Awareness</div>
-                            <div class="clean-footer">
-                                <span style="color:#666; font-size:0.8rem;">
-                                    <i class="far fa-eye"></i> 160
-                                </span>
-                                <a href="#" class="clean-link" rel="noopener noreferrer">
-                                    VIEW DESIGN <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <!-- Card 3 -->
+                    <div class="scatter-card sc-3">
+                        <img src="٠٠٢.png" alt="Political Post 3">
                     </div>
 
-                    <!-- Political 5 -->
-                    <div class="project-card-clean">
-                        <img src="٠٦.png" alt="Political Post 5" class="clean-img">
-                        <div class="clean-info">
-                            <h4 class="clean-title">Human Rights</h4>
-                            <div class="clean-tags">Awareness • Poster Design</div>
-                            <div class="clean-footer">
-                                <span style="color:#666; font-size:0.8rem;">
-                                    <i class="far fa-eye"></i> 145
-                                </span>
-                                <a href="#" class="clean-link" rel="noopener noreferrer">
-                                    VIEW DESIGN <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <!-- Card 4 -->
+                    <div class="scatter-card sc-4">
+                        <img src="003.png" alt="Political Post 4">
                     </div>
 
-                    <!-- Political 6 -->
-                    <div class="project-card-clean">
-                        <img src="٣٨٩٠.png" alt="Political Post 6" class="clean-img">
-                        <div class="clean-info">
-                            <h4 class="clean-title">Stand With Truth</h4>
-                            <div class="clean-tags">Social Media • Political Design</div>
-                            <div class="clean-footer">
-                                <span style="color:#666; font-size:0.8rem;">
-                                    <i class="far fa-eye"></i> 200
-                                </span>
-                                <a href="#" class="clean-link" rel="noopener noreferrer">
-                                    VIEW DESIGN <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <!-- Card 5 -->
+                    <div class="scatter-card sc-5">
+                        <img src="٠٠٠٦.png" alt="Political Post 5">
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="scatter-card sc-6">
+                        <img src="٣٨٢٩٥.png" alt="Political Post 6">
                     </div>
                 </div>
             </div>
@@ -1392,7 +1445,7 @@
 
     <!-- SCRIPT -->
     <script>
-        // Reveal on scroll
+        // 1. Reveal on scroll
         const revealElements = document.querySelectorAll('.reveal');
 
         function revealOnScroll() {
@@ -1409,6 +1462,87 @@
 
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
+
+        // 2. Interactive 3D Tilt for Clipboard
+        const section = document.querySelector('.clipboard-section');
+        const clipboard = document.querySelector('.clipboard-container');
+
+        if(section && clipboard) {
+            section.addEventListener('mousemove', (e) => {
+                // Only apply on desktop/wider screens
+                if (window.innerWidth > 900) {
+                    const xAxis = (window.innerWidth / 2 - e.pageX) / 35;
+                    const yAxis = (window.innerHeight / 2 - e.pageY) / 35;
+                    // Limit rotation to keep it subtle
+                    clipboard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+                }
+            });
+
+            section.addEventListener('mouseleave', () => {
+                // Reset position
+                if (window.innerWidth > 900) {
+                    clipboard.style.transform = `rotateY(0deg) rotateX(0deg)`;
+                }
+            });
+        }
+
+        // 3. Draggable Functionality for Notes and Cards
+        let highestZ = 100; // Start high
+
+        function makeDraggable(selector) {
+            const elements = document.querySelectorAll(selector);
+            
+            elements.forEach(elmnt => {
+                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+                elmnt.onmousedown = dragMouseDown;
+
+                function dragMouseDown(e) {
+                    // Prevent dragging if user is on mobile (touch handled differently) or wants to select text
+                    if(window.innerWidth <= 900) return;
+
+                    e = e || window.event;
+                    e.preventDefault();
+                    // get the mouse cursor position at startup:
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    // call a function whenever the cursor moves:
+                    document.onmousemove = elementDrag;
+                    
+                    // Visual feedback and Z-index layering
+                    highestZ++;
+                    elmnt.style.zIndex = highestZ;
+                    elmnt.classList.add('is-dragging');
+                }
+
+                function elementDrag(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    // calculate the new cursor position:
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    // set the element's new position:
+                    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                }
+
+                function closeDragElement() {
+                    // stop moving when mouse button is released:
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                    elmnt.classList.remove('is-dragging');
+                }
+            });
+        }
+
+        // Initialize drag for sticky notes, profile, and scatter cards
+        makeDraggable('.sticky');
+        makeDraggable('.scatter-card');
+        makeDraggable('.profile-frame-hero');
+
     </script>
 
 </body>
