@@ -47,6 +47,7 @@
             font-family: 'Open Sans', sans-serif;
             color: var(--text-white);
             overflow-x: hidden;
+            width: 100%;
         }
 
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
@@ -94,6 +95,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            flex-direction: column; /* Better for mobile stacking */
         }
 
         .red-string {
@@ -123,6 +125,7 @@
             z-index: 10;
             width: 100%;
             max-width: 1000px;
+            padding-top: 50px; /* Space for mobile */
         }
 
         .hero-top-text {
@@ -139,6 +142,7 @@
             align-items: baseline;
             justify-content: center;
             gap: 0;
+            flex-wrap: wrap; /* Allow wrapping on very small screens */
         }
 
         .port-text {
@@ -165,6 +169,7 @@
             display: flex;
             gap: 20px;
             justify-content: center;
+            flex-wrap: wrap; /* Stack buttons on mobile */
         }
 
         .btn {
@@ -408,6 +413,7 @@
             gap: 20px;
             font-size: 0.9rem;
             font-weight: 600;
+            flex-wrap: wrap; /* Fix for mobile */
         }
 
         .paper-grid {
@@ -446,6 +452,7 @@
             color: #666;
             margin-bottom: 30px;
             display: block;
+            word-break: break-all; /* Safety for mobile */
         }
 
         .paper-skills-grid {
@@ -944,6 +951,7 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
+            flex-wrap: wrap; /* Safety wrap */
         }
 
         .info-item i {
@@ -979,7 +987,10 @@
             box-shadow: 0 10px 20px rgba(33, 150, 243, 0.4);
         }
 
-        /* Responsive */
+        /* ------------------------------------------------------------------ */
+        /* RESPONSIVE CSS (Adjusted for better Mobile Support) */
+        /* ------------------------------------------------------------------ */
+
         @media (max-width: 900px) {
             .hero-top-text { font-size: 2rem; }
             .port-text { font-size: 5rem; }
@@ -991,8 +1002,11 @@
                 right: auto;
                 margin: 20px auto;
                 transform: rotate(5deg);
+                opacity: 1 !important; /* Force show */
+                animation: none;
             }
 
+            /* Sticky Notes: Stack them nicely in header instead of absolute */
             .sticky {
                 position: relative;
                 margin: 10px;
@@ -1001,12 +1015,16 @@
                 left: auto !important;
                 right: auto !important;
                 bottom: auto !important;
+                width: 100px; /* Smaller on mobile */
+                height: 100px;
             }
 
             .hero-wrapper { margin-top: 20px; }
 
+            /* Fix Clipboard */
             .clipboard-container {
                 width: 95%;
+                max-width: 100%;
                 transform: none;
             }
 
@@ -1018,6 +1036,8 @@
             .paper-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .paper-name { font-size: 3rem; }
 
             .polaroid-cv {
                 position: relative;
@@ -1044,6 +1064,7 @@
                 height: 12px;
             }
 
+            /* Political Section - Stack cards */
             .political-scatter-container {
                 height: auto;
                 display: flex;
@@ -1051,6 +1072,7 @@
                 gap: 30px;
                 padding: 20px;
                 margin-top: 0;
+                align-items: center;
             }
             .scatter-card {
                 position: relative;
@@ -1058,6 +1080,7 @@
                 left: auto !important;
                 right: auto !important;
                 width: 100%;
+                max-width: 300px;
                 transform: rotate(0deg) !important;
                 padding: 15px 15px 40px 15px;
             }
@@ -1065,9 +1088,33 @@
                 font-size: 3rem;
                 top: 50px;
                 white-space: normal;
+                position: relative;
+                margin-bottom: -50px;
             }
 
             .political-list { padding: 0 10px; }
+            
+            /* Fix iframe width */
+            .behance-embed-wrapper iframe {
+                width: 100% !important;
+                min-width: 100%;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr; /* Single column for mobile */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title { font-size: 2.5rem; }
+            .port-text { font-size: 3.5rem; }
+            .folio-text { font-size: 2.5rem; }
+            .projects-header-text { font-size: 2.5rem; }
+            .featured-title { font-size: 1.8rem; }
+            .sticky { width: 80px; height: 80px; }
+            .paper-name { font-size: 2.2rem; }
+            .contact-text { font-size: 1rem; }
+            .info-item { font-size: 1rem; }
+            .social-btn { width: 45px; height: 45px; font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -1494,6 +1541,7 @@
                 elmnt.onmousedown = dragMouseDown;
 
                 function dragMouseDown(e) {
+                    // DISABLE DRAG ON MOBILE
                     if(window.innerWidth <= 900) return;
 
                     e = e || window.event;
