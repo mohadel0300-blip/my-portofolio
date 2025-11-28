@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&family=Permanent+Marker&family=Rock+Salt&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --bg-dark: #050A14;
@@ -22,15 +22,12 @@
             --polaroid-bg: #ffffff;
             --pin-red: #ef4444;
             --pin-blue: #3b82f6;
-            --paper-yellow: #fff9c4;
-            --paper-blue: #e0f7fa;
-            --paper-green: #e8f5e9;
-            --paper-pink: #fce4ec;
-            
-            /* Clipboard Specifics */
+
             --cb-paper: #fdfbf7; 
             --cb-text-blue: #1565C0;
             --cb-text-dark: #333333;
+
+            --contact-bg: rgba(15, 23, 42, 0.9);
         }
 
         * {
@@ -52,7 +49,6 @@
 
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
 
-        /* --- UTILITIES --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -60,7 +56,7 @@
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: 3.5rem;
             font-weight: 900;
             text-align: center;
             margin-bottom: 50px;
@@ -70,7 +66,7 @@
             color: white;
         }
 
-        /* --- ANIMATIONS --- */
+        /* reveal animation */
         .reveal {
             opacity: 0;
             transform: translateY(50px) scale(0.95);
@@ -80,12 +76,13 @@
             opacity: 1;
             transform: translateY(0) scale(1);
         }
-
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
 
-        /* --- HERO SECTION --- */
+        /* HERO */
         header {
             min-height: 100vh;
             position: relative;
@@ -140,6 +137,7 @@
         }
 
         .port-text {
+            font-family: 'Montserrat', sans-serif;
             font-weight: 900;
             font-size: 8rem;
             color: white;
@@ -174,24 +172,24 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: white;
-            cursor: pointer;
         }
 
         .btn-primary {
             background: linear-gradient(to bottom, #2196F3, #1976D2);
+            color: white;
             box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
             border: none;
         }
 
         .btn-secondary {
             background: rgba(255,255,255,0.1);
+            color: white;
             border: 1px solid rgba(255,255,255,0.2);
         }
 
         .btn:hover { transform: scale(1.05); }
 
-        /* Sticky Notes (Images, No Frame) */
+        /* sticky notes */
         .sticky {
             position: absolute;
             width: 140px;
@@ -206,14 +204,20 @@
             border-radius: 10px;
             overflow: hidden;
         }
-        
-        .sticky img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 10px; }
+
+        .sticky img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+        }
 
         @keyframes popIn {
             from { opacity: 0; transform: scale(0) rotate(0deg); }
             to { opacity: 1; transform: scale(1) rotate(var(--rot)); }
         }
-        
+
         .pin {
             width: 14px;
             height: 14px;
@@ -234,6 +238,7 @@
         .note-4 { bottom: 20%; left: 10%; --rot: -3deg; animation-delay: 0.8s; }
         .note-5 { bottom: 15%; right: 15%; --rot: 4deg; animation-delay: 1.0s; }
 
+        /* hero profile */
         .profile-frame-hero {
             position: absolute;
             top: 35%;
@@ -251,20 +256,94 @@
             from { opacity: 0; transform: translateY(50px) rotate(0deg); }
             to { opacity: 1; transform: translateY(0) rotate(5deg); }
         }
-        .profile-frame-hero img { width: 100%; display: block; }
-        .profile-name-hero { color: #333; font-family: 'Shadows Into Light', cursive; text-align: center; margin-top: 10px; font-size: 1.2rem; }
 
-        /* --- ABOUT / CLIPBOARD SECTION --- */
-        .clipboard-section { padding: 100px 0; position: relative; perspective: 1000px; }
-        .clipboard-container { width: 95%; max-width: 900px; margin: 0 auto; position: relative; transform-style: preserve-3d; transform: rotateX(2deg); transition: transform 0.8s; }
-        .clipboard-container:hover { transform: rotateX(0deg); }
-        .clipboard-board { background-color: #2c2c2c; width: 100%; min-height: 1000px; border-radius: 15px; padding: 20px; position: relative; box-shadow: 20px 20px 60px rgba(0,0,0,0.6); }
-        .clipboard-paper { background-color: var(--cb-paper); width: 100%; height: 100%; border-radius: 4px; padding: 90px 50px 50px 50px; position: relative; color: var(--cb-text-dark); background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E"); }
-        
-        .clip-top { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); width: 300px; height: 80px; background: #333; border-radius: 10px; z-index: 20; border-top: 2px solid #666; }
-        .clip-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 260px; height: 50px; border: 8px solid #aaa; border-radius: 8px; }
-        
-        .polaroid-cv { position: absolute; top: 20px; right: -60px; width: 280px; background: white; padding: 15px 15px 60px 15px; box-shadow: 10px 15px 30px rgba(0,0,0,0.4); transform: rotate(6deg); z-index: 25; }
+        .profile-frame-hero img { width: 100%; display: block; }
+        .profile-name-hero {
+            color: #333;
+            font-family: 'Shadows Into Light', cursive;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* ABOUT / CLIPBOARD */
+        .clipboard-section {
+            padding: 100px 0;
+            position: relative;
+            perspective: 1000px; 
+        }
+
+        .clipboard-container {
+            width: 900px;
+            margin: 0 auto;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(2deg);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .clipboard-container:hover { transform: rotateX(0deg) scale(1.02); }
+
+        .clipboard-board {
+            background-color: #2c2c2c;
+            width: 100%;
+            min-height: 1000px;
+            border-radius: 15px;
+            box-shadow: 
+                20px 20px 60px rgba(0,0,0,0.6),
+                -2px -2px 5px rgba(255,255,255,0.1);
+            padding: 20px;
+            position: relative;
+        }
+
+        .clipboard-paper {
+            background-color: var(--cb-paper);
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            padding: 90px 50px 50px 50px;
+            position: relative;
+            color: var(--cb-text-dark);
+        }
+
+        .clip-top {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 80px;
+            background: linear-gradient(to bottom, #444, #222);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            z-index: 20;
+            border-top: 2px solid #666;
+        }
+        .clip-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 260px;
+            height: 50px;
+            border: 8px solid #aaa;
+            border-radius: 8px;
+            background: transparent;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .polaroid-cv {
+            position: absolute;
+            top: 20px;
+            right: -60px;
+            width: 280px;
+            background: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: 10px 15px 30px rgba(0,0,0,0.4);
+            transform: rotate(6deg);
+            z-index: 25;
+            transition: transform 0.3s;
+        }
+        .polaroid-cv:hover { transform: rotate(0deg) scale(1.05); }
         .polaroid-cv img { width: 100%; display: block; }
 
         .paper-header { margin-bottom: 40px; border-bottom: 3px dashed #ccc; padding-bottom: 20px; }
@@ -272,47 +351,53 @@
         .paper-name { font-family: 'Permanent Marker', cursive; font-size: 5rem; color: var(--cb-text-blue); line-height: 1; margin: 10px 0; transform: rotate(-2deg); }
         .paper-tagline { font-family: 'Shadows Into Light', cursive; font-size: 1.4rem; color: #666; font-weight: bold; }
         .contact-bar { margin-top: 20px; background: var(--cb-text-blue); color: white; padding: 10px 20px; border-radius: 6px; display: inline-flex; gap: 20px; font-size: 0.9rem; font-weight: 600; }
-        
+
         .paper-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
         .paper-h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--cb-text-blue); text-transform: uppercase; font-size: 1.4rem; margin-bottom: 20px; margin-top: 20px; }
-        
-        .qr-box { background: white; border: 4px solid #333; width: 140px; height: 140px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 5rem; color: #333; border-radius: 8px; }
-        .paper-skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        .paper-skill-icon { width: 55px; height: 55px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 1.2rem; }
-        .ps { background: #31A8FF; } .ai { background: #FF9A00; } .ae { background: #9999FF; } .id { background: #FF3366; } .pr { background: #9999FF; } .figma { background: #F24E1E; }
-        
-        .paper-objective { background: #fff9c4; padding: 15px; border-radius: 4px; transform: rotate(1deg); box-shadow: 2px 2px 5px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        .paper-objective p { font-size: 1rem; line-height: 1.6; margin-bottom: 10px; }
 
-        /* --- SKILLS SECTION --- */
+        .qr-box { background: white; border: 4px solid #333; width: 160px; height: 160px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 5rem; color: #333; box-shadow: 3px 3px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        .qr-link { font-size: 0.7rem; color: #666; margin-bottom: 30px; display: block;}
+
+        .paper-skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .paper-skill-icon { width: 55px; height: 55px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 1.2rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .ps { background: #31A8FF; color: #001e36; }
+        .ai { background: #FF9A00; color: #331e01; }
+        .ae { background: #9999FF; color: #000033; }
+        .id { background: #FF3366; color: #330014; }
+        .pr { background: #9999FF; color: #000033; }
+        .figma { background: #F24E1E; color: #fff; }
+
+        .paper-objective { background: #fff9c4; padding: 15px; border-radius: 4px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .paper-objective p { font-size: 1rem; line-height: 1.6; color: #222; }
+
+        /* SKILLS */
         .skills-section { padding: 80px 0; text-align: center; background-color: #080e1a; }
+        .skills-subtitle { color: white; font-size: 1.3rem; margin-bottom: 30px; font-weight: 600; }
         .adobe-container { display: flex; justify-content: center; gap: 30px; margin-bottom: 60px; flex-wrap: wrap; }
         .adobe-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .app-icon { width: 75px; height: 75px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; font-weight: 900; color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.4); transition: transform 0.2s; }
-        .app-icon:hover { transform: translateY(-5px); }
-        .expertise-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; max-width: 900px; margin: 0 auto; }
-        .pill { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 12px 28px; border-radius: 50px; color: white; font-size: 1rem; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
-        .pill:hover { background: rgba(255,255,255,0.15); border-color: var(--accent-blue); }
+        .app-icon { width: 75px; height: 75px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; font-weight: 900; color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+        .app-name { font-size: 0.9rem; color: #ccc; }
 
-        /* --- EXPERIENCE --- */
+        .expertise-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; max-width: 900px; margin: 0 auto; }
+        .pill { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 12px 28px; border-radius: 50px; color: white; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
+        .pill i { color: var(--accent-blue); }
+
+        /* EXPERIENCE */
         .experience-section { padding: 80px 0; }
-        .timeline { max-width: 800px; margin: 50px auto; border-left: 3px solid #1e293b; padding-left: 45px; }
-        .exp-card { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid #2d3748; border-radius: 12px; padding: 30px; margin-bottom: 35px; position: relative; transition: all 0.3s ease; }
-        .exp-card:hover { transform: translateX(5px); border-color: var(--accent-blue); }
-        .timeline-dot { position: absolute; left: -52px; top: 35px; width: 14px; height: 14px; background: var(--accent-blue); border-radius: 50%; border: 2px solid #050A14; }
-        .exp-header { display: flex; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 10px; }
+        .timeline { max-width: 800px; margin: 50px auto; position: relative; border-left: 3px solid #1e293b; padding-left: 45px; }
+        .exp-card { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid #2d3748; border-radius: 12px; padding: 30px; margin-bottom: 35px; position: relative; }
+        .timeline-dot { position: absolute; left: -52px; top: 35px; width: 14px; height: 14px; background: var(--accent-blue); border-radius: 50%; box-shadow: 0 0 15px var(--accent-blue); border: 2px solid #050A14; }
+        .exp-header { display: flex; justify-content: space-between; margin-bottom: 10px; align-items: flex-start; flex-wrap: wrap; gap: 10px; }
         .exp-role { font-size: 1.4rem; font-weight: 700; color: white; }
         .exp-date { color: var(--accent-blue); font-weight: 600; }
+        .exp-company { color: #94a3b8; font-style: italic; margin-bottom: 20px; display: block; }
+        .exp-desc li { color: #cbd5e1; margin-bottom: 8px; padding-left: 5px; list-style-type: disc; margin-left: 20px; line-height: 1.6; font-size: 0.95rem; }
 
-        /* --- PROJECTS SECTION (NEW DESIGN) --- */
+        /* PROJECTS */
         .projects-section { padding: 100px 0; background-color: #080e1a; }
-        .projects-header-text { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); text-align: center; color: white; margin-bottom: 10px; text-shadow: 0 0 15px rgba(255,255,255,0.2); letter-spacing: 2px; }
-        .projects-sub { text-align: center; color: var(--accent-blue); font-size: 1rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .projects-header-text { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 4rem; text-align: center; color: white; margin-bottom: 10px; text-shadow: 0 0 15px rgba(255,255,255,0.2); letter-spacing: 2px; }
+        .projects-sub { text-align: center; color: var(--accent-blue); font-size: 1rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .projects-sub::before, .projects-sub::after { content: ""; width: 30px; height: 2px; background: var(--accent-blue); opacity: 0.5; }
-        
-        .project-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 50px; }
-        .nav-btn { background: #1e293b; border: none; padding: 10px 20px; border-radius: 30px; color: #94a3b8; font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-btn:hover, .nav-btn.active { background: var(--accent-blue); color: white; box-shadow: 0 0 15px rgba(33, 150, 243, 0.4); }
 
         .featured-card {
             position: relative;
@@ -322,310 +407,37 @@
             overflow: hidden;
             margin-bottom: 60px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            background-image: url('water line.jpg');
+            background-image: url('water line.png');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: flex-end;
         }
-        .featured-overlay { width: 100%; padding: 40px; background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0)); }
+        .featured-overlay {
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+        }
         .featured-badge { background: var(--accent-blue); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin-bottom: 15px; }
-        .featured-title { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 900; color: white; margin-bottom: 10px; text-transform: uppercase; }
+        .featured-title { font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 10px; text-transform: uppercase; }
         .featured-desc { color: #ccc; font-size: 1rem; max-width: 600px; line-height: 1.6; }
 
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .project-card-clean { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s; }
-        .project-card-clean:hover { transform: translateY(-10px); border-color: var(--accent-blue); }
+
+        .project-card-clean {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
         .clean-img { width: 100%; height: 250px; object-fit: cover; }
         .clean-info { padding: 20px; }
         .clean-title { font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 5px; }
         .clean-tags { font-size: 0.8rem; color: #94a3b8; margin-bottom: 15px; }
         .clean-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
-        .clean-link { color: white; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.2s; }
+        .clean-link { color: white; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
         .clean-link:hover { color: var(--accent-blue); }
 
-        /* --- CONTACT SECTION --- */
+        /* CONTACT */
         .contact-section { padding: 100px 0; text-align: center; }
-        .contact-card { background: var(--contact-bg); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 60px 40px; border-radius: 20px; max-width: 700px; margin: 0 auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .contact-text { color: #ccc; font-size: 1.3rem; margin-bottom: 40px; font-weight: 300; }
-        .info-item { font-size: 1.4rem; color: white; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px;}
-        .info-item i { color: var(--accent-blue); font-size: 1.2rem; }
-        .social-links { display: flex; justify-content: center; gap: 25px; margin-top: 30px; }
-        .social-btn { width: 60px; height: 60px; border-radius: 50%; background: white; color: var(--bg-dark); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; transition: all 0.3s; text-decoration: none; }
-        .social-btn:hover { background: var(--accent-blue); color: white; transform: translateY(-5px); }
-
-        @media (max-width: 900px) {
-            .hero-top-text { font-size: 2rem; }
-            .port-text { font-size: 5rem; }
-            .folio-text { font-size: 3rem; }
-            .profile-frame-hero { position: relative; top: auto; right: auto; margin: 20px auto; transform: rotate(5deg); }
-            .sticky { display: inline-block; position: relative; margin: 10px; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; }
-            .clipboard-container { width: 95%; }
-            .paper-grid { grid-template-columns: 1fr; }
-            .polaroid-cv { position: relative; right: auto; top: auto; margin: 0 auto 30px auto; }
-            .featured-card { height: 400px; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- HERO SECTION -->
-    <header>
-        <svg class="red-string" viewBox="0 0 1200 200" preserveAspectRatio="none">
-            <path d="M0,100 Q300,180 600,100 T1200,100" />
-        </svg>
-
-        <!-- Sticky Notes with Images -->
-        <div class="sticky note-1 reveal delay-1"><div class="pin red"></div><img src="001 copy.jpg" alt="Project"></div>
-        <div class="sticky note-2 reveal delay-2"><div class="pin blue"></div><img src="٠٠٠٦.jpg" alt="Project"></div>
-        <div class="sticky note-3 reveal delay-3"><div class="pin blue"></div><img src="6 SYS.jpg" alt="Project"></div>
-        <div class="sticky note-4 reveal delay-4"><div class="pin blue"></div><img src="pulse.jpg" alt="Project"></div>
-        <div class="sticky note-5 reveal delay-5"><div class="pin red"></div><img src="water line.jpg" alt="Project"></div>
-
-        <div class="profile-frame-hero reveal delay-2">
-            <img src="MINED.jpg" alt="Mohamed 3amer">
-            <div class="profile-name-hero">Mohamed 3amer</div>
-        </div>
-
-        <div class="container">
-            <div class="hero-wrapper">
-                <span class="hero-top-text reveal delay-1">Graphic Design</span>
-                <div class="hero-title-row reveal delay-2">
-                    <span class="port-text">PORT</span>
-                    <span class="folio-text">folio</span>
-                </div>
-                <div class="hero-buttons reveal delay-3">
-                    <a href="My cv English .pdf" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
-                    <a href="#projects" class="btn btn-secondary">
-                        <i class="fas fa-eye"></i> View Projects
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- ABOUT SECTION -->
-    <section id="about" class="clipboard-section reveal">
-        <h2 class="section-title">ABOUT ME</h2>
-        <div class="clipboard-container">
-            <div class="clipboard-board">
-                <div class="clip-top"><div class="clip-handle"></div></div>
-                <div class="clipboard-paper">
-                    <div class="polaroid-cv">
-                        <div class="pin" style="top:-10px; right: 50%;"></div>
-                        <img src="MINED.jpg" alt="Mohamed 3amer">
-                    </div>
-                    <div class="paper-header">
-                        <h3 class="paper-role">Graphic Designer | 2D Artist</h3>
-                        <h1 class="paper-name">Mohamed 3amer</h1>
-                        <p class="paper-tagline">Creative - Meticulous - Professional</p>
-                        <div class="contact-bar">
-                            <span><i class="fas fa-phone"></i> 00905534766703</span>
-                            <span><i class="fas fa-envelope"></i> mohadel0300@gmail.com</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
-                        </div>
-                    </div>
-                    <div class="paper-grid">
-                        <div class="paper-left">
-                            <h4 class="paper-h3">PORTFOLIO</h4>
-                            <div class="qr-box"><i class="fas fa-qrcode"></i></div>
-                            <span class="qr-link">behance.net/mohamedadel526</span>
-                            <h4 class="paper-h3">SKILLS</h4>
-                            <div class="paper-skills-grid">
-                                <div class="paper-skill-icon ps">Ps</div>
-                                <div class="paper-skill-icon ai">Ai</div>
-                                <div class="paper-skill-icon ae">Ae</div>
-                                <div class="paper-skill-icon id">Id</div>
-                                <div class="paper-skill-icon pr">Pr</div>
-                                <div class="paper-skill-icon figma"><i class="fab fa-figma"></i></div>
-                            </div>
-                        </div>
-                        <div class="paper-right">
-                            <h4 class="paper-h3">OBJECTIVES</h4>
-                            <div class="paper-objective">
-                                <p>A creative Graphic Designer and Motion Designer with 5+ years of experience. I produce 100+ professional projects in news, documentary, health, technology, and corporate sectors. I combine strong aesthetics, storytelling, and technical expertise to create impactful visuals.</p>
-                            </div>
-                            <h4 class="paper-h3">EDUCATION</h4>
-                            <p><strong>Bachelor's Degree - Mining Engineering</strong><br>Muğla Sıtkı Koçman University | Oct 2020 - June 2025</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section class="skills-section reveal">
-        <div class="container">
-            <h2 class="section-title">SKILLS</h2>
-            <div class="adobe-container">
-                <div class="adobe-item"><div class="app-icon ps">Ps</div><span class="app-name">Photoshop</span></div>
-                <div class="adobe-item"><div class="app-icon ai">Ai</div><span class="app-name">Illustrator</span></div>
-                <div class="adobe-item"><div class="app-icon ae">Ae</div><span class="app-name">After Effects</span></div>
-                <div class="adobe-item"><div class="app-icon id">Id</div><span class="app-name">InDesign</span></div>
-                <div class="adobe-item"><div class="app-icon pr">Pr</div><span class="app-name">Premiere Pro</span></div>
-                <div class="adobe-item"><div class="app-icon figma"><i class="fab fa-figma"></i></div><span class="app-name">Figma</span></div>
-            </div>
-            <div class="expertise-container">
-                <div class="pill"><i class="fas fa-video"></i> Motion Graphics</div>
-                <div class="pill"><i class="fas fa-film"></i> Video Editing</div>
-                <div class="pill"><i class="fas fa-palette"></i> Brand Identity</div>
-                <div class="pill"><i class="fas fa-pen-nib"></i> Illustration</div>
-                <div class="pill"><i class="fas fa-desktop"></i> UI/UX Design</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE SECTION -->
-    <section class="experience-section reveal">
-        <div class="container">
-            <h2 class="section-title">EXPERIENCE</h2>
-            <div class="timeline">
-                <div class="exp-card">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-header"><span class="exp-role">Freelance Graphic Designer</span><span class="exp-date">2023 - Present</span></div>
-                    <span class="exp-company">Jewelry Brand | Saudi Arabia</span>
-                    <ul class="exp-desc"><li>Produced high-end jewelry product videos.</li><li>Designed social media content.</li></ul>
-                </div>
-                <div class="exp-card">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-header"><span class="exp-role">Graphic & Motion Designer</span><span class="exp-date">2022 - Present</span></div>
-                    <span class="exp-company">Orient Detectors | Istanbul</span>
-                    <ul class="exp-desc"><li>Designed brochures and catalogs.</li><li>Produced professional product videos.</li></ul>
-                </div>
-                <div class="exp-card">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-header"><span class="exp-role">Motion Designer</span><span class="exp-date">2021 - 2022</span></div>
-                    <span class="exp-company">PHC Elixir</span>
-                    <ul class="exp-desc"><li>Produced promotional videos.</li><li>Created visually compelling designs.</li></ul>
-                </div>
-                <div class="exp-card">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-header"><span class="exp-role">Motion Designer / Video Editor</span><span class="exp-date">Previous</span></div>
-                    <span class="exp-company">Al Sharq TV</span>
-                    <ul class="exp-desc"><li>Edited daily news videos.</li><li>Designed engaging thumbnails.</li></ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="projects-section reveal">
-        <div class="container">
-            <h2 class="projects-header-text">✨ PROJECTS ✨</h2>
-            <div class="projects-sub">6 WORKS</div>
-            
-            <div class="project-nav">
-                <button class="nav-btn active">ALL</button>
-                <button class="nav-btn">PRODUCT DESIGN</button>
-                <button class="nav-btn">BRAND DESIGN</button>
-                <button class="nav-btn">SOCIAL DESIGN</button>
-            </div>
-
-            <div class="featured-card">
-                <div class="featured-overlay">
-                    <span class="featured-badge"> <i class="fas fa-star"></i> FEATURED</span>
-                    <h3 class="featured-title">WATER DETECTION TECHNOLOGY</h3>
-                    <p class="featured-desc">Advanced metal detector visualization showcasing water resistance capabilities.</p>
-                </div>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card-clean">
-                    <img src="live stream.jpg" alt="Product Design" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">UNCOVER TREASURES</h4>
-                        <div class="clean-tags">Product Design • 3D Visualization</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 88</span>
-                            <a href="https://www.behance.net/gallery/238580093/Product-Design-Visualization" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card-clean">
-                    <img src="made in germany.jpg" alt="Made in Germany" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">GERMAN PRECISION</h4>
-                        <div class="clean-tags">Industrial Design • Engineering</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 45</span>
-                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card-clean">
-                    <img src="6 SYS.jpg" alt="6 Systems" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">6 SEARCH MODES</h4>
-                        <div class="clean-tags">UI Design • System Architecture</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 32</span>
-                            <a href="https://www.behance.net/mohamedadel526" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card-clean">
-                    <img src="pulse.jpg" alt="Pulse Power" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">PULSE INDUCTION</h4>
-                        <div class="clean-tags">Tech Visualization • Marketing</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 60</span>
-                            <a href="https://www.behance.net/gallery/218895573/logo-design" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card-clean">
-                    <img src="lrl.jpg" alt="Wide Search" class="clean-img">
-                    <div class="clean-info">
-                        <h4 class="clean-title">WIDE AREA SEARCH</h4>
-                        <div class="clean-tags">Concept Art • Environment</div>
-                        <div class="clean-footer">
-                            <span style="color:#666; font-size:0.8rem;"><i class="far fa-eye"></i> 28</span>
-                            <a href="https://www.behance.net/gallery/199606419/social-media-degin" target="_blank" class="clean-link">VIEW PROJECT <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="contact-section reveal">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-card">
-                <p class="contact-text">Interested in working together? Feel free to reach out!</p>
-                <div class="contact-info">
-                    <div class="info-item"><i class="fas fa-envelope"></i> mohadel0300@gmail.com</div>
-                    <div class="info-item"><i class="fas fa-phone"></i> 00905534766703</div>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.behance.net/mohamedadel526" target="_blank" class="social-btn"><i class="fab fa-behance"></i></a>
-                    <a href="https://wa.me/905534766703" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            const elementVisible = 100;
-            revealElements.forEach((element) => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-    </script>
-
-</body>
-</html>
+        .contact-card { background: var(--contact-bg); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 60px 40px; border-radius: 20px; max-width: 700px
