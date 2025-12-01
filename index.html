@@ -6,29 +6,32 @@
   <title>Mohamed Amer – Portfolio</title>
 
   <meta name="description" content="Portfolio of Mohamed Amer – Graphic & Motion Designer. Visual identities, social media content, product videos, and political artworks." />
-  <meta name="theme-color" content="#020617" />
+  <meta name="theme-color" content="#f4f2ea" />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
     :root {
-      --bg-page: #020617;
-      --bg-card: #020617;
-      --bg-card-soft: #020617;
-      --accent: #2563eb;        /* الأزرق الأساسي */
+      --bg-page: #f4f2ea;
+      --bg-section: #ffffff;
+      --bg-soft: #f9f7f1;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
       --accent-strong: #1d4ed8;
-      --accent-soft: rgba(37, 99, 235, 0.12);
-      --border-subtle: #1e293b;
-      --border-strong: #334155;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --radius-lg: 18px;
-      --radius-xl: 22px;
-      --transition-fast: 160ms ease-out;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e0d5;
+      --border-strong: #c7bfa9;
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --transition-fast: 180ms ease-out;
     }
 
     * {
@@ -43,7 +46,7 @@
 
     body {
       min-height: 100vh;
-      font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background-color: var(--bg-page);
       color: var(--text-main);
     }
@@ -59,78 +62,82 @@
     }
 
     .container {
-      max-width: 1120px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 20px;
     }
 
     /* ===== NAVBAR ===== */
-    .navbar-shell {
+    .nav-shell {
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 40;
-      background: rgba(2, 6, 23, 0.96);
-      border-bottom: 1px solid var(--border-subtle);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(14px);
+      background: rgba(244, 242, 234, 0.86);
+      border-bottom: 1px solid rgba(199, 191, 169, 0.6);
     }
 
-    .navbar {
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
-      gap: 1rem;
+      gap: 18px;
     }
 
-    .navbar-left {
+    .nav-left {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 12px;
     }
 
-    .logo-circle {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1px solid var(--accent);
+    .nav-logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Montserrat', system-ui, sans-serif;
+      background: #fdfaf3;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+      font-family: 'Playfair Display', system-ui, serif;
+      font-size: 0.95rem;
       font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
 
-    .brand-text {
+    .nav-brand-text {
       display: flex;
       flex-direction: column;
-      gap: 0.1rem;
+      gap: 2px;
     }
 
-    .brand-text span:first-child {
-      font-size: 0.8rem;
+    .nav-brand-text span:first-child {
+      font-family: 'Playfair Display', system-ui, serif;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-family: 'Montserrat', system-ui, sans-serif;
     }
 
-    .brand-text span:last-child {
-      font-size: 0.75rem;
+    .nav-brand-text span:last-child {
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      font-size: 0.75rem;
+      gap: 18px;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
     }
 
     .nav-link {
-      padding-bottom: 0.15rem;
+      padding-bottom: 3px;
       border-bottom: 1px solid transparent;
       transition: border-color var(--transition-fast), color var(--transition-fast);
     }
@@ -144,15 +151,20 @@
     .nav-cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.45rem 0.95rem;
+      gap: 8px;
+      padding: 6px 14px;
       border-radius: 999px;
       border: 1px solid var(--border-strong);
+      background: #fdfaf3;
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      background-color: #020617;
-      transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      letter-spacing: 0.16em;
+      transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+      box-shadow: 0 10px 24px rgba(148, 121, 80, 0.18);
     }
 
     .nav-cta i {
@@ -161,118 +173,143 @@
 
     .nav-cta:hover {
       border-color: var(--accent);
-      background-color: var(--accent-soft);
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.16);
       color: var(--accent);
     }
 
     .nav-toggle {
       display: none;
-      background: none;
       border: none;
-      color: var(--text-main);
-      font-size: 1.2rem;
+      background: none;
+      font-size: 1.25rem;
       cursor: pointer;
     }
 
-    /* ===== SECTIONS / LAYOUT ===== */
+    /* ===== GENERIC SECTIONS ===== */
     main {
-      padding-top: 4rem; /* space for fixed navbar */
+      padding-top: 86px;
     }
 
     .section {
-      padding: 4rem 0 3rem;
+      padding: 70px 0 50px;
+    }
+
+    .section + .section {
+      border-top: 1px solid #ece4d5;
     }
 
     .section-header {
+      max-width: 1180px;
+      margin: 0 auto 32px auto;
+      padding: 0 20px;
       display: flex;
-      justify-content: space-between;
       align-items: flex-end;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
+      justify-content: space-between;
+      gap: 18px;
     }
 
     .section-kicker {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
+      letter-spacing: 0.26em;
+      color: var(--accent-strong);
+      margin-bottom: 4px;
     }
 
     .section-title {
-      font-family: 'Montserrat', system-ui, sans-serif;
-      font-size: clamp(1.9rem, 2.5vw, 2.4rem);
-      font-weight: 800;
-      letter-spacing: 0.06em;
+      font-family: 'Playfair Display', system-ui, serif;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
     .section-subtitle {
-      max-width: 360px;
-      font-size: 0.9rem;
+      max-width: 380px;
+      font-size: 0.92rem;
       color: var(--text-muted);
     }
 
     .card {
-      background-color: var(--bg-card);
+      background: var(--bg-section);
       border-radius: var(--radius-xl);
       border: 1px solid var(--border-subtle);
-      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      padding: 26px 24px 24px;
+    }
+
+    /* ===== REVEAL ANIMATION (SCROLL) ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px) scale(0.98);
+      transition:
+        opacity 650ms cubic-bezier(0.19, 1, 0.22, 1),
+        transform 650ms cubic-bezier(0.19, 1, 0.22, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
 
     /* ===== HERO ===== */
     .hero {
-      padding-top: 5rem;
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
 
     .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 3rem;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 48px;
       align-items: center;
     }
 
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem;
+      gap: 8px;
+      padding: 6px 14px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      font-size: 0.7rem;
+      background: #fdfaf3;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       color: var(--text-muted);
-      margin-bottom: 1rem;
+      margin-bottom: 16px;
     }
 
     .hero-tag-dot {
       width: 8px;
       height: 8px;
-      border-radius: 50%;
-      background-color: var(--accent);
+      border-radius: 999px;
+      background: var(--accent);
     }
 
     .hero-heading {
-      margin-bottom: 1rem;
+      margin-bottom: 10px;
     }
 
     .hero-eyebrow {
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-bottom: 0.3rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-family: 'Montserrat', system-ui, sans-serif;
+      color: var(--text-muted);
+      margin-bottom: 6px;
     }
 
     .hero-title {
-      font-family: 'Montserrat', system-ui, sans-serif;
-      font-size: clamp(2.3rem, 4vw, 2.8rem);
-      font-weight: 800;
+      font-family: 'Playfair Display', system-ui, serif;
+      font-size: clamp(2.6rem, 4vw, 3.1rem);
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      line-height: 1.2;
+      line-height: 1.1;
     }
 
     .hero-title span {
@@ -280,189 +317,262 @@
     }
 
     .hero-title span.highlight {
-      color: var(--accent);
+      color: var(--accent-strong);
     }
 
     .hero-body {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
+      margin-top: 12px;
+      font-size: 0.98rem;
       color: var(--text-muted);
-      max-width: 480px;
-      line-height: 1.7;
+      max-width: 520px;
+      line-height: 1.8;
     }
 
     .hero-body strong {
       color: var(--text-main);
-      font-weight: 600;
     }
 
     .hero-actions {
-      margin-top: 1.5rem;
+      margin-top: 22px;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 12px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      padding: 0.65rem 1.4rem;
+      gap: 8px;
+      padding: 10px 20px;
       border-radius: 999px;
       border: 1px solid transparent;
       font-size: 0.78rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.2em;
       background: none;
       cursor: pointer;
       transition:
-        background-color var(--transition-fast),
+        background var(--transition-fast),
         border-color var(--transition-fast),
         color var(--transition-fast),
-        transform var(--transition-fast);
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
     }
 
     .btn i {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
 
     .btn-primary {
-      background-color: var(--accent);
+      background: var(--accent);
       border-color: var(--accent);
-      color: #0b1120;
+      color: #f9fafb;
+      box-shadow: 0 16px 36px rgba(37, 99, 235, 0.35);
     }
 
     .btn-primary:hover {
-      background-color: var(--accent-strong);
+      background: var(--accent-strong);
       border-color: var(--accent-strong);
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.24);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-strong);
+      color: var(--text-main);
+      background: #fdfaf3;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent-strong);
       transform: translateY(-1px);
     }
 
-    .btn-outline {
-      border-color: var(--border-strong);
-      color: var(--text-main);
+    .hero-clients {
+      margin-top: 26px;
     }
 
-    .btn-outline:hover {
-      border-color: var(--accent);
-      background-color: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .hero-brands {
-      margin-top: 1.75rem;
-    }
-
-    .hero-brands-label {
-      font-size: 0.75rem;
+    .hero-clients-label {
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.22em;
       color: var(--text-muted);
-      margin-bottom: 0.75rem;
+      margin-bottom: 10px;
     }
 
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 8px;
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.8rem;
+      gap: 6px;
+      padding: 6px 11px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      font-size: 0.78rem;
-      background-color: #020617;
+      background: #fffdf7;
+      font-size: 0.8rem;
+      color: var(--text-main);
       transition:
         border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
         color var(--transition-fast);
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
     }
 
     .pill i {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--accent);
     }
 
     .pill:hover {
       border-color: var(--accent);
-      color: var(--accent);
+      color: var(--accent-strong);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(15, 23, 42, 0.16);
     }
 
-    .hero-photo-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      padding: 1rem;
-      background-color: var(--bg-card);
+    /* Hero fan cards (Lando-style) */
+    .hero-fan-shell {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 26px 10px 30px;
     }
 
-    .hero-photo-inner {
-      border-radius: 14px;
+    .hero-fan-deck {
+      position: relative;
+      width: min(480px, 100%);
+      height: clamp(260px, 52vw, 360px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card-img {
+      position: absolute;
+      width: 42%;
+      height: 88%;
+      border-radius: 26px;
       overflow: hidden;
-      border: 1px solid var(--border-subtle);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.26);
+      transform-origin: center bottom;
+      transform: translateY(40px) scale(0.9);
+      opacity: 0;
+      animation: heroFanIn 900ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      cursor: pointer;
+      transition: transform 220ms cubic-bezier(0.19, 1, 0.22, 1), box-shadow 220ms cubic-bezier(0.19, 1, 0.22, 1);
     }
 
-    .hero-photo-inner img {
+    .hero-card-img img {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
     }
 
-    .hero-photo-footer {
-      margin-top: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      font-size: 0.85rem;
+    .hero-card-img.center {
+      width: 52%;
+      height: 100%;
+      border-radius: 30px;
+      animation-delay: 200ms;
     }
 
-    .hero-name {
-      font-family: 'Montserrat', system-ui, sans-serif;
-      font-weight: 600;
+    .hero-card-img.left-2 {
+      left: 0;
+      transform: translate(-26%, 16%) rotate(-18deg) scale(0.96);
+      animation-delay: 40ms;
     }
 
-    .hero-role {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+    .hero-card-img.left-1 {
+      left: 10%;
+      transform: translate(-12%, 20%) rotate(-9deg) scale(0.96);
+      animation-delay: 120ms;
     }
 
-    .hero-badge {
-      margin-top: 0.3rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.6rem;
+    .hero-card-img.right-1 {
+      right: 10%;
+      transform: translate(12%, 20%) rotate(9deg) scale(0.96);
+      animation-delay: 160ms;
+    }
+
+    .hero-card-img.right-2 {
+      right: 0;
+      transform: translate(26%, 16%) rotate(18deg) scale(0.96);
+      animation-delay: 80ms;
+    }
+
+    .hero-card-img:hover {
+      transform: translateY(-6px) scale(1.02) rotate(0deg);
+      z-index: 4;
+      box-shadow: 0 28px 60px rgba(15, 23, 42, 0.32);
+    }
+
+    .hero-fan-shadow {
+      position: absolute;
+      inset: auto 10% -32px 10%;
+      height: 40px;
       border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
+      background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.25), transparent 65%);
+      filter: blur(2px);
     }
 
-    .hero-badge i {
-      font-size: 0.75rem;
-      color: var(--accent);
+    @keyframes heroFanIn {
+      from {
+        opacity: 0;
+        transform: translateY(80px) scale(0.88);
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* subtle float */
+    .float-slow {
+      animation: floatSlow 7s ease-in-out infinite alternate;
+    }
+
+    .float-slow.delay-1 {
+      animation-delay: 600ms;
+    }
+
+    .float-slow.delay-2 {
+      animation-delay: 1600ms;
+    }
+
+    @keyframes floatSlow {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
     }
 
     /* ===== ABOUT ===== */
     .about-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 26px;
+      align-items: flex-start;
     }
 
     .about-body p {
-      font-size: 0.9rem;
+      font-size: 0.96rem;
       color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      margin-bottom: 10px;
     }
 
     .about-body p strong {
@@ -472,258 +582,331 @@
     .about-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1rem;
+      gap: 8px;
+      margin-top: 14px;
     }
 
-    .meta-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.45rem 0.8rem;
+    .meta-pill {
+      padding: 7px 12px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .meta-item i {
-      font-size: 0.85rem;
-      color: var(--accent);
-    }
-
-    .contact-small {
-      margin-top: 1.1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .contact-small span {
+      font-size: 0.8rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 8px;
+      background: var(--bg-soft);
     }
 
-    .contact-small i {
-      font-size: 0.85rem;
+    .meta-pill i {
       color: var(--accent);
+      font-size: 0.9rem;
     }
 
-    .skills-list-title {
+    .about-contact {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .about-contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .about-contact i {
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .skills-title {
       font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.2em;
       color: var(--text-muted);
-      margin-bottom: 0.8rem;
+      margin-bottom: 10px;
     }
 
     .tools-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 1rem;
+      gap: 10px;
+      margin-bottom: 18px;
     }
 
     .tool-chip {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
       border: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Montserrat', system-ui, sans-serif;
-      font-weight: 700;
+      font-family: 'Playfair Display', system-ui, serif;
+      font-weight: 600;
       font-size: 1rem;
+      background: #fffdf7;
     }
 
-    .tool-chip.fig {
+    .tool-chip i {
       font-size: 1.2rem;
     }
 
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
+      gap: 6px;
     }
 
     .skill-tag {
-      padding: 0.35rem 0.75rem;
+      padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      font-size: 0.78rem;
+      background: #ffffff;
+      font-size: 0.8rem;
       color: var(--text-muted);
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 6px;
     }
 
     .skill-tag i {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--accent);
     }
 
-    /* ===== BRANDS ===== */
-    .brand-strip {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    /* ===== BRANDS / SOCIALS ===== */
+    .brands-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    .brand-strip-header {
-      font-size: 0.82rem;
+    .brands-card {
+      border-radius: var(--radius-xl);
+      background: var(--bg-section);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 24px 26px;
+    }
+
+    .brands-top {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .brands-top h3 {
+      font-family: 'Playfair Display', system-ui, serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .brands-top p {
+      font-size: 0.88rem;
       color: var(--text-muted);
     }
 
-    .brand-strip-header strong {
-      color: var(--text-main);
+    .brands-fan {
+      margin-top: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 12px;
+      transform-origin: center bottom;
     }
 
-    .brand-row {
+    .brand-card {
+      width: 150px;
+      height: 210px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #111827;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
+      transform-origin: center bottom;
+      transform: rotate(var(--rot, 0deg));
+      cursor: pointer;
+      transition: transform 220ms cubic-bezier(0.19, 1, 0.22, 1), box-shadow 220ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .brand-card.center {
+      width: 190px;
+      height: 250px;
+      z-index: 3;
+    }
+
+    .brand-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-card:hover {
+      transform: rotate(0deg) translateY(-12px) scale(1.03);
+      box-shadow: 0 28px 60px rgba(15, 23, 42, 0.28);
+    }
+
+    .brands-bottom {
+      text-align: center;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .brands-links {
+      margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      justify-content: center;
+      gap: 8px;
     }
 
-    .brand-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.45rem 0.85rem;
+    .brand-pill-link {
+      padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      font-size: 0.82rem;
-      background-color: #020617;
-      transition:
-        border-color var(--transition-fast),
-        color var(--transition-fast);
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fffdf7;
     }
 
-    .brand-pill i {
-      font-size: 0.85rem;
-      color: var(--accent);
-    }
-
-    .brand-pill:hover {
-      border-color: var(--accent);
+    .brand-pill-link i {
       color: var(--accent);
     }
 
     /* ===== EXPERIENCE ===== */
-    .experience-grid {
+    .experience-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 26px;
       align-items: flex-start;
     }
 
     .timeline {
-      position: relative;
-      padding-left: 1.25rem;
+      padding-left: 18px;
       border-left: 1px solid var(--border-subtle);
     }
 
     .exp-item {
-      margin-bottom: 1.5rem;
+      margin-bottom: 22px;
       position: relative;
     }
 
-    .exp-marker {
+    .exp-dot {
       position: absolute;
-      left: -1.35rem;
-      top: 0.3rem;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 2px solid #020617;
-      background-color: var(--accent);
-    }
-
-    .exp-card {
-      margin-left: 0.25rem;
+      left: -24px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      border: 2px solid #fdfaf3;
+      background: var(--accent);
     }
 
     .exp-header {
       display: flex;
       justify-content: space-between;
-      gap: 0.75rem;
-      margin-bottom: 0.1rem;
+      gap: 10px;
+      margin-bottom: 2px;
     }
 
     .exp-role {
-      font-family: 'Montserrat', system-ui, sans-serif;
-      font-size: 0.98rem;
-      font-weight: 600;
+      font-family: 'Playfair Display', system-ui, serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .exp-date {
-      font-size: 0.78rem;
-      color: var(--accent);
+      font-size: 0.8rem;
+      color: var(--accent-strong);
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       white-space: nowrap;
     }
 
     .exp-company {
-      font-size: 0.82rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
-      margin-bottom: 0.4rem;
+      margin-bottom: 4px;
+      font-style: italic;
     }
 
     .exp-desc {
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      padding-left: 1rem;
+      padding-left: 18px;
     }
 
     .exp-desc li {
-      margin-bottom: 0.3rem;
+      margin-bottom: 4px;
     }
 
-    .exp-note {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .exp-note-tag {
-      font-size: 0.78rem;
+    .exp-note-title {
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       color: var(--text-muted);
-      margin-bottom: 0.5rem;
+      margin-bottom: 10px;
+    }
+
+    .exp-note-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
     }
 
     .exp-pill-row {
-      margin-top: 0.75rem;
+      margin-top: 12px;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      font-size: 0.78rem;
+      gap: 8px;
+      font-size: 0.8rem;
     }
 
     .exp-pill {
-      padding: 0.35rem 0.75rem;
+      padding: 6px 11px;
       border-radius: 999px;
+      background: var(--bg-soft);
       border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
     }
 
-    /* ===== PROJECTS (Behance embeds) ===== */
+    /* ===== PROJECTS ===== */
+    .projects-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
+      gap: 20px;
     }
 
     .project-card {
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
       overflow: hidden;
-      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-section);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+      transform: translateY(0);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 48px rgba(15, 23, 42, 0.18);
     }
 
     .project-embed iframe {
@@ -734,46 +917,44 @@
     }
 
     .project-meta {
-      padding: 0.75rem 0.9rem 0.9rem;
+      padding: 10px 13px 12px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       font-size: 0.8rem;
       color: var(--text-muted);
     }
 
     .project-meta span:first-child {
+      font-family: 'Playfair Display', system-ui, serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-family: 'Montserrat', system-ui, sans-serif;
       color: var(--text-main);
-      font-size: 0.75rem;
     }
 
-    /* ===== POLITICAL / POSTER WALL ===== */
-    .poster-wall {
-      text-align: left;
+    /* ===== POSTER WALL ===== */
+    .poster-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    .poster-intro {
-      max-width: 520px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .poster-row {
+    .poster-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 14px;
     }
 
     .poster-card {
       width: 160px;
-      border-radius: 14px;
-      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
       overflow: hidden;
-      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-section);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+      transform-origin: center bottom;
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out;
     }
 
     .poster-card img {
@@ -783,64 +964,83 @@
     }
 
     .poster-footer {
-      padding: 0.4rem 0.6rem 0.6rem;
-      font-size: 0.75rem;
+      padding: 6px 9px 8px;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
+    .poster-card:hover {
+      transform: translateY(-10px) rotate(-1.5deg);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.24);
+    }
+
+    .poster-note {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .poster-note strong {
+      color: var(--text-main);
+    }
+
     .poster-link-row {
-      margin-top: 1rem;
-      font-size: 0.8rem;
+      margin-top: 14px;
+      font-size: 0.82rem;
     }
 
     .poster-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.8rem;
+      gap: 8px;
+      padding: 7px 12px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
+      background: #fffdf7;
     }
 
     .poster-link i {
-      font-size: 0.8rem;
-      color: var(--accent);
-    }
-
-    .poster-link:hover {
-      border-color: var(--accent);
       color: var(--accent);
     }
 
     /* ===== VIDEOS / REELS ===== */
-    .videos-grid {
+    .videos-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 26px;
       align-items: flex-start;
     }
 
-    .video-list {
+    .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 0.9rem;
+      gap: 14px;
     }
 
     .video-card {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
       overflow: hidden;
-      background-color: var(--bg-card);
+      background: var(--bg-section);
       cursor: pointer;
-      display: flex;
-      flex-direction: column;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+      transform: translateY(0);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(15, 23, 42, 0.22);
     }
 
     .video-thumb {
       position: relative;
       aspect-ratio: 16 / 9;
-      background-color: #020617;
+      background: #e5e7eb;
     }
 
     .video-thumb img {
@@ -849,7 +1049,7 @@
       object-fit: cover;
     }
 
-    .video-play-icon {
+    .video-play-btn {
       position: absolute;
       inset: 0;
       display: flex;
@@ -857,75 +1057,80 @@
       justify-content: center;
     }
 
-    .video-play-icon span {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--border-subtle);
+    .video-play-btn span {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(243, 244, 246, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: rgba(15, 23, 42, 0.85);
+      background: rgba(17, 24, 39, 0.78);
+      color: #f9fafb;
       font-size: 1rem;
     }
 
-    .video-play-icon i {
-      margin-left: 2px;
-    }
-
-    .video-card-body {
-      padding: 0.6rem 0.75rem 0.8rem;
-      font-size: 0.82rem;
+    .video-body {
+      padding: 8px 10px 10px;
+      font-size: 0.84rem;
     }
 
     .video-title {
-      font-family: 'Montserrat', system-ui, sans-serif;
-      font-size: 0.86rem;
-      margin-bottom: 0.15rem;
+      font-family: 'Playfair Display', system-ui, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
     }
 
-    .video-meta {
-      font-size: 0.78rem;
+    .video-meta-text {
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
-    .videos-note {
-      font-size: 0.86rem;
+    .videos-copy {
+      font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    .videos-note strong {
+    .videos-copy strong {
       color: var(--text-main);
     }
 
-    .videos-tags {
-      margin-top: 0.9rem;
+    .videos-pill-row {
+      margin-top: 12px;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      font-size: 0.78rem;
+      gap: 8px;
+      font-size: 0.8rem;
     }
 
-    .videos-tag {
-      padding: 0.35rem 0.7rem;
+    .videos-pill {
+      padding: 6px 11px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
+      background: var(--bg-soft);
     }
 
     /* ===== CONTACT ===== */
+    .contact-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 26px;
       align-items: center;
     }
 
     .contact-text {
-      font-size: 0.9rem;
+      font-size: 0.96rem;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.8;
       max-width: 460px;
     }
 
@@ -934,62 +1139,84 @@
     }
 
     .contact-lines {
-      margin-top: 0.9rem;
+      margin-top: 12px;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
-      font-size: 0.86rem;
-      color: var(--text-muted);
+      gap: 6px;
+      font-size: 0.9rem;
     }
 
     .contact-lines span {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 8px;
+      color: var(--text-muted);
     }
 
     .contact-lines i {
-      font-size: 0.85rem;
       color: var(--accent);
+      font-size: 0.9rem;
     }
 
     .contact-note {
-      margin-top: 0.75rem;
-      font-size: 0.8rem;
+      margin-top: 8px;
+      font-size: 0.82rem;
       color: var(--text-muted);
     }
 
     .social-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 10px;
     }
 
     .social-btn {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--bg-card);
+      background: #fffdf7;
       transition:
         border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
         color var(--transition-fast);
-    }
-
-    .social-btn i {
-      font-size: 1rem;
     }
 
     .social-btn:hover {
       border-color: var(--accent);
-      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+      color: var(--accent-strong);
+    }
+
+    .footer-mini {
+      margin-top: 30px;
+      padding: 0 20px 10px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 960px) {
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .about-grid,
+      .experience-shell,
+      .videos-shell,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-inner {
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 820px) {
       .nav-links {
         display: none;
       }
@@ -1008,28 +1235,34 @@
         position: absolute;
         left: 0;
         right: 0;
-        top: 100%;
-        background-color: #020617;
-        padding: 0.75rem 1.5rem 1rem;
+        top: 62px;
+        background: rgba(244, 242, 234, 0.98);
+        padding: 10px 24px 16px;
         border-bottom: 1px solid var(--border-subtle);
       }
 
-      .hero-inner,
-      .about-grid,
-      .experience-grid,
-      .videos-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
+      .hero {
+        padding-top: 60px;
       }
 
-      .hero {
-        padding-top: 4.5rem;
+      .hero-fan-deck {
+        height: 260px;
+      }
+
+      .hero-card-img {
+        width: 44%;
+        height: 82%;
+      }
+
+      .hero-card-img.center {
+        width: 54%;
+        height: 94%;
       }
     }
 
     @media (max-width: 640px) {
       .section {
-        padding: 3rem 0 2.5rem;
+        padding: 60px 0 44px;
       }
 
       .section-header {
@@ -1037,360 +1270,366 @@
         align-items: flex-start;
       }
 
-      .hero-inner {
-        gap: 2rem;
+      .poster-card {
+        width: 47%;
       }
     }
   </style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header class="navbar-shell">
-    <div class="container">
-      <div class="navbar">
-        <div class="navbar-left">
-          <div class="logo-circle">MA</div>
-          <div class="brand-text">
-            <span>Mohamed Amer</span>
-            <span>Graphic &amp; Motion Designer</span>
-          </div>
+  <!-- NAV -->
+  <header class="nav-shell">
+    <div class="nav">
+      <div class="nav-left">
+        <div class="nav-logo-mark">MA</div>
+        <div class="nav-brand-text">
+          <span>Mohamed Amer</span>
+          <span>Graphic & Motion Designer</span>
         </div>
-
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#about" class="nav-link">Profile</a>
-          <a href="#brands" class="nav-link">Brands &amp; Collabs</a>
-          <a href="#experience" class="nav-link">On Projects</a>
-          <a href="#projects" class="nav-link">Case Studies</a>
-          <a href="#political" class="nav-link">Poster Wall</a>
-          <a href="#videos" class="nav-link">Reels Garage</a>
-          <a href="#contact" class="nav-link">Work With Me</a>
-        </nav>
-
-        <a href="My cv English .pdf" target="_blank" rel="noopener noreferrer" class="nav-cta">
-          <i class="fas fa-download"></i>
-          <span>Download CV</span>
-        </a>
-
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
       </div>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about" class="nav-link">Profile</a>
+        <a href="#brands" class="nav-link">Brands</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#political" class="nav-link">Posters</a>
+        <a href="#videos" class="nav-link">Reels</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <a href="My cv English .pdf" target="_blank" rel="noopener noreferrer" class="nav-cta">
+        <i class="fas fa-download"></i>
+        <span>Download CV</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </header>
 
   <main>
     <!-- HERO -->
-    <section class="section hero" id="top">
-      <div class="container">
-        <div class="hero-inner">
-          <div>
-            <div class="hero-tag">
-              <span class="hero-tag-dot"></span>
-              <span>Available for remote &amp; on-site work</span>
-            </div>
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="reveal">
+          <div class="hero-tag">
+            <span class="hero-tag-dot"></span>
+            <span>Available for remote & on-site work</span>
+          </div>
 
-            <div class="hero-heading">
-              <div class="hero-eyebrow">Graphic design · motion · posters</div>
-              <h1 class="hero-title">
-                <span>MOHAMED</span>
-                <span class="highlight">AMER</span>
-              </h1>
-            </div>
+          <div class="hero-heading">
+            <div class="hero-eyebrow">Graphic design · motion · posters</div>
+            <h1 class="hero-title">
+              <span>MOHAMED</span>
+              <span class="highlight">AMER</span>
+            </h1>
+          </div>
 
-            <p class="hero-body">
-              I’m <strong>Mohamed Amer</strong>, a <strong>Graphic &amp; Motion Designer</strong> based in Istanbul.
-              I build <strong>brand visuals, reels and political posters</strong> for clients in technology,
-              healthcare, detectors, jewelry and tourism – turning briefs into visuals that move.
-            </p>
+          <p class="hero-body">
+            I’m <strong>Mohamed Amer</strong>, a <strong>Graphic & Motion Designer</strong> based in Istanbul.
+            I build <strong>brand visuals, reels and political posters</strong> for clients in technology,
+            healthcare, detectors, jewelry and tourism – turning briefs into visuals that move.
+          </p>
 
-            <div class="hero-actions">
-              <a href="#projects" class="btn btn-primary">
-                <i class="fas fa-eye"></i>
-                <span>See Case Studies</span>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-eye"></i>
+              <span>See case studies</span>
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              <i class="fas fa-paper-plane"></i>
+              <span>Start a project</span>
+            </a>
+          </div>
+
+          <div class="hero-clients">
+            <div class="hero-clients-label">Brands I created visuals for</div>
+            <div class="pill-row">
+              <a href="https://instagram.com/ajaxdetector" target="_blank" rel="noopener noreferrer" class="pill">
+                <i class="fab fa-instagram"></i><span>Ajax Detector</span>
               </a>
-              <a href="#contact" class="btn btn-outline">
-                <i class="fas fa-paper-plane"></i>
-                <span>Book a Project Call</span>
+              <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="pill">
+                <i class="fab fa-instagram"></i><span>Orient Detectors</span>
+              </a>
+              <a href="https://instagram.com/elixir_phc" target="_blank" rel="noopener noreferrer" class="pill">
+                <i class="fab fa-instagram"></i><span>Elixir PHC</span>
+              </a>
+              <a href="https://instagram.com/loransmedical" target="_blank" rel="noopener noreferrer" class="pill">
+                <i class="fab fa-instagram"></i><span>Lorans Medical</span>
+              </a>
+              <a href="https://instagram.com/sea.tourism" target="_blank" rel="noopener noreferrer" class="pill">
+                <i class="fab fa-instagram"></i><span>Sea Tourism</span>
+              </a>
+              <a href="https://instagram.com/bluestudyo" target="_blank" rel="noopener noreferrer" class="pill">
+                <i class="fab fa-instagram"></i><span>Blue Studyo</span>
               </a>
             </div>
+          </div>
+        </div>
 
-            <div class="hero-brands">
-              <div class="hero-brands-label">Brands I created visuals for</div>
-              <div class="pill-row">
-                <a href="https://instagram.com/ajaxdetector" target="_blank" rel="noopener noreferrer" class="pill">
-                  <i class="fab fa-instagram"></i><span>Ajax Detector</span>
-                </a>
-                <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="pill">
-                  <i class="fab fa-instagram"></i><span>Orient Detectors</span>
-                </a>
-                <a href="https://instagram.com/elixir_phc" target="_blank" rel="noopener noreferrer" class="pill">
-                  <i class="fab fa-instagram"></i><span>Elixir PHC</span>
-                </a>
-                <a href="https://instagram.com/loransmedical" target="_blank" rel="noopener noreferrer" class="pill">
-                  <i class="fab fa-instagram"></i><span>Lorans Medical</span>
-                </a>
-                <a href="https://instagram.com/sea.tourism" target="_blank" rel="noopener noreferrer" class="pill">
-                  <i class="fab fa-instagram"></i><span>Sea Tourism</span>
-                </a>
-                <a href="https://instagram.com/bluestudyo" target="_blank" rel="noopener noreferrer" class="pill">
-                  <i class="fab fa-instagram"></i><span>Blue Studyo</span>
-                </a>
+        <aside class="reveal">
+          <div class="card" style="background: radial-gradient(circle at top, #ffffff 0, #f7f3ea 60%, #f3efe6 100%);">
+            <div class="hero-fan-shell">
+              <div class="hero-fan-deck">
+                <figure class="hero-card-img left-2 float-slow">
+                  <img src="001 copy.png" alt="Poster 1" loading="lazy" />
+                </figure>
+                <figure class="hero-card-img left-1 float-slow delay-1">
+                  <img src="002.png" alt="Poster 2" loading="lazy" />
+                </figure>
+                <figure class="hero-card-img center">
+                  <img src="MINED.png" alt="Mohamed Amer" loading="lazy" />
+                </figure>
+                <figure class="hero-card-img right-1 float-slow delay-2">
+                  <img src="003.png" alt="Poster 3" loading="lazy" />
+                </figure>
+                <figure class="hero-card-img right-2 float-slow">
+                  <img src="٣٨٢٩٥.png" alt="Poster 4" loading="lazy" />
+                </figure>
+                <div class="hero-fan-shadow"></div>
               </div>
             </div>
           </div>
-
-          <aside class="hero-photo-card">
-            <div class="hero-photo-inner">
-              <img src="MINED.png" alt="Portrait of Mohamed Amer" loading="lazy" />
-            </div>
-            <div class="hero-photo-footer">
-              <div class="hero-name">Mohamed Amer</div>
-              <div class="hero-role">Graphic Designer · Motion · 2D Artist</div>
-              <div class="hero-badge">
-                <i class="fas fa-bolt"></i>
-                <span>Brand visuals that move</span>
-              </div>
-            </div>
-          </aside>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <!-- ABOUT / PROFILE -->
+    <!-- ABOUT -->
     <section class="section" id="about">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Profile</div>
-            <h2 class="section-title">About Mohamed</h2>
-          </div>
-          <p class="section-subtitle">
-            A designer who connects visuals, motion and strategy – turning complex products into clear stories.
-          </p>
+      <div class="section-header reveal">
+        <div>
+          <div class="section-kicker">Profile</div>
+          <h2 class="section-title">About Mohamed</h2>
         </div>
-
-        <div class="about-grid">
-          <article class="card">
-            <div class="about-body">
-              <p>
-                I'm a <strong>Graphic &amp; Motion Designer</strong> with more than five years of experience in
-                <strong>visual identity, social media systems, product videos, packaging</strong> and
-                <strong>political / social awareness campaigns</strong>.
-              </p>
-              <p>
-                I’ve worked with TV channels, medical brands, detector manufacturers, jewelry brands and studios across
-                <strong>Turkey, Saudi Arabia and the region</strong>, producing daily content that has to be clear,
-                fast and on-brand.
-              </p>
-              <p>
-                I also studied <strong>Mining Engineering at Muğla Sıtkı Koçman University (2020 – 2025)</strong>,
-                which gave me an analytical and structured way of thinking in my design process.
-              </p>
-            </div>
-
-            <div class="about-meta">
-              <div class="meta-item">
-                <i class="fas fa-location-dot"></i><span>Istanbul · Turkey</span>
-              </div>
-              <div class="meta-item">
-                <i class="fas fa-language"></i><span>Arabic · English · Turkish</span>
-              </div>
-              <div class="meta-item">
-                <i class="fas fa-clock"></i><span>5+ Years of Experience</span>
-              </div>
-            </div>
-
-            <div class="contact-small">
-              <span><i class="fas fa-envelope"></i> mohadel0300@gmail.com</span>
-              <span><i class="fas fa-phone"></i> 0090 553 476 6703</span>
-              <span><i class="fab fa-behance"></i> behance.net/mohamedadel526</span>
-            </div>
-          </article>
-
-          <aside class="card">
-            <div class="skills-list-title">Core tools</div>
-            <div class="tools-row">
-              <div class="tool-chip">Ps</div>
-              <div class="tool-chip">Ai</div>
-              <div class="tool-chip">Ae</div>
-              <div class="tool-chip">Pr</div>
-              <div class="tool-chip">Id</div>
-              <div class="tool-chip fig"><i class="fab fa-figma"></i></div>
-            </div>
-
-            <div class="skills-list-title">What I do</div>
-            <div class="skill-tags">
-              <span class="skill-tag"><i class="fas fa-bullseye"></i> Social media campaigns</span>
-              <span class="skill-tag"><i class="fas fa-film"></i> Motion graphics &amp; explainers</span>
-              <span class="skill-tag"><i class="fas fa-gem"></i> Jewelry &amp; product visuals</span>
-              <span class="skill-tag"><i class="fas fa-heartbeat"></i> Medical &amp; health visuals</span>
-              <span class="skill-tag"><i class="fas fa-tv"></i> TV &amp; news packages</span>
-              <span class="skill-tag"><i class="fas fa-pen-nib"></i> Political / social posts</span>
-            </div>
-          </aside>
-        </div>
+        <p class="section-subtitle">
+          A designer who connects visuals, motion and strategy – turning complex products into clear stories.
+        </p>
       </div>
-    </section>
 
-    <!-- BRANDS & COLLABS -->
-    <section class="section" id="brands">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Brands &amp; Collabs</div>
-            <h2 class="section-title">Selected Brands</h2>
-          </div>
-          <p class="section-subtitle">
-            A mix of detectors, healthcare, studios and tourism brands I created visuals and motion content for.
-          </p>
-        </div>
-
-        <div class="card brand-strip">
-          <div class="brand-strip-header">
-            <strong>Instagram-first visual design</strong> – posts, stories, reels and campaigns.
-          </div>
-          <div class="brand-row">
-            <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="brand-pill">
-              <i class="fab fa-instagram"></i><span>Orient Detectors</span>
-            </a>
-            <a href="https://instagram.com/ajaxdetector" target="_blank" rel="noopener noreferrer" class="brand-pill">
-              <i class="fab fa-instagram"></i><span>Ajax Detector</span>
-            </a>
-            <a href="https://instagram.com/elixir_phc" target="_blank" rel="noopener noreferrer" class="brand-pill">
-              <i class="fab fa-instagram"></i><span>Elixir PHC</span>
-            </a>
-            <a href="https://instagram.com/loransmedical" target="_blank" rel="noopener noreferrer" class="brand-pill">
-              <i class="fab fa-instagram"></i><span>Lorans Medical</span>
-            </a>
-            <a href="https://instagram.com/bluestudyo" target="_blank" rel="noopener noreferrer" class="brand-pill">
-              <i class="fab fa-instagram"></i><span>Blue Studyo</span>
-            </a>
-            <a href="https://instagram.com/sea.tourism" target="_blank" rel="noopener noreferrer" class="brand-pill">
-              <i class="fab fa-instagram"></i><span>Sea Tourism</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE / ON PROJECTS -->
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">On Projects</div>
-            <h2 class="section-title">Career on Track</h2>
-          </div>
-          <p class="section-subtitle">
-            From daily news graphics to long-term brand systems and product launches.
-          </p>
-        </div>
-
-        <div class="experience-grid">
-          <div class="card">
-            <div class="timeline">
-              <div class="exp-item">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                  <div class="exp-header">
-                    <div class="exp-role">Freelance Graphic Designer</div>
-                    <div class="exp-date">2023 – Present</div>
-                  </div>
-                  <div class="exp-company">Jewelry Brand · Saudi Arabia</div>
-                  <ul class="exp-desc">
-                    <li>Produced luxury jewelry product videos and motion posts for campaigns.</li>
-                    <li>Designed social media visuals tailored to premium audiences.</li>
-                    <li>Created consistent visuals across Instagram feed and stories.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="exp-item">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                  <div class="exp-header">
-                    <div class="exp-role">Graphic &amp; Motion Designer</div>
-                    <div class="exp-date">2022 – Present</div>
-                  </div>
-                  <div class="exp-company">Orient Detectors · Istanbul</div>
-                  <ul class="exp-desc">
-                    <li>Designed brochures, catalogs and full visual identity for detector products.</li>
-                    <li>Produced product launch videos explaining features &amp; search systems.</li>
-                    <li>Created visuals across website, print and social media platforms.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="exp-item">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                  <div class="exp-header">
-                    <div class="exp-role">Motion Designer</div>
-                    <div class="exp-date">2021 – 2022</div>
-                  </div>
-                  <div class="exp-company">PHC Elixir</div>
-                  <ul class="exp-desc">
-                    <li>Produced promotional videos reflecting brand identity and medical services.</li>
-                    <li>Created educational visuals to increase audience trust and engagement.</li>
-                    <li>Worked with marketing to match visuals with campaign goals.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="exp-item">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                  <div class="exp-header">
-                    <div class="exp-role">Motion Designer / Video Editor</div>
-                    <div class="exp-date">Previous</div>
-                  </div>
-                  <div class="exp-company">Al Sharq TV</div>
-                  <ul class="exp-desc">
-                    <li>Edited and produced daily news videos using Premiere Pro &amp; After Effects.</li>
-                    <li>Designed thumbnails and social visuals to increase video reach.</li>
-                    <li>Delivered fast graphics under breaking-news deadlines.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <aside class="card">
-            <div class="exp-note-tag">Focus</div>
-            <p class="exp-note">
-              Every project is built around <strong>clarity</strong>, <strong>speed</strong> and
-              <strong>brand consistency</strong> – especially for sectors like news, health and technology
-              where trust and readability are critical.
+      <div class="about-grid">
+        <article class="card reveal">
+          <div class="about-body">
+            <p>
+              I'm a <strong>Graphic & Motion Designer</strong> with more than five years of experience in
+              <strong>visual identity, social media systems, product videos, packaging</strong> and
+              <strong>political / social awareness campaigns</strong>.
             </p>
-            <div class="exp-pill-row">
-              <span class="exp-pill">Arabic &amp; English content</span>
-              <span class="exp-pill">Daily content pipelines</span>
-              <span class="exp-pill">Template systems for teams</span>
-              <span class="exp-pill">Design + edit workflow</span>
+            <p>
+              I’ve worked with TV channels, medical brands, detector manufacturers, jewelry brands and studios across
+              <strong>Turkey, Saudi Arabia and the region</strong>, producing daily content that has to be clear,
+              fast and on-brand.
+            </p>
+            <p>
+              I also studied <strong>Mining Engineering at Muğla Sıtkı Koçman University (2020 – 2025)</strong>,
+              which gave me an analytical and structured way of thinking in my design process.
+            </p>
+          </div>
+
+          <div class="about-meta">
+            <div class="meta-pill"><i class="fas fa-location-dot"></i><span>Istanbul · Turkey</span></div>
+            <div class="meta-pill"><i class="fas fa-language"></i><span>Arabic · English · Turkish</span></div>
+            <div class="meta-pill"><i class="fas fa-clock"></i><span>5+ Years of Experience</span></div>
+          </div>
+
+          <div class="about-contact">
+            <span><i class="fas fa-envelope"></i> mohadel0300@gmail.com</span>
+            <span><i class="fas fa-phone"></i> 0090 553 476 6703</span>
+            <span><i class="fab fa-behance"></i> behance.net/mohamedadel526</span>
+          </div>
+        </article>
+
+        <aside class="card reveal">
+          <div class="skills-title">Core tools</div>
+          <div class="tools-row">
+            <div class="tool-chip">Ps</div>
+            <div class="tool-chip">Ai</div>
+            <div class="tool-chip">Ae</div>
+            <div class="tool-chip">Pr</div>
+            <div class="tool-chip">Id</div>
+            <div class="tool-chip"><i class="fab fa-figma"></i></div>
+          </div>
+
+          <div class="skills-title">What I do</div>
+          <div class="skill-tags">
+            <span class="skill-tag"><i class="fas fa-bullseye"></i> Social media campaigns</span>
+            <span class="skill-tag"><i class="fas fa-film"></i> Motion graphics & explainers</span>
+            <span class="skill-tag"><i class="fas fa-gem"></i> Jewelry & product visuals</span>
+            <span class="skill-tag"><i class="fas fa-heartbeat"></i> Medical & health visuals</span>
+            <span class="skill-tag"><i class="fas fa-tv"></i> TV & news packages</span>
+            <span class="skill-tag"><i class="fas fa-pen-nib"></i> Political / social posts</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BRANDS / SOCIALS -->
+    <section class="section" id="brands">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-kicker">On Socials</div>
+          <h2 class="section-title">Selected Brands</h2>
+        </div>
+        <p class="section-subtitle">
+          A mix of detectors, healthcare, studios and tourism brands I created visuals and motion content for.
+        </p>
+      </div>
+
+      <div class="brands-shell">
+        <div class="brands-card reveal">
+          <div class="brands-top">
+            <h3>On Socials</h3>
+            <p>Follow the brands and studios I design for across Instagram.</p>
+          </div>
+
+          <div class="brands-fan">
+            <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="brand-card" style="--rot:-16deg;">
+              <img src="orient-cover.jpg" alt="Orient Detectors" loading="lazy" />
+            </a>
+            <a href="https://instagram.com/ajaxdetector" target="_blank" rel="noopener noreferrer" class="brand-card" style="--rot:-8deg;">
+              <img src="ajax-cover.jpg" alt="Ajax Detector" loading="lazy" />
+            </a>
+            <a href="https://instagram.com/elixir_phc" target="_blank" rel="noopener noreferrer" class="brand-card center" style="--rot:0deg;">
+              <img src="elixir-cover.jpg" alt="Elixir PHC" loading="lazy" />
+            </a>
+            <a href="https://instagram.com/loransmedical" target="_blank" rel="noopener noreferrer" class="brand-card" style="--rot:8deg;">
+              <img src="lorans-cover.jpg" alt="Lorans Medical" loading="lazy" />
+            </a>
+            <a href="https://instagram.com/sea.tourism" target="_blank" rel="noopener noreferrer" class="brand-card" style="--rot:16deg;">
+              <img src="sea-cover.jpg" alt="Sea Tourism" loading="lazy" />
+            </a>
+          </div>
+
+          <div class="brands-bottom">
+            <p>Follow these accounts to see my work in context – stories, reels and campaign grids.</p>
+            <div class="brands-links">
+              <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="brand-pill-link">
+                <i class="fab fa-instagram"></i><span>Orient Detectors</span>
+              </a>
+              <a href="https://instagram.com/ajaxdetector" target="_blank" rel="noopener noreferrer" class="brand-pill-link">
+                <i class="fab fa-instagram"></i><span>Ajax Detector</span>
+              </a>
+              <a href="https://instagram.com/elixir_phc" target="_blank" rel="noopener noreferrer" class="brand-pill-link">
+                <i class="fab fa-instagram"></i><span>Elixir PHC</span>
+              </a>
+              <a href="https://instagram.com/loransmedical" target="_blank" rel="noopener noreferrer" class="brand-pill-link">
+                <i class="fab fa-instagram"></i><span>Lorans Medical</span>
+              </a>
             </div>
-          </aside>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS / CASE STUDIES -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Case Studies</div>
-            <h2 class="section-title">Selected Design Work</h2>
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-kicker">Experience</div>
+          <h2 class="section-title">Where I Built My Craft</h2>
+        </div>
+        <p class="section-subtitle">
+          From daily news graphics to long-term brand systems and product launches.
+        </p>
+      </div>
+
+      <div class="experience-shell">
+        <div class="card reveal">
+          <div class="timeline">
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <div class="exp-header">
+                <div class="exp-role">Freelance Graphic Designer</div>
+                <div class="exp-date">2023 – Present</div>
+              </div>
+              <div class="exp-company">Jewelry Brand · Saudi Arabia</div>
+              <ul class="exp-desc">
+                <li>Produced luxury jewelry product videos and motion posts for campaigns.</li>
+                <li>Designed social media visuals tailored to premium audiences.</li>
+                <li>Created consistent visuals across Instagram feed and stories.</li>
+              </ul>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <div class="exp-header">
+                <div class="exp-role">Graphic & Motion Designer</div>
+                <div class="exp-date">2022 – Present</div>
+              </div>
+              <div class="exp-company">Orient Detectors · Istanbul</div>
+              <ul class="exp-desc">
+                <li>Designed brochures, catalogs and full visual identity for detector products.</li>
+                <li>Produced product launch videos explaining features & search systems.</li>
+                <li>Created visuals across website, print and social media platforms.</li>
+              </ul>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <div class="exp-header">
+                <div class="exp-role">Motion Designer</div>
+                <div class="exp-date">2021 – 2022</div>
+              </div>
+              <div class="exp-company">PHC Elixir</div>
+              <ul class="exp-desc">
+                <li>Produced promotional videos reflecting brand identity and medical services.</li>
+                <li>Created educational visuals to increase audience trust and engagement.</li>
+                <li>Worked with marketing to match visuals with campaign goals.</li>
+              </ul>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <div class="exp-header">
+                <div class="exp-role">Motion Designer / Video Editor</div>
+                <div class="exp-date">Previous</div>
+              </div>
+              <div class="exp-company">Al Sharq TV</div>
+              <ul class="exp-desc">
+                <li>Edited and produced daily news videos using Premiere Pro & After Effects.</li>
+                <li>Designed thumbnails and social visuals to increase video reach.</li>
+                <li>Delivered fast graphics under breaking-news deadlines.</li>
+              </ul>
+            </div>
           </div>
-          <p class="section-subtitle">
-            A snapshot of product campaigns, identities and social visuals – more on Behance.
-          </p>
         </div>
 
+        <aside class="card reveal">
+          <div class="exp-note-title">Focus</div>
+          <p class="exp-note-text">
+            Every project is built around <strong>clarity</strong>, <strong>speed</strong> and
+            <strong>brand consistency</strong> – especially for sectors like news, health and technology where
+            trust and readability are critical.
+          </p>
+          <div class="exp-pill-row">
+            <span class="exp-pill">Arabic & English content</span>
+            <span class="exp-pill">Daily content pipelines</span>
+            <span class="exp-pill">Template systems for teams</span>
+            <span class="exp-pill">Design + edit workflow</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-kicker">Projects</div>
+          <h2 class="section-title">Selected Design Work</h2>
+        </div>
+        <p class="section-subtitle">
+          A snapshot of product campaigns, identities and social visuals – more on Behance.
+        </p>
+      </div>
+
+      <div class="projects-shell">
         <div class="projects-grid">
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-embed">
               <iframe src="https://www.behance.net/embed/project/238580093?ilo0=1" loading="lazy" allowfullscreen
-                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
             <div class="project-meta">
               <span>Detector campaign</span>
@@ -1398,10 +1637,10 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-embed">
               <iframe src="https://www.behance.net/embed/project/218895573?ilo0=1" loading="lazy" allowfullscreen
-                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
             <div class="project-meta">
               <span>Brand visuals</span>
@@ -1409,10 +1648,10 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-embed">
               <iframe src="https://www.behance.net/embed/project/199606419?ilo0=1" loading="lazy" allowfullscreen
-                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
             <div class="project-meta">
               <span>Medical identity</span>
@@ -1420,10 +1659,10 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-embed">
               <iframe src="https://www.behance.net/embed/project/182476029?ilo0=1" loading="lazy" allowfullscreen
-                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
             <div class="project-meta">
               <span>Detectors visuals</span>
@@ -1431,10 +1670,10 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-embed">
               <iframe src="https://www.behance.net/embed/project/181868927?ilo0=1" loading="lazy" allowfullscreen
-                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
             <div class="project-meta">
               <span>Political posters</span>
@@ -1442,40 +1681,35 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-embed">
               <iframe src="https://www.behance.net/embed/project/219706527?ilo0=1" loading="lazy" allowfullscreen
-                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
             <div class="project-meta">
               <span>Mixed work</span>
-              <span>Reels &amp; posts</span>
+              <span>Reels & posts</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- POLITICAL / POSTER WALL -->
+    <!-- POLITICAL POSTER WALL -->
     <section class="section" id="political">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Political &amp; Social</div>
-            <h2 class="section-title">Poster Wall</h2>
-          </div>
-          <p class="section-subtitle">
-            Social posts and posters about freedom, justice and human stories from the region.
-          </p>
+      <div class="section-header reveal">
+        <div>
+          <div class="section-kicker">Political & Social</div>
+          <h2 class="section-title">Poster Wall</h2>
         </div>
+        <p class="section-subtitle">
+          Social posts and posters about freedom, justice and human stories from the region.
+        </p>
+      </div>
 
-        <div class="card poster-wall">
-          <p class="poster-intro">
-            A series of posters designed for <strong>feeds and stories</strong>, using bold typography
-            and clear hierarchy so the message is impossible to ignore.
-          </p>
-
-          <div class="poster-row">
+      <div class="poster-shell">
+        <div class="card reveal">
+          <div class="poster-grid">
             <figure class="poster-card">
               <img src="001 copy.png" alt="Political design 001" loading="lazy" />
               <figcaption class="poster-footer">Political design · 001</figcaption>
@@ -1502,6 +1736,11 @@
             </figure>
           </div>
 
+          <p class="poster-note">
+            Each piece is designed for <strong>feeds & stories</strong>, using bold typography, limited color palettes
+            and clear hierarchy so the message is impossible to ignore.
+          </p>
+
           <div class="poster-link-row">
             <a href="https://www.behance.net/mohamedadel526" target="_blank" rel="noopener noreferrer" class="poster-link">
               <i class="fas fa-arrow-up-right-from-square"></i>
@@ -1512,123 +1751,113 @@
       </div>
     </section>
 
-    <!-- VIDEOS / REELS GARAGE -->
+    <!-- VIDEOS / REELS -->
     <section class="section" id="videos">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Reels Garage</div>
-            <h2 class="section-title">Motion &amp; Edit Highlights</h2>
+      <div class="section-header reveal">
+        <div>
+          <div class="section-kicker">Reels Garage</div>
+          <h2 class="section-title">Motion & Edit Highlights</h2>
+        </div>
+        <p class="section-subtitle">
+          Detectors, jewelry, medical brands and tourism – a curated collection of reels and edits.
+        </p>
+      </div>
+
+      <div class="videos-shell">
+        <div class="card reveal">
+          <div class="video-grid" id="videoGrid">
+            <article class="video-card"
+              data-video-url="https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS"
+              data-source="youtube">
+              <div class="video-thumb">
+                <img alt="Promo reel 01" loading="lazy" />
+                <div class="video-play-btn"><span><i class="fas fa-play"></i></span></div>
+              </div>
+              <div class="video-body">
+                <div class="video-title">Promo Reel 01</div>
+                <div class="video-meta-text">YouTube · Motion & product visuals</div>
+              </div>
+            </article>
+
+            <article class="video-card"
+              data-video-url="https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90"
+              data-source="youtube">
+              <div class="video-thumb">
+                <img alt="Promo reel 02" loading="lazy" />
+                <div class="video-play-btn"><span><i class="fas fa-play"></i></span></div>
+              </div>
+              <div class="video-body">
+                <div class="video-title">Promo Reel 02</div>
+                <div class="video-meta-text">YouTube Short · Fast-cut reel</div>
+              </div>
+            </article>
+
+            <article class="video-card"
+              data-video-url="https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB"
+              data-source="youtube">
+              <div class="video-thumb">
+                <img alt="Promo reel 03" loading="lazy" />
+                <div class="video-play-btn"><span><i class="fas fa-play"></i></span></div>
+              </div>
+              <div class="video-body">
+                <div class="video-title">Promo Reel 03</div>
+                <div class="video-meta-text">YouTube Short · Motion design</div>
+              </div>
+            </article>
+
+            <article class="video-card"
+              data-video-url="https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA=="
+              data-source="instagram"
+              data-thumb="reel-C4gCuKxhEH0.jpg">
+              <div class="video-thumb">
+                <img alt="Instagram reel – campaign" loading="lazy" />
+                <div class="video-play-btn"><span><i class="fas fa-play"></i></span></div>
+              </div>
+              <div class="video-body">
+                <div class="video-title">Instagram Reel</div>
+                <div class="video-meta-text">Instagram · Visual campaign</div>
+              </div>
+            </article>
           </div>
-          <p class="section-subtitle">
-            Detectors, jewelry, medical brands and tourism – a curated collection of reels and edits.
+        </div>
+
+        <aside class="card reveal">
+          <p class="videos-copy">
+            I handle both <strong>design</strong> and <strong>editing</strong> – from storyboard and styleframes
+            to final exports optimized for <strong>Instagram Reels, TikTok, YouTube & TV</strong>.
           </p>
-        </div>
-
-        <div class="videos-grid">
-          <div class="card">
-            <div class="video-list" id="videoList">
-              <article class="video-card"
-                       data-video-url="https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS"
-                       data-source="youtube">
-                <div class="video-thumb">
-                  <img alt="Promo reel 01" loading="lazy" />
-                  <div class="video-play-icon">
-                    <span><i class="fas fa-play"></i></span>
-                  </div>
-                </div>
-                <div class="video-card-body">
-                  <div class="video-title">Promo Reel 01</div>
-                  <div class="video-meta">YouTube · Motion &amp; product visuals</div>
-                </div>
-              </article>
-
-              <article class="video-card"
-                       data-video-url="https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90"
-                       data-source="youtube">
-                <div class="video-thumb">
-                  <img alt="Promo reel 02" loading="lazy" />
-                  <div class="video-play-icon">
-                    <span><i class="fas fa-play"></i></span>
-                  </div>
-                </div>
-                <div class="video-card-body">
-                  <div class="video-title">Promo Reel 02</div>
-                  <div class="video-meta">YouTube Short · Fast-cut reel</div>
-                </div>
-              </article>
-
-              <article class="video-card"
-                       data-video-url="https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB"
-                       data-source="youtube">
-                <div class="video-thumb">
-                  <img alt="Promo reel 03" loading="lazy" />
-                  <div class="video-play-icon">
-                    <span><i class="fas fa-play"></i></span>
-                  </div>
-                </div>
-                <div class="video-card-body">
-                  <div class="video-title">Promo Reel 03</div>
-                  <div class="video-meta">YouTube Short · Motion design</div>
-                </div>
-              </article>
-
-              <article class="video-card"
-                       data-video-url="https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA=="
-                       data-source="instagram"
-                       data-thumb="reel-C4gCuKxhEH0.jpg">
-                <div class="video-thumb">
-                  <img alt="Instagram reel – campaign" loading="lazy" />
-                  <div class="video-play-icon">
-                    <span><i class="fas fa-play"></i></span>
-                  </div>
-                </div>
-                <div class="video-card-body">
-                  <div class="video-title">Instagram Reel</div>
-                  <div class="video-meta">Instagram · Visual campaign</div>
-                </div>
-              </article>
-            </div>
+          <p class="videos-copy" style="margin-top: 10px;">
+            Thumbnails are taken directly from YouTube and Instagram, keeping this section always ready
+            to grow with your content.
+          </p>
+          <div class="videos-pill-row">
+            <span class="videos-pill">Explainers & promos</span>
+            <span class="videos-pill">Before / after visuals</span>
+            <span class="videos-pill">Subtitled social videos</span>
+            <span class="videos-pill">Medical & educational motion</span>
           </div>
-
-          <aside class="card">
-            <p class="videos-note">
-              I handle both <strong>design</strong> and <strong>editing</strong> – from storyboard and styleframes
-              to final exports optimized for <strong>Instagram Reels, TikTok, YouTube &amp; TV</strong>.
-            </p>
-            <p class="videos-note" style="margin-top:0.7rem;">
-              Thumbnails are taken directly from YouTube and Instagram, keeping this section always ready
-              to grow with your content.
-            </p>
-            <div class="videos-tags">
-              <span class="videos-tag">Explainers &amp; promos</span>
-              <span class="videos-tag">Before / after visuals</span>
-              <span class="videos-tag">Subtitled social videos</span>
-              <span class="videos-tag">Medical &amp; educational motion</span>
-            </div>
-          </aside>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <!-- CONTACT / WORK WITH ME -->
+    <!-- CONTACT -->
     <section class="section" id="contact">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Work With Me</div>
-            <h2 class="section-title">Let’s Build What’s Next</h2>
-          </div>
-          <p class="section-subtitle">
-            Whether it’s a full brand system, a product launch or a fast social package – I’m ready to join your next project.
-          </p>
+      <div class="section-header reveal">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2 class="section-title">Let’s Build Something</h2>
         </div>
+        <p class="section-subtitle">
+          Whether it’s a full brand system, a product launch or a fast social package – I’m ready to join your next project.
+        </p>
+      </div>
 
-        <div class="card contact-grid">
+      <div class="contact-shell">
+        <div class="card contact-grid reveal">
           <div>
             <p class="contact-text">
               <strong>Tell me about your brand, product or story</strong> – I can help you turn it into visuals
-              that work on screen, in motion and across social platforms.
+              that work both on screen and in motion.
             </p>
             <div class="contact-lines">
               <span><i class="fas fa-envelope"></i> mohadel0300@gmail.com</span>
@@ -1655,34 +1884,53 @@
                 <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
-            <div style="margin-top:1rem;">
-              <a href="mailto:mohadel0300@gmail.com?subject=Project%20Inquiry%20-%20From%20Portfolio" class="btn btn-primary">
-                <i class="fas fa-paper-plane"></i>
-                <span>Send Your Brief</span>
-              </a>
-            </div>
+            <a href="mailto:mohadel0300@gmail.com?subject=Project%20Inquiry%20-%20From%20Portfolio" class="btn btn-primary" style="margin-top: 14px;">
+              <i class="fas fa-paper-plane"></i>
+              <span>Email Me Brief</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <script>
-    // Mobile nav toggle
-    (function () {
-      const toggle = document.querySelector('.nav-toggle');
-      const nav = document.querySelector('.nav-links');
-      if (!toggle || !nav) return;
+  <div class="footer-mini">
+    © <span id="yearSpan"></span> Mohamed Amer – Portfolio.
+  </div>
 
-      toggle.addEventListener('click', () => {
-        nav.classList.toggle('mobile-open');
-      });
+  <script>
+    const qs = (sel, ctx = document) => ctx.querySelector(sel);
+    const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+    // Year in footer
+    (function () {
+      const yearSpan = qs('#yearSpan');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
     })();
 
-    // Simple active link on scroll
+    // Reveal on scroll
     (function () {
-      const links = Array.from(document.querySelectorAll('.nav-link'));
-      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      const revealEls = qsa('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(el => el.classList.add('in-view'));
+        return;
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      revealEls.forEach(el => io.observe(el));
+    })();
+
+    // Nav active state
+    (function () {
+      const links = qsa('.nav-link');
+      const sections = qsa('main section[id]');
       if (!links.length || !sections.length) return;
 
       const setActive = () => {
@@ -1705,13 +1953,33 @@
         });
       };
 
-      window.addEventListener('scroll', setActive, { passive: true });
+      window.addEventListener('scroll', () => {
+        window.requestAnimationFrame(setActive);
+      }, { passive: true });
+
       setActive();
     })();
 
-    // Video thumbnails + click
+    // Mobile nav toggle
     (function () {
-      const cards = Array.from(document.querySelectorAll('.video-card'));
+      const toggle = qs('.nav-toggle');
+      const nav = qs('.nav-links');
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('mobile-open');
+      });
+
+      qsa('.nav-link', nav).forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('mobile-open');
+        });
+      });
+    })();
+
+    // Video thumbnails (YouTube + Instagram manual)
+    (function () {
+      const cards = qsa('.video-card');
       if (!cards.length) return;
 
       const getYouTubeId = url => {
@@ -1728,18 +1996,16 @@
       cards.forEach(card => {
         const url = card.getAttribute('data-video-url');
         const source = (card.getAttribute('data-source') || '').toLowerCase();
-        const img = card.querySelector('img');
+        const img = qs('img', card);
         const thumbAttr = card.getAttribute('data-thumb');
 
-        if (img) {
-          if (thumbAttr) {
-            img.src = thumbAttr;
-          } else if (source === 'youtube') {
-            const id = getYouTubeId(url);
-            if (id) {
-              img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-            }
-          }
+        if (!img) return;
+
+        if (thumbAttr) {
+          img.src = thumbAttr;
+        } else if (source === 'youtube') {
+          const id = getYouTubeId(url);
+          if (id) img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
         }
 
         card.addEventListener('click', () => {
