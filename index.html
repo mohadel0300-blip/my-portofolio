@@ -6,7 +6,7 @@
   <title>Mohamed Amer – Portfolio</title>
 
   <meta name="description" content="Portfolio of Mohamed Amer – Graphic & Motion Designer. Visual identities, social media content, product videos, and political artworks." />
-  <meta name="theme-color" content="#020617" />
+  <meta name="theme-color" content="#020308" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -876,7 +876,7 @@
       transition:
         background 160ms ease-out,
         transform 160ms ease-out,
-        border-color 160ms.ease-out;
+        border-color 160ms ease-out;
     }
 
     .brand-chip:hover {
@@ -1193,7 +1193,7 @@
       transition:
         transform 160ms ease-out,
         box-shadow 160ms ease-out,
-        border-color 160ms.ease-out;
+        border-color 160ms ease-out;
       display: flex;
       flex-direction: column;
     }
@@ -1435,6 +1435,218 @@
         border-radius: 18px;
       }
     }
+
+    /* ===============================
+       Lando Norris Inspired Theme override
+       =============================== */
+
+    :root {
+      --bg-main: #020308;
+      --bg-panel: #050712;
+      --accent: #d7ff3f;
+      --accent-soft: rgba(215, 255, 63, 0.14);
+      --accent-blue: #8b8fff;
+      --text-main: #f5f5f5;
+      --text-muted: #a1a1aa;
+      --border-subtle: rgba(63, 63, 70, 0.9);
+      --radius-xl: 24px;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top center, rgba(215, 255, 63, 0.06), transparent 55%),
+        #020308;
+      color: var(--text-main);
+    }
+
+    .section-blob {
+      opacity: 0.22;
+      filter: blur(50px);
+    }
+
+    .section-panel {
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.02), transparent 55%),
+                  rgba(5, 7, 18, 0.98);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(39, 39, 42, 0.9);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .nav {
+      border-radius: 999px;
+      border: 1px solid rgba(39, 39, 42, 0.9);
+      background:
+        linear-gradient(to right, rgba(215, 255, 63, 0.08), transparent),
+        rgba(5, 7, 18, 0.96);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9);
+    }
+
+    .nav-logo-mark {
+      background: conic-gradient(from 220deg, #d7ff3f, #8b8fff, #d7ff3f);
+    }
+
+    .nav-logo-inner {
+      background: #020308;
+    }
+
+    .nav-link {
+      color: #e5e7eb;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-link::after {
+      background: var(--accent);
+    }
+
+    .nav-link.is-active {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      border-color: var(--accent);
+      background:
+        radial-gradient(circle at top left, rgba(215, 255, 63, 0.22), transparent 55%),
+        rgba(9, 9, 11, 0.96);
+      box-shadow: 0 14px 40px rgba(215, 255, 63, 0.35);
+    }
+
+    .nav-cta span {
+      color: #f5f5f5;
+    }
+
+    .hero .section-panel {
+      background:
+        radial-gradient(circle at top, rgba(215, 255, 63, 0.12), transparent 60%),
+        rgba(5, 7, 18, 0.98);
+    }
+
+    .hero-script {
+      color: var(--accent);
+      font-size: 1.8rem;
+    }
+
+    .hero-title-main span:nth-child(1) {
+      -webkit-text-stroke: 1px rgba(148, 163, 184, 0.6);
+      color: transparent;
+    }
+
+    .hero-title-main span:nth-child(2) {
+      background: none;
+      color: var(--accent);
+    }
+
+    .hero-title-label {
+      color: #f5f5f5;
+    }
+
+    .hero-card {
+      background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 55%),
+        #050712;
+      border-color: rgba(39, 39, 42, 0.9);
+    }
+
+    .hero-card-glow {
+      opacity: 0.35;
+    }
+
+    .hero-card-badge {
+      background: rgba(24, 24, 27, 0.96);
+      border-color: rgba(215, 255, 63, 0.7);
+    }
+
+    .hero-body,
+    .about-body p,
+    .exp-desc,
+    .videos-copy-card,
+    .contact-text {
+      color: var(--text-muted);
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      letter-spacing: 0.2em;
+    }
+
+    .section-title,
+    .political-header-text {
+      color: #f9fafb;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #050712;
+      box-shadow: 0 18px 45px rgba(215, 255, 63, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 24px 60px rgba(215, 255, 63, 0.6);
+    }
+
+    .btn-ghost {
+      background: rgba(9, 9, 11, 0.96);
+      border-color: rgba(63, 63, 70, 0.9);
+      color: #e5e7eb;
+    }
+
+    .btn-ghost:hover {
+      background: #020308;
+    }
+
+    .client-pill,
+    .brand-chip {
+      background: rgba(9, 9, 11, 0.96);
+      border-color: rgba(63, 63, 70, 0.9);
+    }
+
+    .client-pill:hover,
+    .brand-chip:hover {
+      border-color: var(--accent);
+    }
+
+    .timeline-main::before {
+      background: linear-gradient(to bottom, rgba(63, 63, 70, 0.9), transparent);
+    }
+
+    .exp-card {
+      background: #050712;
+      border-color: rgba(63, 63, 70, 0.9);
+    }
+
+    .exp-dot {
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(215, 255, 63, 0.2);
+    }
+
+    .political-card {
+      background: #050712;
+    }
+
+    .video-card {
+      background: #050712;
+      border-color: rgba(63, 63, 70, 0.9);
+    }
+
+    .contact-card {
+      background: #050712;
+      border-color: rgba(63, 63, 70, 0.9);
+    }
+
+    .social-btn {
+      background: #050712;
+      border-color: rgba(63, 63, 70, 0.9);
+    }
+
+    .social-btn:hover {
+      border-color: var(--accent);
+    }
+
+    .footer-note {
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
@@ -1451,13 +1663,13 @@
         </div>
       </div>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#brands" class="nav-link">Brands</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#political" class="nav-link">Political</a>
-        <a href="#videos" class="nav-link">Videos</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#about" class="nav-link">Profile</a>
+        <a href="#brands" class="nav-link">Brands & Collabs</a>
+        <a href="#experience" class="nav-link">On Projects</a>
+        <a href="#projects" class="nav-link">Case Studies</a>
+        <a href="#political" class="nav-link">Poster Wall</a>
+        <a href="#videos" class="nav-link">Reels Garage</a>
+        <a href="#contact" class="nav-link">Work With Me</a>
       </nav>
       <a href="My cv English .pdf" target="_blank" rel="noopener noreferrer" class="nav-cta">
         <i class="fas fa-download"></i>
@@ -1483,32 +1695,32 @@
               </div>
 
               <div class="hero-title-block" id="heroTitleBlock">
-                <div class="hero-script">Graphic Design · Motion · 2D Art</div>
+                <div class="hero-script">Visual identities · Motion reels · Political posters</div>
                 <div class="hero-title-3d" id="heroTitle3D">
                   <div class="hero-title-row">
                     <div class="hero-title-main">
-                      <span>PORT</span>
-                      <span>FOLIO</span>
+                      <span>MOHAMED</span>
+                      <span>AMER</span>
                     </div>
-                    <div class="hero-title-label">by Mohamed Amer</div>
+                    <div class="hero-title-label">Graphic & Motion Designer</div>
                   </div>
                 </div>
               </div>
 
               <p class="hero-body">
-                I am a <strong>Graphic & Motion Designer</strong> based in Istanbul, crafting visual identities, social media campaigns
-                and product videos for brands in <strong>technology, healthcare, detectors, jewelry and tourism</strong>.
-                I’ve produced <strong>100+ projects</strong> that mix design, storytelling and strategy.
+                I’m <strong>Mohamed Amer</strong>, a <strong>Graphic & Motion Designer</strong> based in Istanbul.
+                I build <strong>brand visuals, reels and political posters</strong> for clients in technology,
+                healthcare, detectors, jewelry and tourism – turning briefs into visuals that move.
               </p>
 
               <div class="hero-actions">
                 <a href="#projects" class="btn btn-primary">
                   <i class="fas fa-eye"></i>
-                  <span>View Selected Work</span>
+                  <span>See Case Studies</span>
                 </a>
                 <a href="#contact" class="btn btn-ghost">
                   <i class="fas fa-paper-plane"></i>
-                  <span>Start a Project</span>
+                  <span>Book a Project Call</span>
                 </a>
               </div>
 
@@ -1563,18 +1775,18 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT / PROFILE -->
     <section class="section" id="about">
       <div class="section-blob section-blob--about" data-parallax-depth="0.18"></div>
       <div class="container">
         <div class="section-panel">
           <div class="section-heading reveal">
             <div>
-              <div class="section-kicker">Profile</div>
-              <h2 class="section-title">About Mohamed</h2>
+              <div class="section-kicker">Driver of the visuals</div>
+              <h2 class="section-title">Profile: Mohamed Amer</h2>
             </div>
             <p class="section-subtitle">
-              A designer who understands both visuals and strategy – mixing aesthetics, motion and clear communication.
+              A designer who connects visuals, motion and strategy – turning complex products into clear stories.
             </p>
           </div>
 
@@ -1582,13 +1794,14 @@
             <article class="about-card reveal">
               <div class="about-body">
                 <p>
-                  I'm a <strong>Graphic Designer & Motion Designer</strong> with more than five years of experience in
-                  <strong>visual identity, social media content, product videos, packaging</strong> and
+                  I'm a <strong>Graphic & Motion Designer</strong> with more than five years of experience in
+                  <strong>visual identity, social media systems, product videos, packaging</strong> and
                   <strong>political / social awareness campaigns</strong>.
                 </p>
                 <p>
-                  I worked with TV channels, medical brands, detector manufacturers, jewelry brands and studios in
-                  <strong>Turkey, Saudi Arabia and the region</strong>, producing daily content that must be clear, fast and on-brand.
+                  I’ve worked with TV channels, medical brands, detector manufacturers, jewelry brands and studios across
+                  <strong>Turkey, Saudi Arabia and the region</strong>, producing daily content that has to be clear,
+                  fast and on-brand.
                 </p>
                 <p>
                   I also studied <strong>Mining Engineering at Muğla Sıtkı Koçman University (2020 – 2025)</strong>,
@@ -1653,14 +1866,14 @@
       </div>
     </section>
 
-    <!-- BRANDS -->
+    <!-- BRANDS & COLLABS -->
     <section class="section" id="brands">
       <div class="section-blob section-blob--brands" data-parallax-depth="0.2"></div>
       <div class="container">
         <div class="section-panel">
           <div class="section-heading reveal">
             <div>
-              <div class="section-kicker">Clients</div>
+              <div class="section-kicker">Brands & Collabs</div>
               <h2 class="section-title">Selected Brands</h2>
             </div>
             <p class="section-subtitle">
@@ -1704,15 +1917,15 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- EXPERIENCE / ON PROJECTS -->
     <section class="section" id="experience">
       <div class="section-blob section-blob--experience" data-parallax-depth="0.18"></div>
       <div class="container">
         <div class="section-panel">
           <div class="section-heading reveal">
             <div>
-              <div class="section-kicker">Experience</div>
-              <h2 class="section-title">Where I Built My Craft</h2>
+              <div class="section-kicker">On Projects</div>
+              <h2 class="section-title">Career on Track</h2>
             </div>
             <p class="section-subtitle">
               From daily news graphics to long-term brand systems and product launches.
@@ -1804,14 +2017,14 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- PROJECTS / CASE STUDIES -->
     <section class="section" id="projects">
       <div class="section-blob section-blob--projects" data-parallax-depth="0.22"></div>
       <div class="container">
         <div class="section-panel">
           <div class="section-heading reveal">
             <div>
-              <div class="section-kicker">Projects</div>
+              <div class="section-kicker">Case Studies</div>
               <h2 class="section-title">Selected Design Work</h2>
             </div>
             <p class="section-subtitle">
@@ -1884,16 +2097,16 @@
       </div>
     </section>
 
-    <!-- POLITICAL DESIGNS – FAN CARDS STYLE -->
+    <!-- POLITICAL DESIGNS – POSTER WALL -->
     <section class="section" id="political">
       <div class="section-blob section-blob--political" data-parallax-depth="0.26"></div>
       <div class="container">
         <div class="section-panel political-panel">
           <div class="section-kicker reveal">Political & Social</div>
-          <h2 class="political-header-text reveal">Political Designs</h2>
+          <h2 class="political-header-text reveal">Poster Wall</h2>
           <p class="political-sub reveal">
             A series of social posts and posters about freedom, justice and human stories from the region –
-            inspired by news, events and voices that must be seen.
+            designed for feeds, stories and timelines where every second counts.
           </p>
 
           <div class="political-fan-wrap reveal" data-parallax-depth="0.08">
@@ -1934,18 +2147,18 @@
       </div>
     </section>
 
-    <!-- VIDEOS -->
+    <!-- VIDEOS – REELS GARAGE -->
     <section class="section" id="videos">
       <div class="section-blob section-blob--videos" data-parallax-depth="0.2"></div>
       <div class="container">
         <div class="section-panel">
           <div class="section-heading reveal">
             <div>
-              <div class="section-kicker">Video Reels</div>
+              <div class="section-kicker">Reels Garage</div>
               <h2 class="section-title">Motion & Edit Highlights</h2>
             </div>
             <p class="section-subtitle">
-              A dedicated space for the reels and videos I worked on – detectors, jewelry, medical brands and tourism.
+              Detectors, jewelry, medical brands and tourism – a curated collection of reels and edits.
             </p>
           </div>
 
@@ -2026,15 +2239,15 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT / WORK WITH ME -->
     <section class="section" id="contact">
       <div class="section-blob section-blob--contact" data-parallax-depth="0.2"></div>
       <div class="container">
         <div class="section-panel">
           <div class="section-heading reveal">
             <div>
-              <div class="section-kicker">Contact</div>
-              <h2 class="section-title">Let's Build Something</h2>
+              <div class="section-kicker">Work With Me</div>
+              <h2 class="section-title">Let’s Build What’s Next</h2>
             </div>
             <p class="section-subtitle">
               Whether it’s a full brand system, a product launch or a fast social package – I’m ready to join your next project.
@@ -2045,7 +2258,7 @@
             <div>
               <p class="contact-text">
                 <strong>Tell me about your brand, product or story</strong> – I can help you turn it into visuals that work
-                both on screen and in motion.
+                on screen, in motion and across social platforms.
               </p>
               <div class="contact-lines">
                 <span><i class="fas fa-envelope"></i> mohadel0300@gmail.com</span>
@@ -2074,7 +2287,7 @@
               </div>
               <a href="mailto:mohadel0300@gmail.com?subject=Project%20Inquiry%20-%20From%20Portfolio" class="btn btn-primary" style="margin-top: 6px;">
                 <i class="fas fa-paper-plane"></i>
-                <span>Email Me Brief</span>
+                <span>Send Your Brief</span>
               </a>
             </div>
           </div>
