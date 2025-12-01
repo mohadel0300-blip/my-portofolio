@@ -159,7 +159,7 @@
             }
         }
 
-        /* --- THE "LANDO NORRIS" HEADLINE TRICK --- */
+        /* --- LANDON NORRIS HEADLINE TRICK --- */
         .ln-mask {
             display: block;
             overflow: hidden;
@@ -184,7 +184,7 @@
         .d-3 { animation-delay: 0.3s; }
         .d-4 { animation-delay: 0.4s; }
 
-        /* General section reveal */
+        /* Section reveal */
         .reveal {
             opacity: 0;
             transform: translateY(50px) scale(0.95);
@@ -212,6 +212,8 @@
             overflow: hidden;
             flex-direction: column;
             padding-top: 40px;
+            perspective: 1600px;
+            transform-style: preserve-3d;
         }
 
         .red-string {
@@ -255,6 +257,14 @@
             font-weight: 400;
         }
 
+        .hero-title-wrap-3d {
+            margin-top: 16px;
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            --title-tilt-x: 0deg;
+            --title-tilt-y: 0deg;
+        }
+
         .hero-title-row {
             display: flex;
             align-items: baseline;
@@ -262,6 +272,9 @@
             gap: 15px; 
             flex-wrap: wrap;
             margin-top: 10px;
+            transform-origin: center center;
+            transform: rotateX(var(--title-tilt-x)) rotateY(var(--title-tilt-y));
+            transition: transform 0.22s ease-out;
         }
 
         .port-text {
@@ -387,30 +400,67 @@
             width: 240px;
             background: white;
             padding: 10px 10px 40px 10px;
-            transform: rotate(5deg);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.65);
             z-index: 8;
             opacity: 0;
-            animation: floatIn 1.5s ease-out forwards 0.5s;
             cursor: grab;
             will-change: transform, opacity;
+            transform-style: preserve-3d;
+            --hero-tilt-x: 14deg;
+            --hero-tilt-y: -20deg;
+            --hero-translate-y: 0px;
+            transform: translateY(var(--hero-translate-y))
+                       rotateX(var(--hero-tilt-x))
+                       rotateY(var(--hero-tilt-y))
+                       translateZ(60px);
+            border-radius: 18px;
+            overflow: hidden;
+            animation: floatIn 1.4s ease-out forwards 0.5s;
         }
 
         .profile-frame-hero:active { cursor: grabbing; }
 
         @keyframes floatIn {
-            from { opacity: 0; transform: translateY(50px) rotate(0deg); }
-            to { opacity: 1; transform: translateY(0) rotate(5deg); }
+            from {
+                opacity: 0;
+                transform: translateY(40px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(var(--hero-translate-y))
+                           rotateX(var(--hero-tilt-x))
+                           rotateY(var(--hero-tilt-y))
+                           translateZ(60px);
+            }
         }
 
-        .profile-frame-hero img { width: 100%; display: block; pointer-events: none; }
+        .profile-frame-hero::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle at 0% 0%, rgba(79, 209, 197, 0.7), transparent 60%),
+                        radial-gradient(circle at 100% 100%, rgba(33, 150, 243, 0.8), transparent 55%);
+            mix-blend-mode: screen;
+            opacity: 0.55;
+            pointer-events: none;
+        }
+
+        .profile-frame-hero img {
+            width: 100%;
+            display: block;
+            pointer-events: none;
+            position: relative;
+            z-index: 1;
+        }
 
         .profile-name-hero {
-            color: #333;
+            color: #222;
             font-family: 'Shadows Into Light', cursive;
             text-align: center;
             margin-top: 10px;
             font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
         }
 
         /* Clipboard / About */
@@ -1125,9 +1175,14 @@
                 position: relative;
                 top: auto; right: auto;
                 margin: 20px auto;
-                transform: rotate(5deg);
                 opacity: 1 !important;
                 animation: none;
+                transform: none;
+                box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+            }
+
+            .profile-frame-hero::before {
+                opacity: 0.45;
             }
 
             .sticky { display: none !important; }
@@ -1228,6 +1283,7 @@
             <img src="water line.png" alt="Water Detection" loading="lazy" decoding="async">
         </div>
 
+        <!-- 3D Hero Polaroid (Helmet-style) -->
         <div class="profile-frame-hero reveal delay-2">
             <img src="MINED.png" alt="Mohamed Amer">
             <div class="profile-name-hero">Mohamed Amer</div>
@@ -1238,13 +1294,16 @@
                 <div class="ln-mask">
                     <span class="hero-top-text ln-reveal d-1">Graphic Design</span>
                 </div>
-                
-                <div class="hero-title-row">
-                    <div class="ln-mask">
-                        <span class="port-text ln-reveal d-2">PORT</span>
-                    </div>
-                    <div class="ln-mask">
-                        <span class="folio-text ln-reveal d-3">folio</span>
+
+                <!-- 3D Headline Wrapper -->
+                <div class="hero-title-wrap-3d">
+                    <div class="hero-title-row">
+                        <div class="ln-mask">
+                            <span class="port-text ln-reveal d-2">PORT</span>
+                        </div>
+                        <div class="ln-mask">
+                            <span class="folio-text ln-reveal d-3">folio</span>
+                        </div>
                     </div>
                 </div>
 
@@ -1261,6 +1320,7 @@
     </header>
 
     <main>
+        <!-- ABOUT -->
         <section id="about" class="clipboard-section reveal">
             <h2 class="section-title">ABOUT ME</h2>
 
@@ -1319,6 +1379,7 @@
             </div>
         </section>
 
+        <!-- SKILLS -->
         <section id="skills" class="skills-section reveal">
             <div class="container">
                 <h2 class="section-title">SKILLS</h2>
@@ -1343,66 +1404,68 @@
             </div>
         </section>
 
+        <!-- EXPERIENCE -->
         <section id="experience" class="experience-section reveal">
             <div class="container">
                 <h2 class="section-title">EXPERIENCE</h2>
-                <div class="timeline">
-                    <div class="exp-card">
-                        <div class="timeline-dot"></div>
-                        <div class="exp-header">
-                            <span class="exp-role">Freelance Graphic Designer</span>
-                            <span class="exp-date">2023 - Present</span>
-                        </div>
-                        <span class="exp-company">Jewelry Brand | Saudi Arabia</span>
-                        <ul class="exp-desc">
-                            <li>Produced high-end jewelry product videos for digital campaigns.</li>
-                            <li>Designed social media content tailored to target audiences.</li>
-                            <li>Created visuals aligned with brand identity to improve user experience.</li>
-                        </ul>
+            <div class="timeline">
+                <div class="exp-card">
+                    <div class="timeline-dot"></div>
+                    <div class="exp-header">
+                        <span class="exp-role">Freelance Graphic Designer</span>
+                        <span class="exp-date">2023 - Present</span>
                     </div>
-                    <div class="exp-card">
-                        <div class="timeline-dot"></div>
-                        <div class="exp-header">
-                            <span class="exp-role">Graphic & Motion Designer</span>
-                            <span class="exp-date">2022 - Present</span>
-                        </div>
-                        <span class="exp-company">Orient Detectors | Istanbul</span>
-                        <ul class="exp-desc">
-                            <li>Designed brochures, catalogs, marketing visuals, and full brand identity elements.</li>
-                            <li>Produced professional product videos showcasing features and applications.</li>
-                            <li>Collaborated with the marketing team to develop creative concepts.</li>
-                        </ul>
-                    </div>
-                    <div class="exp-card">
-                        <div class="timeline-dot"></div>
-                        <div class="exp-header">
-                            <span class="exp-role">Motion Designer</span>
-                            <span class="exp-date">2021 - 2022</span>
-                        </div>
-                        <span class="exp-company">PHC Elixir</span>
-                        <ul class="exp-desc">
-                            <li>Produced promotional videos reflecting brand identity.</li>
-                            <li>Created visually compelling designs to increase audience engagement.</li>
-                            <li>Developed effective visual content aligned with marketing objectives.</li>
-                        </ul>
-                    </div>
-                    <div class="exp-card">
-                        <div class="timeline-dot"></div>
-                        <div class="exp-header">
-                            <span class="exp-role">Motion Designer / Video Editor</span>
-                            <span class="exp-date">Previous</span>
-                        </div>
-                        <span class="exp-company">Al Sharq TV</span>
-                        <ul class="exp-desc">
-                            <li>Edited and produced daily news videos using Adobe Premiere Pro & After Effects.</li>
-                            <li>Designed engaging thumbnails for social media video distribution.</li>
-                            <li>Managed visual content to achieve higher reach and engagement.</li>
-                        </ul>
-                    </div>
+                    <span class="exp-company">Jewelry Brand | Saudi Arabia</span>
+                    <ul class="exp-desc">
+                        <li>Produced high-end jewelry product videos for digital campaigns.</li>
+                        <li>Designed social media content tailored to target audiences.</li>
+                        <li>Created visuals aligned with brand identity to improve user experience.</li>
+                    </ul>
                 </div>
+                <div class="exp-card">
+                    <div class="timeline-dot"></div>
+                    <div class="exp-header">
+                        <span class="exp-role">Graphic & Motion Designer</span>
+                        <span class="exp-date">2022 - Present</span>
+                    </div>
+                    <span class="exp-company">Orient Detectors | Istanbul</span>
+                    <ul class="exp-desc">
+                        <li>Designed brochures, catalogs, marketing visuals, and full brand identity elements.</li>
+                        <li>Produced professional product videos showcasing features and applications.</li>
+                        <li>Collaborated with the marketing team to develop creative concepts.</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <div class="timeline-dot"></div>
+                    <div class="exp-header">
+                        <span class="exp-role">Motion Designer</span>
+                        <span class="exp-date">2021 - 2022</span>
+                    </div>
+                    <span class="exp-company">PHC Elixir</span>
+                    <ul class="exp-desc">
+                        <li>Produced promotional videos reflecting brand identity.</li>
+                        <li>Created visually compelling designs to increase audience engagement.</li>
+                        <li>Developed effective visual content aligned with marketing objectives.</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <div class="timeline-dot"></div>
+                    <div class="exp-header">
+                        <span class="exp-role">Motion Designer / Video Editor</span>
+                        <span class="exp-date">Previous</span>
+                    </div>
+                    <span class="exp-company">Al Sharq TV</span>
+                    <ul class="exp-desc">
+                        <li>Edited and produced daily news videos using Adobe Premiere Pro & After Effects.</li>
+                        <li>Designed engaging thumbnails for social media video distribution.</li>
+                        <li>Managed visual content to achieve higher reach and engagement.</li>
+                    </ul>
+                </div>
+            </div>
             </div>
         </section>
 
+        <!-- PROJECTS -->
         <section id="projects" class="projects-section reveal">
             <div class="container">
                 <h2 class="projects-header-text">✨ PROJECTS ✨</h2>
@@ -1534,6 +1597,7 @@
             </div>
         </section>
 
+        <!-- CONTACT -->
         <section id="contact" class="contact-section reveal">
             <div class="container">
                 <h2 class="section-title">Get In Touch</h2>
@@ -1554,7 +1618,7 @@
     </main>
 
     <script>
-        // 1. Reveal on scroll + hero motion / parallax (Lando-style)
+        // 1. Reveal on scroll (IntersectionObserver) + hero parallax
         const revealElements = document.querySelectorAll('.reveal');
         const headerEl = document.querySelector('header');
         const heroWrapper = document.querySelector('.hero-wrapper');
@@ -1563,6 +1627,8 @@
         const redString = document.querySelector('.red-string');
         const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
         const sections = Array.from(document.querySelectorAll('main section[id]'));
+        const heroTitleWrap = document.querySelector('.hero-title-wrap-3d');
+        const heroSection = headerEl;
 
         function revealOnScrollFallback() {
             const windowHeight = window.innerHeight;
@@ -1576,7 +1642,6 @@
             });
         }
 
-        // Use IntersectionObserver where available for cheaper scroll handling
         if ('IntersectionObserver' in window) {
             const io = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -1595,7 +1660,7 @@
             window.addEventListener('scroll', revealOnScrollFallback, { passive: true });
         }
 
-        // Cache sticky metadata so we don't call getComputedStyle on every scroll
+        // Cache sticky metadata (no getComputedStyle on every scroll)
         const stickyMeta = Array.from(stickyNotes).map((note, index) => {
             const baseRot = getComputedStyle(note).getPropertyValue('--rot') || '0deg';
             return {
@@ -1611,7 +1676,7 @@
             const rect = headerEl.getBoundingClientRect();
             const totalHeight = rect.height || window.innerHeight;
             const scrollInside = Math.min(Math.max(-rect.top, 0), totalHeight);
-            const progress = scrollInside / totalHeight; // 0 -> 1
+            const progress = scrollInside / totalHeight;
 
             const heroScale = 1 - progress * 0.08;
             const heroTranslateY = progress * 40;
@@ -1622,7 +1687,7 @@
 
             if (profileFrame) {
                 const profileOffset = progress * -35;
-                profileFrame.style.transform = `translateY(${profileOffset}px) rotate(5deg)`;
+                profileFrame.style.setProperty('--hero-translate-y', profileOffset + 'px');
             }
 
             if (redString) {
@@ -1674,11 +1739,55 @@
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        // Initial state on load
         heroScrollEffects();
         updateNavActiveState();
 
-        // 2. Draggable Functionality for Notes & polaroid (desktop only)
+        // 2. 3D Hero interaction (helmet-style) with mouse
+        if (heroSection && profileFrame) {
+            let heroBounds = null;
+            const maxTiltX = 16;  // up/down
+            const maxTiltY = 24;  // left/right
+
+            function updateHeroBounds() {
+                heroBounds = heroSection.getBoundingClientRect();
+            }
+
+            updateHeroBounds();
+            window.addEventListener('resize', updateHeroBounds);
+
+            heroSection.addEventListener('mousemove', (e) => {
+                if (window.innerWidth <= 900) return;
+                if (!heroBounds) return;
+
+                const relX = (e.clientX - heroBounds.left) / heroBounds.width - 0.5;
+                const relY = (e.clientY - heroBounds.top) / heroBounds.height - 0.5;
+
+                const tiltX = (-relY * maxTiltX); // invert Y
+                const tiltY = (relX * maxTiltY);
+
+                profileFrame.style.setProperty('--hero-tilt-x', (tiltX + 12).toFixed(2) + 'deg');
+                profileFrame.style.setProperty('--hero-tilt-y', (tiltY - 14).toFixed(2) + 'deg');
+
+                if (heroTitleWrap) {
+                    heroTitleWrap.style.setProperty('--title-tilt-x', (tiltX * 0.35).toFixed(2) + 'deg');
+                    heroTitleWrap.style.setProperty('--title-tilt-y', (tiltY * 0.35).toFixed(2) + 'deg');
+                }
+            });
+
+            heroSection.addEventListener('mouseleave', () => {
+                if (window.innerWidth <= 900) return;
+
+                profileFrame.style.setProperty('--hero-tilt-x', '14deg');
+                profileFrame.style.setProperty('--hero-tilt-y', '-20deg');
+
+                if (heroTitleWrap) {
+                    heroTitleWrap.style.setProperty('--title-tilt-x', '0deg');
+                    heroTitleWrap.style.setProperty('--title-tilt-y', '0deg');
+                }
+            });
+        }
+
+        // 3. Draggable Notes & Polaroid (desktop only)
         let highestZ = 100;
 
         function makeDraggable(selector) {
@@ -1690,7 +1799,7 @@
                 elmnt.onmousedown = dragMouseDown;
 
                 function dragMouseDown(e) {
-                    if (window.innerWidth <= 900) return; // no drag on mobile
+                    if (window.innerWidth <= 900) return;
 
                     e = e || window.event;
                     e.preventDefault();
@@ -1726,7 +1835,7 @@
         makeDraggable('.sticky');
         makeDraggable('.profile-frame-hero');
 
-        // 3. Clipboard tilt on mouse move (3D card feel)
+        // 4. Clipboard tilt (3D card feel)
         const clipboardContainer = document.querySelector('.clipboard-container');
 
         if (clipboardContainer) {
@@ -1741,8 +1850,8 @@
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
 
-                    const rotateY = ((x / rect.width) - 0.5) * 10;  // left/right
-                    const rotateX = ((y / rect.height) - 0.5) * -10; // up/down
+                    const rotateY = ((x / rect.width) - 0.5) * 10;
+                    const rotateX = ((y / rect.height) - 0.5) * -10;
 
                     clipboardContainer.style.transform =
                         `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
