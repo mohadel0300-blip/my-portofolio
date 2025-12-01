@@ -10,27 +10,24 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
     :root {
-      --bg-body: #020617;
-      --bg-elevated: #020817;
+      --bg-page: #020617;
       --bg-card: #020617;
-      --border-subtle: #1f2937;
-
-      --accent: #3b82f6;        /* أزرق أساسي */
-      --accent-soft: #1d4ed8;
-      --accent-muted: #60a5fa;
-
-      --text-main: #e5e7eb;
+      --bg-card-soft: #020617;
+      --accent: #2563eb;        /* الأزرق الأساسي */
+      --accent-strong: #1d4ed8;
+      --accent-soft: rgba(37, 99, 235, 0.12);
+      --border-subtle: #1e293b;
+      --border-strong: #334155;
+      --text-main: #f9fafb;
       --text-muted: #9ca3af;
-
-      --radius-lg: 20px;
-      --radius-xl: 26px;
-
+      --radius-lg: 18px;
+      --radius-xl: 22px;
       --transition-fast: 160ms ease-out;
     }
 
@@ -47,18 +44,8 @@
     body {
       min-height: 100vh;
       font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background-color: var(--bg-body);
+      background-color: var(--bg-page);
       color: var(--text-main);
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
     }
 
     img {
@@ -66,835 +53,677 @@
       display: block;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .container {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 1.5rem;
     }
 
-    /* NAVBAR */
-    .nav-shell {
+    /* ===== NAVBAR ===== */
+    .navbar-shell {
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 40;
-      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.8));
-      border-bottom: 1px solid #111827;
+      background: rgba(2, 6, 23, 0.96);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
     }
 
-    .nav {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 10px 16px;
+    .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      padding: 0.75rem 0;
+      gap: 1rem;
     }
 
-    .nav-left {
+    .navbar-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0.75rem;
     }
 
-    .nav-logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      border: 1px solid var(--border-subtle);
+    .logo-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #020617;
-    }
-
-    .nav-logo-inner {
-      font-weight: 800;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-weight: 700;
       font-size: 0.8rem;
       letter-spacing: 0.08em;
-      color: var(--accent-muted);
     }
 
-    .nav-brand-text {
+    .brand-text {
       display: flex;
       flex-direction: column;
-      font-size: 0.72rem;
+      gap: 0.1rem;
+    }
+
+    .brand-text span:first-child {
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      line-height: 1.3;
+      letter-spacing: 0.18em;
+      font-family: 'Montserrat', system-ui, sans-serif;
     }
 
-    .nav-brand-text span:first-child {
-      color: #f9fafb;
-      font-weight: 700;
-    }
-
-    .nav-brand-text span:last-child {
+    .brand-text span:last-child {
+      font-size: 0.75rem;
       color: var(--text-muted);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 1.5rem;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
     }
 
     .nav-link {
-      position: relative;
-      padding-bottom: 3px;
-      color: #e5e7eb;
-      cursor: pointer;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition-fast), color var(--transition-fast);
     }
 
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width var(--transition-fast);
-    }
-
-    .nav-link:hover::after,
-    .nav-link.is-active::after {
-      width: 100%;
-    }
-
+    .nav-link:hover,
     .nav-link.is-active {
+      border-color: var(--accent);
       color: var(--accent);
     }
 
     .nav-cta {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 16px;
+      gap: 0.5rem;
+      padding: 0.45rem 0.95rem;
       border-radius: 999px;
-      border: 1px solid var(--accent);
+      border: 1px solid var(--border-strong);
       font-size: 0.75rem;
-      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      cursor: pointer;
-      background: #020617;
-      color: #e5e7eb;
-      transition:
-        background var(--transition-fast),
-        color var(--transition-fast),
-        border-color var(--transition-fast),
-        transform var(--transition-fast);
-    }
-
-    .nav-cta:hover {
-      background: var(--accent);
-      color: #020617;
-      transform: translateY(-1px);
+      letter-spacing: 0.14em;
+      background-color: #020617;
+      transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
     }
 
     .nav-cta i {
       font-size: 0.8rem;
     }
 
-    .nav-menu-toggle {
+    .nav-cta:hover {
+      border-color: var(--accent);
+      background-color: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .nav-toggle {
       display: none;
+      background: none;
       border: none;
-      background: transparent;
-      color: #e5e7eb;
+      color: var(--text-main);
       font-size: 1.2rem;
       cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 50px;
-        right: 16px;
-        background: #020617;
-        border: 1px solid #111827;
-        border-radius: 14px;
-        padding: 10px 14px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .nav-menu-toggle {
-        display: inline-flex;
-      }
-    }
-
-    /* LAYOUT / SECTIONS */
+    /* ===== SECTIONS / LAYOUT ===== */
     main {
-      padding-top: 72px;
+      padding-top: 4rem; /* space for fixed navbar */
     }
 
     .section {
-      padding: 72px 0 40px;
+      padding: 4rem 0 3rem;
     }
 
-    .section-panel {
-      background: var(--bg-elevated);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      padding: 28px 24px 26px;
-    }
-
-    .section-heading {
+    .section-header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 26px;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .section-kicker {
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       color: var(--accent);
-      margin-bottom: 4px;
+      margin-bottom: 0.35rem;
     }
 
     .section-title {
-      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: clamp(1.9rem, 2.5vw, 2.4rem);
       font-weight: 800;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #f9fafb;
     }
 
     .section-subtitle {
       max-width: 360px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
     }
 
-    /* HERO */
+    .card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 1.75rem 1.5rem;
+    }
+
+    /* ===== HERO ===== */
     .hero {
-      padding-top: 80px;
-      padding-bottom: 40px;
+      padding-top: 5rem;
     }
 
-    .hero .section-panel {
-      padding-top: 32px;
-      padding-bottom: 30px;
-    }
-
-    .hero-grid {
+    .hero-inner {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 32px;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 3rem;
       align-items: center;
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
     }
 
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid #1f2937;
-      background: #020617;
+      border: 1px solid var(--border-subtle);
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       color: var(--text-muted);
+      margin-bottom: 1rem;
     }
 
     .hero-tag-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent);
     }
 
-    .hero-script {
-      font-size: 0.95rem;
+    .hero-heading {
+      margin-bottom: 1rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent-muted);
+      letter-spacing: 0.16em;
+      font-family: 'Montserrat', system-ui, sans-serif;
     }
 
-    .hero-title-row {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .hero-title-main {
-      font-size: clamp(2.8rem, 5vw, 3.6rem);
-      font-weight: 900;
-      letter-spacing: 0.06em;
+    .hero-title {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: clamp(2.3rem, 4vw, 2.8rem);
+      font-weight: 800;
       text-transform: uppercase;
-      line-height: 0.9;
+      letter-spacing: 0.12em;
+      line-height: 1.2;
     }
 
-    .hero-title-main span {
+    .hero-title span {
       display: block;
     }
 
-    .hero-title-main span:nth-child(1) {
-      color: #f9fafb;
-    }
-
-    .hero-title-main span:nth-child(2) {
+    .hero-title span.highlight {
       color: var(--accent);
     }
 
-    .hero-title-label {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-    }
-
     .hero-body {
-      max-width: 480px;
-      font-size: 0.96rem;
-      line-height: 1.7;
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
+      max-width: 480px;
+      line-height: 1.7;
     }
 
     .hero-body strong {
-      color: #f9fafb;
+      color: var(--text-main);
       font-weight: 600;
     }
 
     .hero-actions {
+      margin-top: 1.5rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 6px;
+      gap: 0.8rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 10px 22px;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
       border-radius: 999px;
       border: 1px solid transparent;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.17em;
+      letter-spacing: 0.16em;
+      background: none;
       cursor: pointer;
       transition:
-        background var(--transition-fast),
-        color var(--transition-fast),
+        background-color var(--transition-fast),
         border-color var(--transition-fast),
+        color var(--transition-fast),
         transform var(--transition-fast);
-      white-space: nowrap;
     }
 
     .btn i {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .btn-primary {
-      background: var(--accent);
+      background-color: var(--accent);
       border-color: var(--accent);
-      color: #020617;
+      color: #0b1120;
     }
 
     .btn-primary:hover {
+      background-color: var(--accent-strong);
+      border-color: var(--accent-strong);
       transform: translateY(-1px);
-      background: var(--accent-soft);
-      border-color: var(--accent-soft);
     }
 
-    .btn-ghost {
-      background: #020617;
-      border-color: #1f2937;
-      color: #e5e7eb;
+    .btn-outline {
+      border-color: var(--border-strong);
+      color: var(--text-main);
     }
 
-    .btn-ghost:hover {
-      background: #0b1120;
-      border-color: #374151;
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background-color: var(--accent-soft);
+      color: var(--accent);
     }
 
-    .hero-clients-mini {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 10px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
+    .hero-brands {
+      margin-top: 1.75rem;
     }
 
-    .hero-clients-label {
+    .hero-brands-label {
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
     }
 
-    .hero-clients-label::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: #1f2937;
-    }
-
-    .hero-clients-row {
+    .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 0.5rem;
     }
 
-    .client-pill {
-      border-radius: 999px;
-      padding: 6px 10px;
-      border: 1px solid #1f2937;
-      background: #020617;
+    .pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: #e5e7eb;
-      font-size: 0.75rem;
-      transition:
-        background var(--transition-fast),
-        border-color var(--transition-fast),
-        transform var(--transition-fast);
-    }
-
-    .client-pill:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .client-pill i {
-      font-size: 0.85rem;
-      color: var(--accent-muted);
-    }
-
-    .hero-right-shell {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .hero-card {
-      width: min(320px, 100%);
-      border-radius: var(--radius-lg);
-      background: var(--bg-card);
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      padding: 10px 10px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      font-size: 0.78rem;
+      background-color: #020617;
+      transition:
+        border-color var(--transition-fast),
+        color var(--transition-fast);
     }
 
-    .hero-card img {
-      border-radius: 16px;
-      height: 320px;
+    .pill i {
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-photo-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem;
+      background-color: var(--bg-card);
+    }
+
+    .hero-photo-inner {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hero-photo-inner img {
+      width: 100%;
+      height: auto;
       object-fit: cover;
     }
 
-    .hero-card-footer {
+    .hero-photo-footer {
+      margin-top: 0.9rem;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 0.25rem;
+      font-size: 0.85rem;
     }
 
-    .hero-card-name {
+    .hero-name {
+      font-family: 'Montserrat', system-ui, sans-serif;
       font-weight: 600;
-      font-size: 1rem;
     }
 
-    .hero-card-role {
+    .hero-role {
       font-size: 0.78rem;
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: var(--text-muted);
     }
 
-    .hero-card-badge {
-      margin-top: 4px;
+    .hero-badge {
+      margin-top: 0.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 8px;
-      border-radius: 999px;
-      border: 1px solid #1f2937;
-      background: #020617;
       color: var(--text-muted);
     }
 
-    .hero-card-badge i {
-      font-size: 0.8rem;
-      color: var(--accent-muted);
+    .hero-badge i {
+      font-size: 0.75rem;
+      color: var(--accent);
     }
 
-    /* ABOUT */
+    /* ===== ABOUT ===== */
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 24px;
-      align-items: flex-start;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
     }
 
-    .about-card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      padding: 18px 18px 16px;
-      font-size: 0.95rem;
+    .about-body p {
+      font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.7;
+      margin-bottom: 0.75rem;
     }
 
-    .about-card p {
-      margin-bottom: 10px;
+    .about-body p strong {
+      color: var(--text-main);
     }
 
-    .about-card strong {
-      color: #f9fafb;
-    }
-
-    .about-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .about-meta-item {
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid #1f2937;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #d1d5db;
-    }
-
-    .about-meta-item i {
-      font-size: 0.9rem;
-      color: var(--accent-muted);
-    }
-
-    .about-contact-block {
-      margin-top: 14px;
+    .about-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.82rem;
+      gap: 0.6rem;
+      margin-top: 1rem;
     }
 
-    .about-contact-pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #1f2937;
-      background: #020617;
+    .meta-item {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: #e5e7eb;
-    }
-
-    .about-contact-pill i {
-      font-size: 0.9rem;
-      color: var(--accent-muted);
-    }
-
-    .about-skills-card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
+      gap: 0.5rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      padding: 18px 18px 16px;
-      font-size: 0.86rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
-    .about-skills-title {
+    .meta-item i {
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .contact-small {
+      margin-top: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .contact-small span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-small i {
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .skills-list-title {
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: #e5e7eb;
-      margin-bottom: 10px;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
     }
 
-    .app-row {
+    .tools-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 14px;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
     }
 
-    .app-chip {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
+    .tool-chip {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: 'Montserrat', system-ui, sans-serif;
       font-weight: 700;
-      font-size: 1.3rem;
-      color: #020617;
+      font-size: 1rem;
     }
 
-    .app-chip.ps { background: #38bdf8; }
-    .app-chip.ai { background: #f97316; }
-    .app-chip.ae { background: #6366f1; }
-    .app-chip.pr { background: #6366f1; }
-    .app-chip.id { background: #ec4899; }
-    .app-chip.figma {
-      background: #111827;
-      color: #e5e7eb;
-    }
-
-    .app-chip.figma i {
-      font-size: 1.4rem;
+    .tool-chip.fig {
+      font-size: 1.2rem;
     }
 
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.78rem;
+      gap: 0.4rem;
     }
 
     .skill-tag {
-      padding: 5px 9px;
+      padding: 0.35rem 0.75rem;
       border-radius: 999px;
-      border: 1px solid #1f2937;
-      background: #020617;
-      color: #e5e7eb;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.78rem;
+      color: var(--text-muted);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 0.35rem;
     }
 
     .skill-tag i {
-      font-size: 0.8rem;
-      color: var(--accent-muted);
+      font-size: 0.78rem;
+      color: var(--accent);
     }
 
-    /* BRANDS */
-    .brands-strip {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      padding: 16px 16px 14px;
+    /* ===== BRANDS ===== */
+    .brand-strip {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      font-size: 0.84rem;
+      gap: 1rem;
+    }
+
+    .brand-strip-header {
+      font-size: 0.82rem;
       color: var(--text-muted);
     }
 
-    .brands-strip-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
+    .brand-strip-header strong {
+      color: var(--text-main);
     }
 
-    .brands-strip-header strong {
-      color: #e5e7eb;
-    }
-
-    .brands-strip-row {
+    .brand-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 0.6rem;
     }
 
-    .brand-chip {
+    .brand-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
       border-radius: 999px;
-      border: 1px solid #1f2937;
-      background: #020617;
-      font-size: 0.8rem;
-      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      background-color: #020617;
       transition:
-        background var(--transition-fast),
         border-color var(--transition-fast),
-        transform var(--transition-fast);
+        color var(--transition-fast);
     }
 
-    .brand-chip:hover {
+    .brand-pill i {
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .brand-pill:hover {
       border-color: var(--accent);
-      transform: translateY(-1px);
+      color: var(--accent);
     }
 
-    .brand-chip i {
-      font-size: 0.9rem;
-      color: var(--accent-muted);
-    }
-
-    /* EXPERIENCE */
-    .timeline {
+    /* ===== EXPERIENCE ===== */
+    .experience-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
       align-items: flex-start;
     }
 
-    .timeline-main {
+    .timeline {
       position: relative;
-      padding-left: 16px;
-    }
-
-    .timeline-main::before {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 4px;
-      bottom: 4px;
-      width: 1px;
-      background: #1f2937;
+      padding-left: 1.25rem;
+      border-left: 1px solid var(--border-subtle);
     }
 
     .exp-item {
+      margin-bottom: 1.5rem;
       position: relative;
-      padding-left: 12px;
-      margin-bottom: 18px;
     }
 
-    .exp-dot {
+    .exp-marker {
       position: absolute;
-      left: -2px;
-      top: 4px;
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: var(--accent);
+      left: -1.35rem;
+      top: 0.3rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid #020617;
+      background-color: var(--accent);
     }
 
     .exp-card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      padding: 14px 14px 12px;
-      font-size: 0.9rem;
+      margin-left: 0.25rem;
     }
 
     .exp-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 4px;
+      gap: 0.75rem;
+      margin-bottom: 0.1rem;
     }
 
     .exp-role {
-      font-size: 1rem;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 0.98rem;
       font-weight: 600;
     }
 
     .exp-date {
       font-size: 0.78rem;
-      color: var(--accent-muted);
+      color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
+      white-space: nowrap;
     }
 
     .exp-company {
       font-size: 0.82rem;
       color: var(--text-muted);
-      margin-bottom: 6px;
-      font-style: italic;
+      margin-bottom: 0.4rem;
     }
 
     .exp-desc {
-      list-style: disc;
-      padding-left: 16px;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
+      padding-left: 1rem;
     }
 
     .exp-desc li {
-      margin-bottom: 4px;
+      margin-bottom: 0.3rem;
     }
 
-    .exp-note-card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      padding: 16px 14px 14px;
-      font-size: 0.9rem;
+    .exp-note {
+      font-size: 0.86rem;
       color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      line-height: 1.6;
     }
 
     .exp-note-tag {
       font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #e5e7eb;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
     }
 
-    .exp-note-pills {
+    .exp-pill-row {
+      margin-top: 0.75rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 0.45rem;
       font-size: 0.78rem;
     }
 
-    .exp-note-pill {
-      padding: 5px 8px;
+    .exp-pill {
+      padding: 0.35rem 0.75rem;
       border-radius: 999px;
-      border: 1px solid #1f2937;
-      background: #020617;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
     }
 
-    /* PROJECTS */
+    /* ===== PROJECTS (Behance embeds) ===== */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+      gap: 1.25rem;
     }
 
     .project-card {
       border-radius: var(--radius-lg);
-      overflow: hidden;
       border: 1px solid var(--border-subtle);
-      background: var(--bg-card);
-      transition:
-        transform var(--transition-fast),
-        border-color var(--transition-fast);
-    }
-
-    .project-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
+      overflow: hidden;
+      background-color: var(--bg-card);
     }
 
     .project-embed iframe {
@@ -905,153 +734,113 @@
     }
 
     .project-meta {
-      padding: 8px 10px 10px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      padding: 0.75rem 0.9rem 0.9rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 8px;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
     .project-meta span:first-child {
       text-transform: uppercase;
-      letter-spacing: 0.13em;
-      font-weight: 600;
-      color: #e5e7eb;
+      letter-spacing: 0.14em;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      color: var(--text-main);
+      font-size: 0.75rem;
     }
 
-    /* POLITICAL / POSTER WALL */
-    .political-panel {
-      text-align: center;
-      padding: 24px 18px 20px;
+    /* ===== POLITICAL / POSTER WALL ===== */
+    .poster-wall {
+      text-align: left;
     }
 
-    .political-header-text {
-      font-size: 1.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #f9fafb;
-      margin-bottom: 8px;
-    }
-
-    .political-sub {
-      font-size: 0.94rem;
-      color: var(--text-muted);
+    .poster-intro {
       max-width: 520px;
-      margin: 0 auto 20px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
     }
 
-    .political-fan-wrap {
-      margin: 8px auto 16px;
-    }
-
-    .political-fan-row {
+    .poster-row {
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
-    .political-card {
-      position: relative;
+    .poster-card {
       width: 160px;
-      height: 230px;
-      border-radius: 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
       overflow: hidden;
-      background: #020617;
-      border: 1px solid #1f2937;
-      cursor: pointer;
+      background-color: var(--bg-card);
     }
 
-    .political-card--center {
-      width: 190px;
-      height: 270px;
-    }
-
-    .political-card img {
+    .poster-card img {
       width: 100%;
-      height: 100%;
+      height: 210px;
       object-fit: cover;
     }
 
-    .political-caption {
-      font-size: 0.88rem;
+    .poster-footer {
+      padding: 0.4rem 0.6rem 0.6rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      max-width: 480px;
-      margin: 0 auto 10px;
     }
 
-    .political-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
+    .poster-link-row {
+      margin-top: 1rem;
       font-size: 0.8rem;
     }
 
-    .political-link-pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #1f2937;
-      background: #020617;
-      color: #e5e7eb;
+    .poster-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition:
-        border-color var(--transition-fast),
-        background var(--transition-fast);
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
     }
 
-    .political-link-pill i {
-      font-size: 0.85rem;
-      color: var(--accent-muted);
+    .poster-link i {
+      font-size: 0.8rem;
+      color: var(--accent);
     }
 
-    .political-link-pill:hover {
+    .poster-link:hover {
       border-color: var(--accent);
-      background: #0b1120;
+      color: var(--accent);
     }
 
-    /* VIDEOS */
-    .videos-layout {
+    /* ===== VIDEOS / REELS ===== */
+    .videos-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 20px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
       align-items: flex-start;
     }
 
-    .videos-grid {
+    .video-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0.9rem;
     }
 
     .video-card {
       border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      background-color: var(--bg-card);
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      transition:
-        transform var(--transition-fast),
-        border-color var(--transition-fast);
-    }
-
-    .video-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
     }
 
     .video-thumb {
       position: relative;
       aspect-ratio: 16 / 9;
-      background: #020617;
+      background-color: #020617;
     }
 
     .video-thumb img {
@@ -1060,7 +849,7 @@
       object-fit: cover;
     }
 
-    .video-play-btn {
+    .video-play-icon {
       position: absolute;
       inset: 0;
       display: flex;
@@ -1068,345 +857,301 @@
       justify-content: center;
     }
 
-    .video-play-btn span {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid rgba(249, 250, 251, 0.9);
-      background: rgba(2, 6, 23, 0.8);
+    .video-play-icon span {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: rgba(15, 23, 42, 0.85);
+      font-size: 1rem;
     }
 
-    .video-play-btn i {
-      font-size: 1rem;
-      color: #f9fafb;
+    .video-play-icon i {
       margin-left: 2px;
     }
 
-    .video-body {
-      padding: 8px 10px 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      font-size: 0.84rem;
+    .video-card-body {
+      padding: 0.6rem 0.75rem 0.8rem;
+      font-size: 0.82rem;
     }
 
     .video-title {
-      font-weight: 600;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 0.86rem;
+      margin-bottom: 0.15rem;
     }
 
-    .video-meta-text {
+    .video-meta {
       font-size: 0.78rem;
       color: var(--text-muted);
     }
 
-    .videos-copy-card {
-      border-radius: var(--radius-lg);
-      padding: 16px 14px 14px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      font-size: 0.9rem;
+    .videos-note {
+      font-size: 0.86rem;
       color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      line-height: 1.6;
     }
 
-    .videos-copy-card strong {
-      color: #e5e7eb;
+    .videos-note strong {
+      color: var(--text-main);
     }
 
-    .videos-copy-tag {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-muted);
-    }
-
-    .videos-copy-list {
+    .videos-tags {
+      margin-top: 0.9rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 0.45rem;
       font-size: 0.78rem;
     }
 
-    .videos-copy-pill {
-      padding: 5px 8px;
+    .videos-tag {
+      padding: 0.35rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid #1f2937;
-      background: #020617;
-      color: #e5e7eb;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
     }
 
-    /* CONTACT */
-    .contact-card {
-      border-radius: var(--radius-xl);
-      padding: 22px 20px 22px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+    /* ===== CONTACT ===== */
+    .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 20px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
       align-items: center;
     }
 
     .contact-text {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      max-width: 440px;
+      line-height: 1.7;
+      max-width: 460px;
     }
 
     .contact-text strong {
-      color: #e5e7eb;
+      color: var(--text-main);
     }
 
     .contact-lines {
-      margin-top: 10px;
+      margin-top: 0.9rem;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 0.35rem;
       font-size: 0.86rem;
+      color: var(--text-muted);
     }
 
     .contact-lines span {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 0.5rem;
     }
 
     .contact-lines i {
-      font-size: 0.9rem;
-      color: var(--accent-muted);
+      font-size: 0.85rem;
+      color: var(--accent);
     }
 
-    .contact-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
+    .contact-note {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
     .social-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 0.6rem;
     }
 
     .social-btn {
       width: 40px;
       height: 40px;
       border-radius: 999px;
-      border: 1px solid #1f2937;
+      border: 1px solid var(--border-subtle);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: #020617;
+      background-color: var(--bg-card);
       transition:
-        background var(--transition-fast),
         border-color var(--transition-fast),
-        transform var(--transition-fast);
+        color var(--transition-fast);
     }
 
     .social-btn i {
       font-size: 1rem;
-      color: #e5e7eb;
     }
 
     .social-btn:hover {
       border-color: var(--accent);
-      background: #0b1120;
-      transform: translateY(-1px);
+      color: var(--accent);
     }
 
-    .footer-note {
-      margin-top: 14px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    /* REVEAL ANIMATION (بسيطة بدون جلو) */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition:
-        opacity 500ms ease-out,
-        transform 500ms ease-out;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* RESPONSIVE */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 960px) {
-      .hero-grid,
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        background-color: #020617;
+        padding: 0.75rem 1.5rem 1rem;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .hero-inner,
       .about-grid,
-      .timeline,
-      .videos-layout,
-      .contact-card {
+      .experience-grid,
+      .videos-grid,
+      .contact-grid {
         grid-template-columns: minmax(0, 1fr);
       }
 
-      .hero-right-shell {
-        order: -1;
-        justify-content: flex-start;
-        margin-bottom: 18px;
-      }
-
-      .section-panel {
-        padding-inline: 18px;
+      .hero {
+        padding-top: 4.5rem;
       }
     }
 
     @media (max-width: 640px) {
       .section {
-        padding: 56px 0 32px;
+        padding: 3rem 0 2.5rem;
       }
 
-      .hero {
-        padding-top: 72px;
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .hero-title-main {
-        font-size: clamp(2.2rem, 8vw, 2.8rem);
-      }
-
-      .political-card {
-        width: 140px;
-        height: 200px;
-      }
-
-      .political-card--center {
-        width: 160px;
-        height: 220px;
-      }
-
-      .contact-card {
-        border-radius: 18px;
+      .hero-inner {
+        gap: 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <header class="nav-shell">
-    <div class="nav">
-      <div class="nav-left">
-        <div class="nav-logo-mark">
-          <div class="nav-logo-inner">MA</div>
+  <!-- NAVBAR -->
+  <header class="navbar-shell">
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-left">
+          <div class="logo-circle">MA</div>
+          <div class="brand-text">
+            <span>Mohamed Amer</span>
+            <span>Graphic &amp; Motion Designer</span>
+          </div>
         </div>
-        <div class="nav-brand-text">
-          <span>Mohamed Amer</span>
-          <span>Graphic & Motion Designer</span>
-        </div>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about" class="nav-link">Profile</a>
+          <a href="#brands" class="nav-link">Brands &amp; Collabs</a>
+          <a href="#experience" class="nav-link">On Projects</a>
+          <a href="#projects" class="nav-link">Case Studies</a>
+          <a href="#political" class="nav-link">Poster Wall</a>
+          <a href="#videos" class="nav-link">Reels Garage</a>
+          <a href="#contact" class="nav-link">Work With Me</a>
+        </nav>
+
+        <a href="My cv English .pdf" target="_blank" rel="noopener noreferrer" class="nav-cta">
+          <i class="fas fa-download"></i>
+          <span>Download CV</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about" class="nav-link">Profile</a>
-        <a href="#brands" class="nav-link">Brands & Collabs</a>
-        <a href="#experience" class="nav-link">On Projects</a>
-        <a href="#projects" class="nav-link">Case Studies</a>
-        <a href="#political" class="nav-link">Poster Wall</a>
-        <a href="#videos" class="nav-link">Reels Garage</a>
-        <a href="#contact" class="nav-link">Work With Me</a>
-      </nav>
-      <a href="My cv English .pdf" target="_blank" rel="noopener noreferrer" class="nav-cta">
-        <i class="fas fa-download"></i>
-        <span>Download CV</span>
-      </a>
-      <button class="nav-menu-toggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
     </div>
   </header>
 
   <main>
     <!-- HERO -->
-    <section class="hero" id="top">
+    <section class="section hero" id="top">
       <div class="container">
-        <div class="section-panel">
-          <div class="hero-grid">
-            <div class="hero-left reveal">
-              <div class="hero-tag">
-                <span class="hero-tag-dot"></span>
-                <span>Available for remote & on-site work</span>
-              </div>
-
-              <div>
-                <div class="hero-script">Visual identities · Motion reels · Political posters</div>
-                <div class="hero-title-row">
-                  <div class="hero-title-main">
-                    <span>MOHAMED</span>
-                    <span>AMER</span>
-                  </div>
-                  <div class="hero-title-label">Graphic & Motion Designer</div>
-                </div>
-              </div>
-
-              <p class="hero-body">
-                I’m <strong>Mohamed Amer</strong>, a <strong>Graphic & Motion Designer</strong> based in Istanbul.
-                I build <strong>brand visuals, reels and political posters</strong> for clients in technology,
-                healthcare, detectors, jewelry and tourism – turning briefs into visuals that move.
-              </p>
-
-              <div class="hero-actions">
-                <a href="#projects" class="btn btn-primary">
-                  <i class="fas fa-eye"></i>
-                  <span>See Case Studies</span>
-                </a>
-                <a href="#contact" class="btn btn-ghost">
-                  <i class="fas fa-paper-plane"></i>
-                  <span>Book a Project Call</span>
-                </a>
-              </div>
-
-              <div class="hero-clients-mini">
-                <div class="hero-clients-label">Brands I created visuals for</div>
-                <div class="hero-clients-row">
-                  <a href="https://instagram.com/ajaxdetector" target="_blank" rel="noopener noreferrer" class="client-pill">
-                    <i class="fab fa-instagram"></i>
-                    <span>Ajax Detector</span>
-                  </a>
-                  <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="client-pill">
-                    <i class="fab fa-instagram"></i>
-                    <span>Orient Detectors</span>
-                  </a>
-                  <a href="https://instagram.com/elixir_phc" target="_blank" rel="noopener noreferrer" class="client-pill">
-                    <i class="fab fa-instagram"></i>
-                    <span>Elixir PHC</span>
-                  </a>
-                  <a href="https://instagram.com/loransmedical" target="_blank" rel="noopener noreferrer" class="client-pill">
-                    <i class="fab fa-instagram"></i>
-                    <span>Lorans Medical</span>
-                  </a>
-                  <a href="https://instagram.com/sea.tourism" target="_blank" rel="noopener noreferrer" class="client-pill">
-                    <i class="fab fa-instagram"></i>
-                    <span>Sea Tourism</span>
-                  </a>
-                  <a href="https://instagram.com/bluestudyo" target="_blank" rel="noopener noreferrer" class="client-pill">
-                    <i class="fab fa-instagram"></i>
-                    <span>Blue Studyo</span>
-                  </a>
-                </div>
-              </div>
+        <div class="hero-inner">
+          <div>
+            <div class="hero-tag">
+              <span class="hero-tag-dot"></span>
+              <span>Available for remote &amp; on-site work</span>
             </div>
 
-            <div class="hero-right-shell reveal">
-              <article class="hero-card" aria-label="Portrait of Mohamed Amer">
-                <img src="MINED.png" alt="Mohamed Amer" loading="lazy" decoding="async" />
-                <div class="hero-card-footer">
-                  <div class="hero-card-name">Mohamed Amer</div>
-                  <div class="hero-card-role">Graphic Designer · Motion · 2D Artist</div>
-                  <div class="hero-card-badge">
-                    <i class="fas fa-bolt"></i>
-                    <span>Brand visuals that move</span>
-                  </div>
-                </div>
-              </article>
+            <div class="hero-heading">
+              <div class="hero-eyebrow">Graphic design · motion · posters</div>
+              <h1 class="hero-title">
+                <span>MOHAMED</span>
+                <span class="highlight">AMER</span>
+              </h1>
+            </div>
+
+            <p class="hero-body">
+              I’m <strong>Mohamed Amer</strong>, a <strong>Graphic &amp; Motion Designer</strong> based in Istanbul.
+              I build <strong>brand visuals, reels and political posters</strong> for clients in technology,
+              healthcare, detectors, jewelry and tourism – turning briefs into visuals that move.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                <i class="fas fa-eye"></i>
+                <span>See Case Studies</span>
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                <i class="fas fa-paper-plane"></i>
+                <span>Book a Project Call</span>
+              </a>
+            </div>
+
+            <div class="hero-brands">
+              <div class="hero-brands-label">Brands I created visuals for</div>
+              <div class="pill-row">
+                <a href="https://instagram.com/ajaxdetector" target="_blank" rel="noopener noreferrer" class="pill">
+                  <i class="fab fa-instagram"></i><span>Ajax Detector</span>
+                </a>
+                <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="pill">
+                  <i class="fab fa-instagram"></i><span>Orient Detectors</span>
+                </a>
+                <a href="https://instagram.com/elixir_phc" target="_blank" rel="noopener noreferrer" class="pill">
+                  <i class="fab fa-instagram"></i><span>Elixir PHC</span>
+                </a>
+                <a href="https://instagram.com/loransmedical" target="_blank" rel="noopener noreferrer" class="pill">
+                  <i class="fab fa-instagram"></i><span>Lorans Medical</span>
+                </a>
+                <a href="https://instagram.com/sea.tourism" target="_blank" rel="noopener noreferrer" class="pill">
+                  <i class="fab fa-instagram"></i><span>Sea Tourism</span>
+                </a>
+                <a href="https://instagram.com/bluestudyo" target="_blank" rel="noopener noreferrer" class="pill">
+                  <i class="fab fa-instagram"></i><span>Blue Studyo</span>
+                </a>
+              </div>
             </div>
           </div>
+
+          <aside class="hero-photo-card">
+            <div class="hero-photo-inner">
+              <img src="MINED.png" alt="Portrait of Mohamed Amer" loading="lazy" />
+            </div>
+            <div class="hero-photo-footer">
+              <div class="hero-name">Mohamed Amer</div>
+              <div class="hero-role">Graphic Designer · Motion · 2D Artist</div>
+              <div class="hero-badge">
+                <i class="fas fa-bolt"></i>
+                <span>Brand visuals that move</span>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -1414,21 +1159,21 @@
     <!-- ABOUT / PROFILE -->
     <section class="section" id="about">
       <div class="container">
-        <div class="section-panel">
-          <div class="section-heading reveal">
-            <div>
-              <div class="section-kicker">Driver of the visuals</div>
-              <h2 class="section-title">Profile: Mohamed Amer</h2>
-            </div>
-            <p class="section-subtitle">
-              A designer who connects visuals, motion and strategy – turning complex products into clear stories.
-            </p>
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Profile</div>
+            <h2 class="section-title">About Mohamed</h2>
           </div>
+          <p class="section-subtitle">
+            A designer who connects visuals, motion and strategy – turning complex products into clear stories.
+          </p>
+        </div>
 
-          <div class="about-grid">
-            <article class="about-card reveal">
+        <div class="about-grid">
+          <article class="card">
+            <div class="about-body">
               <p>
-                I'm a <strong>Graphic & Motion Designer</strong> with more than five years of experience in
+                I'm a <strong>Graphic &amp; Motion Designer</strong> with more than five years of experience in
                 <strong>visual identity, social media systems, product videos, packaging</strong> and
                 <strong>political / social awareness campaigns</strong>.
               </p>
@@ -1441,60 +1186,48 @@
                 I also studied <strong>Mining Engineering at Muğla Sıtkı Koçman University (2020 – 2025)</strong>,
                 which gave me an analytical and structured way of thinking in my design process.
               </p>
+            </div>
 
-              <div class="about-meta-grid">
-                <div class="about-meta-item">
-                  <i class="fas fa-location-dot"></i>
-                  <span>Istanbul · Turkey</span>
-                </div>
-                <div class="about-meta-item">
-                  <i class="fas fa-language"></i>
-                  <span>Arabic · English · Turkish</span>
-                </div>
-                <div class="about-meta-item">
-                  <i class="fas fa-clock"></i>
-                  <span>5+ Years of Experience</span>
-                </div>
+            <div class="about-meta">
+              <div class="meta-item">
+                <i class="fas fa-location-dot"></i><span>Istanbul · Turkey</span>
               </div>
+              <div class="meta-item">
+                <i class="fas fa-language"></i><span>Arabic · English · Turkish</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i><span>5+ Years of Experience</span>
+              </div>
+            </div>
 
-              <div class="about-contact-block">
-                <div class="about-contact-pill">
-                  <i class="fas fa-envelope"></i>
-                  <span>mohadel0300@gmail.com</span>
-                </div>
-                <div class="about-contact-pill">
-                  <i class="fas fa-phone"></i>
-                  <span>0090 553 476 6703</span>
-                </div>
-                <div class="about-contact-pill">
-                  <i class="fab fa-behance"></i>
-                  <span>behance.net/mohamedadel526</span>
-                </div>
-              </div>
-            </article>
+            <div class="contact-small">
+              <span><i class="fas fa-envelope"></i> mohadel0300@gmail.com</span>
+              <span><i class="fas fa-phone"></i> 0090 553 476 6703</span>
+              <span><i class="fab fa-behance"></i> behance.net/mohamedadel526</span>
+            </div>
+          </article>
 
-            <aside class="about-skills-card reveal">
-              <div class="about-skills-title">Core Tools</div>
-              <div class="app-row">
-                <div class="app-chip ps">Ps</div>
-                <div class="app-chip ai">Ai</div>
-                <div class="app-chip ae">Ae</div>
-                <div class="app-chip pr">Pr</div>
-                <div class="app-chip id">Id</div>
-                <div class="app-chip figma"><i class="fab fa-figma"></i></div>
-              </div>
+          <aside class="card">
+            <div class="skills-list-title">Core tools</div>
+            <div class="tools-row">
+              <div class="tool-chip">Ps</div>
+              <div class="tool-chip">Ai</div>
+              <div class="tool-chip">Ae</div>
+              <div class="tool-chip">Pr</div>
+              <div class="tool-chip">Id</div>
+              <div class="tool-chip fig"><i class="fab fa-figma"></i></div>
+            </div>
 
-              <div class="about-skills-title" style="margin-top: 8px;">What I Do</div>
-              <div class="skill-tags">
-                <span class="skill-tag"><i class="fas fa-bullseye"></i> Social media campaigns</span>
-                <span class="skill-tag"><i class="fas fa-film"></i> Motion graphics & explainers</span>
-                <span class="skill-tag"><i class="fas fa-gem"></i> Jewelry & product visuals</span>
-                <span class="skill-tag"><i class="fas fa-heartbeat"></i> Medical & health visuals</span>
-                <span class="skill-tag"><i class="fas fa-tv"></i> TV & news packages</span>
-                <span class="skill-tag"><i class="fas fa-pen-nib"></i> Political / social posts</span>
-              </div>
-            </aside>
-          </div>
+            <div class="skills-list-title">What I do</div>
+            <div class="skill-tags">
+              <span class="skill-tag"><i class="fas fa-bullseye"></i> Social media campaigns</span>
+              <span class="skill-tag"><i class="fas fa-film"></i> Motion graphics &amp; explainers</span>
+              <span class="skill-tag"><i class="fas fa-gem"></i> Jewelry &amp; product visuals</span>
+              <span class="skill-tag"><i class="fas fa-heartbeat"></i> Medical &amp; health visuals</span>
+              <span class="skill-tag"><i class="fas fa-tv"></i> TV &amp; news packages</span>
+              <span class="skill-tag"><i class="fas fa-pen-nib"></i> Political / social posts</span>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -1502,48 +1235,39 @@
     <!-- BRANDS & COLLABS -->
     <section class="section" id="brands">
       <div class="container">
-        <div class="section-panel">
-          <div class="section-heading reveal">
-            <div>
-              <div class="section-kicker">Brands & Collabs</div>
-              <h2 class="section-title">Selected Brands</h2>
-            </div>
-            <p class="section-subtitle">
-              A mix of detectors, healthcare, studios and tourism brands I created visuals and motion content for.
-            </p>
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Brands &amp; Collabs</div>
+            <h2 class="section-title">Selected Brands</h2>
           </div>
+          <p class="section-subtitle">
+            A mix of detectors, healthcare, studios and tourism brands I created visuals and motion content for.
+          </p>
+        </div>
 
-          <div class="brands-strip reveal">
-            <div class="brands-strip-header">
-              <span><strong>Instagram-first visual design</strong> – posts, stories, reels and campaigns</span>
-              <span>Tap any brand to open its Instagram page</span>
-            </div>
-            <div class="brands-strip-row">
-              <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="brand-chip">
-                <i class="fab fa-instagram"></i>
-                <span>Orient Detectors</span>
-              </a>
-              <a href="https://instagram.com/ajaxdetector" target="_blank" rel="noopener noreferrer" class="brand-chip">
-                <i class="fab fa-instagram"></i>
-                <span>Ajax Detector</span>
-              </a>
-              <a href="https://instagram.com/elixir_phc" target="_blank" rel="noopener noreferrer" class="brand-chip">
-                <i class="fab fa-instagram"></i>
-                <span>Elixir PHC</span>
-              </a>
-              <a href="https://instagram.com/loransmedical" target="_blank" rel="noopener noreferrer" class="brand-chip">
-                <i class="fab fa-instagram"></i>
-                <span>Lorans Medical</span>
-              </a>
-              <a href="https://instagram.com/bluestudyo" target="_blank" rel="noopener noreferrer" class="brand-chip">
-                <i class="fab fa-instagram"></i>
-                <span>Blue Studyo</span>
-              </a>
-              <a href="https://instagram.com/sea.tourism" target="_blank" rel="noopener noreferrer" class="brand-chip">
-                <i class="fab fa-instagram"></i>
-                <span>Sea Tourism</span>
-              </a>
-            </div>
+        <div class="card brand-strip">
+          <div class="brand-strip-header">
+            <strong>Instagram-first visual design</strong> – posts, stories, reels and campaigns.
+          </div>
+          <div class="brand-row">
+            <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="brand-pill">
+              <i class="fab fa-instagram"></i><span>Orient Detectors</span>
+            </a>
+            <a href="https://instagram.com/ajaxdetector" target="_blank" rel="noopener noreferrer" class="brand-pill">
+              <i class="fab fa-instagram"></i><span>Ajax Detector</span>
+            </a>
+            <a href="https://instagram.com/elixir_phc" target="_blank" rel="noopener noreferrer" class="brand-pill">
+              <i class="fab fa-instagram"></i><span>Elixir PHC</span>
+            </a>
+            <a href="https://instagram.com/loransmedical" target="_blank" rel="noopener noreferrer" class="brand-pill">
+              <i class="fab fa-instagram"></i><span>Lorans Medical</span>
+            </a>
+            <a href="https://instagram.com/bluestudyo" target="_blank" rel="noopener noreferrer" class="brand-pill">
+              <i class="fab fa-instagram"></i><span>Blue Studyo</span>
+            </a>
+            <a href="https://instagram.com/sea.tourism" target="_blank" rel="noopener noreferrer" class="brand-pill">
+              <i class="fab fa-instagram"></i><span>Sea Tourism</span>
+            </a>
           </div>
         </div>
       </div>
@@ -1552,98 +1276,99 @@
     <!-- EXPERIENCE / ON PROJECTS -->
     <section class="section" id="experience">
       <div class="container">
-        <div class="section-panel">
-          <div class="section-heading reveal">
-            <div>
-              <div class="section-kicker">On Projects</div>
-              <h2 class="section-title">Career on Track</h2>
-            </div>
-            <p class="section-subtitle">
-              From daily news graphics to long-term brand systems and product launches.
-            </p>
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">On Projects</div>
+            <h2 class="section-title">Career on Track</h2>
           </div>
+          <p class="section-subtitle">
+            From daily news graphics to long-term brand systems and product launches.
+          </p>
+        </div>
 
-          <div class="timeline">
-            <div class="timeline-main">
-              <div class="exp-item reveal">
-                <div class="exp-dot"></div>
-                <article class="exp-card">
-                  <header class="exp-header">
-                    <h3 class="exp-role">Freelance Graphic Designer</h3>
-                    <span class="exp-date">2023 – Present</span>
-                  </header>
+        <div class="experience-grid">
+          <div class="card">
+            <div class="timeline">
+              <div class="exp-item">
+                <div class="exp-marker"></div>
+                <div class="exp-card">
+                  <div class="exp-header">
+                    <div class="exp-role">Freelance Graphic Designer</div>
+                    <div class="exp-date">2023 – Present</div>
+                  </div>
                   <div class="exp-company">Jewelry Brand · Saudi Arabia</div>
                   <ul class="exp-desc">
                     <li>Produced luxury jewelry product videos and motion posts for campaigns.</li>
                     <li>Designed social media visuals tailored to premium audiences.</li>
                     <li>Created consistent visuals across Instagram feed and stories.</li>
                   </ul>
-                </article>
+                </div>
               </div>
 
-              <div class="exp-item reveal">
-                <div class="exp-dot"></div>
-                <article class="exp-card">
-                  <header class="exp-header">
-                    <h3 class="exp-role">Graphic & Motion Designer</h3>
-                    <span class="exp-date">2022 – Present</span>
-                  </header>
+              <div class="exp-item">
+                <div class="exp-marker"></div>
+                <div class="exp-card">
+                  <div class="exp-header">
+                    <div class="exp-role">Graphic &amp; Motion Designer</div>
+                    <div class="exp-date">2022 – Present</div>
+                  </div>
                   <div class="exp-company">Orient Detectors · Istanbul</div>
                   <ul class="exp-desc">
                     <li>Designed brochures, catalogs and full visual identity for detector products.</li>
-                    <li>Produced product launch videos explaining features & search systems.</li>
+                    <li>Produced product launch videos explaining features &amp; search systems.</li>
                     <li>Created visuals across website, print and social media platforms.</li>
                   </ul>
-                </article>
+                </div>
               </div>
 
-              <div class="exp-item reveal">
-                <div class="exp-dot"></div>
-                <article class="exp-card">
-                  <header class="exp-header">
-                    <h3 class="exp-role">Motion Designer</h3>
-                    <span class="exp-date">2021 – 2022</span>
-                  </header>
+              <div class="exp-item">
+                <div class="exp-marker"></div>
+                <div class="exp-card">
+                  <div class="exp-header">
+                    <div class="exp-role">Motion Designer</div>
+                    <div class="exp-date">2021 – 2022</div>
+                  </div>
                   <div class="exp-company">PHC Elixir</div>
                   <ul class="exp-desc">
                     <li>Produced promotional videos reflecting brand identity and medical services.</li>
                     <li>Created educational visuals to increase audience trust and engagement.</li>
                     <li>Worked with marketing to match visuals with campaign goals.</li>
                   </ul>
-                </article>
+                </div>
               </div>
 
-              <div class="exp-item reveal">
-                <div class="exp-dot"></div>
-                <article class="exp-card">
-                  <header class="exp-header">
-                    <h3 class="exp-role">Motion Designer / Video Editor</h3>
-                    <span class="exp-date">Previous</span>
-                  </header>
+              <div class="exp-item">
+                <div class="exp-marker"></div>
+                <div class="exp-card">
+                  <div class="exp-header">
+                    <div class="exp-role">Motion Designer / Video Editor</div>
+                    <div class="exp-date">Previous</div>
+                  </div>
                   <div class="exp-company">Al Sharq TV</div>
                   <ul class="exp-desc">
-                    <li>Edited and produced daily news videos using Premiere Pro & After Effects.</li>
+                    <li>Edited and produced daily news videos using Premiere Pro &amp; After Effects.</li>
                     <li>Designed thumbnails and social visuals to increase video reach.</li>
                     <li>Delivered fast graphics under breaking-news deadlines.</li>
                   </ul>
-                </article>
+                </div>
               </div>
             </div>
-
-            <aside class="exp-note-card reveal">
-              <div class="exp-note-tag">Focus</div>
-              <p>
-                Every project is built around <strong>clarity</strong>, <strong>speed</strong> and <strong>brand consistency</strong> –
-                especially for sectors like news, health and technology where trust and readability are critical.
-              </p>
-              <div class="exp-note-pills">
-                <span class="exp-note-pill">Arabic & English content</span>
-                <span class="exp-note-pill">Daily content pipelines</span>
-                <span class="exp-note-pill">Template systems for teams</span>
-                <span class="exp-note-pill">Design + edit workflow</span>
-              </div>
-            </aside>
           </div>
+
+          <aside class="card">
+            <div class="exp-note-tag">Focus</div>
+            <p class="exp-note">
+              Every project is built around <strong>clarity</strong>, <strong>speed</strong> and
+              <strong>brand consistency</strong> – especially for sectors like news, health and technology
+              where trust and readability are critical.
+            </p>
+            <div class="exp-pill-row">
+              <span class="exp-pill">Arabic &amp; English content</span>
+              <span class="exp-pill">Daily content pipelines</span>
+              <span class="exp-pill">Template systems for teams</span>
+              <span class="exp-pill">Design + edit workflow</span>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -1651,91 +1376,377 @@
     <!-- PROJECTS / CASE STUDIES -->
     <section class="section" id="projects">
       <div class="container">
-        <div class="section-panel">
-          <div class="section-heading reveal">
-            <div>
-              <div class="section-kicker">Case Studies</div>
-              <h2 class="section-title">Selected Design Work</h2>
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Case Studies</div>
+            <h2 class="section-title">Selected Design Work</h2>
+          </div>
+          <p class="section-subtitle">
+            A snapshot of product campaigns, identities and social visuals – more on Behance.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-embed">
+              <iframe src="https://www.behance.net/embed/project/238580093?ilo0=1" loading="lazy" allowfullscreen
+                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
-            <p class="section-subtitle">
-              A snapshot of product campaigns, identities and social visuals – more on Behance.
-            </p>
+            <div class="project-meta">
+              <span>Detector campaign</span>
+              <span>Orient Detectors</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-embed">
+              <iframe src="https://www.behance.net/embed/project/218895573?ilo0=1" loading="lazy" allowfullscreen
+                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="project-meta">
+              <span>Brand visuals</span>
+              <span>Ajax / Detectors</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-embed">
+              <iframe src="https://www.behance.net/embed/project/199606419?ilo0=1" loading="lazy" allowfullscreen
+                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="project-meta">
+              <span>Medical identity</span>
+              <span>PHC / Lorans</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-embed">
+              <iframe src="https://www.behance.net/embed/project/182476029?ilo0=1" loading="lazy" allowfullscreen
+                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="project-meta">
+              <span>Detectors visuals</span>
+              <span>Product systems</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-embed">
+              <iframe src="https://www.behance.net/embed/project/181868927?ilo0=1" loading="lazy" allowfullscreen
+                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="project-meta">
+              <span>Political posters</span>
+              <span>Social awareness</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-embed">
+              <iframe src="https://www.behance.net/embed/project/219706527?ilo0=1" loading="lazy" allowfullscreen
+                      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="project-meta">
+              <span>Mixed work</span>
+              <span>Reels &amp; posts</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLITICAL / POSTER WALL -->
+    <section class="section" id="political">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Political &amp; Social</div>
+            <h2 class="section-title">Poster Wall</h2>
+          </div>
+          <p class="section-subtitle">
+            Social posts and posters about freedom, justice and human stories from the region.
+          </p>
+        </div>
+
+        <div class="card poster-wall">
+          <p class="poster-intro">
+            A series of posters designed for <strong>feeds and stories</strong>, using bold typography
+            and clear hierarchy so the message is impossible to ignore.
+          </p>
+
+          <div class="poster-row">
+            <figure class="poster-card">
+              <img src="001 copy.png" alt="Political design 001" loading="lazy" />
+              <figcaption class="poster-footer">Political design · 001</figcaption>
+            </figure>
+            <figure class="poster-card">
+              <img src="002.png" alt="Political design 002" loading="lazy" />
+              <figcaption class="poster-footer">Political design · 002</figcaption>
+            </figure>
+            <figure class="poster-card">
+              <img src="٠٠٢.png" alt="Political design main" loading="lazy" />
+              <figcaption class="poster-footer">Political design · main</figcaption>
+            </figure>
+            <figure class="poster-card">
+              <img src="003.png" alt="Political design 003" loading="lazy" />
+              <figcaption class="poster-footer">Political design · 003</figcaption>
+            </figure>
+            <figure class="poster-card">
+              <img src="٠٠٠٦.png" alt="Political design 0006" loading="lazy" />
+              <figcaption class="poster-footer">Political design · 0006</figcaption>
+            </figure>
+            <figure class="poster-card">
+              <img src="٣٨٢٩٥.png" alt="Political design 38295" loading="lazy" />
+              <figcaption class="poster-footer">Political design · 38295</figcaption>
+            </figure>
           </div>
 
-          <div class="projects-grid">
-            <article class="project-card reveal">
-              <div class="project-embed">
-                <iframe src="https://www.behance.net/embed/project/238580093?ilo0=1" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-              </div>
-              <div class="project-meta">
-                <span>Detector campaign</span>
-                <span>Orient Detectors</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-embed">
-                <iframe src="https://www.behance.net/embed/project/218895573?ilo0=1" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-              </div>
-              <div class="project-meta">
-                <span>Brand visuals</span>
-                <span>Ajax / Detectors</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-embed">
-                <iframe src="https://www.behance.net/embed/project/199606419?ilo0=1" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-              </div>
-              <div class="project-meta">
-                <span>Medical identity</span>
-                <span>PHC / Lorans</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-embed">
-                <iframe src="https://www.behance.net/embed/project/182476029?ilo0=1" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-              </div>
-              <div class="project-meta">
-                <span>Detectors visuals</span>
-                <span>Product systems</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-embed">
-                <iframe src="https://www.behance.net/embed/project/181868927?ilo0=1" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-              </div>
-              <div class="project-meta">
-                <span>Political posters</span>
-                <span>Social awareness</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-embed">
-                <iframe src="https://www.behance.net/embed/project/219706527?ilo0=1" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-              </div>
-              <div class="project-meta">
-                <span>Mixed work</span>
-                <span>Reels & posts</span>
-              </div>
-            </article>
+          <div class="poster-link-row">
+            <a href="https://www.behance.net/mohamedadel526" target="_blank" rel="noopener noreferrer" class="poster-link">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              <span>View full political series on Behance</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- POLITICAL DESIGNS – POSTER WALL -->
-    <section class="section" id="political">
+    <!-- VIDEOS / REELS GARAGE -->
+    <section class="section" id="videos">
       <div class="container">
-        <div class="section-panel political-panel">
-          <div class="section-kicker reveal">Political & Social</div>
-          <h2 class="political-header-text reveal">Poster Wall</h2>
-          <p class="political-sub reveal">
-            A series of social posts and posters about freedom, justice and human stories from the region –
-            designed for feeds, stories and timelines where every second counts.
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Reels Garage</div>
+            <h2 class="section-title">Motion &amp; Edit Highlights</h2>
+          </div>
+          <p class="section-subtitle">
+            Detectors, jewelry, medical brands and tourism – a curated collection of reels and edits.
           </p>
+        </div>
 
-          <div class="political-f
+        <div class="videos-grid">
+          <div class="card">
+            <div class="video-list" id="videoList">
+              <article class="video-card"
+                       data-video-url="https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS"
+                       data-source="youtube">
+                <div class="video-thumb">
+                  <img alt="Promo reel 01" loading="lazy" />
+                  <div class="video-play-icon">
+                    <span><i class="fas fa-play"></i></span>
+                  </div>
+                </div>
+                <div class="video-card-body">
+                  <div class="video-title">Promo Reel 01</div>
+                  <div class="video-meta">YouTube · Motion &amp; product visuals</div>
+                </div>
+              </article>
+
+              <article class="video-card"
+                       data-video-url="https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90"
+                       data-source="youtube">
+                <div class="video-thumb">
+                  <img alt="Promo reel 02" loading="lazy" />
+                  <div class="video-play-icon">
+                    <span><i class="fas fa-play"></i></span>
+                  </div>
+                </div>
+                <div class="video-card-body">
+                  <div class="video-title">Promo Reel 02</div>
+                  <div class="video-meta">YouTube Short · Fast-cut reel</div>
+                </div>
+              </article>
+
+              <article class="video-card"
+                       data-video-url="https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB"
+                       data-source="youtube">
+                <div class="video-thumb">
+                  <img alt="Promo reel 03" loading="lazy" />
+                  <div class="video-play-icon">
+                    <span><i class="fas fa-play"></i></span>
+                  </div>
+                </div>
+                <div class="video-card-body">
+                  <div class="video-title">Promo Reel 03</div>
+                  <div class="video-meta">YouTube Short · Motion design</div>
+                </div>
+              </article>
+
+              <article class="video-card"
+                       data-video-url="https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA=="
+                       data-source="instagram"
+                       data-thumb="reel-C4gCuKxhEH0.jpg">
+                <div class="video-thumb">
+                  <img alt="Instagram reel – campaign" loading="lazy" />
+                  <div class="video-play-icon">
+                    <span><i class="fas fa-play"></i></span>
+                  </div>
+                </div>
+                <div class="video-card-body">
+                  <div class="video-title">Instagram Reel</div>
+                  <div class="video-meta">Instagram · Visual campaign</div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="card">
+            <p class="videos-note">
+              I handle both <strong>design</strong> and <strong>editing</strong> – from storyboard and styleframes
+              to final exports optimized for <strong>Instagram Reels, TikTok, YouTube &amp; TV</strong>.
+            </p>
+            <p class="videos-note" style="margin-top:0.7rem;">
+              Thumbnails are taken directly from YouTube and Instagram, keeping this section always ready
+              to grow with your content.
+            </p>
+            <div class="videos-tags">
+              <span class="videos-tag">Explainers &amp; promos</span>
+              <span class="videos-tag">Before / after visuals</span>
+              <span class="videos-tag">Subtitled social videos</span>
+              <span class="videos-tag">Medical &amp; educational motion</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / WORK WITH ME -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Work With Me</div>
+            <h2 class="section-title">Let’s Build What’s Next</h2>
+          </div>
+          <p class="section-subtitle">
+            Whether it’s a full brand system, a product launch or a fast social package – I’m ready to join your next project.
+          </p>
+        </div>
+
+        <div class="card contact-grid">
+          <div>
+            <p class="contact-text">
+              <strong>Tell me about your brand, product or story</strong> – I can help you turn it into visuals
+              that work on screen, in motion and across social platforms.
+            </p>
+            <div class="contact-lines">
+              <span><i class="fas fa-envelope"></i> mohadel0300@gmail.com</span>
+              <span><i class="fas fa-phone"></i> 0090 553 476 6703 (WhatsApp)</span>
+              <span><i class="fas fa-location-dot"></i> Based in Istanbul · Available worldwide</span>
+            </div>
+            <div class="contact-note">
+              Fluent in <strong>Arabic, English and Turkish</strong> – we can work in whichever language fits your audience.
+            </div>
+          </div>
+
+          <div>
+            <div class="social-row">
+              <a href="https://www.behance.net/mohamedadel526" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Behance">
+                <i class="fab fa-behance"></i>
+              </a>
+              <a href="https://wa.me/905534766703" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a href="https://instagram.com/orient.detectors" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Orient Detectors">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-btn" aria-label="LinkedIn profile">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+            <div style="margin-top:1rem;">
+              <a href="mailto:mohadel0300@gmail.com?subject=Project%20Inquiry%20-%20From%20Portfolio" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                <span>Send Your Brief</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Mobile nav toggle
+    (function () {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.nav-links');
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('mobile-open');
+      });
+    })();
+
+    // Simple active link on scroll
+    (function () {
+      const links = Array.from(document.querySelectorAll('.nav-link'));
+      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      if (!links.length || !sections.length) return;
+
+      const setActive = () => {
+        const scrollY = window.scrollY;
+        const center = scrollY + window.innerHeight * 0.3;
+        let currentId = null;
+
+        for (const sec of sections) {
+          const top = sec.offsetTop;
+          const bottom = top + sec.offsetHeight;
+          if (center >= top && center < bottom) {
+            currentId = sec.id;
+            break;
+          }
+        }
+
+        links.forEach(link => {
+          const id = link.getAttribute('href').slice(1);
+          link.classList.toggle('is-active', id === currentId);
+        });
+      };
+
+      window.addEventListener('scroll', setActive, { passive: true });
+      setActive();
+    })();
+
+    // Video thumbnails + click
+    (function () {
+      const cards = Array.from(document.querySelectorAll('.video-card'));
+      if (!cards.length) return;
+
+      const getYouTubeId = url => {
+        if (!url) return null;
+        const longMatch = url.match(/[?&]v=([^&#]+)/);
+        if (longMatch && longMatch[1]) return longMatch[1];
+        const shortMatch = url.match(/youtu\.be\/([^?&#]+)/);
+        if (shortMatch && shortMatch[1]) return shortMatch[1];
+        const shortsMatch = url.match(/youtube\.com\/shorts\/([^?]+)/);
+        if (shortsMatch && shortsMatch[1]) return shortsMatch[1];
+        return null;
+      };
+
+      cards.forEach(card => {
+        const url = card.getAttribute('data-video-url');
+        const source = (card.getAttribute('data-source') || '').toLowerCase();
+        const img = card.querySelector('img');
+        const thumbAttr = card.getAttribute('data-thumb');
+
+        if (img) {
+          if (thumbAttr) {
+            img.src = thumbAttr;
+          } else if (source === 'youtube') {
+            const id = getYouTubeId(url);
+            if (id) {
+              img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+            }
+          }
+        }
+
+        card.addEventListener('click', () => {
+          if (url) window.open(url, '_blank');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
