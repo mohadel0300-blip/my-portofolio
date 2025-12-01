@@ -159,7 +159,7 @@
             }
         }
 
-        /* --- LANDON NORRIS HEADLINE TRICK --- */
+        /* --- THE "LANDO NORRIS" HEADLINE TRICK --- */
         .ln-mask {
             display: block;
             overflow: hidden;
@@ -184,7 +184,7 @@
         .d-3 { animation-delay: 0.3s; }
         .d-4 { animation-delay: 0.4s; }
 
-        /* Section reveal */
+        /* General section reveal */
         .reveal {
             opacity: 0;
             transform: translateY(50px) scale(0.95);
@@ -212,8 +212,6 @@
             overflow: hidden;
             flex-direction: column;
             padding-top: 40px;
-            perspective: 1600px;
-            transform-style: preserve-3d;
         }
 
         .red-string {
@@ -257,14 +255,6 @@
             font-weight: 400;
         }
 
-        .hero-title-wrap-3d {
-            margin-top: 16px;
-            perspective: 1200px;
-            transform-style: preserve-3d;
-            --title-tilt-x: 0deg;
-            --title-tilt-y: 0deg;
-        }
-
         .hero-title-row {
             display: flex;
             align-items: baseline;
@@ -272,9 +262,6 @@
             gap: 15px; 
             flex-wrap: wrap;
             margin-top: 10px;
-            transform-origin: center center;
-            transform: rotateX(var(--title-tilt-x)) rotateY(var(--title-tilt-y));
-            transition: transform 0.22s ease-out;
         }
 
         .port-text {
@@ -365,6 +352,7 @@
             display: block;
             border-radius: 10px;
             pointer-events: none;
+            background-color: #f1f1f1;
         }
 
         @keyframes popIn {
@@ -400,67 +388,30 @@
             width: 240px;
             background: white;
             padding: 10px 10px 40px 10px;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.65);
+            transform: rotate(5deg);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             z-index: 8;
             opacity: 0;
+            animation: floatIn 1.5s ease-out forwards 0.5s;
             cursor: grab;
             will-change: transform, opacity;
-            transform-style: preserve-3d;
-            --hero-tilt-x: 14deg;
-            --hero-tilt-y: -20deg;
-            --hero-translate-y: 0px;
-            transform: translateY(var(--hero-translate-y))
-                       rotateX(var(--hero-tilt-x))
-                       rotateY(var(--hero-tilt-y))
-                       translateZ(60px);
-            border-radius: 18px;
-            overflow: hidden;
-            animation: floatIn 1.4s ease-out forwards 0.5s;
         }
 
         .profile-frame-hero:active { cursor: grabbing; }
 
         @keyframes floatIn {
-            from {
-                opacity: 0;
-                transform: translateY(40px) rotateX(0deg) rotateY(0deg) translateZ(0px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(var(--hero-translate-y))
-                           rotateX(var(--hero-tilt-x))
-                           rotateY(var(--hero-tilt-y))
-                           translateZ(60px);
-            }
+            from { opacity: 0; transform: translateY(50px) rotate(0deg); }
+            to { opacity: 1; transform: translateY(0) rotate(5deg); }
         }
 
-        .profile-frame-hero::before {
-            content: "";
-            position: absolute;
-            inset: -40%;
-            background: radial-gradient(circle at 0% 0%, rgba(79, 209, 197, 0.7), transparent 60%),
-                        radial-gradient(circle at 100% 100%, rgba(33, 150, 243, 0.8), transparent 55%);
-            mix-blend-mode: screen;
-            opacity: 0.55;
-            pointer-events: none;
-        }
-
-        .profile-frame-hero img {
-            width: 100%;
-            display: block;
-            pointer-events: none;
-            position: relative;
-            z-index: 1;
-        }
+        .profile-frame-hero img { width: 100%; display: block; pointer-events: none; background-color: #ddd; min-height: 240px;}
 
         .profile-name-hero {
-            color: #222;
+            color: #333;
             font-family: 'Shadows Into Light', cursive;
             text-align: center;
             margin-top: 10px;
             font-size: 1.2rem;
-            position: relative;
-            z-index: 1;
         }
 
         /* Clipboard / About */
@@ -541,7 +492,7 @@
 
         .polaroid-cv:hover { transform: rotate(0deg) scale(1.05); }
 
-        .polaroid-cv img { width: 100%; display: block; }
+        .polaroid-cv img { width: 100%; display: block; background-color: #eee; min-height: 280px; }
         
         .paper-header {
             margin-bottom: 40px;
@@ -855,6 +806,7 @@
             overflow: hidden;
             margin-bottom: 60px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background-color: #2b3a55; /* Fallback color */
             background-image: url('water line.png');
             background-size: cover;
             background-position: center;
@@ -921,6 +873,8 @@
             width: 100%;
             overflow: hidden;
             border-radius: 15px;
+            min-height: 316px;
+            background: #000;
         }
 
         .behance-embed-wrapper iframe {
@@ -929,16 +883,16 @@
             display: block;
         }
 
-        /* 3D BOOKS */
+        /* 3D FAN DECK (Lando Norris Style) */
         .political-section {
             margin-top: 120px;
             position: relative;
-            perspective: 2500px;
-            padding-bottom: 100px;
+            padding-bottom: 150px;
+            overflow: hidden; /* Prevent horizontal scroll from wide arc */
         }
 
         .political-title {
-            font-size: 2.2rem;
+            font-size: 3rem;
             font-weight: 800;
             text-align: center;
             margin-bottom: 10px;
@@ -946,151 +900,125 @@
             letter-spacing: 1px;
             position: relative;
             z-index: 5;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .political-sub {
             text-align: center;
             color: var(--accent-blue);
             font-size: 0.9rem;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             text-transform: uppercase;
             letter-spacing: 2px;
             position: relative;
             z-index: 5;
         }
 
-        .scatter-bg-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 10rem;
-            font-weight: 900;
-            opacity: 0.04;
-            color: white;
-            pointer-events: none;
-            z-index: 0;
-            text-align: center;
+        .fan-deck-container {
+            position: relative;
             width: 100%;
-            line-height: 0.8;
-            white-space: nowrap;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-        }
-
-        .book-shelf-grid {
+            height: 500px;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .book-container {
-            width: var(--book-width);
-            height: var(--book-height);
-            position: relative;
-            transform-style: preserve-3d;
+            align-items: center;
             perspective: 1000px;
-            cursor: pointer;
-            margin: 20px;
         }
 
-        .book {
-            width: 100%;
-            height: 100%;
+        .fan-card {
             position: absolute;
-            transform-style: preserve-3d;
-            transform: rotateY(-25deg) rotateX(10deg) rotateZ(0deg);
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.6s ease;
-            box-shadow: 25px 25px 50px rgba(0,0,0,0.5);
-        }
-
-        .book:hover {
-            transform: rotateY(0deg) rotateX(0deg) translateZ(30px) scale(1.05);
-            box-shadow: 0 40px 70px rgba(0,0,0,0.7);
-            z-index: 10;
-        }
-
-        .book > div {
-            position: absolute;
-            backface-visibility: hidden;
-        }
-
-        .cover {
-            width: 100%;
-            height: 100%;
+            width: 260px;
+            height: 380px;
             background-color: #fff;
-            transform: translateZ(20px);
-            border-radius: 4px;
+            border-radius: 20px;
             overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transform-origin: bottom center;
+            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 4px solid #fff;
         }
-        
-        .cover img {
+
+        .fan-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-        
-        .cover::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%);
             pointer-events: none;
         }
 
-        .spine {
-            width: var(--book-depth);
-            height: 100%;
-            background: #e0e0e0;
-            transform: rotateY(-90deg) translateZ(10px);
-            left: -20px;
-            background-image: linear-gradient(90deg, rgba(0,0,0,0.1), rgba(0,0,0,0.05), rgba(255,255,255,0.2));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .spine::before {
-            content: "DESIGN";
-            transform: rotate(-90deg);
-            font-size: 12px;
-            color: #555;
-            font-weight: 800;
-            letter-spacing: 3px;
-            opacity: 0.7;
+        /* Initial stacked state (hidden before scroll) */
+        .reveal .fan-card {
+            transform: rotate(0deg) translate(0, 100px) scale(0.8);
+            opacity: 0;
         }
 
-        .right-side {
-            width: var(--book-depth);
-            height: 100%;
-            background: #fff;
-            transform: rotateY(90deg) translateZ(calc(var(--book-width) - 20px));
-            right: -20px;
-            background-image: repeating-linear-gradient(90deg, #fff 0px, #eee 1px, #fff 2px);
+        /* Active fan state (after scroll) */
+        .reveal.active .fan-card {
+            opacity: 1;
         }
 
-        .top-side {
-            width: 100%;
-            height: var(--book-depth);
-            background: #fff;
-            transform: rotateX(90deg) translateZ(20px);
-            top: -20px;
-            background-image: repeating-linear-gradient(0deg, #fff 0px, #eee 1px, #fff 2px);
+        /* Specific Fan Positions */
+        /* Card 1 (Far Left) */
+        .reveal.active .fan-card:nth-child(1) {
+            transform: translateX(-320px) translateY(60px) rotate(-15deg);
+            z-index: 1;
         }
         
-        .bottom-side {
-            width: 100%;
-            height: var(--book-depth);
-            background: #fff;
-            transform: rotateX(-90deg) translateZ(calc(var(--book-height) - 20px));
-            bottom: -20px;
-            background-image: repeating-linear-gradient(0deg, #fff 0px, #eee 1px, #fff 2px);
+        /* Card 2 (Left) */
+        .reveal.active .fan-card:nth-child(2) {
+            transform: translateX(-170px) translateY(20px) rotate(-8deg);
+            z-index: 2;
+        }
+
+        /* Card 3 (Center) */
+        .reveal.active .fan-card:nth-child(3) {
+            transform: translateX(0px) translateY(0px) rotate(0deg) scale(1.1);
+            z-index: 10;
+            box-shadow: 0 30px 60px rgba(33, 150, 243, 0.3);
+        }
+
+        /* Card 4 (Right) */
+        .reveal.active .fan-card:nth-child(4) {
+            transform: translateX(170px) translateY(20px) rotate(8deg);
+            z-index: 2;
+        }
+
+        /* Card 5 (Far Right) */
+        .reveal.active .fan-card:nth-child(5) {
+            transform: translateX(320px) translateY(60px) rotate(15deg);
+            z-index: 1;
+        }
+
+        /* Hover Effects */
+        .fan-card:hover {
+            z-index: 20 !important;
+            transform: scale(1.15) rotate(0deg) !important;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.8) !important;
+            border-color: var(--accent-blue);
+        }
+
+        /* Mobile Adjustments for Fan */
+        @media (max-width: 900px) {
+            .fan-deck-container {
+                flex-direction: column;
+                height: auto;
+                gap: 20px;
+                padding-bottom: 50px;
+            }
+
+            .fan-card {
+                position: relative;
+                transform: none !important;
+                width: 80%;
+                max-width: 300px;
+                height: 400px;
+                margin: 0 auto;
+                opacity: 1 !important;
+            }
+            
+            .reveal.active .fan-card:nth-child(n) {
+                transform: none !important;
+            }
         }
 
         /* Contact & Footer */
@@ -1165,6 +1093,93 @@
             box-shadow: 0 10px 20px rgba(33, 150, 243, 0.4);
         }
 
+        /* AI SECTION STYLES */
+        .ai-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0d121d 100%);
+            text-align: center;
+        }
+
+        .ai-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(33, 150, 243, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 40px rgba(33, 150, 243, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--accent-blue), #ff3b30, var(--accent-blue));
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+        .ai-input {
+            width: 100%;
+            padding: 20px;
+            background: rgba(5, 10, 20, 0.6);
+            border: 1px solid #475569;
+            border-radius: 12px;
+            color: white;
+            margin-bottom: 25px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 120px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .ai-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.2);
+        }
+
+        .ai-result {
+            margin-top: 30px;
+            text-align: left;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-blue);
+            display: none; 
+            white-space: pre-wrap;
+            color: #e2e8f0;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .ai-result strong {
+            color: var(--accent-blue);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .loading-spinner {
+            display: none;
+            margin: 20px auto;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
         /* RESPONSIVE */
         @media (max-width: 900px) {
             .hero-top-text { font-size: 2rem; }
@@ -1175,14 +1190,9 @@
                 position: relative;
                 top: auto; right: auto;
                 margin: 20px auto;
+                transform: rotate(5deg);
                 opacity: 1 !important;
                 animation: none;
-                transform: none;
-                box-shadow: 0 12px 25px rgba(0,0,0,0.5);
-            }
-
-            .profile-frame-hero::before {
-                opacity: 0.45;
             }
 
             .sticky { display: none !important; }
@@ -1264,28 +1274,27 @@
 
         <div class="sticky note-1 reveal delay-1">
             <div class="pin red"></div>
-            <img src="001 copy.png" alt="Political Project" loading="lazy" decoding="async">
+            <img src="001 copy.png" alt="Political Project" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x300/333/fff?text=Project';">
         </div>
         <div class="sticky note-2 reveal delay-2">
             <div class="pin blue"></div>
-            <img src="live stream.png" alt="Uncover Treasures" loading="lazy" decoding="async">
+            <img src="live stream.png" alt="Uncover Treasures" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x300/444/fff?text=Stream';">
         </div>
         <div class="sticky note-3 reveal delay-3">
             <div class="pin blue"></div>
-            <img src="6 SYS.png" alt="6 Search Modes" loading="lazy" decoding="async">
+            <img src="6 SYS.png" alt="6 Search Modes" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x200/555/fff?text=Modes';">
         </div>
         <div class="sticky note-4 reveal delay-4">
             <div class="pin blue"></div>
-            <img src="pulse.png" alt="Pulse Induction" loading="lazy" decoding="async">
+            <img src="pulse.png" alt="Pulse Induction" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x300/666/fff?text=Pulse';">
         </div>
         <div class="sticky note-5 reveal delay-4">
             <div class="pin red"></div>
-            <img src="water line.png" alt="Water Detection" loading="lazy" decoding="async">
+            <img src="water line.png" alt="Water Detection" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x300/777/fff?text=Water';">
         </div>
 
-        <!-- 3D Hero Polaroid (Helmet-style) -->
         <div class="profile-frame-hero reveal delay-2">
-            <img src="MINED.png" alt="Mohamed Amer">
+            <img src="MINED.png" alt="Mohamed Amer" onerror="this.onerror=null; this.src='https://placehold.co/400x500/333/fff?text=Mohamed+Amer';">
             <div class="profile-name-hero">Mohamed Amer</div>
         </div>
 
@@ -1294,16 +1303,13 @@
                 <div class="ln-mask">
                     <span class="hero-top-text ln-reveal d-1">Graphic Design</span>
                 </div>
-
-                <!-- 3D Headline Wrapper -->
-                <div class="hero-title-wrap-3d">
-                    <div class="hero-title-row">
-                        <div class="ln-mask">
-                            <span class="port-text ln-reveal d-2">PORT</span>
-                        </div>
-                        <div class="ln-mask">
-                            <span class="folio-text ln-reveal d-3">folio</span>
-                        </div>
+                
+                <div class="hero-title-row">
+                    <div class="ln-mask">
+                        <span class="port-text ln-reveal d-2">PORT</span>
+                    </div>
+                    <div class="ln-mask">
+                        <span class="folio-text ln-reveal d-3">folio</span>
                     </div>
                 </div>
 
@@ -1320,7 +1326,6 @@
     </header>
 
     <main>
-        <!-- ABOUT -->
         <section id="about" class="clipboard-section reveal">
             <h2 class="section-title">ABOUT ME</h2>
 
@@ -1331,7 +1336,7 @@
                     <div class="clipboard-paper">
                         <div class="polaroid-cv">
                             <div class="pin" style="top:-10px; right: 50%;"></div>
-                            <img src="MINED.png" alt="Mohamed Amer" loading="lazy" decoding="async">
+                            <img src="MINED.png" alt="Mohamed Amer" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/400x500/333/fff?text=Mohamed+Amer';">
                         </div>
 
                         <div class="paper-header">
@@ -1379,7 +1384,6 @@
             </div>
         </section>
 
-        <!-- SKILLS -->
         <section id="skills" class="skills-section reveal">
             <div class="container">
                 <h2 class="section-title">SKILLS</h2>
@@ -1404,68 +1408,66 @@
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
         <section id="experience" class="experience-section reveal">
             <div class="container">
                 <h2 class="section-title">EXPERIENCE</h2>
-            <div class="timeline">
-                <div class="exp-card">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-header">
-                        <span class="exp-role">Freelance Graphic Designer</span>
-                        <span class="exp-date">2023 - Present</span>
+                <div class="timeline">
+                    <div class="exp-card">
+                        <div class="timeline-dot"></div>
+                        <div class="exp-header">
+                            <span class="exp-role">Freelance Graphic Designer</span>
+                            <span class="exp-date">2023 - Present</span>
+                        </div>
+                        <span class="exp-company">Jewelry Brand | Saudi Arabia</span>
+                        <ul class="exp-desc">
+                            <li>Produced high-end jewelry product videos for digital campaigns.</li>
+                            <li>Designed social media content tailored to target audiences.</li>
+                            <li>Created visuals aligned with brand identity to improve user experience.</li>
+                        </ul>
                     </div>
-                    <span class="exp-company">Jewelry Brand | Saudi Arabia</span>
-                    <ul class="exp-desc">
-                        <li>Produced high-end jewelry product videos for digital campaigns.</li>
-                        <li>Designed social media content tailored to target audiences.</li>
-                        <li>Created visuals aligned with brand identity to improve user experience.</li>
-                    </ul>
-                </div>
-                <div class="exp-card">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-header">
-                        <span class="exp-role">Graphic & Motion Designer</span>
-                        <span class="exp-date">2022 - Present</span>
+                    <div class="exp-card">
+                        <div class="timeline-dot"></div>
+                        <div class="exp-header">
+                            <span class="exp-role">Graphic & Motion Designer</span>
+                            <span class="exp-date">2022 - Present</span>
+                        </div>
+                        <span class="exp-company">Orient Detectors | Istanbul</span>
+                        <ul class="exp-desc">
+                            <li>Designed brochures, catalogs, marketing visuals, and full brand identity elements.</li>
+                            <li>Produced professional product videos showcasing features and applications.</li>
+                            <li>Collaborated with the marketing team to develop creative concepts.</li>
+                        </ul>
                     </div>
-                    <span class="exp-company">Orient Detectors | Istanbul</span>
-                    <ul class="exp-desc">
-                        <li>Designed brochures, catalogs, marketing visuals, and full brand identity elements.</li>
-                        <li>Produced professional product videos showcasing features and applications.</li>
-                        <li>Collaborated with the marketing team to develop creative concepts.</li>
-                    </ul>
-                </div>
-                <div class="exp-card">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-header">
-                        <span class="exp-role">Motion Designer</span>
-                        <span class="exp-date">2021 - 2022</span>
+                    <div class="exp-card">
+                        <div class="timeline-dot"></div>
+                        <div class="exp-header">
+                            <span class="exp-role">Motion Designer</span>
+                            <span class="exp-date">2021 - 2022</span>
+                        </div>
+                        <span class="exp-company">PHC Elixir</span>
+                        <ul class="exp-desc">
+                            <li>Produced promotional videos reflecting brand identity.</li>
+                            <li>Created visually compelling designs to increase audience engagement.</li>
+                            <li>Developed effective visual content aligned with marketing objectives.</li>
+                        </ul>
                     </div>
-                    <span class="exp-company">PHC Elixir</span>
-                    <ul class="exp-desc">
-                        <li>Produced promotional videos reflecting brand identity.</li>
-                        <li>Created visually compelling designs to increase audience engagement.</li>
-                        <li>Developed effective visual content aligned with marketing objectives.</li>
-                    </ul>
-                </div>
-                <div class="exp-card">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-header">
-                        <span class="exp-role">Motion Designer / Video Editor</span>
-                        <span class="exp-date">Previous</span>
+                    <div class="exp-card">
+                        <div class="timeline-dot"></div>
+                        <div class="exp-header">
+                            <span class="exp-role">Motion Designer / Video Editor</span>
+                            <span class="exp-date">Previous</span>
+                        </div>
+                        <span class="exp-company">Al Sharq TV</span>
+                        <ul class="exp-desc">
+                            <li>Edited and produced daily news videos using Adobe Premiere Pro & After Effects.</li>
+                            <li>Designed engaging thumbnails for social media video distribution.</li>
+                            <li>Managed visual content to achieve higher reach and engagement.</li>
+                        </ul>
                     </div>
-                    <span class="exp-company">Al Sharq TV</span>
-                    <ul class="exp-desc">
-                        <li>Edited and produced daily news videos using Adobe Premiere Pro & After Effects.</li>
-                        <li>Designed engaging thumbnails for social media video distribution.</li>
-                        <li>Managed visual content to achieve higher reach and engagement.</li>
-                    </ul>
                 </div>
-            </div>
             </div>
         </section>
 
-        <!-- PROJECTS -->
         <section id="projects" class="projects-section reveal">
             <div class="container">
                 <h2 class="projects-header-text">✨ PROJECTS ✨</h2>
@@ -1522,7 +1524,7 @@
                         <div class="book-container">
                             <div class="book">
                                 <div class="cover">
-                                    <img src="001 copy.png" alt="Political Post 1" loading="lazy" decoding="async">
+                                    <img src="001 copy.png" alt="Political Post 1" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/240x340/333/fff?text=Design+1';">
                                 </div>
                                 <div class="spine"></div>
                                 <div class="right-side"></div>
@@ -1534,7 +1536,7 @@
                         <div class="book-container">
                             <div class="book">
                                 <div class="cover">
-                                    <img src="002.png" alt="Political Post 2" loading="lazy" decoding="async">
+                                    <img src="002.png" alt="Political Post 2" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/240x340/444/fff?text=Design+2';">
                                 </div>
                                 <div class="spine"></div>
                                 <div class="right-side"></div>
@@ -1546,7 +1548,7 @@
                         <div class="book-container">
                             <div class="book">
                                 <div class="cover">
-                                    <img src="٠٠٢.png" alt="Political Post 3" loading="lazy" decoding="async">
+                                    <img src="٠٠٢.png" alt="Political Post 3" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/240x340/555/fff?text=Design+3';">
                                 </div>
                                 <div class="spine"></div>
                                 <div class="right-side"></div>
@@ -1558,42 +1560,63 @@
                         <div class="book-container">
                             <div class="book">
                                 <div class="cover">
-                                    <img src="003.png" alt="Political Post 4" loading="lazy" decoding="async">
+                                    <img src="003.png" alt="Political Post 4" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/240x340/666/fff?text=Design+4';">
                                 </div>
                                 <div class="spine"></div>
-                                <div class="right-side"></div>
-                                <div class="top-side"></div>
-                                <div class="bottom-side"></div>
-                            </div>
+                <div class="political-section reveal">
+                    <h3 class="political-title">Political Designs</h3>
+                    <div class="political-sub">SOCIAL &amp; POLITICAL AWARENESS POSTS</div>
+
+                    <!-- Fan Deck Container -->
+                    <div class="fan-deck-container">
+                        <!-- Card 1 -->
+                        <div class="fan-card">
+                            <img src="001 copy.png" alt="Political Post 1" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x450/222/fff?text=Design+1';">
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="fan-card">
+                            <img src="002.png" alt="Political Post 2" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x450/333/fff?text=Design+2';">
                         </div>
 
-                        <div class="book-container">
-                            <div class="book">
-                                <div class="cover">
-                                    <img src="٠٠٠٦.png" alt="Political Post 5" loading="lazy" decoding="async">
-                                </div>
-                                <div class="spine"></div>
-                                <div class="right-side"></div>
-                                <div class="top-side"></div>
-                                <div class="bottom-side"></div>
-                            </div>
+                        <!-- Card 3 (Center) -->
+                        <div class="fan-card">
+                            <img src="٠٠٢.png" alt="Political Post 3" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x450/1565C0/fff?text=Center+Piece';">
                         </div>
 
-                        <div class="book-container">
-                            <div class="book">
-                                <div class="cover">
-                                    <img src="٣٨٢٩٥.png" alt="Political Post 6" loading="lazy" decoding="async">
-                                </div>
-                                <div class="spine"></div>
-                                <div class="right-side"></div>
-                                <div class="top-side"></div>
-                                <div class="bottom-side"></div>
-                            </div>
+                        <!-- Card 4 -->
+                        <div class="fan-card">
+                            <img src="003.png" alt="Political Post 4" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x450/333/fff?text=Design+4';">
                         </div>
 
+                        <!-- Card 5 -->
+                        <div class="fan-card">
+                            <img src="٠٠٠٦.png" alt="Political Post 5" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/300x450/222/fff?text=Design+5';">
+                        </div>
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- ✨ GEMINI AI FEATURE ✨ -->
+        <section id="ai-spark" class="ai-section reveal">
+            <div class="container">
+                <h2 class="section-title">✨ AI Creative Spark ✨</h2>
+                <div class="contact-card ai-card">
+                    <p class="contact-text" style="margin-bottom: 25px;">
+                        Stuck on an idea? Describe your project below, and my AI assistant (powered by Gemini) will draft a creative brief with color palettes and visual concepts for us to discuss.
+                    </p>
+                    
+                    <textarea id="ai-prompt" class="ai-input" placeholder="E.g., A minimalist logo for a sustainable coffee shop in Istanbul that uses recycled materials..."></textarea>
+                    
+                    <button id="ai-generate-btn" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1.1rem;">
+                        <i class="fas fa-magic"></i> Generate Creative Brief
+                    </button>
+                    
+                    <div id="ai-loading" class="loading-spinner"></div>
+                    <div id="ai-output" class="ai-result"></div>
+                </div>
             </div>
         </section>
 
@@ -1618,7 +1641,7 @@
     </main>
 
     <script>
-        // 1. Reveal on scroll (IntersectionObserver) + hero parallax
+        // 1. Reveal on scroll + hero motion / parallax (Lando-style)
         const revealElements = document.querySelectorAll('.reveal');
         const headerEl = document.querySelector('header');
         const heroWrapper = document.querySelector('.hero-wrapper');
@@ -1627,8 +1650,6 @@
         const redString = document.querySelector('.red-string');
         const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
         const sections = Array.from(document.querySelectorAll('main section[id]'));
-        const heroTitleWrap = document.querySelector('.hero-title-wrap-3d');
-        const heroSection = headerEl;
 
         function revealOnScrollFallback() {
             const windowHeight = window.innerHeight;
@@ -1642,6 +1663,7 @@
             });
         }
 
+        // Use IntersectionObserver where available for cheaper scroll handling
         if ('IntersectionObserver' in window) {
             const io = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -1660,7 +1682,7 @@
             window.addEventListener('scroll', revealOnScrollFallback, { passive: true });
         }
 
-        // Cache sticky metadata (no getComputedStyle on every scroll)
+        // Cache sticky metadata so we don't call getComputedStyle on every scroll
         const stickyMeta = Array.from(stickyNotes).map((note, index) => {
             const baseRot = getComputedStyle(note).getPropertyValue('--rot') || '0deg';
             return {
@@ -1676,7 +1698,7 @@
             const rect = headerEl.getBoundingClientRect();
             const totalHeight = rect.height || window.innerHeight;
             const scrollInside = Math.min(Math.max(-rect.top, 0), totalHeight);
-            const progress = scrollInside / totalHeight;
+            const progress = scrollInside / totalHeight; // 0 -> 1
 
             const heroScale = 1 - progress * 0.08;
             const heroTranslateY = progress * 40;
@@ -1687,7 +1709,7 @@
 
             if (profileFrame) {
                 const profileOffset = progress * -35;
-                profileFrame.style.setProperty('--hero-translate-y', profileOffset + 'px');
+                profileFrame.style.transform = `translateY(${profileOffset}px) rotate(5deg)`;
             }
 
             if (redString) {
@@ -1739,55 +1761,11 @@
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true });
+        // Initial state on load
         heroScrollEffects();
         updateNavActiveState();
 
-        // 2. 3D Hero interaction (helmet-style) with mouse
-        if (heroSection && profileFrame) {
-            let heroBounds = null;
-            const maxTiltX = 16;  // up/down
-            const maxTiltY = 24;  // left/right
-
-            function updateHeroBounds() {
-                heroBounds = heroSection.getBoundingClientRect();
-            }
-
-            updateHeroBounds();
-            window.addEventListener('resize', updateHeroBounds);
-
-            heroSection.addEventListener('mousemove', (e) => {
-                if (window.innerWidth <= 900) return;
-                if (!heroBounds) return;
-
-                const relX = (e.clientX - heroBounds.left) / heroBounds.width - 0.5;
-                const relY = (e.clientY - heroBounds.top) / heroBounds.height - 0.5;
-
-                const tiltX = (-relY * maxTiltX); // invert Y
-                const tiltY = (relX * maxTiltY);
-
-                profileFrame.style.setProperty('--hero-tilt-x', (tiltX + 12).toFixed(2) + 'deg');
-                profileFrame.style.setProperty('--hero-tilt-y', (tiltY - 14).toFixed(2) + 'deg');
-
-                if (heroTitleWrap) {
-                    heroTitleWrap.style.setProperty('--title-tilt-x', (tiltX * 0.35).toFixed(2) + 'deg');
-                    heroTitleWrap.style.setProperty('--title-tilt-y', (tiltY * 0.35).toFixed(2) + 'deg');
-                }
-            });
-
-            heroSection.addEventListener('mouseleave', () => {
-                if (window.innerWidth <= 900) return;
-
-                profileFrame.style.setProperty('--hero-tilt-x', '14deg');
-                profileFrame.style.setProperty('--hero-tilt-y', '-20deg');
-
-                if (heroTitleWrap) {
-                    heroTitleWrap.style.setProperty('--title-tilt-x', '0deg');
-                    heroTitleWrap.style.setProperty('--title-tilt-y', '0deg');
-                }
-            });
-        }
-
-        // 3. Draggable Notes & Polaroid (desktop only)
+        // 2. Draggable Functionality for Notes & polaroid (desktop only)
         let highestZ = 100;
 
         function makeDraggable(selector) {
@@ -1799,7 +1777,7 @@
                 elmnt.onmousedown = dragMouseDown;
 
                 function dragMouseDown(e) {
-                    if (window.innerWidth <= 900) return;
+                    if (window.innerWidth <= 900) return; // no drag on mobile
 
                     e = e || window.event;
                     e.preventDefault();
@@ -1835,7 +1813,7 @@
         makeDraggable('.sticky');
         makeDraggable('.profile-frame-hero');
 
-        // 4. Clipboard tilt (3D card feel)
+        // 3. Clipboard tilt on mouse move (3D card feel)
         const clipboardContainer = document.querySelector('.clipboard-container');
 
         if (clipboardContainer) {
@@ -1850,8 +1828,8 @@
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
 
-                    const rotateY = ((x / rect.width) - 0.5) * 10;
-                    const rotateX = ((y / rect.height) - 0.5) * -10;
+                    const rotateY = ((x / rect.width) - 0.5) * 10;  // left/right
+                    const rotateX = ((y / rect.height) - 0.5) * -10; // up/down
 
                     clipboardContainer.style.transform =
                         `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
@@ -1862,6 +1840,99 @@
             clipboardContainer.addEventListener('mouseleave', () => {
                 clipboardContainer.style.transform = 'rotateX(0deg) rotateY(0deg)';
             });
+        }
+
+        // 5. Gemini AI Integration
+        const apiKey = ""; // API Key provided by environment at runtime
+
+        const aiBtn = document.getElementById('ai-generate-btn');
+        const aiPrompt = document.getElementById('ai-prompt');
+        const aiOutput = document.getElementById('ai-output');
+        const aiLoading = document.getElementById('ai-loading');
+
+        async function callGemini(promptText) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{
+                    parts: [{
+                        text: `You are an expert Creative Director and Graphic Designer. 
+                        Generate a structured creative brief for the following project request: "${promptText}".
+                        
+                        Please format the output clearly with the following sections (use **Bold** for headers):
+                        
+                        1. **Core Concept**: A 1-2 sentence elevator pitch.
+                        2. **Visual Direction**: Describe the mood, style (e.g., minimalist, grunge, corporate), and imagery.
+                        3. **Color Palette**: Suggest 3 specific colors with Hex codes (e.g., Deep Navy #000080).
+                        4. **Typography**: Suggest font styles (e.g., Sans-Serif, Handwritten).
+                        5. **Metaphors**: 1-2 visual metaphors to explore.
+                        
+                        Keep the tone professional, inspiring, and concise.`
+                    }]
+                }]
+            };
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) throw new Error(`API Error: ${response.status}`);
+            return await response.json();
+        }
+
+        async function handleAiGeneration() {
+            const text = aiPrompt.value.trim();
+            if (!text) {
+                alert("Please describe your idea first!");
+                return;
+            }
+
+            // UI Loading State
+            aiBtn.disabled = true;
+            aiBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Dreaming up ideas...';
+            aiOutput.style.display = 'none';
+            aiLoading.style.display = 'block';
+
+            // Exponential Backoff Logic
+            const maxRetries = 5;
+            let attempt = 0;
+            let success = false;
+            let resultText = "";
+
+            while (attempt < maxRetries && !success) {
+                try {
+                    const data = await callGemini(text);
+                    resultText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No creative spark found. Try a different prompt.";
+                    success = true;
+                } catch (error) {
+                    attempt++;
+                    console.warn(`Attempt ${attempt} failed. Retrying...`);
+                    if (attempt >= maxRetries) {
+                        resultText = "⚠️ The creative muse is sleeping (API Error). Please try again later.";
+                    } else {
+                        // Wait 2^attempt seconds before retrying
+                        await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
+                    }
+                }
+            }
+
+            // Clean up Markdown bolding for display if simple text
+            // Simple replace for **text** to <strong>text</strong> for HTML rendering
+            const formattedText = resultText
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            // UI Result State
+            aiOutput.innerHTML = formattedText;
+            aiOutput.style.display = 'block';
+            aiLoading.style.display = 'none';
+            aiBtn.disabled = false;
+            aiBtn.innerHTML = '<i class="fas fa-magic"></i> Generate Another Brief';
+        }
+
+        if (aiBtn) {
+            aiBtn.addEventListener('click', handleAiGeneration);
         }
     </script>
 
