@@ -67,6 +67,52 @@
       padding: 0 20px;
     }
 
+    .hero .container,
+    .section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Parallax base layers */
+    .parallax-layer {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    .hero-parallax-bubble {
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: radial-gradient(circle at center, rgba(56, 189, 248, 0.35), transparent 60%);
+      top: -140px;
+      right: -80px;
+      opacity: 0.7;
+      filter: blur(2px);
+    }
+
+    .section-parallax-ring {
+      width: 360px;
+      height: 360px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 0 60px rgba(15, 23, 42, 0.9);
+      opacity: 0.4;
+    }
+
+    .section-parallax-ring--about {
+      top: 45%;
+      left: -200px;
+    }
+
+    .section-parallax-ring--political {
+      top: 10%;
+      right: -230px;
+      border-color: rgba(248, 113, 113, 0.7);
+      opacity: 0.55;
+    }
+
     /* NAVBAR */
     .nav-shell {
       position: fixed;
@@ -220,8 +266,28 @@
 
     /* SECTIONS / TITLES */
     .section {
-      padding: 110px 0;
+      padding: 140px 0;
       position: relative;
+    }
+
+    .section + .section {
+      margin-top: 40px;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 1px;
+      height: 60px;
+      transform: translateX(-50%);
+      background: linear-gradient(to bottom, rgba(148, 163, 184, 0.7), transparent);
+      opacity: 0.6;
+    }
+
+    .section:first-of-type::before {
+      content: none;
     }
 
     .section-heading {
@@ -503,6 +569,7 @@
       opacity: 0.5;
       filter: blur(18px);
       z-index: 0;
+      will-change: transform;
     }
 
     .hero-card {
@@ -951,7 +1018,7 @@
       background: rgba(15, 23, 42, 0.98);
       box-shadow: var(--shadow-soft);
       transform: translateY(0);
-      transition: transform 180ms ease-out, box-shadow 180ms ease-out, border-color 180ms ease-out;
+      transition: transform 180ms.ease-out, box-shadow 180ms ease-out, border-color 180ms ease-out;
     }
 
     .project-card:hover {
@@ -984,6 +1051,103 @@
       color: #e5e7eb;
     }
 
+    /* POLITICAL SECTION */
+    .section-political {
+      background: radial-gradient(circle at top, rgba(248, 113, 113, 0.09), transparent 65%);
+    }
+
+    .political-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .political-card {
+      border-radius: 22px;
+      padding: 22px 20px 20px 20px;
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(248, 113, 113, 0.7);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .political-card::before {
+      content: '';
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.27), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .political-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .political-card p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
+
+    .political-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #fecaca;
+      margin-bottom: 8px;
+    }
+
+    .political-meta {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.78rem;
+    }
+
+    .political-meta-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 113, 113, 0.7);
+      color: #fecaca;
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .political-link {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #fecaca;
+      text-decoration: none;
+    }
+
+    .political-link i {
+      font-size: 0.82rem;
+    }
+
+    .political-card--alt {
+      border-color: rgba(248, 250, 252, 0.35);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.7), transparent 60%), rgba(15, 23, 42, 0.98);
+    }
+
+    .political-card--alt::before {
+      background: radial-gradient(circle at 100% 0, rgba(148, 163, 184, 0.25), transparent 55%);
+    }
+
+    @media (max-width: 960px) {
+      .political-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     /* VIDEO REELS SECTION */
     .videos-section {
       position: relative;
@@ -1008,7 +1172,7 @@
       background: rgba(15, 23, 42, 0.98);
       border: 1px solid rgba(148, 163, 184, 0.55);
       cursor: pointer;
-      transition: transform 160ms ease-out, box-shadow 160ms ease-out, border-color 160ms ease-out;
+      transition: transform 160ms ease-out, box-shadow 160ms.ease-out, border-color 160ms ease-out;
       display: flex;
       flex-direction: column;
     }
@@ -1269,6 +1433,7 @@
         <a href="#brands" class="nav-link">Brands</a>
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
+        <a href="#political" class="nav-link">Political</a>
         <a href="#videos" class="nav-link">Videos</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -1285,6 +1450,7 @@
   <main>
     <!-- HERO -->
     <section class="hero" id="top">
+      <div class="parallax-layer hero-parallax-bubble" data-parallax-depth="0.08"></div>
       <div class="container">
         <div class="hero-grid">
           <div class="hero-left reveal">
@@ -1350,7 +1516,7 @@
           </div>
 
           <div class="hero-right-shell reveal">
-            <div class="hero-card-orbit"></div>
+            <div class="hero-card-orbit" data-parallax-depth="0.12"></div>
             <article class="hero-card" id="heroCard3D" aria-label="Portrait of Mohamed Amer">
               <div class="hero-card-glow"></div>
               <img src="MINED.png" alt="Mohamed Amer" loading="lazy" decoding="async" />
@@ -1370,6 +1536,7 @@
 
     <!-- ABOUT & SKILLS -->
     <section class="section" id="about">
+      <div class="parallax-layer section-parallax-ring section-parallax-ring--about" data-parallax-depth="0.16"></div>
       <div class="container">
         <div class="section-heading reveal">
           <div>
@@ -1671,6 +1838,56 @@
       </div>
     </section>
 
+    <!-- POLITICAL WORK SECTION -->
+    <section class="section section-political" id="political">
+      <div class="parallax-layer section-parallax-ring section-parallax-ring--political" data-parallax-depth="0.22"></div>
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <div class="section-kicker">Political & Social</div>
+            <h2 class="section-title">Political Artwork</h2>
+          </div>
+          <p class="section-subtitle">
+            Posters and social visuals that focus on freedom, justice and human stories from the region.
+          </p>
+        </div>
+
+        <div class="political-grid">
+          <article class="political-card reveal">
+            <div class="political-tag">Posters Series</div>
+            <h3>Voices of Resistance</h3>
+            <p>
+              A series of political posters designed for social media, highlighting prisoners of conscience, freedom of speech
+              and key events in the region. Strong typography, limited color palettes and bold compositions.
+            </p>
+            <div class="political-meta">
+              <span class="political-meta-pill">Awareness campaigns</span>
+              <span class="political-meta-pill">Arabic & English</span>
+              <span class="political-meta-pill">Optimized for feeds & stories</span>
+            </div>
+            <a href="https://www.behance.net/mohamedadel526" target="_blank" rel="noopener noreferrer" class="political-link">
+              <span>View political work on Behance</span>
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </article>
+
+          <article class="political-card political-card--alt reveal">
+            <div class="political-tag">Social Media</div>
+            <h3>Daily Political Posts</h3>
+            <p>
+              Templates and visuals created for news channels and pages to cover breaking news, statements and statistics in a
+              clear and powerful way.
+            </p>
+            <div class="political-meta">
+              <span class="political-meta-pill">TV & digital news</span>
+              <span class="political-meta-pill">Fast update workflow</span>
+              <span class="political-meta-pill">Data & infographics</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- VIDEO REELS SECTION -->
     <section class="section videos-section" id="videos">
       <div class="container">
@@ -1686,7 +1903,6 @@
 
         <div class="videos-layout">
           <div class="videos-grid" id="videoGrid">
-            <!-- Your real video cards -->
             <article class="video-card reveal"
                      data-video-url="https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS"
                      data-source="youtube">
@@ -1883,6 +2099,26 @@
       });
     })();
 
+    // Simple scroll-based parallax for decorative layers
+    (() => {
+      const layers = qsa('[data-parallax-depth]');
+      if (!layers.length) return;
+
+      const update = () => {
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+        layers.forEach(layer => {
+          const depth = parseFloat(layer.dataset.parallaxDepth) || 0.15;
+          const movement = scrollY * depth;
+          layer.style.transform = `translate3d(0, ${movement * -1}px, 0)`;
+        });
+      };
+
+      update();
+      window.addEventListener('scroll', () => {
+        window.requestAnimationFrame(update);
+      }, { passive: true });
+    })();
+
     // Nav active state on scroll
     (() => {
       const links = qsa('.nav-link');
@@ -1915,7 +2151,7 @@
       setActive();
     })();
 
-    // Mobile nav toggle (simple behavior)
+    // Mobile nav toggle
     (() => {
       const toggle = qs('.nav-menu-toggle');
       const nav = qs('.nav-links');
