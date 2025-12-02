@@ -31,35 +31,32 @@
        1. CORE VARIABLES & RESET
        ========================================= */
     :root {
-      /* Darker, Deeper Blue Background */
+      /* Deep Premium Blue/Black Theme */
       --bg-page: #010208; 
-      --bg-surface: rgba(10, 15, 30, 0.7);
-      --bg-surface-hover: rgba(20, 25, 45, 0.9);
+      --bg-surface: rgba(12, 18, 34, 0.7);
+      --bg-surface-hover: rgba(22, 30, 50, 0.9);
       
-      --border-color: rgba(59, 130, 246, 0.1);
+      --border-color: rgba(59, 130, 246, 0.12);
       --border-hover: rgba(59, 130, 246, 0.5);
 
-      --accent: #2563eb; /* Strong Blue */
+      --accent: #2563eb; /* Strong Electric Blue */
       --accent-glow: rgba(37, 99, 235, 0.5);
-      --accent-secondary: #7c3aed;
-
-      --text-main: #f8fafc;
+      
+      --text-main: #ffffff;
       --text-muted: #94a3b8;
       
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
       --radius-full: 9999px;
+      --radius-card: 24px;
 
       --font-main: "Plus Jakarta Sans", sans-serif;
       --font-hand: "Reenie Beanie", cursive;
       --font-arabic: "IBM Plex Sans Arabic", sans-serif;
 
-      --z-cursor: 9999;
       --z-nav: 1000;
       --z-modal: 2000;
       --z-toast: 3000;
       --z-loader: 4000;
+      --z-cursor: 9999;
     }
 
     *, *::before, *::after {
@@ -107,7 +104,7 @@
        2. LAYOUT UTILITIES
        ========================================= */
     .container {
-      max-width: 1280px;
+      max-width: 1320px;
       margin: 0 auto;
       padding: 0 24px;
       position: relative;
@@ -119,7 +116,19 @@
       margin-bottom: clamp(6rem, 15vh, 12rem);
     }
 
-    .grid-bento {
+    /* Masonry Grid Layout */
+    .masonry-grid {
+      column-count: 3;
+      column-gap: 24px;
+    }
+    
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 24px;
+      display: block; /* Important for links */
+    }
+
+    .grid-standard {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 24px;
@@ -132,12 +141,14 @@
     .col-span-3 { grid-column: span 3; }
 
     @media (max-width: 1024px) {
+      .masonry-grid { column-count: 2; }
       .col-span-8 { grid-column: span 12; }
       .col-span-4 { grid-column: span 6; }
       .col-span-3 { grid-column: span 6; }
     }
 
     @media (max-width: 768px) {
+      .masonry-grid { column-count: 1; }
       .col-span-6, .col-span-4, .col-span-3 { grid-column: span 12; }
       .hero-grid { flex-direction: column-reverse; }
     }
@@ -170,7 +181,7 @@
       text-shadow: 0 0 35px rgba(37, 99, 235, 0.4); 
     }
 
-    /* Backgrounds & Ambience - DARKER */
+    /* Backgrounds */
     .ambient-light {
       position: fixed;
       top: 50%;
@@ -181,8 +192,8 @@
       z-index: 0;
       pointer-events: none;
       background: 
-        radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.08), transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(30, 58, 138, 0.08), transparent 50%);
+        radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.09), transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(20, 40, 100, 0.1), transparent 50%);
       filter: blur(90px);
     }
 
@@ -192,13 +203,13 @@
       z-index: 0;
       pointer-events: none;
       opacity: 0.15;
-      mix-blend-mode: overlay;
+      mix-blend-mode: screen;
     }
     
     .noise-overlay {
       position: fixed;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 1;
     }
@@ -268,7 +279,7 @@
         background: #050a19;
         flex-direction: column;
         padding: 24px;
-        border-radius: var(--radius-lg);
+        border-radius: var(--radius-card);
         border: 1px solid var(--border-color);
         gap: 12px;
         box-shadow: 0 20px 50px rgba(0,0,0,0.8);
@@ -279,7 +290,7 @@
     }
 
     /* =========================================
-       4. BUTTONS
+       4. BUTTONS & ANIMATIONS
        ========================================= */
     .btn-primary, .btn-glass {
       padding: 16px 32px;
@@ -320,11 +331,15 @@
       transform: translateY(-2px);
     }
 
-    /* Shape Shifting Animation */
     @keyframes morph {
       0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
       50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
       100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    }
+
+    @keyframes float-icon {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.02); }
     }
 
     /* =========================================
@@ -361,7 +376,6 @@
       color: var(--accent);
       font-family: var(--font-hand);
       font-weight: 400;
-      /* Large Amer */
       font-size: 0.7em; 
       margin-top: 10px;
       transform: rotate(-2deg);
@@ -403,45 +417,46 @@
       height: 100%;
       border: 1px dashed rgba(255,255,255,0.1);
       border-radius: 50%;
-      animation: spin 40s linear infinite;
+      animation: spin 60s linear infinite;
     }
 
-    /* Morphing Planet Icons */
+    /* Improved Planet Icons: Blob shape + Counter Rotation + Floating */
     .planet-icon {
       position: absolute;
-      width: 64px;
-      height: 64px;
+      width: 70px;
+      height: 70px;
       background: rgba(30, 40, 70, 0.5);
       border: 1px solid rgba(255,255,255,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--text-main);
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       backdrop-filter: blur(8px);
       transition: all 0.4s ease;
       cursor: pointer;
-      /* Initial round shape */
-      border-radius: 50%; 
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      /* Complex Animation: Spin around + Counter spin to stay upright + Float + Morph */
+      animation: counter-spin 60s linear infinite, morph 5s ease-in-out infinite, float-icon 4s ease-in-out infinite; 
     }
     
     .planet-icon:hover { 
       background: var(--accent);
       color: #fff;
       border-color: transparent;
-      box-shadow: 0 0 30px rgba(37, 99, 235, 0.6);
+      box-shadow: 0 0 40px rgba(37, 99, 235, 0.7);
       transform: scale(1.15);
-      /* Trigger Morph */
-      animation: morph 3s ease-in-out infinite;
+      z-index: 10;
     }
 
-    .p-1 { top: 0; left: 50%; transform: translate(-50%, -50%); }
-    .p-2 { top: 50%; right: 0; transform: translate(50%, -50%); }
-    .p-3 { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
-    .p-4 { top: 50%; left: 0; transform: translate(-50%, -50%); }
+    .p-1 { top: 0; left: 50%; transform: translate(-50%, -50%); animation-delay: 0s, 0s, 0s; }
+    .p-2 { top: 50%; right: 0; transform: translate(50%, -50%); animation-delay: -15s, -1s, -1s; }
+    .p-3 { bottom: 0; left: 50%; transform: translate(-50%, 50%); animation-delay: -30s, -2s, -2s; }
+    .p-4 { top: 50%; left: 0; transform: translate(-50%, -50%); animation-delay: -45s, -3s, -3s; }
 
     @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes counter-spin { from { transform: translate(-50%, -50%) rotate(360deg); } to { transform: translate(-50%, -50%) rotate(0deg); } }
 
     /* =========================================
        6. MARQUEE
@@ -474,16 +489,12 @@
       gap: 10px;
     }
     
-    .marquee-item::after {
-      content: "•";
-      opacity: 0.5;
-      margin-left: 4rem;
-    }
+    .marquee-item::after { content: "•"; opacity: 0.5; margin-left: 4rem; }
 
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* =========================================
-       7. WORK SECTION (LOOP & SQUARE CARDS)
+       7. WORK SECTION (ADAPTIVE MASONRY)
        ========================================= */
     .work-header {
       display: flex;
@@ -494,76 +505,54 @@
       margin-bottom: 50px;
     }
 
-    /* Projects Loop Container */
-    .project-loop-container {
-      overflow: hidden;
-      width: 100%;
-      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-      padding: 20px 0;
-    }
-
-    .project-track {
-      display: flex;
-      gap: 24px;
-      width: max-content;
-      animation: scrollProjects 45s linear infinite;
-    }
-
-    .project-loop-container:hover .project-track {
-      animation-play-state: paused;
-    }
-
-    @keyframes scrollProjects {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Redesigned Square Cards */
-    .project-card-square {
-      width: 420px;
-      height: 420px;
+    /* Adaptive Project Card */
+    .project-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
-      border-radius: 16px;
+      border-radius: var(--radius-card);
       overflow: hidden;
       position: relative;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      transition: border-color 0.3s ease;
+      display: block; /* For anchor */
+      margin-bottom: 24px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      /* Remove fixed aspect ratio to adapt to content */
     }
     
-    .project-card-square:hover {
+    .project-card:hover {
       border-color: var(--accent);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
     }
 
-    .project-media-square {
+    /* IFrame/Image Wrapper */
+    .project-media-wrapper {
       width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      z-index: 1;
+      position: relative;
+      /* If IFrame is used, we need consistent height or aspect-ratio wrapper. 
+         Behance embeds are fixed height usually. We'll use CSS to force fit width. */
+      line-height: 0;
     }
     
-    .project-media-square iframe {
+    .project-media-wrapper iframe {
       width: 100%;
       height: 100%;
+      min-height: 320px; /* Ensure visibility */
       border: none;
-      pointer-events: none; /* No interaction for loop smoothness */
-      object-fit: cover;
+      /* Disable pointer events on IFrame so the CARD LINK works */
+      pointer-events: none; 
     }
 
-    /* Black Gradient Overlay for Projects */
+    /* Clickable Overlay Link behavior handled by wrapping card in <a> */
+
     .project-info-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      padding: 30px;
-      background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 40%, transparent 100%);
-      z-index: 2;
-      transition: opacity 0.3s ease;
+      padding: 32px;
+      background: linear-gradient(to top, rgba(0,0,0,0.98) 10%, rgba(0,0,0,0.6) 50%, transparent 100%);
+      z-index: 5;
+      pointer-events: none; /* Let clicks pass through */
     }
 
     .project-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
@@ -572,7 +561,7 @@
 
     /* Behance CTA */
     .behance-cta-wrapper {
-      margin-top: 60px;
+      margin-top: 40px;
       display: flex;
       justify-content: center;
     }
@@ -601,34 +590,31 @@
     }
 
     /* =========================================
-       8. VIRAL & POLITICAL
+       8. VIRAL SHORTS (MASONRY & AUTO THUMB)
        ========================================= */
     .short-card {
-      cursor: pointer;
       position: relative;
       overflow: hidden;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-card);
+      display: block;
+      margin-bottom: 24px;
+      transition: transform 0.4s ease;
     }
     
-    .short-media {
-      aspect-ratio: 9/16;
+    .short-card img {
       width: 100%;
-      height: 100%;
-    }
-    
-    .short-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease;
     }
 
-    .short-card:hover .short-media img { transform: scale(1.1); }
+    .short-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+    .short-card:hover img { transform: scale(1.08); }
 
     .play-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -638,19 +624,17 @@
 
     .short-card:hover .play-overlay { opacity: 1; }
     
-    /* Interactive Play Button */
     .play-btn {
-      width: 70px;
-      height: 70px;
-      background: rgba(255,255,255,0.1);
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.2);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      /* Initial Shape */
       border-radius: 50%;
       transition: all 0.3s ease;
     }
@@ -661,6 +645,9 @@
       animation: morph 2s infinite ease-in-out;
     }
 
+    /* =========================================
+       9. POLITICAL LOOP & ARCHIVE
+       ========================================= */
     /* Political Loop */
     .political-loop-container {
       overflow: hidden;
@@ -689,7 +676,7 @@
     .political-item {
       min-width: 320px;
       height: 480px;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-card);
       overflow: hidden;
       position: relative;
       border: 1px solid var(--border-color);
@@ -727,9 +714,7 @@
       text-shadow: 0 5px 20px #000;
     }
 
-    /* =========================================
-       9. ARCHIVE (VAULT STYLE)
-       ========================================= */
+    /* Archive (Vault Style) */
     .drive-card-redesigned {
       background: linear-gradient(135deg, rgba(10, 20, 40, 0.8), #010208);
       border: 1px solid rgba(59, 130, 246, 0.2);
@@ -762,7 +747,6 @@
       pointer-events: none;
     }
 
-    /* Morphing Icon Box */
     .drive-icon-box {
       width: 110px;
       height: 110px;
@@ -775,7 +759,6 @@
       color: var(--accent);
       margin-bottom: 30px;
       transition: all 0.4s ease;
-      /* Initial */
       border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     }
 
@@ -787,8 +770,8 @@
       animation: morph 3s infinite alternate;
     }
 
-    /* Morphing Service Icons */
-    .service-card { padding: 40px 30px; text-align: left; transition: all 0.3s; }
+    /* Services */
+    .service-card { padding: 40px 30px; text-align: left; transition: all 0.3s; margin-bottom: 24px; break-inside: avoid; }
     .service-card:hover { transform: translateY(-5px); background: var(--bg-surface-hover); }
     
     .service-icon { 
@@ -860,7 +843,7 @@
     }
 
     /* =========================================
-       10. FOOTER & AI MODAL
+       10. FOOTER
        ========================================= */
     .footer {
       background: #000;
@@ -933,7 +916,7 @@
       max-width: 640px;
       background: #0a0f1e;
       border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-card);
       padding: 40px;
       box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.9);
     }
@@ -942,7 +925,7 @@
       width: 100%;
       background: #111827;
       border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
+      border-radius: 16px;
       color: #fff;
       padding: 20px;
       min-height: 140px;
@@ -1039,7 +1022,7 @@
           <div class="tilt-inner" style="display: flex; align-items: center; justify-content: center;">
             <img src="MINED.png" alt="Mohamed Amer" class="profile-img">
             <div class="orbit-ring">
-              <!-- Morphing Icons -->
+              <!-- Morphing Icons with Counter-Rotation -->
               <div class="planet-icon p-1" title="Photoshop"><i class="fas fa-image"></i></div>
               <div class="planet-icon p-2" title="After Effects"><i class="fas fa-film"></i></div>
               <div class="planet-icon p-3" title="Illustrator"><i class="fas fa-pen-nib"></i></div>
@@ -1066,7 +1049,7 @@
       </div>
     </div>
 
-    <!-- WORK (LOOP & SQUARE CARDS - NO FILTERS) -->
+    <!-- WORK (MASONRY - CLICKABLE) -->
     <section id="work" class="container section-spacing">
       <div class="work-header">
         <div>
@@ -1075,94 +1058,72 @@
         </div>
       </div>
 
-      <div class="project-loop-container">
-        <div class="project-track">
-          <!-- Project 1 -->
-          <div class="project-card-square">
-            <div class="project-media-square">
-               <iframe src="https://www.behance.net/embed/project/181868927?ilo0=1" loading="lazy"></iframe>
-            </div>
-            <div class="project-info-overlay">
-              <h3 class="project-title">Real Estate Social Media</h3>
-              <p class="project-cat">Graphic Design • 2024</p>
-            </div>
+      <div class="masonry-grid">
+        <!-- Project 1 -->
+        <a href="https://www.behance.net/gallery/181868927/Real-Estate-Social-Media" target="_blank" class="masonry-item project-card magnet-target">
+          <div class="project-media-wrapper">
+             <iframe src="https://www.behance.net/embed/project/181868927?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
           </div>
+          <div class="project-info-overlay">
+            <h3 class="project-title">Real Estate Social Media</h3>
+            <p class="project-cat">Graphic Design • 2024</p>
+          </div>
+        </a>
 
-          <!-- Project 2 -->
-          <div class="project-card-square">
-            <div class="project-media-square">
-              <iframe src="https://www.behance.net/embed/project/223143539?ilo0=1" loading="lazy"></iframe>
-            </div>
-            <div class="project-info-overlay">
-              <h3 class="project-title">Food Industry Socials</h3>
-              <p class="project-cat">Social Media • 2024</p>
-            </div>
+        <!-- Project 2 -->
+        <a href="https://www.behance.net/gallery/223143539/Food-Industry-Socials" target="_blank" class="masonry-item project-card magnet-target">
+          <div class="project-media-wrapper">
+            <iframe src="https://www.behance.net/embed/project/223143539?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
           </div>
+          <div class="project-info-overlay">
+            <h3 class="project-title">Food Industry Socials</h3>
+            <p class="project-cat">Social Media • 2024</p>
+          </div>
+        </a>
 
-          <!-- Project 3 -->
-          <div class="project-card-square">
-            <div class="project-media-square">
-               <iframe src="https://www.behance.net/embed/project/219706527?ilo0=1" loading="lazy"></iframe>
-            </div>
-            <div class="project-info-overlay">
-              <h3 class="project-title">Gym & Fitness</h3>
-              <p class="project-cat">Brand Identity • 2024</p>
-            </div>
+        <!-- Project 3 -->
+        <a href="https://www.behance.net/gallery/219706527/Gym-Fitness" target="_blank" class="masonry-item project-card magnet-target">
+          <div class="project-media-wrapper">
+             <iframe src="https://www.behance.net/embed/project/219706527?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
           </div>
+          <div class="project-info-overlay">
+            <h3 class="project-title">Gym & Fitness</h3>
+            <p class="project-cat">Brand Identity • 2024</p>
+          </div>
+        </a>
 
-          <!-- Project 4 -->
-          <div class="project-card-square">
-            <div class="project-media-square">
-              <iframe src="https://www.behance.net/embed/project/238580093?ilo0=1" loading="lazy"></iframe>
-            </div>
-            <div class="project-info-overlay">
-              <h3 class="project-title">Orient Detectors</h3>
-              <p class="project-cat">Motion Campaign • 2024</p>
-            </div>
+        <!-- Project 4 -->
+        <a href="https://www.behance.net/gallery/238580093/Orient-Detectors" target="_blank" class="masonry-item project-card magnet-target">
+          <div class="project-media-wrapper">
+            <iframe src="https://www.behance.net/embed/project/238580093?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
           </div>
+          <div class="project-info-overlay">
+            <h3 class="project-title">Orient Detectors</h3>
+            <p class="project-cat">Motion Campaign • 2024</p>
+          </div>
+        </a>
 
-          <!-- Project 5 -->
-          <div class="project-card-square">
-            <div class="project-media-square">
-              <iframe src="https://www.behance.net/embed/project/218895573?ilo0=1" loading="lazy"></iframe>
-            </div>
-            <div class="project-info-overlay">
-              <h3 class="project-title">Ajax Systems</h3>
-              <p class="project-cat">Brand Identity • 2023</p>
-            </div>
+        <!-- Project 5 -->
+        <a href="https://www.behance.net/gallery/218895573/Ajax-Systems" target="_blank" class="masonry-item project-card magnet-target">
+          <div class="project-media-wrapper">
+            <iframe src="https://www.behance.net/embed/project/218895573?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
           </div>
+          <div class="project-info-overlay">
+            <h3 class="project-title">Ajax Systems</h3>
+            <p class="project-cat">Brand Identity • 2023</p>
+          </div>
+        </a>
 
-          <!-- Project 6 -->
-          <div class="project-card-square">
-            <div class="project-media-square">
-              <iframe src="https://www.behance.net/embed/project/199606419?ilo0=1" loading="lazy"></iframe>
-            </div>
-            <div class="project-info-overlay">
-              <h3 class="project-title">Social Media Visuals</h3>
-              <p class="project-cat">Content Strategy</p>
-            </div>
+        <!-- Project 6 -->
+        <a href="https://www.behance.net/gallery/199606419/Social-Media-Visuals" target="_blank" class="masonry-item project-card magnet-target">
+          <div class="project-media-wrapper">
+            <iframe src="https://www.behance.net/embed/project/199606419?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
           </div>
-
-          <!-- Duplicates for Loop -->
-          <div class="project-card-square">
-            <div class="project-media-square">
-               <iframe src="https://www.behance.net/embed/project/181868927?ilo0=1" loading="lazy"></iframe>
-            </div>
-            <div class="project-info-overlay">
-              <h3 class="project-title">Real Estate Social Media</h3>
-              <p class="project-cat">Graphic Design • 2024</p>
-            </div>
+          <div class="project-info-overlay">
+            <h3 class="project-title">Social Media Visuals</h3>
+            <p class="project-cat">Content Strategy</p>
           </div>
-          <div class="project-card-square">
-            <div class="project-media-square">
-              <iframe src="https://www.behance.net/embed/project/223143539?ilo0=1" loading="lazy"></iframe>
-            </div>
-            <div class="project-info-overlay">
-              <h3 class="project-title">Food Industry Socials</h3>
-              <p class="project-cat">Social Media • 2024</p>
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
 
       <!-- Behance Link Button -->
@@ -1174,40 +1135,36 @@
       </div>
     </section>
 
-    <!-- VIRAL SHORTS -->
+    <!-- VIRAL SHORTS (AUTO THUMBNAILS - MASONRY) -->
     <section id="viral-shorts" class="container section-spacing">
       <div style="text-align: center; margin-bottom: 4rem;">
         <span class="label" data-i18n="label-viral">Viral Content</span>
         <h2 class="title-lg" data-i18n="title-viral">FEATURED <span class="accent-text">SHORTS</span></h2>
       </div>
 
-      <div class="grid-bento">
-        <div class="col-span-3 short-card tilt-wrapper" onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS','_blank')">
-          <div class="tilt-inner short-media">
-            <img src="https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg" alt="Short 1">
-            <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-          </div>
+      <div class="masonry-grid">
+        <!-- YouTube Short 1 -->
+        <div class="masonry-item short-card magnet-target" onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS','_blank')">
+          <img src="https://img.youtube.com/vi/F-lmawsIKEI/maxresdefault.jpg" alt="Viral short 1" onerror="this.src='https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg'">
+          <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
         </div>
 
-        <div class="col-span-3 short-card tilt-wrapper" onclick="window.open('https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90','_blank')">
-          <div class="tilt-inner short-media">
-            <img src="https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg" alt="Short 2">
-            <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-          </div>
+        <!-- YouTube Short 2 -->
+        <div class="masonry-item short-card magnet-target" onclick="window.open('https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90','_blank')">
+          <img src="https://img.youtube.com/vi/Z9xVIlCuQpA/maxresdefault.jpg" alt="Viral short 2" onerror="this.src='https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg'">
+          <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
         </div>
 
-        <div class="col-span-3 short-card tilt-wrapper" onclick="window.open('https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB','_blank')">
-          <div class="tilt-inner short-media">
-            <img src="https://img.youtube.com/vi/oKIJWxeoMZo/hqdefault.jpg" alt="Short 3">
-            <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-          </div>
+        <!-- YouTube Short 3 -->
+        <div class="masonry-item short-card magnet-target" onclick="window.open('https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB','_blank')">
+          <img src="https://img.youtube.com/vi/oKIJWxeoMZo/maxresdefault.jpg" alt="Viral short 3" onerror="this.src='https://img.youtube.com/vi/oKIJWxeoMZo/hqdefault.jpg'">
+          <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
         </div>
 
-        <div class="col-span-3 short-card tilt-wrapper" onclick="window.open('https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==','_blank')">
-          <div class="tilt-inner short-media" style="background: linear-gradient(45deg, #f09433, #bc1888); display:flex; align-items:center; justify-content:center;">
-            <i class="fab fa-instagram" style="font-size: 3rem; color: white;"></i>
-             <div class="play-overlay"><div class="play-btn"><i class="fas fa-eye"></i></div></div>
-          </div>
+        <!-- Instagram Reel -->
+        <div class="masonry-item short-card magnet-target" onclick="window.open('https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==','_blank')" style="background: linear-gradient(45deg, #f09433, #bc1888); min-height: 350px; display: flex; align-items: center; justify-content: center;">
+           <i class="fab fa-instagram" style="font-size: 4rem; color: white;"></i>
+           <div class="play-overlay"><div class="play-btn"><i class="fas fa-eye"></i></div></div>
         </div>
       </div>
     </section>
@@ -1231,9 +1188,9 @@
       </a>
     </section>
 
-    <!-- SERVICES (SHAPE SHIFTING ICONS) -->
+    <!-- SERVICES (MASONRY) -->
     <section id="services" class="container section-spacing">
-      <div class="grid-bento">
+      <div class="grid-standard">
         <div class="col-span-4">
           <span class="label" data-i18n="label-what-i-do">Services</span>
           <h2 class="title-lg" data-i18n="title-services">WHAT I <span class="accent-text">OFFER</span></h2>
@@ -1242,23 +1199,23 @@
         </div>
         
         <div class="col-span-8">
-          <div class="grid-bento">
-            <div class="col-span-6 bento-card service-card">
+          <div class="masonry-grid">
+            <div class="masonry-item service-card bento-card">
               <div class="service-icon"><i class="fas fa-bezier-curve"></i></div>
               <h3>Visual Identity</h3>
               <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Logo design, typography, and comprehensive brand guidelines.</p>
             </div>
-            <div class="col-span-6 bento-card service-card">
+            <div class="masonry-item service-card bento-card">
               <div class="service-icon"><i class="fas fa-film"></i></div>
               <h3>Motion Design</h3>
               <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">2D/3D animation, explainers, and UI interactions.</p>
             </div>
-            <div class="col-span-6 bento-card service-card">
+            <div class="masonry-item service-card bento-card">
               <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
               <h3>Social Strategy</h3>
               <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Content planning and high-impact visual creation.</p>
             </div>
-            <div class="col-span-6 bento-card service-card">
+            <div class="masonry-item service-card bento-card">
               <div class="service-icon"><i class="fas fa-layer-group"></i></div>
               <h3>Art Direction</h3>
               <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Leading creative teams and visual conceptualization.</p>
@@ -1360,7 +1317,7 @@
 
     <!-- TOOLKIT & BLOG -->
     <section class="container section-spacing">
-      <div class="grid-bento">
+      <div class="grid-standard">
         <div class="col-span-12" style="text-align: center;">
           <h2 class="title-lg" data-i18n="title-software">MY <span class="accent-text">TOOLKIT</span></h2>
         </div>
@@ -1518,7 +1475,7 @@
         cursorCircle.style.top = e.clientY + "px";
         cursorCircle.style.left = e.clientX + "px";
       });
-      document.querySelectorAll("a, button, .short-card, .project-card-square, .political-item").forEach(el => {
+      document.querySelectorAll("a, button, .short-card, .masonry-item, .political-item").forEach(el => {
         el.addEventListener("mouseenter", () => { cursorCircle.style.width = "60px"; cursorCircle.style.height = "60px"; cursorCircle.style.background = "rgba(59, 130, 246, 0.2)"; });
         el.addEventListener("mouseleave", () => { cursorCircle.style.width = "40px"; cursorCircle.style.height = "40px"; cursorCircle.style.background = "transparent"; });
       });
@@ -1565,9 +1522,9 @@
       // Interactions
       window.toggleMenu = () => document.getElementById("mobileMenu").classList.toggle("active");
       
-      // Filter logic kept for future scalability but buttons removed from UI as per request for Loop layout
+      // Filter logic kept for future scalability
       window.filterProjects = (cat) => {
-        // ... (Logic preserved but currently unused in loop view)
+        // ...
       };
 
       window.openAiModal = () => document.getElementById("aiModal").classList.add("active");
