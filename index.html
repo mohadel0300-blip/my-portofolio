@@ -62,6 +62,12 @@
         cursor: none; 
     }
     
+    .no-custom-cursor *,
+    .no-custom-cursor *::before,
+    .no-custom-cursor *::after {
+      cursor: auto;
+    }
+    
     a { 
         text-decoration: none !important; /* Force remove underline */
         color: inherit; 
@@ -237,6 +243,7 @@
     /* Loading */
     .preloader { position: fixed; inset: 0; background: #000; z-index: 4000; display: flex; justify-content: center; align-items: center; flex-direction: column; }
     .loader-text { font-family: var(--font-display); font-weight: 900; font-size: 3rem; color: white; display: flex; gap: 1rem; }
+    .loader-text span { display: inline-block; transform: translateY(20px); opacity: 0; }
     .progress-bar { width: 200px; height: 2px; background: rgba(255,255,255,0.1); margin-top: 20px; position: relative; overflow: hidden; }
     .progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: var(--accent); }
 
@@ -253,6 +260,7 @@
     @media (max-width: 900px) {
         .navbar { width: 90%; top: 20px; padding: 0 1rem; }
         .nav-items { display: none; }
+        .nav-items.active { display: block; margin-top: 0.75rem; }
         .hero-title { font-size: 3.5rem; }
         .orbit-system { transform: scale(0.7); }
     }
@@ -403,7 +411,7 @@
             <div class="col-3 bento-card tilt-wrapper" style="cursor:pointer;" onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS')">
                 <div class="tilt-inner">
                     <div class="project-img-wrapper" style="aspect-ratio:9/16; position:relative;">
-                        <img src="https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover;">
+                        <img src="https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Viral short 1">
                         <div class="play-icon"><i class="fas fa-play"></i></div>
                     </div>
                 </div>
@@ -411,7 +419,7 @@
             <div class="col-3 bento-card tilt-wrapper" style="cursor:pointer;" onclick="window.open('https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90')">
                 <div class="tilt-inner">
                     <div class="project-img-wrapper" style="aspect-ratio:9/16; position:relative;">
-                        <img src="https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover;">
+                        <img src="https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Viral short 2">
                         <div class="play-icon"><i class="fas fa-play"></i></div>
                     </div>
                 </div>
@@ -419,7 +427,7 @@
             <div class="col-3 bento-card tilt-wrapper" style="cursor:pointer;" onclick="window.open('https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB')">
                 <div class="tilt-inner">
                     <div class="project-img-wrapper" style="aspect-ratio:9/16; position:relative;">
-                        <img src="https://img.youtube.com/vi/oKIJWxeoMZo/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover;">
+                        <img src="https://img.youtube.com/vi/oKIJWxeoMZo/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Viral short 3">
                         <div class="play-icon"><i class="fas fa-play"></i></div>
                     </div>
                 </div>
@@ -635,144 +643,161 @@
   </div>
 
   <script>
-    // --- CANVAS BACKGROUND ---
-    const canvas = document.getElementById('canvas-bg');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    
-    function resizeCanvas() {
+    (function () {
+      'use strict';
+
+      // ========================================
+      // 1. GLOBAL STATE & CONFIG
+      // ========================================
+      const state = window.state || { lang: 'en', aiMode: 'brief' };
+      window.state = state;
+
+      const CONFIG = window.APP_CONFIG || { apiKey: "" };
+      window.APP_CONFIG = CONFIG;
+
+      const hasGsap = typeof window.gsap !== 'undefined';
+
+      if (hasGsap) {
+        const plugins = [];
+        if (window.ScrollTrigger) plugins.push(window.ScrollTrigger);
+        if (window.ScrollToPlugin) plugins.push(window.ScrollToPlugin);
+        if (plugins.length) {
+          gsap.registerPlugin.apply(null, plugins);
+        }
+      }
+
+      // ========================================
+      // 2. CANVAS BACKGROUND PARTICLES
+      // ========================================
+      const canvas = document.getElementById('canvas-bg');
+      const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+      let particles = [];
+
+      function resizeCanvas() {
+        if (!canvas || !ctx) return;
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+      }
 
-    class Particle {
+      class Particle {
         constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 1.5;
-            this.speedX = Math.random() * 0.5 - 0.25;
-            this.speedY = Math.random() * 0.5 - 0.25;
-            this.color = `rgba(${Math.random() > 0.5 ? '59, 130, 246' : '139, 92, 246'}, ${Math.random() * 0.5})`;
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 1.5;
+          this.speedX = Math.random() * 0.5 - 0.25;
+          this.speedY = Math.random() * 0.5 - 0.25;
+          this.color = `rgba(${Math.random() > 0.5 ? '59,130,246' : '139,92,246'}, ${Math.random() * 0.5})`;
         }
         update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.x < 0) this.x = canvas.width;
-            if (this.y > canvas.height) this.y = 0;
-            if (this.y < 0) this.y = canvas.height;
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.x > canvas.width) this.x = 0;
+          if (this.x < 0) this.x = canvas.width;
+          if (this.y > canvas.height) this.y = 0;
+          if (this.y < 0) this.y = canvas.height;
         }
         draw() {
-            ctx.fillStyle = this.color;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
+          if (!ctx) return;
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
         }
-    }
+      }
 
-    function initParticles() {
+      function initParticles() {
+        if (!canvas || !ctx) return;
         particles = [];
         for (let i = 0; i < 100; i++) particles.push(new Particle());
-    }
-    
-    function animateParticles() {
+      }
+      
+      function animateParticles() {
+        if (!canvas || !ctx) return;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => { p.update(); p.draw(); });
-        requestAnimationFrame(animateParticles);
-    }
-    initParticles();
-    animateParticles();
+        window.requestAnimationFrame(animateParticles);
+      }
 
-    // --- ANIMATION SETUP (GSAP) ---
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+      if (canvas && ctx) {
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        initParticles();
+        window.requestAnimationFrame(animateParticles);
+      }
 
-    // 1. Preloader Exit
-    window.addEventListener('load', () => {
-        const tl = gsap.timeline();
-        tl.to('.progress-fill', { width: '100%', duration: 1, ease: 'power2.inOut' })
-          .to('.loader-text span', { y: 0, stagger: 0.1, duration: 0.8, ease: 'back.out(1.7)' })
-          .to('.preloader', { yPercent: -100, duration: 1, ease: 'power4.inOut', delay: 0.5 })
-          .from('.fade-in-up', { y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: 'power3.out' });
-    });
+      // ========================================
+      // 3. CUSTOM CURSOR
+      // ========================================
+      function initCustomCursor() {
+        const dot = document.querySelector('.cursor-dot');
+        const outline = document.querySelector('.cursor-outline');
 
-    // 2. Magnetic Buttons
-    const magnets = document.querySelectorAll('.magnet-target');
-    magnets.forEach(magnet => {
-        magnet.addEventListener('mousemove', (e) => {
+        if (!dot || !outline) return;
+
+        const supportsFinePointer =
+          window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+
+        if (!supportsFinePointer) {
+          dot.style.display = 'none';
+          outline.style.display = 'none';
+          document.body.classList.add('no-custom-cursor');
+          return;
+        }
+
+        window.addEventListener('mousemove', (e) => {
+          if (hasGsap) {
+            gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 });
+            gsap.to(outline, { x: e.clientX, y: e.clientY, duration: 0.15 });
+          } else {
+            dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            outline.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+          }
+
+          const interactive = e.target.closest('a, button, .project-item, input, textarea');
+          document.body.classList.toggle('hovering', Boolean(interactive));
+        });
+      }
+
+      initCustomCursor();
+
+      // ========================================
+      // 4. GSAP-BASED ANIMATIONS & INTERACTIONS
+      // ========================================
+      function animateTilt(target, vars) {
+        if (!target) return;
+        if (hasGsap) {
+          gsap.to(target, vars);
+        } else {
+          const rotateX = vars.rotateX || 0;
+          const rotateY = vars.rotateY || 0;
+          const scale = vars.scale || 1;
+          target.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
+        }
+      }
+
+      function initMagnetic() {
+        if (!hasGsap) return;
+        const magnets = document.querySelectorAll('.magnet-target');
+        magnets.forEach(magnet => {
+          magnet.addEventListener('mousemove', (e) => {
             const rect = magnet.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
             gsap.to(magnet, { x: x * 0.3, y: y * 0.3, duration: 0.3, ease: 'power2.out' });
-            document.body.classList.add('magnetic-hover');
-        });
-        magnet.addEventListener('mouseleave', () => {
+          });
+          magnet.addEventListener('mouseleave', () => {
             gsap.to(magnet, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
-            document.body.classList.remove('magnetic-hover');
+          });
         });
-    });
+      }
 
-    // 3. Custom Cursor
-    const dot = document.querySelector('.cursor-dot');
-    const outline = document.querySelector('.cursor-outline');
-    window.addEventListener('mousemove', (e) => {
-        gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 });
-        gsap.to(outline, { x: e.clientX, y: e.clientY, duration: 0.15 });
-        
-        // Check hover
-        const target = e.target;
-        if(target.closest('a, button, .project-item, input, textarea')) {
-            document.body.classList.add('hovering');
-        } else {
-            document.body.classList.remove('hovering');
-        }
-    });
+      function initTilt() {
+        const cards = document.querySelectorAll('.tilt-wrapper');
+        if (!cards.length) return;
 
-    // 4. Manifesto Text Reveal (Manual Split)
-    const textEl = document.getElementById('manifestoText');
-    if (textEl) {
-        const textContent = textEl.innerText;
-        textEl.innerHTML = '';
-        textContent.split('').forEach(char => {
-            const span = document.createElement('span');
-            span.innerText = char;
-            span.style.opacity = '0.1';
-            span.style.transition = 'opacity 0.2s';
-            textEl.appendChild(span);
-        });
-        
-        gsap.to('#manifestoText span', {
-            opacity: 1,
-            stagger: 0.1,
-            scrollTrigger: {
-                trigger: '.manifesto-section',
-                start: 'top top',
-                end: 'bottom bottom',
-                scrub: true,
-                pin: '.manifesto-sticky'
-            }
-        });
-    }
-
-    // 5. Horizontal Scroll for Political
-    const posters = gsap.utils.toArray('.political-poster');
-    if(posters.length > 0) {
-        gsap.to(posters, {
-            xPercent: -100 * (posters.length - 1),
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".political-wrapper",
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1
-            }
-        });
-    }
-
-    // 6. 3D Tilt Logic
-    document.querySelectorAll('.tilt-wrapper').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
+        cards.forEach(card => {
+          const inner = card.querySelector('.tilt-inner') || card;
+          card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -780,109 +805,350 @@
             const centerY = rect.height / 2;
             const rotateX = ((y - centerY) / centerY) * -5;
             const rotateY = ((x - centerX) / centerX) * 5;
-            
-            gsap.to(card.querySelector('.tilt-inner') || card, {
-                rotateX: rotateX, rotateY: rotateY, scale: 1.02, duration: 0.5, ease: 'power2.out'
-            });
+            animateTilt(inner, { rotateX, rotateY, scale: 1.02, duration: 0.5, ease: 'power2.out' });
+          });
+          card.addEventListener('mouseleave', () => {
+            animateTilt(inner, { rotateX: 0, rotateY: 0, scale: 1, duration: 0.5 });
+          });
         });
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card.querySelector('.tilt-inner') || card, {
-                rotateX: 0, rotateY: 0, scale: 1, duration: 0.5
-            });
+      }
+
+      function initManifesto() {
+        const textEl = document.getElementById('manifestoText');
+        if (!textEl || !hasGsap || !window.ScrollTrigger) return;
+
+        const textContent = textEl.textContent;
+        textEl.textContent = '';
+        textContent.split('').forEach(char => {
+          const span = document.createElement('span');
+          span.textContent = char;
+          span.style.opacity = '0.1';
+          textEl.appendChild(span);
         });
-    });
+        
+        gsap.to('#manifestoText span', {
+          opacity: 1,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: '.manifesto-section',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+            pin: '.manifesto-sticky'
+          }
+        });
+      }
 
-    // 7. Toolkit Floating Animation
-    gsap.from('.toolkit-item', {
-        scrollTrigger: { trigger: '#toolkitGrid', start: 'top 80%' },
-        y: 50, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'back.out(1.7)'
-    });
+      function initPoliticalScroll() {
+        if (!hasGsap) return;
+        const posters = gsap.utils.toArray('.political-poster');
+        if (!posters.length) return;
 
-    // --- APP LOGIC ---
-    let state = { lang: 'en', aiMode: 'brief' };
-    const CONFIG = { apiKey: "" };
+        gsap.to(posters, {
+          xPercent: -100 * (posters.length - 1),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.political-wrapper',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1
+          }
+        });
+      }
 
-    function filterProjects(cat) {
+      function initToolkitReveal() {
+        if (!hasGsap || !window.ScrollTrigger) return;
+        const grid = document.getElementById('toolkitGrid');
+        if (!grid) return;
+
+        gsap.from('.toolkit-item', {
+          scrollTrigger: { trigger: '#toolkitGrid', start: 'top 80%' },
+          y: 50, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'back.out(1.7)'
+        });
+      }
+
+      function initNavbarScroll() {
+        const navbar = document.getElementById('navbar');
+        if (!navbar) return;
+
+        const onScroll = () => {
+          navbar.classList.toggle('scrolled', window.scrollY > 10);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+
+      function initNavLinks() {
+        const links = document.querySelectorAll('.nav-link[href^="#"]');
+        if (!links.length) return;
+
+        links.forEach(link => {
+          link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return;
+            const targetId = href.slice(1);
+            const target = document.getElementById(targetId);
+            if (!target) return;
+
+            e.preventDefault();
+
+            if (hasGsap && window.ScrollToPlugin) {
+              gsap.to(window, {
+                duration: 0.8,
+                scrollTo: { y: target, offsetY: 80 },
+                ease: 'power2.out'
+              });
+            } else {
+              window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+            }
+          });
+        });
+      }
+
+      // ========================================
+      // 5. APP LOGIC (LANG, FILTER, TOAST, AI)
+      // ========================================
+      const I18N_DICT = {
+        'hero-badge': {
+          en: '● Istanbul Based Creative',
+          ar: '● مبدع مقيم في إسطنبول'
+        },
+        'hero-desc': {
+          en: 'Strategic Design & Motion Direction. I help brands communicate through <strong>visual storytelling</strong> that is bold, precise, and memorable.',
+          ar: 'تصميم استراتيجي وإخراج حركي. أساعد العلامات التجارية على التواصل من خلال <strong>سرد بصري</strong> جريء ودقيق ولا يُنسى.'
+        },
+        'btn-view-work': { en: 'View Projects', ar: 'تصفّح الأعمال' },
+        'title-cases': { en: 'FEATURED <span style="color:var(--accent)">CASES</span>', ar: 'أعمال <span style="color:var(--accent)">مختارة</span>' },
+        'title-services': { en: 'WHAT I <br><span style="color:var(--accent)">OFFER</span>', ar: 'ماذا <br><span style="color:var(--accent)">أقدّم</span>' },
+        'title-political': { en: 'POLITICAL & <span style="color:#ef4444">SOCIAL</span>', ar: 'مشاريع <span style="color:#ef4444">قضية ومجتمع</span>' },
+        'title-insights': { en: 'DESIGN <span style="color:var(--accent)">INSIGHTS</span>', ar: 'رؤى <span style="color:var(--accent)">التصميم</span>' },
+        'title-software': { en: 'MY <span style="color:var(--accent)">TOOLKIT</span>', ar: 'أدواتي <span style="color:var(--accent)">المفضّلة</span>' },
+        'label-viral': { en: 'VIRAL CONTENT', ar: 'محتوى واسع الانتشار' },
+        'title-viral': { en: 'FEATURED <span style="color:var(--accent)">SHORTS</span>', ar: 'فيديوهات <span style="color:var(--accent)">قصيرة مميزة</span>' },
+        'label-portfolio': { en: 'Selected Works', ar: 'أعمال مختارة' },
+        'label-what-i-do': { en: 'Services', ar: 'الخدمات' },
+        'label-thoughts': { en: 'Knowledge', ar: 'معرفة' },
+        'label-passion': { en: 'Passion Projects', ar: 'مشاريع شغف' },
+        'title-updated': { en: 'STAY <span style="color:var(--accent)">UPDATED</span>', ar: 'كن <span style="color:var(--accent)">متابعًا</span>' },
+        'btn-subscribe': { en: 'Subscribe', ar: 'اشترك' }
+      };
+
+      function filterProjects(cat) {
         const projects = document.querySelectorAll('.project-item');
         projects.forEach(p => {
-            const pCat = p.getAttribute('data-category');
-            if(cat === 'all' || cat === pCat) {
-                gsap.to(p, { opacity: 1, scale: 1, duration: 0.4, display: 'block' });
-            } else {
-                gsap.to(p, { opacity: 0, scale: 0.8, duration: 0.4, display: 'none' });
-            }
-        });
-    }
+          const pCat = p.getAttribute('data-category');
+          const shouldShow = cat === 'all' || pCat === cat;
 
-    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
-    
-    function toggleLanguage() {
-        state.lang = state.lang === 'en' ? 'ar' : 'en';
-        document.documentElement.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
-        // Simple Dict for demo
-        const dict = {
-            'hero-badge': {en: '● Istanbul Based Creative', ar: '● مبدع مقيم في إسطنبول'},
-            'hero-desc': {en: 'Strategic Design & Motion Direction.', ar: 'تصميم استراتيجي وإخراج حركي.'},
-            'btn-view-work': {en: 'View Projects', ar: 'تصفح المشاريع'},
-            'title-cases': {en: 'FEATURED CASES', ar: 'أعمال مختارة'},
-            'title-services': {en: 'WHAT I OFFER', ar: 'خدماتي'},
-            'title-political': {en: 'POLITICAL & SOCIAL', ar: 'قضايا ومجتمع'},
-            'title-insights': {en: 'DESIGN INSIGHTS', ar: 'رؤى التصميم'},
-            'title-software': {en: 'MY TOOLKIT', ar: 'أدواتي'},
-            'nav-work': {en: 'Work', ar: 'أعمالي'},
-            'nav-contact': {en: 'Contact', ar: 'تواصل'},
-            'btn-cv': {en: 'Download CV', ar: 'تحميل السيرة الذاتية'},
-            'label-viral': {en: 'VIRAL CONTENT', ar: 'محتوى واسع الانتشار'},
-            'title-viral': {en: 'FEATURED SHORTS', ar: 'فيديوهات قصيرة مميزة'}
-        };
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if(dict[key]) el.innerHTML = dict[key][state.lang];
-        });
-        showToast(state.lang === 'ar' ? "تم تغيير اللغة" : "Language Switched");
-    }
-
-    // AI & Modal
-    function openAiModal() { document.getElementById('aiModal').classList.add('active'); }
-    function closeAiModal() { document.getElementById('aiModal').classList.remove('active'); }
-    
-    function showToast(msg) {
-        const t = document.createElement('div'); t.className = 'toast';
-        t.innerHTML = `<i class="fas fa-check-circle" style="color:var(--accent)"></i> ${msg}`;
-        document.getElementById('toastContainer').appendChild(t);
-        gsap.to(t, { x: 0, opacity: 1, duration: 0.3 });
-        setTimeout(() => { gsap.to(t, { x: 100, opacity: 0, duration: 0.3, onComplete:()=>t.remove() }); }, 3000);
-    }
-
-    async function generateContent() {
-        const btn = document.getElementById('aiGenBtn');
-        const input = document.getElementById('aiPrompt').value;
-        const resDiv = document.getElementById('aiResult');
-        
-        if(!input) return showToast("Please write something!");
-        
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-        
-        const prompt = state.aiMode === 'brief' ? 
-            `Act as a creative director. Write a design brief for: ${input}` : 
-            `Act as an art director. Suggest visual styles for: ${input}`;
-            
-        try {
-            const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${CONFIG.apiKey}`, {
-                method: 'POST', headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+          if (hasGsap) {
+            gsap.to(p, {
+              opacity: shouldShow ? 1 : 0,
+              scale: shouldShow ? 1 : 0.9,
+              duration: 0.3,
+              onStart: () => {
+                if (shouldShow) p.style.display = '';
+              },
+              onComplete: () => {
+                if (!shouldShow) p.style.display = 'none';
+              }
             });
-            const data = await res.json();
-            const md = data.candidates[0].content.parts[0].text;
-            resDiv.innerHTML = marked.parse(md);
-            resDiv.style.display = 'block';
-            showToast("Content Generated!");
-        } catch(e) {
-            console.error(e);
-            showToast("AI Error");
+          } else {
+            p.style.display = shouldShow ? '' : 'none';
+            p.style.opacity = shouldShow ? '1' : '0';
+            p.style.transform = shouldShow ? 'scale(1)' : 'scale(0.9)';
+          }
+        });
+      }
+
+      function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        if (!menu) return;
+        menu.classList.toggle('active');
+      }
+
+      function applyTranslations() {
+        document.documentElement.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          const entry = I18N_DICT[key];
+          if (!entry) return;
+          el.innerHTML = entry[state.lang] || entry.en;
+        });
+      }
+
+      function toggleLanguage() {
+        state.lang = state.lang === 'en' ? 'ar' : 'en';
+        applyTranslations();
+        const msg = state.lang === 'ar' ? 'تم تغيير اللغة إلى العربية' : 'Language switched to English';
+        showToast(msg);
+      }
+
+      function openAiModal() {
+        const modal = document.getElementById('aiModal');
+        if (!modal) return;
+        modal.classList.add('active');
+      }
+
+      function closeAiModal() {
+        const modal = document.getElementById('aiModal');
+        if (!modal) return;
+        modal.classList.remove('active');
+      }
+
+      function showToast(msg) {
+        const container = document.getElementById('toastContainer');
+        if (!container) return;
+        const t = document.createElement('div');
+        t.className = 'toast';
+        t.innerHTML = `<i class="fas fa-check-circle" style="color:var(--accent)"></i> <span>${msg}</span>`;
+        container.appendChild(t);
+
+        if (hasGsap) {
+          gsap.to(t, { x: 0, opacity: 1, duration: 0.3 });
+          window.setTimeout(() => {
+            gsap.to(t, { x: 100, opacity: 0, duration: 0.3, onComplete: () => t.remove() });
+          }, 3000);
+        } else {
+          t.style.opacity = '1';
+          window.setTimeout(() => {
+            t.style.opacity = '0';
+            window.setTimeout(() => t.remove(), 300);
+          }, 3000);
         }
-        btn.innerHTML = 'Generate';
-    }
+      }
+
+      async function generateContent() {
+        const btn = document.getElementById('aiGenBtn');
+        const resDiv = document.getElementById('aiResult');
+        const textarea = document.getElementById('aiPrompt');
+
+        if (!btn || !resDiv || !textarea) return;
+
+        const input = textarea.value.trim();
+        if (!input) {
+          const msg = state.lang === 'ar' ? 'من فضلك اكتب فكرتك أولاً' : 'Please write something first!';
+          showToast(msg);
+          return;
+        }
+
+        if (!CONFIG.apiKey) {
+          const msg = state.lang === 'ar' ? 'لم يتم إعداد مفتاح واجهة برمجة التطبيقات للذكاء الاصطناعي بعد.' : 'AI API key is not configured yet.';
+          showToast(msg);
+          return;
+        }
+
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+        const basePrompt = state.aiMode === 'visual'
+          ? 'Act as an art director. Suggest visual styles for: '
+          : 'Act as a creative director. Write a design brief for: ';
+
+        const prompt = `${basePrompt}${input}`;
+
+        try {
+          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${CONFIG.apiKey}`,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+            }
+          );
+
+          if (!res.ok) {
+            throw new Error(`API error: ${res.status}`);
+          }
+
+          const data = await res.json();
+          const text = data &&
+            data.candidates &&
+            data.candidates[0] &&
+            data.candidates[0].content &&
+            data.candidates[0].content.parts &&
+            data.candidates[0].content.parts[0] &&
+            data.candidates[0].content.parts[0].text;
+
+          if (!text) {
+            throw new Error('Empty AI response');
+          }
+
+          resDiv.innerHTML = window.marked ? marked.parse(text) : text;
+          resDiv.style.display = 'block';
+          showToast(state.lang === 'ar' ? 'تم إنشاء المحتوى' : 'Content generated!');
+        } catch (error) {
+          console.error(error);
+          showToast(state.lang === 'ar' ? 'حدث خطأ في خدمة الذكاء الاصطناعي' : 'AI error');
+        } finally {
+          btn.innerHTML = 'Generate';
+        }
+      }
+
+      // ========================================
+      // 6. PRELOADER & INIT
+      // ========================================
+      function initPreloader() {
+        const preloader = document.querySelector('.preloader');
+
+        window.addEventListener('load', () => {
+          if (!preloader) return;
+
+          if (hasGsap) {
+            const tl = gsap.timeline({
+              onComplete: () => {
+                document.body.classList.remove('loading');
+              }
+            });
+
+            tl.to('.progress-fill', { width: '100%', duration: 1, ease: 'power2.inOut' })
+              .to('.loader-text span', {
+                y: 0,
+                opacity: 1,
+                stagger: 0.08,
+                duration: 0.6,
+                ease: 'back.out(1.7)'
+              }, '-=0.5')
+              .to('.preloader', { yPercent: -100, duration: 0.8, ease: 'power4.inOut', delay: 0.2 })
+              .from('.fade-in-up', { y: 50, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' }, '-=0.4');
+          } else {
+            preloader.style.display = 'none';
+            document.body.classList.remove('loading');
+          }
+        });
+      }
+
+      function initAIModalCloseHandlers() {
+        const modal = document.getElementById('aiModal');
+        if (!modal) return;
+
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeAiModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeAiModal();
+          }
+        });
+      }
+
+      // Initialize modules
+      applyTranslations();
+      initNavbarScroll();
+      initNavLinks();
+      initTilt();
+      initMagnetic();
+      initManifesto();
+      initPoliticalScroll();
+      initToolkitReveal();
+      initPreloader();
+      initAIModalCloseHandlers();
+
+      // Expose functions for inline handlers
+      window.filterProjects = filterProjects;
+      window.toggleMenu = toggleMenu;
+      window.toggleLanguage = toggleLanguage;
+      window.openAiModal = openAiModal;
+      window.closeAiModal = closeAiModal;
+      window.generateContent = generateContent;
+    })();
   </script>
 </body>
 </html>
