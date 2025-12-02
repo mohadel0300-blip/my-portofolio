@@ -248,9 +248,9 @@
        BUTTONS
        ========================================================= */
     .btn-primary, .btn-glass {
-      padding: 14px 30px;
+      padding: 16px 36px;
       border-radius: var(--radius-full);
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
@@ -273,16 +273,17 @@
       z-index: -1;
     }
 
+    /* NEW HERO BUTTON STYLES (MATCHING SCREENSHOT) */
     .btn-primary {
-      background: linear-gradient(120deg, #2563eb, #4f46e5);
+      background: linear-gradient(135deg, #2563eb, #4338ca);
       color: #fff;
-      box-shadow: 0 4px 24px rgba(37, 99, 235, 0.45);
-      border: 1px solid rgba(191,219,254,0.3);
+      box-shadow: 0 4px 30px rgba(37, 99, 235, 0.5);
+      border: 1px solid rgba(255,255,255,0.1);
     }
     
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.7);
+      box-shadow: 0 10px 40px rgba(37, 99, 235, 0.7);
     }
 
     .btn-primary:hover::before,
@@ -291,244 +292,273 @@
     }
 
     .btn-glass {
-      background: rgba(15,23,42,0.8);
-      border: 1px solid rgba(148,163,184,0.5);
+      background: transparent;
+      border: 1px solid rgba(148,163,184,0.3);
       color: #e5e7eb;
     }
 
     .btn-glass:hover {
-      background: rgba(15,23,42,1);
-      border-color: rgba(209,213,219,0.9);
+      background: rgba(255,255,255,0.05);
+      border-color: #fff;
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(15,23,42,0.8);
     }
 
     /* =========================================================
-       5. HERO UPDATED
+       HERO REDESIGN (MATCHING SCREENSHOT)
        ========================================================= */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 20px; /* Reduced further */
+      padding-top: 60px; 
       padding-bottom: 60px;
     }
 
     .hero-grid {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start; /* Changed to start */
       width: 100%;
       gap: 40px;
     }
 
     .hero-content {
-      max-width: 650px;
+      max-width: 700px;
       position: relative;
+      padding-top: 40px;
+    }
+
+    /* 1. Label Style */
+    .hero-label-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 99px;
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      background: rgba(10, 15, 30, 0.6);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #3b82f6;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    
+    .hero-label-top .dot {
+      width: 6px; height: 6px; background: #3b82f6; border-radius: 50%;
+      box-shadow: 0 0 10px #3b82f6;
     }
 
     .hero-tagline {
       font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-      letter-spacing: 0.05em;
-    }
-
-    .hero-title {
-      font-size: clamp(4rem, 9vw, 6.5rem); /* Increased size */
-      font-weight: 900;
-      line-height: 0.95;
-      margin-bottom: 1.8rem;
-      letter-spacing: -0.05em;
-      background: linear-gradient(to bottom right, #fff, #94a3b8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 30px rgba(37,99,235,0.15));
-    }
-
-    .hero-title span {
-      display: inline-block;
-      color: var(--accent);
-      font-family: var(--font-hand);
+      color: #94a3b8;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
       font-weight: 400;
-      font-size: 0.6em; /* Adjusted relative size */
-      margin-left: 12px;
-      transform: rotate(-4deg);
-      text-shadow: 0 0 25px rgba(37, 99, 235, 0.8);
-      -webkit-text-fill-color: var(--accent);
     }
+
+    /* 2. Massive Title */
+    .hero-title {
+      font-size: clamp(4.5rem, 10vw, 7.5rem);
+      font-weight: 800;
+      line-height: 0.9;
+      color: #ffffff;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    /* 3. Handwriting */
+    .hero-script {
+      font-family: 'Reenie Beanie', cursive;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: #2563eb;
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      transform: rotate(-6deg);
+      text-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+      white-space: nowrap;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+    
+    html[dir="rtl"] .hero-script {
+        right: auto;
+        left: 0;
+        transform: rotate(6deg);
+    }
+
+    /* 4. Badges Stack */
+    .hero-badges-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 99px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      transition: 0.3s;
+    }
+    
+    .hero-pill i { color: #3b82f6; }
+    .hero-pill:hover { border-color: #3b82f6; background: rgba(37, 99, 235, 0.1); }
 
     .hero-desc {
       font-size: 1.15rem;
-      color: var(--text-muted);
-      margin-bottom: 2.4rem;
-      max-width: 540px;
-      line-height: 1.7;
-    }
-
-    .hero-badge-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .hero-badge-pill {
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.3);
-      background: rgba(15,23,42,0.6);
-      backdrop-filter: blur(10px);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.3s;
+      color: #94a3b8;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      line-height: 1.6;
     }
     
-    .hero-badge-pill:hover {
-      border-color: var(--accent);
-      background: rgba(37,99,235,0.1);
+    .hero-desc strong { color: #fff; font-weight: 600; }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
-    .hero-badge-pill i { font-size: 0.9rem; color: var(--accent); }
+    .hero-micro-copy {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 16px;
+    }
 
-    .orbit-container {
-      width: 480px; /* Slightly Larger */
-      height: 480px;
+    /* 5. Orbit Visual (Right Side) */
+    .orbit-visual {
       position: relative;
+      width: 500px;
+      height: 500px;
       display: flex;
       align-items: center;
       justify-content: center;
-      perspective: 1100px;
     }
-    
-    .profile-img {
-      width: 300px; /* Larger image */
-      height: 300px;
+
+    .orbit-circle-main {
+      width: 320px;
+      height: 320px;
+      background: #000;
       border-radius: 50%;
-      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.1);
       position: relative;
       z-index: 2;
-      border: 3px solid rgba(255,255,255,0.15);
-      box-shadow: 0 0 90px rgba(37, 99, 235, 0.4);
-      transform-style: preserve-3d;
-      transition: transform 0.5s var(--ease-smooth), box-shadow 0.5s var(--ease-smooth);
+      box-shadow: inset 0 0 60px rgba(0,0,0,0.8);
+      overflow: hidden;
     }
-
-    .orbit-container:hover .profile-img {
-      transform: translateZ(25px) rotateX(8deg) rotateY(-8deg);
-      box-shadow: 0 0 140px rgba(37,99,235,0.8);
+    
+    .orbit-circle-main img {
+        width: 100%; height: 100%; object-fit: cover; opacity: 0.6;
+        transition: 0.5s;
     }
+    .orbit-circle-main:hover img { opacity: 1; transform: scale(1.05); }
 
-    .orbit-ring {
+    .orbit-dashed-ring {
       position: absolute;
       width: 100%;
       height: 100%;
+      border: 1px dashed rgba(59, 130, 246, 0.3);
       border-radius: 50%;
-      border: 1px dashed rgba(148,163,184,0.4);
-      animation: spin 80s linear infinite;
-      box-shadow: 0 0 60px rgba(15,23,42,0.5);
+      animation: spin-slow 60s linear infinite;
     }
 
-    .planet-icon {
+    .orbit-glow-bg {
       position: absolute;
-      width: 64px; height: 64px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148,163,184,0.6);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-main); font-size: 1.5rem;
-      border-radius: 50%;
-      animation: counter-spin 80s linear infinite; 
-      transition: 0.3s;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-      backdrop-filter: blur(10px);
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+      filter: blur(40px);
+      z-index: 0;
     }
     
-    .planet-icon:hover { 
-      background: var(--accent);
-      border-color: var(--accent);
-      transform: scale(1.2);
-      box-shadow: 0 0 30px var(--accent-glow);
+    .orbit-floating-btn {
+        position: absolute;
+        top: 20%;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(15,23,42,0.8);
+        border: 1px solid rgba(255,255,255,0.1);
+        display: flex; align-items: center; justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        animation: float 4s ease-in-out infinite;
+        z-index: 5;
     }
 
-    /* =========================================================
-       6. INTERACTIVE ICONS (Apple-ish)
-       ========================================================= */
-    .interactive-icons-section {
-      margin-top: 40px;
+    @keyframes spin-slow { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
+    @keyframes float { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
+
+    /* 6. Interactive Cards (Bottom) */
+    .hero-cards-row {
+      margin-top: 60px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    
+    @media (max-width: 768px) {
+        .hero-cards-row { grid-template-columns: 1fr; }
+        .hero-title { font-size: 4rem; }
+        .hero-script { font-size: 2rem; position: relative; display: block; text-align: center; margin-top: -20px; bottom: auto; right: auto; transform: rotate(-3deg); }
+        .orbit-visual { width: 300px; height: 300px; margin: 40px auto; }
+        .orbit-circle-main { width: 220px; height: 220px; }
     }
 
-    @media (max-width: 900px) {
-      .interactive-icons-section {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-    @media (max-width: 640px) {
-      .interactive-icons-section {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .interactive-icon-card {
-      position: relative;
-      padding: 16px 16px;
-      border-radius: 18px;
-      background: radial-gradient(circle at 10% 0%, rgba(148,163,184,0.1), rgba(15,23,42,0.8));
-      border: 1px solid rgba(148,163,184,0.3);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      overflow: hidden;
-      transform-style: preserve-3d;
-      transition:
-        transform 0.25s ease-out,
-        box-shadow 0.25s ease-out,
-        border-color 0.25s ease-out,
-        background 0.25s ease-out;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
-
-    .interactive-icon-card:hover {
-      transform: translateY(-4px) scale(1.02);
-      border-color: rgba(37,99,235,0.6);
-      background: rgba(37,99,235,0.1);
-      box-shadow: 0 15px 40px rgba(37,99,235,0.2);
-    }
-
-    .interactive-icon-card i {
-      font-size: 1.4rem;
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.05);
-      color: #e5e7eb;
-      flex-shrink: 0;
-    }
-
-    .interactive-icon-text {
+    .glass-card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.6), rgba(15,23,42,0.3));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 24px;
+      transition: 0.3s;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      justify-content: flex-end;
+      height: 140px;
+      position: relative;
+      overflow: hidden;
     }
-
-    .interactive-icon-title {
-      font-size: 0.9rem;
-      font-weight: 600;
+    
+    .glass-card:hover {
+        background: rgba(15,23,42,0.8);
+        border-color: rgba(37,99,235,0.5);
+        transform: translateY(-5px);
     }
-
-    .interactive-icon-caption {
-      font-size: 0.78rem;
-      color: #cbd5f5;
-      opacity: 0.85;
+    
+    .glass-card-icon {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 1.5rem;
+        color: #3b82f6;
+        opacity: 0.8;
+    }
+    
+    .glass-card-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 4px;
+        display: flex; align-items: center; gap: 6px;
+    }
+    
+    .glass-card-desc {
+        font-size: 0.8rem;
+        color: #94a3b8;
     }
 
     /* =========================================================
@@ -1239,36 +1269,48 @@
 
   <!-- MAIN -->
   <main>
-    <!-- HERO -->
+    <!-- HERO (REDESIGNED) -->
     <section id="about" class="hero container">
       <div class="hero-grid">
+        <!-- LEFT: CONTENT -->
         <div class="hero-content reveal-on-scroll">
-          <span class="label" data-i18n="hero-badge">
-            <span class="label-dot"></span>
-            Istanbul Based Creative
-          </span>
+          
+          <!-- Label -->
+          <div class="hero-label-top" data-i18n="hero-badge">
+            <span class="dot"></span>
+            ISTANBUL BASED CREATIVE
+          </div>
+
+          <!-- Tagline -->
           <p class="hero-tagline" data-i18n="hero-tagline">
             Creative Direction · Visual Systems · Motion Narratives
           </p>
-          <!-- IMPROVED HERO TYPOGRAPHY -->
+
+          <!-- Massive Title -->
           <h1 class="hero-title">
-            MOHAMED AMER
-            <span data-i18n="hero-script">designed to move</span>
+            MOHAMED<br>AMER
+            <span class="hero-script" data-i18n="hero-script">designed to move</span>
           </h1>
-          <div class="hero-badge-row">
-            <div class="hero-badge-pill">
+
+          <!-- Badges Stack -->
+          <div class="hero-badges-stack">
+            <div class="hero-pill">
               <i class="fas fa-bolt"></i>
               <span data-i18n="hero-pill-1">Launch-ready visuals, zero noise.</span>
             </div>
-            <div class="hero-badge-pill">
+            <div class="hero-pill">
               <i class="fas fa-layer-group"></i>
               <span data-i18n="hero-pill-2">From static to story-driven motion.</span>
             </div>
           </div>
+
+          <!-- Description -->
           <p class="hero-desc" data-i18n="hero-desc">
             I build visual systems and motion experiences for brands that want to feel <strong>sharp, cinematic, and unapologetically modern</strong>. From first scroll to final frame, every element is crafted to look premium and perform.
           </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+
+          <!-- Buttons -->
+          <div class="hero-actions">
             <a href="#work" class="btn-primary">
               <span data-i18n="btn-view-work">View signature projects</span>
               <i class="fas fa-arrow-right"></i>
@@ -1278,53 +1320,53 @@
               <span data-i18n="btn-cv">Download CV</span>
             </a>
           </div>
-          <p class="hero-micro-note" data-i18n="hero-micro">
-            <i class="fas fa-circle-check"></i>
+
+          <!-- Micro Copy -->
+          <p class="hero-micro-copy" data-i18n="hero-micro">
             Available for selected collaborations & long-term brand partnerships.
           </p>
 
-          <!-- INTERACTIVE ICONS -->
-          <div class="interactive-icons-section">
-            <div class="interactive-icon-card">
-              <i class="fas fa-wand-magic-sparkles"></i>
-              <div class="interactive-icon-text">
-                <div class="interactive-icon-title" data-i18n="icon-concept-title">Concept → Launch</div>
-                <div class="interactive-icon-caption" data-i18n="icon-concept-caption">
-                  From messy idea to a clear, shippable visual language.
-                </div>
-              </div>
+          <!-- Cards Row -->
+          <div class="hero-cards-row">
+            <div class="glass-card">
+              <i class="fas fa-wand-magic-sparkles glass-card-icon"></i>
+              <div class="glass-card-title" data-i18n="icon-concept-title">Concept → Launch</div>
+              <div class="glass-card-desc" data-i18n="icon-concept-caption">From messy idea to a clear, shippable visual language.</div>
             </div>
-            <div class="interactive-icon-card">
-              <i class="fas fa-play-circle"></i>
-              <div class="interactive-icon-text">
-                <div class="interactive-icon-title" data-i18n="icon-motion-title">Motion-first mindset</div>
-                <div class="interactive-icon-caption" data-i18n="icon-motion-caption">
-                  Design that already thinks in keyframes and transitions.
-                </div>
-              </div>
+            <div class="glass-card">
+              <i class="fas fa-play-circle glass-card-icon"></i>
+              <div class="glass-card-title" data-i18n="icon-motion-title">Motion-first mindset</div>
+              <div class="glass-card-desc" data-i18n="icon-motion-caption">Design that already thinks in keyframes.</div>
             </div>
-            <div class="interactive-icon-card">
-              <i class="fas fa-chart-line"></i>
-              <div class="interactive-icon-text">
-                <div class="interactive-icon-title" data-i18n="icon-growth-title">Built for growth</div>
-                <div class="interactive-icon-caption" data-i18n="icon-growth-caption">
-                  Systems that stay consistent across campaigns and platforms.
-                </div>
-              </div>
+            <div class="glass-card">
+              <i class="fas fa-chart-line glass-card-icon"></i>
+              <div class="glass-card-title" data-i18n="icon-growth-title">Built for growth</div>
+              <div class="glass-card-desc" data-i18n="icon-growth-caption">Systems that stay consistent across campaigns.</div>
             </div>
           </div>
+
         </div>
 
-        <div class="orbit-container reveal-on-scroll">
-          <div class="orbit-glow"></div>
-          <img src="MINED.png" alt="Mohamed Amer" class="profile-img">
-          <div class="orbit-ring">
-            <div class="planet-icon p-1" title="Photoshop"><i class="fas fa-image"></i></div>
-            <div class="planet-icon p-2" title="After Effects"><i class="fas fa-film"></i></div>
-            <div class="planet-icon p-3" title="Illustrator"><i class="fas fa-pen-nib"></i></div>
-            <div class="planet-icon p-4" title="Figma"><i class="fab fa-figma"></i></div>
-          </div>
+        <!-- RIGHT: ORBIT VISUAL -->
+        <div class="reveal-on-scroll">
+            <div class="orbit-visual">
+                <div class="orbit-glow-bg"></div>
+                
+                <!-- Main Circle -->
+                <div class="orbit-circle-main">
+                    <img src="MINED.png" alt="Mohamed Amer">
+                </div>
+                
+                <!-- Dashed Ring -->
+                <div class="orbit-dashed-ring"></div>
+                
+                <!-- Floating Element -->
+                <div class="orbit-floating-btn">
+                    <i class="fas fa-swatchbook"></i>
+                </div>
+            </div>
         </div>
+
       </div>
     </section>
 
@@ -1859,7 +1901,7 @@
               <div class="faq-toggle">+</div>
             </div>
             <div class="faq-answer" data-i18n="faq-3-a">
-              For motion and launch films, yes — I often help shape the narrative, script and flow, then we lock visuals and timing together.
+              For motion and launch films, yes — I usually help shape the narrative, script and flow, then we lock visuals and timing together.
             </div>
           </div>
           <div class="faq-item">
@@ -1937,8 +1979,8 @@
       // I18N DICTIONARY
       const I18N_DICT = {
         "hero-badge": {
-          en: "● Istanbul Based Creative",
-          ar: "● كريتيف ديـركتور مقيم في إسطنبول"
+          en: "<span class='dot'></span>ISTANBUL BASED CREATIVE",
+          ar: "<span class='dot'></span> كريتيف ديـركتور مقيم في إسطنبول"
         },
         "hero-tagline": {
           en: "Creative Direction · Visual Systems · Motion Narratives",
@@ -1986,16 +2028,16 @@
           ar: "دايمًا بفكر موشن"
         },
         "icon-motion-caption": {
-          en: "Design that already thinks in keyframes and transitions.",
-          ar: "الديزاين من أول يوم متفصّل عشان يتحرّك، مش بنلزق له موشن في الآخر."
+          en: "Design that already thinks in keyframes.",
+          ar: "الديزاين من أول يوم متفصّل عشان يتحرّك."
         },
         "icon-growth-title": {
           en: "Built for growth",
           ar: "جاهز يكبَر مع البراند"
         },
         "icon-growth-caption": {
-          en: "Systems that stay consistent across campaigns and platforms.",
-          ar: "سيستم فيجوال ثابت مهما عدد الكامبينز والمنصات زاد."
+          en: "Systems that stay consistent.",
+          ar: "سيستم فيجوال ثابت مهما الكامبين كبرت."
         },
 
         "label-experience": {
