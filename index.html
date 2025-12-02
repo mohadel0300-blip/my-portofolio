@@ -1,1782 +1,2544 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-    <title>Mohamed Amer – Creative Director | Ultimate Portfolio</title>
-    <meta name="description" content="Official Portfolio of Mohamed Amer – Graphic & Motion Designer." />
-    <meta name="theme-color" content="#020617" />
-    <meta name="author" content="Mohamed Amer" />
-    
-    <!-- --- FONTS & ICONS --- -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <!-- --- LIBRARIES --- -->
-    <!-- Markdown Parser -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
-    <!-- GSAP Animation Engine -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" defer></script>
-    <!-- Lenis for Smooth Scrolling -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+  <title>Mohamed Amer – Creative Director</title>
+  <meta
+    name="description"
+    content="Official Portfolio of Mohamed Amer – Graphic & Motion Designer."
+  />
+  <meta name="theme-color" content="#020617" />
+  <meta name="author" content="Mohamed Amer" />
 
-    <style>
-        /* =========================================
-           1. CORE VARIABLES & THEME SETUP
-           ========================================= */
-        :root {
-            /* Palette: Deep Blue / Navy / Cyberpunk Blue */
-            --bg-page: #020617;
-            --bg-glass: rgba(15, 23, 42, 0.75);
-            --bg-card: #0f172a;
-            --bg-card-hover: #1e293b;
-            
-            --accent: #3b82f6; /* Primary Blue */
-            --accent-glow: rgba(59, 130, 246, 0.5);
-            --accent-dark: #1d4ed8;
-            --secondary: #6366f1;
-            
-            --danger: #ef4444; /* For Political Section */
-            
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --text-dim: #475569;
-            
-            --border-light: rgba(255, 255, 255, 0.08);
-            --border-accent: rgba(59, 130, 246, 0.3);
+  <!-- FONTS & ICONS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
 
-            /* Typography */
-            --font-display: 'Montserrat', sans-serif;
-            --font-hand: 'Comforter Brush', cursive;
-            --font-body: 'Open Sans', sans-serif;
-            --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
+  <style>
+    /* =========================================
+       1. CORE VARIABLES & RESET
+       ========================================= */
+    :root {
+      --bg-page: #020617;
+      --bg-glass: rgba(15, 23, 42, 0.7);
+      --bg-card: #0f172a;
+      --bg-card-soft: rgba(15, 23, 42, 0.6);
+      --bg-card-hover: #1e293b;
 
-            /* Z-Indices */
-            --z-back: -1;
-            --z-canvas: 0;
-            --z-content: 10;
-            --z-nav: 1000;
-            --z-modal: 2000;
-            --z-toast: 3000;
-            --z-loader: 5000;
-            --z-cursor: 9999;
-        }
+      --accent: #3b82f6;
+      --accent-secondary: #8b5cf6;
 
-        /* =========================================
-           2. GLOBAL RESET & BASE STYLES
-           ========================================= */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            outline: none;
-            cursor: none;
-        }
-        
-        /* Mobile touch cursor fix */
-        @media (pointer: coarse) {
-            *, *::before, *::after {
-                cursor: auto;
-            }
-        }
-        
-        html {
-            font-size: 16px;
-            overflow-x: hidden;
-            scroll-behavior: auto;
-        }
-        
-        body {
-            background-color: var(--bg-page);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            overflow-x: hidden;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
 
-        body.loading {
-            overflow: hidden;
-        }
+      --radius-lg: 24px;
+      --section-spacing: clamp(6rem, 18vh, 12rem);
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-        }
-        ul { list-style: none; }
-        img, iframe, video { max-width: 100%; display: block; }
-        ::selection { background: var(--accent); color: white; }
+      --font-display: "Montserrat", sans-serif;
+      --font-hand: "Comforter Brush", cursive;
+      --font-body: "Open Sans", sans-serif;
+      --font-arabic: "IBM Plex Sans Arabic", sans-serif;
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-page); }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-            border: 2px solid var(--bg-page);
-        }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+      --z-cursor: 9999;
+      --z-nav: 1000;
+      --z-modal: 2000;
+      --z-toast: 3000;
+      --z-loader: 4000;
+    }
 
-        /* RTL Support */
-        html[dir="rtl"] body {
-            font-family: var(--font-arabic);
-            text-align: right;
-        }
-        html[dir="rtl"] .hero-text-content { align-items: flex-end; text-align: right; }
-        html[dir="rtl"] .nav-items { flex-direction: row-reverse; }
-        html[dir="rtl"] .hero-title span { direction: ltr; display: inline-block; }
-        html[dir="rtl"] .btn-primary { flex-direction: row-reverse; }
-        html[dir="rtl"] .btn-primary i { margin-left: 0; margin-right: 10px; }
-        html[dir="rtl"] .toolkit-item { flex-direction: row-reverse; }
-        html[dir="rtl"] .footer-socials { justify-content: flex-end; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      outline: none;
+      cursor: none;
+    }
 
-        /* =========================================
-           3. UTILITIES
-           ========================================= */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5vw;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Grid System */
-        .grid-12 {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
-        }
-        .col-12 { grid-column: span 12; }
-        .col-8 { grid-column: span 8; }
-        .col-6 { grid-column: span 6; }
-        .col-4 { grid-column: span 4; }
-        .col-3 { grid-column: span 3; }
-        
-        @media (max-width: 1024px) { 
-            .col-8, .col-6, .col-4 { grid-column: span 12; } 
-            .col-3 { grid-column: span 6; }
-        }
-        @media (max-width: 600px) {
-            .col-3 { grid-column: span 12; }
-        }
+    .no-custom-cursor *,
+    .no-custom-cursor *::before,
+    .no-custom-cursor *::after {
+      cursor: auto;
+    }
 
-        .section-spacing {
-            margin-top: clamp(6rem, 15vh, 12rem);
-            position: relative;
-        }
-        
-        /* Typography */
-        .display-text {
-            font-family: var(--font-display);
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -1px;
-            color: white;
-        }
-        .text-gradient {
-            background: linear-gradient(90deg, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .label {
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
+    html {
+      scroll-behavior: auto;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
 
-        /* =========================================
-           4. BACKGROUND ANIMATION (CANVAS)
-           ========================================= */
-        #canvas-bg {
-            position: fixed;
-            inset: 0;
-            z-index: var(--z-canvas);
-            pointer-events: none;
-        }
-        .noise-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.07;
-        }
-        .bg-glow {
-            position: fixed;
-            width: 60vw;
-            height: 60vw;
-            background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 0;
-            animation: pulseGlow 10s ease-in-out infinite alternate;
-        }
-        @keyframes pulseGlow {
-            from {
-                opacity: 0.3;
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-            to {
-                opacity: 0.6;
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-        }
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-        /* =========================================
-           5. UI COMPONENTS
-           ========================================= */
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(90%, 1000px);
-            padding: 0.8rem 1.5rem;
-            background: rgba(15, 23, 42, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-light);
-            border-radius: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: var(--z-nav);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .navbar.scrolled {
-            top: 10px;
-            width: 95%;
-            background: rgba(2, 6, 23, 0.9);
-            border-color: rgba(59,130,246,0.2);
-        }
-        
-        .nav-link {
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 0 12px;
-            position: relative;
-        }
-        .nav-link:hover,
-        .nav-link.active {
-            color: white;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: 0.3s;
-            transform: translateX(-50%);
-        }
-        .nav-link:hover::after { width: 100%; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        /* Buttons */
-        .btn-primary, .btn-glass {
-            padding: 14px 32px;
-            border-radius: 100px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            position: relative;
-            overflow: hidden;
-            font-size: 0.9rem;
-            transition: 0.4s;
-            z-index: 1;
-        }
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
-        }
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: translateX(-100%);
-            transition: 0.6s;
-            z-index: -1;
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
-        }
-        .btn-primary:hover::after { transform: translateX(100%); }
-        
-        .btn-glass {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border-light);
-            color: white;
-        }
-        .btn-glass:hover {
-            background: white;
-            color: #020617;
-            transform: translateY(-3px);
-        }
-        .btn-glass.active-filter {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-        }
+    ::selection {
+      background: var(--accent);
+      color: white;
+    }
 
-        /* Bento Cards */
-        .bento-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-            height: 100%;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .bento-card:hover {
-            border-color: rgba(59, 130, 246, 0.4);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-        }
-        
-        /* Cursor */
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background: white;
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: var(--z-cursor);
-            mix-blend-mode: difference;
-        }
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255,255,255,0.5);
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: var(--z-cursor);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-            mix-blend-mode: difference;
-        }
-        body.hovering .cursor-outline {
-            width: 70px;
-            height: 70px;
-            background: rgba(255,255,255,0.1);
-            border-color: transparent;
-            backdrop-filter: blur(2px);
-        }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
 
-        /* =========================================
-           6. HERO SECTION & ORBIT
-           ========================================= */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 100px;
-            position: relative;
-            perspective: 1000px;
-        }
-        
-        .hero-title {
-            font-size: clamp(3.5rem, 8vw, 6rem);
-            line-height: 0.9;
-            margin-bottom: 2rem;
-        }
-        .hero-title-big { 
-            font-size: clamp(5rem, 15vw, 12rem);
-            font-weight: 900;
-            color: white; 
-            background: linear-gradient(180deg, #fff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: block;
-            margin-top: -20px;
-        }
-        
-        /* Orbit Animation */
-        .orbit-container {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform-style: preserve-3d;
-        }
-        .orbit-center-img {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            z-index: 10;
-            border: 2px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 100px rgba(59,130,246,0.3);
-            position: relative;
-        }
-        .orbit-ring {
-            position: absolute;
-            border-radius: 50%;
-            border: 1px dashed rgba(255,255,255,0.1);
-            transform-style: preserve-3d;
-            animation: orbitSpin linear infinite;
-        }
-        .ring-1 {
-            width: 400px;
-            height: 400px;
-            animation-duration: 25s;
-        }
-        .ring-2 {
-            width: 550px;
-            height: 550px;
-            animation-duration: 35s;
-            animation-direction: reverse;
-            border-color: rgba(59,130,246,0.2);
-        }
-        
-        .orbit-icon {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: #0f172a;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            /* Counter-rotation to keep icons upright */
-            animation: counterSpin linear infinite; 
-        }
-        
-        .ring-1 .icon-1 { top: -25px; left: 50%; margin-left: -25px; }
-        .ring-1 .icon-2 { bottom: -25px; left: 50%; margin-left: -25px; }
-        .ring-2 .icon-3 { top: 50%; left: -25px; margin-top: -25px; }
-        .ring-2 .icon-4 { top: 50%; right: -25px; margin-top: -25px; }
+    /* RTL Support */
+    html[dir="rtl"] body {
+      font-family: var(--font-arabic);
+      text-align: right;
+    }
+    html[dir="rtl"] .hero-text-content {
+      align-items: flex-end;
+      text-align: right;
+    }
+    html[dir="rtl"] .nav-items {
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .hero-title span {
+      direction: ltr;
+      display: inline-block;
+    }
 
-        @keyframes orbitSpin { from { transform: rotateZ(0deg); } to { transform: rotateZ(360deg); } }
-        @keyframes counterSpin { from { transform: rotateZ(360deg); } to { transform: rotateZ(0deg); } }
-        
-        /* Adjust animation durations for icons to match rings */
-        .ring-1 .orbit-icon { animation-duration: 25s; }
-        .ring-2 .orbit-icon { animation-duration: 35s; animation-direction: reverse; }
+    /* =========================================
+       2. LAYOUT & UTILITIES
+       ========================================= */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
 
-        /* =========================================
-           7. MARQUEE & LOOPS
-           ========================================= */
-        .marquee-container {
-            width: 100vw;
-            background: var(--accent);
-            color: #020617;
-            padding: 1.5rem 0;
-            margin: 4rem 0;
-            transform: rotate(-2deg) scale(1.05);
-            overflow: hidden;
-            position: relative;
-            left: -2.5%;
-        }
-        .marquee-track {
-            display: flex;
-            gap: 4rem;
-            width: max-content;
-            animation: marqueeScroll 20s linear infinite;
-        }
-        .marquee-item {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-        @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
 
-        /* Toolkit Loop */
-        .toolkit-scroller {
-            overflow: hidden;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            width: 100%;
-            padding: 2rem 0;
-        }
-        .toolkit-track {
-            display: flex;
-            gap: 1.5rem;
-            width: max-content;
-            animation: scrollLeft 30s linear infinite;
-        }
-        .toolkit-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 30px;
-            border-radius: 50px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border-light);
-            color: rgba(255,255,255,0.7);
-            font-weight: 600;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-        .toolkit-item:hover {
-            background: rgba(59, 130, 246, 0.15);
-            border-color: var(--accent);
-            color: white;
-            box-shadow: 0 0 20px rgba(59,130,246,0.4);
-        }
-        @keyframes scrollLeft { to { transform: translateX(calc(-50% - 0.75rem)); } }
+    .col-12 {
+      grid-column: span 12;
+    }
+    .col-8 {
+      grid-column: span 8;
+    }
+    .col-6 {
+      grid-column: span 6;
+    }
+    .col-4 {
+      grid-column: span 4;
+    }
+    .col-3 {
+      grid-column: span 3;
+    }
 
-        /* Political Loop */
-        .political-scroller {
-            overflow: hidden;
-            width: 100%;
-            padding: 3rem 0;
-        }
-        .political-track {
-            display: flex;
-            gap: 2.5rem;
-            width: max-content;
-            animation: scrollRight 40s linear infinite;
-        }
-        .political-track:hover { animation-play-state: paused; }
-        .political-card {
-            width: 300px;
-            height: 450px;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            flex-shrink: 0;
-            border: 1px solid var(--border-light);
-            background: #0f172a;
-        }
-        .political-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-            opacity: 0.8;
-        }
-        .political-card:hover img {
-            transform: scale(1.1);
-            opacity: 1;
-        }
-        .political-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, #020617 10%, transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 2rem;
-        }
-        .political-overlay h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: 0.4s;
-        }
-        .political-card:hover h3 {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        @keyframes scrollRight { from { transform: translateX(calc(-50% - 1.25rem)); } to { transform: translateX(0); } }
+    @media (max-width: 1024px) {
+      .col-8 {
+        grid-column: span 12;
+      }
+      .col-4 {
+        grid-column: span 6;
+      }
+      .col-3 {
+        grid-column: span 6;
+      }
+    }
 
-        /* =========================================
-           8. WORK & VIRAL SECTIONS
-           ========================================= */
-        .project-img-wrapper {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-        }
-        
-        /* Viral Fan */
-        .viral-section { padding: 6rem 0; overflow: hidden; }
-        .fan-container {
-            position: relative;
-            height: 600px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 1200px;
-        }
-        .fan-card {
-            position: absolute;
-            width: 260px;
-            height: 450px;
-            border-radius: 24px;
-            background-size: cover;
-            background-position: center;
-            border: 1px solid var(--border-light);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            transform-origin: 50% 150%;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .fan-card::after {
-            content:'';
-            position: absolute;
-            inset:0;
-            background: rgba(0,0,0,0.4);
-            transition: 0.3s;
-            border-radius: 24px;
-        }
-        .fan-card:hover {
-            z-index: 100 !important;
-            transform: translateY(-50px) scale(1.15) rotate(0deg) !important;
-            border-color: var(--accent);
-            box-shadow: 0 0 40px rgba(59,130,246,0.3);
-        }
-        .fan-card:hover::after { opacity: 0; }
-        .play-btn {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(5px);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            color: white;
-            opacity: 0;
-            transform: scale(0.5);
-            transition: 0.3s;
-            z-index: 2;
-        }
-        .fan-card:hover .play-btn {
-            opacity: 1;
-            transform: scale(1);
-        }
+    @media (max-width: 768px) {
+      .col-6 {
+        grid-column: span 12;
+      }
+      .col-3 {
+        grid-column: span 12;
+      }
+    }
 
-        /* =========================================
-           9. RESTORED SECTIONS (Services, Insights, Newsletter, Archive, Manifesto)
-           ========================================= */
-        /* Manifesto */
-        .manifesto-section { height: 200vh; position: relative; }
-        .manifesto-sticky {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-page);
-            z-index: 1;
-        }
-        .manifesto-text { 
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 6vw, 5rem); 
-            font-weight: 900;
-            text-align: center;
-            line-height: 1.1;
-            max-width: 1200px; 
-            background: linear-gradient(180deg, #fff, #334155);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .section-spacing {
+      margin-top: var(--section-spacing);
+    }
 
-        /* Archive */
-        .archive-card {
-            background: linear-gradient(135deg, #1e293b, #020617);
-            border: 1px solid var(--border-light);
-            border-radius: 32px;
-            padding: 5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .archive-card:hover { border-color: #fbbf24; }
-        .archive-card i {
-            font-size: 5rem;
-            color: #475569;
-            margin-bottom: 2rem;
-            transition: 0.4s;
-        }
-        .archive-card:hover i {
-            color: #fbbf24;
-            transform: scale(1.2) rotate(-10deg);
-            text-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
-        }
+    .label {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
 
-        /* Services & Insights */
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-        .blog-date {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        /* Newsletter */
-        .newsletter-card {
-            background: linear-gradient(to right, #0f172a, #020617);
-            padding: 4rem 2rem;
-            border-radius: 24px;
-            border: 1px solid var(--border-light);
-            text-align: center;
-        }
-        .newsletter-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            gap: 10px;
-            position: relative;
-        }
-        .newsletter-input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            border: 1px solid #334155;
-            background: rgba(0,0,0,0.3);
-            color: white;
-            outline: none;
-            transition: 0.3s;
-        }
-        .newsletter-input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(59,130,246,0.2);
-        }
+    .title-lg {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      font-family: var(--font-display);
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
 
-        /* =========================================
-           10. FOOTER
-           ========================================= */
-        .footer-big {
-            background: #020617;
-            padding: 8rem 0 3rem;
-            border-top: 1px solid var(--border-light);
-        }
-        .footer-cta {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 10vw, 8rem);
-            font-weight: 900;
-            line-height: 0.9;
-            margin-bottom: 4rem;
-            color: white;
-        }
-        .footer-links h4 {
-            color: var(--text-dim);
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            margin-bottom: 1.5rem;
-        }
-        .footer-links a {
-            display: block;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 0.8rem;
-        }
-        .footer-links a:hover {
-            color: var(--accent);
-            transform: translateX(10px);
-        }
-        .footer-socials { display: flex; gap: 15px; }
-        .social-circle {
-            width: 50px;
-            height: 50px;
-            border: 1px solid var(--border-light);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            transition: 0.4s;
-        }
-        .social-circle:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            transform: rotate(360deg);
-        }
+    /* Background Canvas & Noise */
+    #canvas-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-        /* =========================================
-           11. RESPONSIVE
-           ========================================= */
-        @media (max-width: 900px) {
-            .navbar { width: 95%; padding: 0.8rem 1rem; }
-            .nav-items { 
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: #020617;
-                padding: 2rem;
-                flex-direction: column;
-                gap: 1.5rem;
-                border-bottom: 1px solid #1e293b;
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .nav-items.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-            }
-            
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding-top: 140px;
-            }
-            .hero-title-big {
-                font-size: 4rem;
-                margin-top: 0;
-            }
-            .orbit-container {
-                transform: scale(0.7);
-                height: 350px;
-            }
-            
-            .fan-container {
-                height: auto;
-                overflow-x: auto;
-                justify-content: flex-start;
-                padding: 2rem 5vw;
-                perspective: none;
-                gap: 20px;
-            }
-            .fan-card {
-                position: relative;
-                width: 220px;
-                height: 350px;
-                transform: none !important;
-                left: auto !important;
-                margin: 0 !important;
-                flex-shrink: 0;
-            }
-            
-            .footer-cta { font-size: 3.5rem; }
-            .footer-socials { justify-content: center; }
-            
-            /* Hide Cursor on Mobile */
-            .cursor-dot, .cursor-outline { display: none; }
+    .noise-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.06;
+    }
 
-            .mobile-toggle {
-                display: block !important;
-            }
-        }
+    /* =========================================
+       3. NAVBAR
+       ========================================= */
+    .navbar {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92%;
+      max-width: 1000px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(20px);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: var(--z-nav);
+      transition: all 0.3s ease;
+    }
 
-        /* =========================================
-           12. OVERLAYS (Loader, Modal)
-           ========================================= */
-        .preloader {
-            position: fixed;
-            inset: 0;
-            background: #020617;
-            z-index: var(--z-loader);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .loader-bar {
-            width: 200px;
-            height: 2px;
-            background: #1e293b;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        .loader-fill {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 0%;
-            background: var(--accent);
-        }
+    .navbar.scrolled {
+      background: rgba(2, 6, 23, 0.97);
+      border-color: rgba(148, 163, 184, 0.6);
+      top: 10px;
+      width: 96%;
+    }
 
-        .ai-modal-wrap {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(15px);
-            z-index: var(--z-modal);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: 0.4s;
-        }
-        .ai-modal-wrap.open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .ai-box {
-            width: 90%;
-            max-width: 600px;
-            background: #0f172a;
-            border: 1px solid var(--border-light);
-            border-radius: 24px;
-            padding: 2.5rem;
-            transform: translateY(50px);
-            transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        .ai-modal-wrap.open .ai-box {
-            transform: translateY(0);
-        }
-    </style>
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .nav-items {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #fff;
+      background: rgba(148, 163, 184, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-toggle {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .navbar {
+        padding-inline: 1rem;
+      }
+
+      .nav-items {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 0.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        background: #020617;
+        border-radius: 18px;
+        border: 1px solid rgba(15, 23, 42, 0.9);
+        padding: 0.75rem 1rem;
+        width: 100%;
+        max-width: 260px;
+        display: none;
+      }
+
+      .nav-items.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+    }
+
+    /* =========================================
+       4. BUTTONS & CARDS
+       ========================================= */
+    .btn-primary,
+    .btn-glass {
+      padding: 12px 30px;
+      border-radius: 999px;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 18px 35px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      transform: translateX(-120%);
+      transition: transform 0.45s ease;
+    }
+
+    .btn-primary:hover::after {
+      transform: translateX(120%);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 45px rgba(59, 130, 246, 0.45);
+    }
+
+    .btn-glass {
+      background: rgba(148, 163, 184, 0.08);
+      color: #fff;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .btn-glass:hover {
+      background: #fff;
+      color: #020617;
+      border-color: transparent;
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .btn-filter.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .bento-card {
+      background: var(--bg-card-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      backdrop-filter: blur(18px);
+    }
+
+    .bento-card:hover {
+      border-color: rgba(59, 130, 246, 0.6);
+    }
+
+    .project-item {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .project-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+      transform: scale(1.01);
+    }
+
+    .project-img-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(15, 23, 42, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .bento-card:hover .play-icon {
+      background: var(--accent);
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    /* Tilt wrapper */
+    .tilt-wrapper {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
+    .tilt-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.18s ease;
+    }
+
+    /* =========================================
+       5. HERO SECTION
+       ========================================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 110px;
+      position: relative;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 800;
+      line-height: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title span {
+      display: block;
+      font-family: var(--font-hand);
+      font-size: 1.5em;
+      background: linear-gradient(
+        90deg,
+        #3b82f6,
+        #8b5cf6,
+        #ec4899,
+        #f97316,
+        #3b82f6
+      );
+      background-size: 250%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientFlow 3s linear infinite;
+      margin-top: 0.35rem;
+    }
+
+    @keyframes gradientFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .hero-subtext {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 2.2rem;
+    }
+
+    .orbit-system {
+      position: relative;
+      width: 360px;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+    }
+
+    .orbit-img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 0 70px rgba(59, 130, 246, 0.35);
+      z-index: 2;
+    }
+
+    .orbit-circle {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.45);
+      animation: orbitSpin 40s linear infinite;
+    }
+
+    .orbit-circle.outer {
+      transform: scale(1.3);
+      opacity: 0.4;
+      border-style: solid;
+      border-color: rgba(59, 130, 246, 0.6);
+    }
+
+    @keyframes orbitSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .planet {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 18px;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+    }
+
+    .planet.p-1 {
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .planet.p-2 {
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .planet.p-3 {
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .planet.p-4 {
+      left: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding-top: 120px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        text-align: center;
+      }
+      .hero-subtext {
+        margin-inline: auto;
+      }
+      .orbit-system {
+        transform: scale(0.8);
+      }
+    }
+
+    /* =========================================
+       6. MARQUEE
+       ========================================= */
+    .marquee-container {
+      width: 110%;
+      margin-left: -5%;
+      background: var(--accent);
+      transform: rotate(-1deg);
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+      padding-block: 0.9rem;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 4rem;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+    }
+
+    .marquee-text {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.9rem;
+      color: #020617;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* =========================================
+       7. VIRAL SHORTS
+       ========================================= */
+    #viral-shorts .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* =========================================
+       8. DRIVE ARCHIVE CARD
+       ========================================= */
+    .drive-section-card {
+      display: block;
+      text-align: center;
+      padding: 4rem 2rem;
+      border-radius: 32px;
+      background: radial-gradient(circle at 0 0, #1e293b 0, #020617 45%);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.9);
+      color: #fff;
+      position: relative;
+    }
+
+    .drive-section-card i.fa-folder-open {
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    .drive-section-card:hover i.fa-folder-open {
+      transform: scale(1.07);
+      color: #ffd04b;
+    }
+
+    /* =========================================
+       9. MANIFESTO
+       ========================================= */
+    .manifesto-section {
+      height: 220vh;
+    }
+
+    .manifesto-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%);
+    }
+
+    .manifesto-text {
+      max-width: 900px;
+      padding-inline: 24px;
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.25;
+      color: rgba(226, 232, 240, 0.7);
+    }
+
+    /* =========================================
+       10. POLITICAL STRIP
+       ========================================= */
+    .political-wrapper {
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 3rem 0;
+    }
+
+    .political-track {
+      display: inline-flex;
+      gap: 2rem;
+      padding-inline: 5vw;
+    }
+
+    .political-poster {
+      width: 290px;
+      height: 400px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      position: relative;
+      flex-shrink: 0;
+      background: #020617;
+    }
+
+    .political-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .political-poster:hover img {
+      transform: scale(1.06);
+      opacity: 1;
+    }
+
+    .poster-overlay {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      padding: 1.5rem 1.75rem;
+      background: linear-gradient(
+        to top,
+        rgba(2, 6, 23, 0.95),
+        rgba(2, 6, 23, 0.1)
+      );
+      color: #e5e7eb;
+      transform: translateY(100%);
+      transition: transform 0.25s ease;
+    }
+
+    .political-poster:hover .poster-overlay {
+      transform: translateY(0);
+    }
+
+    /* =========================================
+       11. BLOG & TOOLKIT
+       ========================================= */
+    .blog-card {
+      padding: 2.7rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.7)
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+    }
+
+    .blog-date {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+    }
+
+    .toolkit-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    .toolkit-item {
+      padding: 0.9rem 2.2rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      transition: background 0.2s ease, border-color 0.2s ease,
+        transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .toolkit-item:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    /* =========================================
+       12. NEWSLETTER
+       ========================================= */
+    .newsletter-card {
+      background: #020617;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid #334155;
+      background: rgba(15, 23, 42, 0.9);
+      color: #fff;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    .newsletter-input::placeholder {
+      color: #64748b;
+    }
+
+    .newsletter-row {
+      display: flex;
+      gap: 0.7rem;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    @media (max-width: 600px) {
+      .newsletter-row {
+        flex-direction: column;
+      }
+      .newsletter-row .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* =========================================
+       13. FOOTER
+       ========================================= */
+    .footer {
+      padding: 6rem 2rem 3rem;
+      background: radial-gradient(circle at 50% 0, #1e293b 0, #020617 55%);
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      margin-top: 5rem;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-cta {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3rem, 6vw, 4.8rem);
+      line-height: 1;
+      margin-top: 0.75rem;
+    }
+
+    .footer-links-row {
+      margin: 3.5rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      margin-bottom: 3rem;
+    }
+
+    .footer-socials a {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-socials a:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================
+       14. CURSOR, TOAST, PRELOADER
+       ========================================= */
+    .cursor-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #fff;
+      position: fixed;
+      z-index: var(--z-cursor);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-outline {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.6);
+      position: fixed;
+      z-index: var(--z-cursor);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width 0.15s ease, height 0.15s ease,
+        background 0.15s ease, border-color 0.15s ease;
+    }
+
+    body.hovering .cursor-outline {
+      width: 60px;
+      height: 60px;
+      border-color: transparent;
+      background: rgba(248, 250, 252, 0.12);
+      backdrop-filter: blur(2px);
+    }
+
+    @media (pointer: coarse) {
+      .cursor-dot,
+      .cursor-outline {
+        display: none !important;
+      }
+      body {
+        cursor: auto;
+      }
+    }
+
+    .toast-container {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: var(--z-toast);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 14px;
+      border-left: 3px solid var(--accent);
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      border-right: 1px solid rgba(148, 163, 184, 0.3);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 0.9rem 1.3rem;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      min-width: 260px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    .preloader {
+      position: fixed;
+      inset: 0;
+      background: #020617;
+      z-index: var(--z-loader);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader-text {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2.6rem;
+      color: #fff;
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 16px;
+    }
+
+    .loader-text span:last-child {
+      font-family: var(--font-hand);
+      color: var(--accent);
+      font-size: 1.3em;
+    }
+
+    .progress-bar {
+      width: 200px;
+      height: 2px;
+      background: rgba(148, 163, 184, 0.3);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      transition: width 1.2s ease;
+    }
+
+    /* =========================================
+       15. AI MODAL
+       ========================================= */
+    .ai-modal-wrap {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(14px);
+      z-index: var(--z-modal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .ai-modal-wrap.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .ai-box {
+      width: 90%;
+      max-width: 640px;
+      background: #020617;
+      border-radius: 26px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9);
+      padding: 2.5rem 2.2rem 2rem;
+      position: relative;
+    }
+
+    .ai-tabs {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      display: flex;
+      gap: 8px;
+    }
+
+    .ai-tab-btn {
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      cursor: pointer;
+    }
+
+    .ai-tab-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .ai-textarea {
+      width: 100%;
+      height: 150px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 1rem 1.1rem;
+      color: #e5e7eb;
+      resize: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .ai-result {
+      margin-top: 1.3rem;
+      padding: 1.2rem 1.1rem;
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      max-height: 220px;
+      overflow-y: auto;
+      display: none;
+      white-space: pre-line;
+    }
+
+    @media (max-width: 640px) {
+      .ai-box {
+        padding-inline: 1.5rem;
+      }
+      .ai-tabs {
+        position: static;
+        margin-bottom: 0.75rem;
+        justify-content: flex-end;
+      }
+    }
+  </style>
 </head>
 
 <body class="loading">
+  <!-- PRELOADER -->
+  <div class="preloader">
+    <div class="loader-text">
+      <span>MOHAMED</span>
+      <span>Amer</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
 
-    <!-- PRELOADER -->
-    <div class="preloader">
-        <h1 class="display-text" style="font-size: 2.5rem;">MOHAMED<span style="color:var(--accent)">.</span></h1>
-        <div class="loader-bar"><div class="loader-fill"></div></div>
+  <!-- GLOBAL BACKGROUND LAYERS -->
+  <canvas id="canvas-bg"></canvas>
+  <div class="noise-overlay"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#about" class="logo magnet-target">MA.</a>
+
+    <div class="nav-items" id="mobileMenu">
+      <a
+        href="#about"
+        class="nav-link magnet-target"
+        data-i18n="nav-profile"
+        >Profile</a
+      >
+      <a href="#work" class="nav-link magnet-target" data-i18n="nav-work"
+        >Work</a
+      >
+      <a
+        href="#services"
+        class="nav-link magnet-target"
+        data-i18n="nav-services"
+        >Services</a
+      >
+      <a
+        href="#political"
+        class="nav-link magnet-target"
+        data-i18n="nav-political"
+        >Political</a
+      >
+      <a
+        href="#archive"
+        class="nav-link magnet-target"
+        data-i18n="nav-archive"
+        style="color: var(--accent)"
+        >Archive</a
+      >
+      <a
+        href="#contact"
+        class="nav-link magnet-target"
+        data-i18n="nav-contact"
+        >Contact</a
+      >
     </div>
 
-    <!-- BACKGROUND -->
-    <canvas id="canvas-bg" aria-hidden="true"></canvas>
-    <div class="bg-glow" aria-hidden="true"></div>
-    <div class="noise-overlay" aria-hidden="true"></div>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-outline" aria-hidden="true"></div>
+    <div class="nav-right">
+      <button
+        class="btn-glass magnet-target"
+        style="padding: 6px 16px; font-size: 0.75rem"
+        onclick="toggleLanguage()"
+      >
+        EN / AR
+      </button>
+      <button
+        class="menu-toggle magnet-target"
+        type="button"
+        onclick="toggleMenu()"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
 
-    <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-        <a href="#" class="display-text magnet-target" style="font-size:1.5rem;">MA.</a>
-        
-        <div class="nav-items" id="mobileMenu">
-            <a href="#about" class="nav-link" data-i18n="nav-about">Profile</a>
-            <a href="#work" class="nav-link" data-i18n="nav-work">Work</a>
-            <a href="#viral" class="nav-link" data-i18n="nav-viral" style="color:var(--accent);">Viral</a>
-            <a href="#services" class="nav-link" data-i18n="nav-services">Services</a>
-            <a href="#political" class="nav-link" data-i18n="nav-political">Political</a>
-            <a href="#contact" class="nav-link" data-i18n="nav-contact">Contact</a>
-        </div>
-
-        <div style="display:flex; align-items:center; gap: 10px;">
-            <button
-                type="button"
-                class="btn-glass magnet-target"
-                onclick="toggleLanguage()"
-                style="padding: 8px 16px; font-size:0.75rem;"
-                aria-label="Toggle language"
+  <main>
+    <!-- HERO -->
+    <section id="about" class="hero container">
+      <div class="grid-12" style="align-items: center; width: 100%">
+        <div class="col-6 hero-text-content">
+          <span class="label" data-i18n="hero-badge"
+            >● Istanbul Based Creative</span
+          >
+          <h1 class="hero-title">
+            MOHAMED
+            <span>Amer</span>
+          </h1>
+          <p class="hero-subtext" data-i18n="hero-desc">
+            Strategic Design & Motion Direction. I help brands communicate
+            through <strong>visual storytelling</strong> that is bold, precise,
+            and memorable.
+          </p>
+          <div
+            style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center"
+          >
+            <a
+              href="#work"
+              class="btn-primary magnet-target"
+              data-i18n="btn-view-work"
+              >View Projects</a
             >
-                AR / EN
-            </button>
-            <button
-                type="button"
-                class="btn-glass magnet-target"
-                onclick="openAI()"
-                aria-label="Open AI assistant"
+
+            <a
+              href="My cv English .pdf"
+              target="_blank"
+              class="btn-glass magnet-target"
             >
-                <i class="fas fa-magic"></i>
-            </button>
-            <button
-                type="button"
-                class="magnet-target mobile-toggle"
-                onclick="toggleMenu()"
-                style="background:none; border:none; color:white; font-size:1.5rem; display:none;"
-                aria-label="Toggle navigation menu"
+              <i class="fas fa-download"></i> CV
+            </a>
+
+            <!-- WhatsApp: replace YOUR_NUMBER_HERE with full phone number like 201234567890 -->
+            <a
+              href="https://wa.me/YOUR_NUMBER_HERE"
+              target="_blank"
+              class="btn-glass magnet-target"
             >
-                <i class="fas fa-bars"></i>
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+
+            <button
+              type="button"
+              onclick="openAiModal()"
+              class="btn-glass magnet-target"
+            >
+              <i class="fas fa-magic"></i> AI
             </button>
-        </div>
-    </nav>
-
-    <main>
-        <!-- HERO SECTION (Restored Orbit + Giant Text) -->
-        <section id="about" class="hero container">
-            <div class="grid-12" style="width:100%; align-items:center;">
-                <div class="col-6 hero-text-content" style="display:flex; flex-direction:column; justify-content:center;">
-                    <span class="label fade-in" data-i18n="hero-badge">● ISTANBUL BASED</span>
-                    <h1 class="hero-title fade-in">
-                        <span class="display-text" style="font-size: 3rem; display:block;">MOHAMED</span>
-                        <span class="hero-title-big">AMER</span>
-                    </h1>
-                    <p class="fade-in" style="font-size:1.25rem; color:var(--text-muted); margin-bottom:2.5rem; max-width:550px;" data-i18n="hero-desc">
-                        Creative Director & Visual Artist. Crafting <strong>digital experiences</strong> that blend strategy, motion, and emotion.
-                    </p>
-                    <div class="fade-in" style="display:flex; gap:15px; flex-wrap:wrap;">
-                        <a href="#work" class="btn-primary magnet-target">View Projects</a>
-                        <a href="#" class="btn-glass magnet-target">Resume</a>
-                    </div>
-                </div>
-
-                <div class="col-6" style="display:flex; justify-content:center;">
-                    <div class="orbit-container fade-in">
-                        <div class="orbit-ring ring-1">
-                            <div class="orbit-icon icon-1"><i class="fas fa-video" aria-hidden="true"></i></div>
-                            <div class="orbit-icon icon-2"><i class="fab fa-figma" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="orbit-ring ring-2">
-                            <div class="orbit-icon icon-3"><i class="fab fa-adobe" aria-hidden="true"></i></div>
-                            <div class="orbit-icon icon-4"><i class="fas fa-cube" aria-hidden="true"></i></div>
-                        </div>
-                        <img src="MINED.png" alt="Portrait of Mohamed Amer" class="orbit-center-img tilt-element" />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MARQUEE LOOP -->
-        <div class="marquee-container">
-            <div class="marquee-track">
-                <span class="marquee-item">BRAND IDENTITY • MOTION GRAPHICS • ART DIRECTION • UI/UX DESIGN •</span>
-                <span class="marquee-item">BRAND IDENTITY • MOTION GRAPHICS • ART DIRECTION • UI/UX DESIGN •</span>
-            </div>
+          </div>
         </div>
 
-        <!-- VIRAL FAN SECTION (FIXED) -->
-        <section id="viral" class="viral-section">
-            <div class="container" style="text-align:center;">
-                <span class="label" data-i18n="viral-label">TRENDING CONTENT</span>
-                <h2 class="display-text" style="font-size:clamp(2.5rem,5vw,4rem); margin-bottom:1rem;" data-i18n="viral-title">ON <span style="color:var(--accent)">SOCIALS</span></h2>
-                
-                <div class="fan-container" id="fanContainer">
-                    <!-- Javascript will inject cards here -->
-                </div>
-                
-                <div style="margin-top:3rem; display:flex; justify-content:center; gap:20px;">
-                    <a href="#" class="magnet-target" style="color:var(--text-muted);">TIKTOK</a>
-                    <a href="#" class="magnet-target" style="color:var(--text-muted);">INSTAGRAM</a>
-                </div>
+        <div
+          class="col-6"
+          style="display: flex; justify-content: center; margin-top: 2rem"
+        >
+          <div class="orbit-system tilt-wrapper">
+            <div class="tilt-inner">
+              <div class="orbit-circle"></div>
+              <div class="orbit-circle outer"></div>
+              <img
+                src="MINED.png"
+                alt="Mohamed Amer"
+                class="orbit-img"
+              />
+              <div class="planet p-1 magnet-target" title="Photoshop">
+                <i class="fas fa-image"></i>
+              </div>
+              <div class="planet p-2 magnet-target" title="After Effects">
+                <i class="fas fa-film"></i>
+              </div>
+              <div class="planet p-3 magnet-target" title="Illustrator">
+                <i class="fas fa-pen-nib"></i>
+              </div>
+              <div class="planet p-4 magnet-target" title="Figma">
+                <i class="fab fa-figma"></i>
+              </div>
             </div>
-        </section>
-
-        <!-- WORK SECTION (FIXED BEHANCE & FILTER) -->
-        <section id="work" class="container section-spacing">
-            <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 4rem; flex-wrap:wrap; gap:20px;">
-                <div>
-                    <span class="label" data-i18n="work-label">SELECTED WORKS</span>
-                    <h2 class="display-text" style="font-size:3rem;" data-i18n="work-title">FEATURED <span style="color:var(--accent)">CASES</span></h2>
-                </div>
-                <div style="display:flex; gap:10px;">
-                    <button type="button" class="btn-glass magnet-target active-filter" onclick="filterWork('all')">All</button>
-                    <button type="button" class="btn-glass magnet-target" onclick="filterWork('branding')">Branding</button>
-                    <button type="button" class="btn-glass magnet-target" onclick="filterWork('motion')">Motion</button>
-                </div>
-            </div>
-
-            <div class="grid-12" id="workGrid">
-                <!-- Project 1 -->
-                <div class="col-8 bento-card tilt-wrapper" data-cat="motion">
-                    <div class="project-img-wrapper">
-                        <iframe
-                            src="https://www.behance.net/embed/project/238580093?ilo0=1"
-                            style="width:100%; height:450px; border:none; pointer-events:none;"
-                            loading="lazy"
-                            title="Orient Detectors motion campaign"
-                        ></iframe>
-                    </div>
-                    <div style="padding:1.5rem;">
-                        <h3 style="font-size:1.5rem; font-weight:700;">Orient Detectors</h3>
-                        <p style="color:var(--text-muted);">Motion Campaign</p>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="col-4 bento-card tilt-wrapper" data-cat="branding">
-                    <div class="project-img-wrapper">
-                        <iframe
-                            src="https://www.behance.net/embed/project/218895573?ilo0=1"
-                            style="width:100%; height:450px; border:none; pointer-events:none;"
-                            loading="lazy"
-                            title="Ajax Systems brand identity"
-                        ></iframe>
-                    </div>
-                    <div style="padding:1.5rem;">
-                        <h3 style="font-size:1.5rem; font-weight:700;">Ajax Systems</h3>
-                        <p style="color:var(--text-muted);">Brand Identity</p>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="col-12 bento-card tilt-wrapper" data-cat="social">
-                    <div class="project-img-wrapper">
-                        <iframe
-                            src="https://www.behance.net/embed/project/199606419?ilo0=1"
-                            style="width:100%; height:500px; border:none; pointer-events:none;"
-                            loading="lazy"
-                            title="Social media visuals case study"
-                        ></iframe>
-                    </div>
-                    <div style="padding:2rem;">
-                        <h3 style="font-size:1.8rem; font-weight:700;">Social Media Visuals</h3>
-                        <p style="color:var(--text-muted);">Content Strategy</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICES (RESTORED) -->
-        <section id="services" class="container section-spacing">
-            <div class="grid-12" style="align-items:center;">
-                <div class="col-4">
-                    <span class="label" data-i18n="serv-label">SERVICES</span>
-                    <h2 class="display-text" style="font-size:3rem;" data-i18n="serv-title">WHAT I <span style="color:var(--accent)">DO</span></h2>
-                    <p style="color:var(--text-muted); margin: 1.5rem 0 2rem;">Transforming complex ideas into clear, compelling visuals.</p>
-                    <a href="#contact" class="btn-primary magnet-target">Start Project</a>
-                </div>
-                <div class="col-8">
-                    <div class="grid-12">
-                        <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
-                            <i class="fas fa-bezier-curve service-icon" aria-hidden="true"></i>
-                            <h3>Brand Identity</h3>
-                            <p style="font-size:0.9rem; color:var(--text-muted);">Logos, Typography, Visual Systems.</p>
-                        </div>
-                        <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
-                            <i class="fas fa-film service-icon" aria-hidden="true"></i>
-                            <h3>Motion Design</h3>
-                            <p style="font-size:0.9rem; color:var(--text-muted);">2D/3D Animation, Promo Videos.</p>
-                        </div>
-                        <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
-                            <i class="fas fa-bullhorn service-icon" aria-hidden="true"></i>
-                            <h3>Social Strategy</h3>
-                            <p style="font-size:0.9rem; color:var(--text-muted);">Content planning & creation.</p>
-                        </div>
-                        <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
-                            <i class="fas fa-layer-group service-icon" aria-hidden="true"></i>
-                            <h3>Art Direction</h3>
-                            <p style="font-size:0.9rem; color:var(--text-muted);">Concept Development, Strategy.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TOOLKIT (INFINITE LOOP) -->
-        <section class="container section-spacing">
-            <div style="text-align:center; margin-bottom:2rem;">
-                <span class="label" data-i18n="toolkit-label">CREATIVE ARSENAL</span>
-            </div>
-            <div class="toolkit-scroller">
-                <div class="toolkit-track">
-                    <!-- Original -->
-                    <div class="toolkit-item"><i class="fab fa-adobe" aria-hidden="true"></i> Photoshop</div>
-                    <div class="toolkit-item"><i class="fab fa-adobe" aria-hidden="true"></i> Illustrator</div>
-                    <div class="toolkit-item"><i class="fas fa-video" aria-hidden="true"></i> After Effects</div>
-                    <div class="toolkit-item"><i class="fas fa-film" aria-hidden="true"></i> Premiere Pro</div>
-                    <div class="toolkit-item"><i class="fas fa-cube" aria-hidden="true"></i> Blender 3D</div>
-                    <div class="toolkit-item"><i class="fab fa-figma" aria-hidden="true"></i> Figma</div>
-                    <div class="toolkit-item"><i class="fas fa-robot" aria-hidden="true"></i> Midjourney</div>
-                    <!-- Duplicate -->
-                    <div class="toolkit-item"><i class="fab fa-adobe" aria-hidden="true"></i> Photoshop</div>
-                    <div class="toolkit-item"><i class="fab fa-adobe" aria-hidden="true"></i> Illustrator</div>
-                    <div class="toolkit-item"><i class="fas fa-video" aria-hidden="true"></i> After Effects</div>
-                    <div class="toolkit-item"><i class="fas fa-film" aria-hidden="true"></i> Premiere Pro</div>
-                    <div class="toolkit-item"><i class="fas fa-cube" aria-hidden="true"></i> Blender 3D</div>
-                    <div class="toolkit-item"><i class="fab fa-figma" aria-hidden="true"></i> Figma</div>
-                    <div class="toolkit-item"><i class="fas fa-robot" aria-hidden="true"></i> Midjourney</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- POLITICAL (INFINITE LOOP) -->
-        <section id="political" class="section-spacing">
-            <div class="container">
-                <span class="label" style="color:var(--danger);" data-i18n="pol-label">PASSION PROJECTS</span>
-                <h2 class="display-text" style="font-size:3rem; margin-bottom:2rem;" data-i18n="pol-title">POLITICAL & <span style="color:var(--danger)">SOCIAL</span></h2>
-            </div>
-            <div class="political-scroller">
-                <div class="political-track">
-                    <div class="political-card">
-                        <img src="001 copy.png" alt="Freedom artwork">
-                        <div class="political-overlay"><h3>FREEDOM</h3></div>
-                    </div>
-                    <div class="political-card">
-                        <img src="002.png" alt="Justice artwork">
-                        <div class="political-overlay"><h3>JUSTICE</h3></div>
-                    </div>
-                    <div class="political-card">
-                        <img src="٠٠٢.png" alt="Voice artwork">
-                        <div class="political-overlay"><h3>VOICE</h3></div>
-                    </div>
-                    <div class="political-card">
-                        <img src="003.png" alt="Change artwork">
-                        <div class="political-overlay"><h3>CHANGE</h3></div>
-                    </div>
-                    <div class="political-card">
-                        <img src="٠٠٠٦.png" alt="Hope artwork">
-                        <div class="political-overlay"><h3>HOPE</h3></div>
-                    </div>
-                    <!-- Duplicate -->
-                    <div class="political-card">
-                        <img src="001 copy.png" alt="Freedom artwork duplicate">
-                        <div class="political-overlay"><h3>FREEDOM</h3></div>
-                    </div>
-                    <div class="political-card">
-                        <img src="002.png" alt="Justice artwork duplicate">
-                        <div class="political-overlay"><h3>JUSTICE</h3></div>
-                    </div>
-                    <div class="political-card">
-                        <img src="٠٠٢.png" alt="Voice artwork duplicate">
-                        <div class="political-overlay"><h3>VOICE</h3></div>
-                    </div>
-                    <div class="political-card">
-                        <img src="003.png" alt="Change artwork duplicate">
-                        <div class="political-overlay"><h3>CHANGE</h3></div>
-                    </div>
-                    <div class="political-card">
-                        <img src="٠٠٠٦.png" alt="Hope artwork duplicate">
-                        <div class="political-overlay"><h3>HOPE</h3></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MANIFESTO & ARCHIVE -->
-        <div class="manifesto-section">
-            <div class="manifesto-sticky">
-                <h2 class="manifesto-text" id="manifestoText">
-                    "DESIGN ISN'T JUST ABOUT AESTHETICS. IT'S ABOUT SPEED, CLARITY, AND IMPACT."
-                </h2>
-            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <section class="container section-spacing">
-            <div class="archive-card tilt-wrapper magnet-target" onclick="window.open('#')">
-                <i class="fas fa-folder-open" aria-hidden="true"></i>
-                <h2 class="display-text" style="font-size:2.5rem; margin-bottom:1rem;" data-i18n="archive-title">PROJECT <span style="color:var(--accent)">ARCHIVE</span></h2>
-                <p style="color:var(--text-muted); max-width:600px; margin:0 auto 2rem;" data-i18n="archive-desc">Access high-res source files, open projects, and assets directly from my drive.</p>
-                <button type="button" class="btn-primary">ACCESS DRIVE</button>
-            </div>
-        </section>
-
-        <!-- INSIGHTS (RESTORED) -->
-        <section id="insights" class="container section-spacing">
-            <div class="grid-12">
-                <div class="col-12" style="text-align:center; margin-bottom:3rem;">
-                    <h2 class="display-text" style="font-size:3rem;" data-i18n="blog-title">DESIGN <span style="color:var(--accent)">INSIGHTS</span></h2>
-                </div>
-                <div class="col-6">
-                    <div class="bento-card tilt-wrapper" style="padding:2.5rem; display:flex; flex-direction:column; justify-content:space-between; height:100%;">
-                        <div>
-                            <span class="blog-date">MARCH 15, 2025</span>
-                            <h3 style="font-size:1.8rem; font-weight:800; margin:1rem 0;">Why Motion Matters in Tech</h3>
-                            <p style="color:var(--text-muted);">Static images are no longer enough. Learn how motion builds trust.</p>
-                        </div>
-                        <a href="#" class="btn-glass" style="width:fit-content; margin-top:2rem;">Read Article</a>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="bento-card tilt-wrapper" style="padding:2.5rem; display:flex; flex-direction:column; justify-content:space-between; height:100%;">
-                        <div>
-                            <span class="blog-date">FEB 28, 2025</span>
-                            <h3 style="font-size:1.8rem; font-weight:800; margin:1rem 0;">Color Psychology in Branding</h3>
-                            <p style="color:var(--text-muted);">How blue and green tones influence patient trust in medical fields.</p>
-                        </div>
-                        <a href="#" class="btn-glass" style="width:fit-content; margin-top:2rem;">Read Article</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- NEWSLETTER (RESTORED) -->
-        <section id="newsletter" class="container section-spacing">
-            <div class="newsletter-card">
-                <h2 class="display-text" style="font-size:2.5rem; margin-bottom:1rem;" data-i18n="news-title">JOIN THE <span style="color:var(--accent)">NEWSLETTER</span></h2>
-                <p style="color:var(--text-muted); margin-bottom:2rem;">Get insights, tips, and free assets delivered to your inbox.</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Your Email" class="newsletter-input" aria-label="Email address">
-                    <button type="button" class="btn-primary">JOIN</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER (BIG TYPOGRAPHY) -->
-        <footer id="contact" class="footer-big">
-            <div class="container">
-                <h2 class="footer-cta">LET'S<br><span>WORK</span><br>TOGETHER.</h2>
-                <div class="grid-12" style="margin-bottom:4rem;">
-                    <div class="col-6">
-                        <a href="mailto:mohadel0300@gmail.com" class="btn-primary magnet-target" style="font-size:1.2rem; padding:1rem 3rem;">mohadel0300@gmail.com</a>
-                    </div>
-                    <div class="col-3 footer-links">
-                        <h4 data-i18n="nav-sitemap">SITEMAP</h4>
-                        <a href="#about">Profile</a>
-                        <a href="#work">Work</a>
-                        <a href="#viral">Viral</a>
-                        <a href="#services">Services</a>
-                        <a href="#insights">Insights</a>
-                    </div>
-                    <div class="col-3 footer-socials">
-                        <div style="display:flex; gap:10px;">
-                            <a href="#" class="social-circle magnet-target" aria-label="Behance"><i class="fab fa-behance" aria-hidden="true"></i></a>
-                            <a href="#" class="social-circle magnet-target" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#" class="social-circle magnet-target" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div style="border-top:1px solid #1e293b; padding-top:2rem; display:flex; justify-content:space-between; color:#475569; flex-wrap:wrap;">
-                    <span>© 2025 Mohamed Amer. All Rights Reserved.</span>
-                    <span>Istanbul, TR</span>
-                </div>
-            </div>
-        </footer>
-
-    </main>
-
-    <!-- AI MODAL -->
-    <div class="ai-modal-wrap" id="aiModal">
-        <div class="ai-box">
-            <div style="display:flex; justify-content:space-between; margin-bottom:1.5rem;">
-                <h3 style="font-weight:700; color:white;">AI ASSISTANT</h3>
-                <button type="button" onclick="closeAI()" style="background:none; border:none; color:white; font-size:1.5rem;" aria-label="Close AI assistant">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <textarea
-                id="aiPrompt"
-                style="width:100%; height:120px; background:#020617; border:1px solid #334155; color:white; padding:1rem; border-radius:12px; resize:none;"
-                placeholder="Tell me about your project idea..."
-            ></textarea>
-            <button type="button" onclick="generateAI()" class="btn-primary" style="width:100%; margin-top:1rem;">GENERATE BRIEF</button>
-            <div id="aiOutput" style="margin-top:1.5rem; color:var(--text-muted); font-size:0.9rem;"></div>
-        </div>
+    <!-- MARQUEE -->
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <span class="marquee-text"
+          >BRAND IDENTITY • MOTION GRAPHICS • ART DIRECTION • SOCIAL MEDIA •
+          UI/UX DESIGN •</span
+        >
+        <span class="marquee-text"
+          >BRAND IDENTITY • MOTION GRAPHICS • ART DIRECTION • SOCIAL MEDIA •
+          UI/UX DESIGN •</span
+        >
+      </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        'use strict';
+    <!-- WORK -->
+    <section id="work" class="container section-spacing">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          gap: 1rem;
+          flex-wrap: wrap;
+          margin-bottom: 3rem;
+        "
+      >
+        <div>
+          <span class="label" data-i18n="label-portfolio">Selected Works</span>
+          <h2 class="title-lg" data-i18n="title-cases">
+            FEATURED <span style="color: var(--accent)">CASES</span>
+          </h2>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <button
+            class="btn-glass btn-filter magnet-target active"
+            type="button"
+            data-filter="all"
+            onclick="filterProjects('all')"
+          >
+            All
+          </button>
+          <button
+            class="btn-glass btn-filter magnet-target"
+            type="button"
+            data-filter="branding"
+            onclick="filterProjects('branding')"
+          >
+            Branding
+          </button>
+          <button
+            class="btn-glass btn-filter magnet-target"
+            type="button"
+            data-filter="motion"
+            onclick="filterProjects('motion')"
+          >
+            Motion
+          </button>
+        </div>
+      </div>
 
-        const CONFIG = {
-            lang: 'en',
-            viralCards: [
-                { img: 'https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg', link: 'https://youtu.be/F-lmawsIKEI' },
-                { img: 'https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg', link: 'https://youtube.com/shorts/Z9xVIlCuQpA' },
-                { img: 'https://img.youtube.com/vi/oKIJWxeoMZo/hqdefault.jpg', link: 'https://youtube.com/shorts/oKIJWxeoMZo' },
-                { img: 'https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg', link: 'https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==' }, 
-                { img: 'https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg', link: '#' }
-            ],
-            i18n: {
-                'hero-badge': {en:'● ISTANBUL BASED', ar:'● مقيم في إسطنبول'},
-                'hero-desc': {en:'Creative Director & Visual Artist. Crafting <strong>digital experiences</strong> that blend strategy, motion, and emotion.', ar:'مخرج إبداعي وفنان بصري. أصمم <strong>تجارب رقمية</strong> تمزج بين الاستراتيجية والحركة والشعور.'},
-                'viral-label': {en:'TRENDING CONTENT', ar:'محتوى رائج'},
-                'viral-title': {en:'ON <span style="color:var(--accent)">SOCIALS</span>', ar:'على <span style="color:var(--accent)">المنصات</span>'},
-                'work-label': {en:'SELECTED WORKS', ar:'أعمال مختارة'},
-                'work-title': {en:'FEATURED <span style="color:var(--accent)">CASES</span>', ar:'دراسات <span style="color:var(--accent)">حالة</span>'},
-                'serv-label': {en:'SERVICES', ar:'خدمات'},
-                'serv-title': {en:'WHAT I <span style="color:var(--accent)">DO</span>', ar:'ماذا <span style="color:var(--accent)">أقدم</span>'},
-                'pol-label': {en:'PASSION PROJECTS', ar:'مشاريع شغف'},
-                'pol-title': {en:'POLITICAL & <span style="color:var(--danger)">SOCIAL</span>', ar:'مشاريع <span style="color:var(--danger)">سياسية</span>'},
-                'archive-title': {en:'PROJECT <span style="color:var(--accent)">ARCHIVE</span>', ar:'أرشيف <span style="color:var(--accent)">المشاريع</span>'},
-                'archive-desc': {en:'Access high-res source files, open projects, and assets directly from my drive.', ar:'وصول مباشر لملفات المصدر والمشاريع المفتوحة من الدرايف.'},
-                'blog-title': {en:'DESIGN <span style="color:var(--accent)">INSIGHTS</span>', ar:'رؤى <span style="color:var(--accent)">تصميمية</span>'},
-                'toolkit-label': {en:'CREATIVE ARSENAL', ar:'أدواتي الإبداعية'},
-                'news-title': {en:'JOIN THE <span style="color:var(--accent)">NEWSLETTER</span>', ar:'اشترك في <span style="color:var(--accent)">النشرة</span>'},
-                'nav-about': {en:'Profile', ar:'الرئيسية'},
-                'nav-work': {en:'Work', ar:'أعمالي'},
-                'nav-viral': {en:'Viral', ar:'فيرال'},
-                'nav-services': {en:'Services', ar:'خدمات'},
-                'nav-political': {en:'Political', ar:'سياسي'},
-                'nav-contact': {en:'Contact', ar:'تواصل'}
-            }
-        };
+      <div class="grid-12" id="projectGrid">
+        <!-- Motion Project -->
+        <div class="col-6 project-item tilt-wrapper" data-category="motion">
+          <div class="tilt-inner bento-card">
+            <div
+              class="project-img-wrapper"
+              style="aspect-ratio: 16 / 9; overflow: hidden"
+            >
+              <iframe
+                src="https://www.behance.net/embed/project/238580093?ilo0=1"
+                loading="lazy"
+                class="project-iframe"
+              ></iframe>
+            </div>
+            <div style="padding: 1.4rem 1.5rem 1.6rem">
+              <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem">
+                Orient Detectors
+              </h3>
+              <p style="color: var(--text-muted)">Motion Campaign • 2024</p>
+            </div>
+          </div>
+        </div>
 
-        // --- INIT ---
-        document.addEventListener('DOMContentLoaded', () => {
-            if (window.gsap && window.ScrollTrigger && window.ScrollToPlugin) {
-                gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-            }
+        <!-- Branding Project -->
+        <div
+          class="col-6 project-item tilt-wrapper"
+          data-category="branding"
+          style="margin-top: 3rem"
+        >
+          <div class="tilt-inner bento-card">
+            <div
+              class="project-img-wrapper"
+              style="aspect-ratio: 16 / 9; overflow: hidden"
+            >
+              <iframe
+                src="https://www.behance.net/embed/project/218895573?ilo0=1"
+                loading="lazy"
+                class="project-iframe"
+              ></iframe>
+            </div>
+            <div style="padding: 1.4rem 1.5rem 1.6rem">
+              <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem">
+                Ajax Systems
+              </h3>
+              <p style="color: var(--text-muted)">Brand Identity • 2023</p>
+            </div>
+          </div>
+        </div>
 
-            initLoader();
-            initLenis();
-            initCanvas();
-            initFan();
-            initTilt();
-            initMagnetic();
-            initManifesto();
-            initNavbar();
-            initCursor();
-            initAIModalCloseHandlers();
+        <!-- Social / Mixed -->
+        <div class="col-12 project-item tilt-wrapper" data-category="social">
+          <div class="tilt-inner bento-card">
+            <div
+              class="project-img-wrapper"
+              style="height: 480px; overflow: hidden"
+            >
+              <iframe
+                src="https://www.behance.net/embed/project/199606419?ilo0=1"
+                loading="lazy"
+                class="project-iframe"
+              ></iframe>
+            </div>
+            <div style="padding: 1.8rem 2rem 2rem">
+              <h3 style="font-size: 1.8rem; font-weight: 700">
+                Social Media Visuals
+              </h3>
+              <p style="color: var(--text-muted)">
+                Content Strategy &amp; Design
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIRAL SHORTS / REELS -->
+    <section id="viral-shorts" class="container section-spacing">
+      <div style="text-align: center; margin-bottom: 2.5rem">
+        <span class="label" data-i18n="label-viral">VIRAL CONTENT</span>
+        <h2 class="title-lg" data-i18n="title-viral">
+          FEATURED <span style="color: var(--accent)">SHORTS</span>
+        </h2>
+      </div>
+
+      <div class="grid-12">
+        <div
+          class="col-3 bento-card tilt-wrapper"
+          style="cursor: pointer"
+          onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS','_blank')"
+        >
+          <div class="tilt-inner">
+            <div
+              class="project-img-wrapper"
+              style="aspect-ratio: 9 / 16; position: relative"
+            >
+              <img
+                src="https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg"
+                alt="Viral short 1"
+              />
+              <div class="play-icon"><i class="fas fa-play"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-3 bento-card tilt-wrapper"
+          style="cursor: pointer"
+          onclick="window.open('https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90','_blank')"
+        >
+          <div class="tilt-inner">
+            <div
+              class="project-img-wrapper"
+              style="aspect-ratio: 9 / 16; position: relative"
+            >
+              <img
+                src="https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg"
+                alt="Viral short 2"
+              />
+              <div class="play-icon"><i class="fas fa-play"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-3 bento-card tilt-wrapper"
+          style="cursor: pointer"
+          onclick="window.open('https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB','_blank')"
+        >
+          <div class="tilt-inner">
+            <div
+              class="project-img-wrapper"
+              style="aspect-ratio: 9 / 16; position: relative"
+            >
+              <img
+                src="https://img.youtube.com/vi/oKIJWxeoMZo/hqdefault.jpg"
+                alt="Viral short 3"
+              />
+              <div class="play-icon"><i class="fas fa-play"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-3 bento-card tilt-wrapper"
+          style="cursor: pointer"
+          onclick="window.open('https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==','_blank')"
+        >
+          <div class="tilt-inner">
+            <div
+              class="project-img-wrapper"
+              style="
+                aspect-ratio: 9 / 16;
+                position: relative;
+                background: linear-gradient(
+                  45deg,
+                  #f09433 0%,
+                  #e6683c 25%,
+                  #dc2743 50%,
+                  #cc2366 75%,
+                  #bc1888 100%
+                );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i class="fab fa-instagram" style="font-size: 3rem; color: #fff"></i>
+              <div class="play-icon" style="background: rgba(255, 255, 255, 0.2)">
+                <i class="fas fa-eye"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHIVE / DRIVE -->
+    <section id="archive" class="container section-spacing">
+      <a
+        href="https://drive.google.com/drive/u/0/folders/1-E4D0ktY12ONLEye6bAyVXkqgzAylrgD"
+        target="_blank"
+        rel="noopener"
+        class="drive-section-card tilt-wrapper magnet-target"
+        style="color: inherit; text-decoration: none"
+      >
+        <div style="font-size: 4.4rem; margin-bottom: 1.2rem">
+          <i class="fas fa-folder-open" style="color: #facc15"></i>
+        </div>
+        <h2 class="title-lg" style="font-size: 2.7rem; margin-bottom: 1rem">
+          PROJECT <span style="color: var(--accent)">ARCHIVE</span>
+        </h2>
+        <p
+          style="
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.05rem;
+          "
+        >
+          Gain exclusive access to high-resolution source files, open-project
+          assets, and behind-the-scenes materials directly from my private drive.
+        </p>
+        <button
+          class="btn-primary"
+          type="button"
+          style="padding-inline: 2.7rem; font-size: 0.95rem"
+        >
+          <i class="fab fa-google-drive"></i>&nbsp; Access Drive
+        </button>
+      </a>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container section-spacing">
+      <div class="grid-12">
+        <div class="col-4">
+          <span class="label" data-i18n="label-what-i-do">Services</span>
+          <h2 class="title-lg" data-i18n="title-services">
+            WHAT I <br /><span style="color: var(--accent)">OFFER</span>
+          </h2>
+          <p style="color: var(--text-muted); margin-bottom: 1.8rem">
+            I combine technical expertise with artistic vision to create digital
+            products that stand out.
+          </p>
+          <a href="#contact" class="btn-primary magnet-target"
+            >Start a Project</a
+          >
+        </div>
+        <div class="col-8">
+          <div class="grid-12">
+            <div class="col-6 tilt-wrapper">
+              <div class="tilt-inner bento-card" style="padding: 2rem">
+                <i
+                  class="fas fa-bezier-curve fa-2x"
+                  style="color: var(--accent); margin-bottom: 1rem"
+                ></i>
+                <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem">
+                  Visual Identity
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem">
+                  Logo design, typography, and comprehensive brand guidelines.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-6 tilt-wrapper">
+              <div class="tilt-inner bento-card" style="padding: 2rem">
+                <i
+                  class="fas fa-film fa-2x"
+                  style="color: var(--accent); margin-bottom: 1rem"
+                ></i>
+                <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem">
+                  Motion Design
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem">
+                  2D/3D animation, explainers, and UI interactions.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-6 tilt-wrapper">
+              <div class="tilt-inner bento-card" style="padding: 2rem">
+                <i
+                  class="fas fa-bullhorn fa-2x"
+                  style="color: var(--accent); margin-bottom: 1rem"
+                ></i>
+                <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem">
+                  Social Strategy
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem">
+                  Content planning and high-impact visual creation.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-6 tilt-wrapper">
+              <div class="tilt-inner bento-card" style="padding: 2rem">
+                <i
+                  class="fas fa-layer-group fa-2x"
+                  style="color: var(--accent); margin-bottom: 1rem"
+                ></i>
+                <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem">
+                  Art Direction
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem">
+                  Leading creative teams and visual conceptualization.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <div class="manifesto-section" id="manifesto">
+      <div class="manifesto-sticky">
+        <h2 class="manifesto-text">
+          "DESIGN ISN'T JUST ABOUT MAKING THINGS LOOK GOOD. IT'S ABOUT CLARITY,
+          SPEED, AND TELLING A STORY THAT STICKS."
+        </h2>
+      </div>
+    </div>
+
+    <!-- POLITICAL -->
+    <section id="political" class="section-spacing">
+      <div class="container" style="margin-bottom: 1.8rem">
+        <span
+          class="label"
+          style="color: #ef4444"
+          data-i18n="label-passion"
+          >Passion Projects</span
+        >
+        <h2 class="title-lg" data-i18n="title-political">
+          POLITICAL &amp; <span style="color: #ef4444">SOCIAL</span>
+        </h2>
+      </div>
+      <div class="political-wrapper">
+        <div class="political-track">
+          <div class="political-poster tilt-wrapper">
+            <div class="tilt-inner">
+              <img src="001 copy.png" alt="Poster 1" />
+              <div class="poster-overlay">
+                <h4 style="font-weight: 800; font-size: 1.4rem">FREEDOM</h4>
+              </div>
+            </div>
+          </div>
+          <div class="political-poster tilt-wrapper">
+            <div class="tilt-inner">
+              <img src="002.png" alt="Poster 2" />
+              <div class="poster-overlay">
+                <h4 style="font-weight: 800; font-size: 1.4rem">JUSTICE</h4>
+              </div>
+            </div>
+          </div>
+          <div class="political-poster tilt-wrapper">
+            <div class="tilt-inner">
+              <img src="٠٠٢.png" alt="Poster 3" />
+              <div class="poster-overlay">
+                <h4 style="font-weight: 800; font-size: 1.4rem">VOICE</h4>
+              </div>
+            </div>
+          </div>
+          <div class="political-poster tilt-wrapper">
+            <div class="tilt-inner">
+              <img src="003.png" alt="Poster 4" />
+              <div class="poster-overlay">
+                <h4 style="font-weight: 800; font-size: 1.4rem">CHANGE</h4>
+              </div>
+            </div>
+          </div>
+          <div class="political-poster tilt-wrapper">
+            <div class="tilt-inner">
+              <img src="٠٠٠٦.png" alt="Poster 5" />
+              <div class="poster-overlay">
+                <h4 style="font-weight: 800; font-size: 1.4rem">HOPE</h4>
+              </div>
+            </div>
+          </div>
+          <div class="political-poster tilt-wrapper">
+            <div class="tilt-inner">
+              <img src="٣٨٢٩٥.png" alt="Poster 6" />
+              <div class="poster-overlay">
+                <h4 style="font-weight: 800; font-size: 1.4rem">PEACE</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIGHTS + TOOLKIT -->
+    <section class="container section-spacing">
+      <div class="grid-12">
+        <div class="col-12" style="margin-bottom: 2.4rem">
+          <span class="label" data-i18n="label-thoughts">Knowledge</span>
+          <h2 class="title-lg" data-i18n="title-insights">
+            DESIGN <span style="color: var(--accent)">INSIGHTS</span>
+          </h2>
+        </div>
+
+        <div class="col-6 tilt-wrapper">
+          <div class="tilt-inner blog-card">
+            <div>
+              <div class="blog-date">MARCH 15, 2025</div>
+              <h3 class="blog-title" data-i18n="blog-1-title">
+                Why Motion Graphics is Essential for Tech Brands
+              </h3>
+              <p
+                style="color: var(--text-muted); margin-bottom: 1.3rem"
+                data-i18n="blog-1-desc"
+              >
+                Static images are no longer enough. Learn how motion builds
+                trust.
+              </p>
+            </div>
+            <a
+              href="#"
+              class="btn-glass magnet-target"
+              style="width: fit-content"
+              >Read Article</a
+            >
+          </div>
+        </div>
+
+        <div class="col-6 tilt-wrapper">
+          <div class="tilt-inner blog-card">
+            <div>
+              <div class="blog-date">FEBRUARY 28, 2025</div>
+              <h3 class="blog-title" data-i18n="blog-2-title">
+                The Psychology of Color in Medical Branding
+              </h3>
+              <p
+                style="color: var(--text-muted); margin-bottom: 1.3rem"
+                data-i18n="blog-2-desc"
+              >
+                How blue and green tones influence patient trust.
+              </p>
+            </div>
+            <a
+              href="#"
+              class="btn-glass magnet-target"
+              style="width: fit-content"
+              >Read Article</a
+            >
+          </div>
+        </div>
+
+        <!-- TOOLKIT -->
+        <div class="col-12 section-spacing">
+          <div style="text-align: center; margin-bottom: 2.2rem">
+            <h2 class="title-lg" data-i18n="title-software">
+              MY <span style="color: var(--accent)">TOOLKIT</span>
+            </h2>
+          </div>
+          <div class="toolkit-grid" id="toolkitGrid">
+            <div class="toolkit-item tilt-wrapper">
+              <div class="tilt-inner">
+                <i class="fab fa-adobe"></i> Photoshop
+              </div>
+            </div>
+            <div class="toolkit-item tilt-wrapper">
+              <div class="tilt-inner">
+                <i class="fab fa-adobe"></i> Illustrator
+              </div>
+            </div>
+            <div class="toolkit-item tilt-wrapper">
+              <div class="tilt-inner">
+                <i class="fas fa-video"></i> After Effects
+              </div>
+            </div>
+            <div class="toolkit-item tilt-wrapper">
+              <div class="tilt-inner">
+                <i class="fas fa-film"></i> Premiere Pro
+              </div>
+            </div>
+            <div class="toolkit-item tilt-wrapper">
+              <div class="tilt-inner">
+                <i class="fab fa-figma"></i> Figma
+              </div>
+            </div>
+            <div class="toolkit-item tilt-wrapper">
+              <div class="tilt-inner">
+                <i class="fas fa-cube"></i> Blender
+              </div>
+            </div>
+            <div class="toolkit-item tilt-wrapper">
+              <div class="tilt-inner">
+                <i class="fas fa-brain"></i> Midjourney
+              </div>
+            </div>
+            <div class="toolkit-item tilt-wrapper">
+              <div class="tilt-inner">
+                <i class="fas fa-code"></i> HTML/CSS
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section id="newsletter" class="container section-spacing">
+      <div class="newsletter-card tilt-wrapper">
+        <div class="tilt-inner" style="width: 100%">
+          <h2 class="title-lg" data-i18n="title-updated">
+            STAY <span style="color: var(--accent)">UPDATED</span>
+          </h2>
+          <p
+            style="max-width: 520px; margin: 0 auto 1.8rem; color: var(--text-muted)"
+            data-i18n="newsletter-desc"
+          >
+            Join my newsletter for design tips, motion graphics trends, and
+            behind-the-scenes of my latest projects.
+          </p>
+          <div class="newsletter-row">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your email"
+            />
+            <button
+              class="btn-primary"
+              type="button"
+              data-i18n="btn-subscribe"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="footer">
+      <div class="footer-inner">
+        <span class="label" style="color: #10b981">● Available for Work</span>
+        <h2 class="footer-cta">
+          LET'S WORK <br /><span
+            style="
+              color: #fff;
+              font-family: var(--font-display);
+              -webkit-text-fill-color: #fff;
+            "
+            >TOGETHER</span
+          >
+        </h2>
+
+        <div class="footer-links-row">
+          <a
+            href="mailto:mohadel0300@gmail.com"
+            class="btn-primary magnet-target"
+            >mohadel0300@gmail.com</a
+          >
+          <a
+            href="My cv English .pdf"
+            class="btn-glass magnet-target"
+            target="_blank"
+            >Download CV</a
+          >
+          <a
+            href="https://wa.me/YOUR_NUMBER_HERE"
+            target="_blank"
+            class="btn-glass magnet-target"
+          >
+            <i class="fab fa-whatsapp"></i>&nbsp; WhatsApp
+          </a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="#" class="magnet-target"><i class="fab fa-behance"></i></a>
+          <a href="#" class="magnet-target"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="magnet-target"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Mohamed Amer.</p>
+          <p>
+            Designed &amp; Developed with
+            <i class="fas fa-heart" style="color: var(--accent)"></i>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- AI MODAL -->
+  <div class="ai-modal-wrap" id="aiModal">
+    <div class="ai-box">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 1.3rem">
+        <h3
+          style="
+            font-size: 1.4rem;
+            font-family: var(--font-display);
+            font-weight: 800;
+          "
+        >
+          <i class="fas fa-robot" style="color: var(--accent)"></i>
+          &nbsp; AI ASSISTANT
+        </h3>
+        <button
+          type="button"
+          onclick="closeAiModal()"
+          class="magnet-target"
+          style="
+            background: none;
+            border: none;
+            color: #e5e7eb;
+            font-size: 1.3rem;
+          "
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="ai-tabs">
+        <button
+          type="button"
+          class="ai-tab-btn active"
+          id="aiTabBrief"
+          onclick="setAiMode('brief')"
+        >
+          Brief
+        </button>
+        <button
+          type="button"
+          class="ai-tab-btn"
+          id="aiTabVisual"
+          onclick="setAiMode('visual')"
+        >
+          Visuals
+        </button>
+      </div>
+
+      <textarea
+        id="aiPrompt"
+        class="ai-textarea"
+        placeholder="Describe your project idea, brand, or campaign..."
+      ></textarea>
+
+      <div
+        style="
+          margin-top: 0.9rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+        "
+      >
+        <span style="font-size: 0.78rem; color: var(--text-muted)"
+          >Local demo (no API calls)</span
+        >
+        <button
+          class="btn-primary magnet-target"
+          type="button"
+          id="aiGenBtn"
+          onclick="generateContent()"
+        >
+          Generate
+        </button>
+      </div>
+
+      <div id="aiResult" class="ai-result"></div>
+    </div>
+  </div>
+
+  <!-- MAIN SCRIPT -->
+  <script>
+    (function () {
+      "use strict";
+
+      const state = {
+        lang: "en",
+        aiMode: "brief",
+      };
+
+      /* =========================
+         I18N DICTIONARY
+         ========================= */
+      const I18N_DICT = {
+        "hero-badge": {
+          en: "● Istanbul Based Creative",
+          ar: "● مبدع مقيم في إسطنبول",
+        },
+        "hero-desc": {
+          en: "Strategic Design & Motion Direction. I help brands communicate through <strong>visual storytelling</strong> that is bold, precise, and memorable.",
+          ar: "تصميم استراتيجي وإخراج حركي. أساعد العلامات التجارية على التواصل عبر <strong>سرد بصري</strong> جريء، دقيق، ولا يُنسى.",
+        },
+        "btn-view-work": { en: "View Projects", ar: "تصفّح الأعمال" },
+
+        "nav-profile": { en: "Profile", ar: "الرئيسية" },
+        "nav-work": { en: "Work", ar: "أعمالي" },
+        "nav-services": { en: "Services", ar: "الخدمات" },
+        "nav-political": { en: "Political", ar: "سياسي" },
+        "nav-archive": { en: "Archive", ar: "الأرشيف" },
+        "nav-contact": { en: "Contact", ar: "تواصل" },
+
+        "label-portfolio": { en: "Selected Works", ar: "أعمال مختارة" },
+        "title-cases": {
+          en: "FEATURED <span style=\"color:var(--accent)\">CASES</span>",
+          ar: "أعمال <span style=\"color:var(--accent)\">مختارة</span>",
+        },
+
+        "label-viral": { en: "VIRAL CONTENT", ar: "محتوى رائج" },
+        "title-viral": {
+          en: "FEATURED <span style=\"color:var(--accent)\">SHORTS</span>",
+          ar: "ريلز <span style=\"color:var(--accent)\">مميزة</span>",
+        },
+
+        "label-what-i-do": { en: "Services", ar: "الخدمات" },
+        "title-services": {
+          en: "WHAT I <br><span style=\"color:var(--accent)\">OFFER</span>",
+          ar: "ماذا <br><span style=\"color:var(--accent)\">أقدّم</span>",
+        },
+
+        "label-passion": { en: "Passion Projects", ar: "مشاريع شغف" },
+        "title-political": {
+          en: "POLITICAL & <span style=\"color:#ef4444\">SOCIAL</span>",
+          ar: "مشاريع <span style=\"color:#ef4444\">قضية ومجتمع</span>",
+        },
+
+        "label-thoughts": { en: "Knowledge", ar: "معرفة" },
+        "title-insights": {
+          en: "DESIGN <span style=\"color:var(--accent)\">INSIGHTS</span>",
+          ar: "رؤى <span style=\"color:var(--accent)\">التصميم</span>",
+        },
+        "title-software": {
+          en: "MY <span style=\"color:var(--accent)\">TOOLKIT</span>",
+          ar: "أدواتي <span style=\"color:var(--accent)\">المفضّلة</span>",
+        },
+
+        "title-updated": {
+          en: "STAY <span style=\"color:var(--accent)\">UPDATED</span>",
+          ar: "كن <span style=\"color:var(--accent)\">متابعًا</span>",
+        },
+        "newsletter-desc": {
+          en: "Join my newsletter for design tips, motion graphics trends, and behind-the-scenes of my latest projects.",
+          ar: "اشترك في النشرة البريدية لتحصل على نصائح تصميم، وآخر اتجاهات الموشن جرافيك، وكواليس أحدث مشاريعي.",
+        },
+        "btn-subscribe": { en: "Subscribe", ar: "اشترك" },
+
+        "blog-1-title": {
+          en: "Why Motion Graphics is Essential for Tech Brands",
+          ar: "لماذا الموشن جرافيك مهم لعلامات التقنية التجارية",
+        },
+        "blog-1-desc": {
+          en: "Static images are no longer enough. Learn how motion builds trust.",
+          ar: "الصور الثابتة لم تعد كافية، تعرّف كيف تبني الحركة الثقة.",
+        },
+        "blog-2-title": {
+          en: "The Psychology of Color in Medical Branding",
+          ar: "علم نفس الألوان في الهوية الطبية",
+        },
+        "blog-2-desc": {
+          en: "How blue and green tones influence patient trust.",
+          ar: "كيف تؤثر درجات الأزرق والأخضر على ثقة المرضى.",
+        },
+      };
+
+      function applyTranslations() {
+        document.documentElement.dir = state.lang === "ar" ? "rtl" : "ltr";
+        const nodes = document.querySelectorAll("[data-i18n]");
+        nodes.forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          const entry = I18N_DICT[key];
+          if (!entry) return;
+          el.innerHTML = entry[state.lang] || entry.en || "";
+        });
+      }
+
+      function toggleLanguage() {
+        state.lang = state.lang === "en" ? "ar" : "en";
+        applyTranslations();
+        showToast(
+          state.lang === "ar"
+            ? "تم تغيير اللغة إلى العربية"
+            : "Language switched to English"
+        );
+      }
+
+      /* =========================
+         PRELOADER
+         ========================= */
+      function initPreloader() {
+        const preloader = document.querySelector(".preloader");
+        const fill = document.querySelector(".progress-fill");
+        if (!preloader || !fill) return;
+
+        // Animate bar a bit
+        requestAnimationFrame(() => {
+          fill.style.width = "100%";
         });
 
-        // --- FUNCTIONS ---
-        function initLoader() {
-            const preloader = document.querySelector('.preloader');
-            const loaderFill = document.querySelector('.loader-fill');
+        window.addEventListener("load", () => {
+          preloader.style.transition =
+            "opacity .4s ease, transform .4s ease, visibility .4s ease";
+          preloader.style.opacity = "0";
+          preloader.style.transform = "translateY(-20px)";
+          preloader.style.visibility = "hidden";
+          document.body.classList.remove("loading");
+        });
 
-            if (!preloader || !loaderFill) {
-                document.body.classList.remove('loading');
-                return;
+        // Fallback: hide after 4s in case load is slow
+        setTimeout(() => {
+          if (!preloader.style.visibility) {
+            preloader.style.opacity = "0";
+            preloader.style.transform = "translateY(-20px)";
+            preloader.style.visibility = "hidden";
+            document.body.classList.remove("loading");
+          }
+        }, 4000);
+      }
+
+      /* =========================
+         CANVAS BACKGROUND
+         ========================= */
+      function initCanvas() {
+        const canvas = document.getElementById("canvas-bg");
+        if (!canvas || !canvas.getContext) return;
+        const ctx = canvas.getContext("2d");
+        let particles = [];
+
+        function resize() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener("resize", resize);
+        resize();
+
+        class Particle {
+          constructor() {
+            this.reset();
+          }
+          reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 1.7 + 0.5;
+            this.vx = Math.random() * 0.5 - 0.25;
+            this.vy = Math.random() * 0.5 - 0.25;
+            this.color =
+              Math.random() > 0.5
+                ? "rgba(59,130,246,0.35)"
+                : "rgba(139,92,246,0.35)";
+          }
+          update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (
+              this.x < -50 ||
+              this.x > canvas.width + 50 ||
+              this.y < -50 ||
+              this.y > canvas.height + 50
+            )
+              this.reset();
+          }
+          draw() {
+            ctx.beginPath();
+            ctx.fillStyle = this.color;
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        particles = Array.from({ length: 90 }, () => new Particle());
+
+        function loop() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach((p) => {
+            p.update();
+            p.draw();
+          });
+          requestAnimationFrame(loop);
+        }
+        loop();
+      }
+
+      /* =========================
+         CUSTOM CURSOR
+         ========================= */
+      function initCursor() {
+        const dot = document.querySelector(".cursor-dot");
+        const outline = document.querySelector(".cursor-outline");
+        if (!dot || !outline) return;
+
+        const finePointer =
+          window.matchMedia &&
+          window.matchMedia("(pointer: fine)").matches;
+
+        if (!finePointer) {
+          dot.style.display = "none";
+          outline.style.display = "none";
+          document.body.classList.add("no-custom-cursor");
+          return;
+        }
+
+        window.addEventListener("mousemove", (e) => {
+          const x = e.clientX;
+          const y = e.clientY;
+          dot.style.transform = `translate(${x}px, ${y}px)`;
+          outline.style.transform = `translate(${x - 20}px, ${y - 20}px)`;
+        });
+
+        document.addEventListener("mouseover", (e) => {
+          const interactive = e.target.closest(
+            "a, button, .project-item, input, textarea, .toolkit-item"
+          );
+          document.body.classList.toggle("hovering", !!interactive);
+        });
+      }
+
+      /* =========================
+         MAGNETIC HOVER
+         ========================= */
+      function initMagnetic() {
+        const magnets = document.querySelectorAll(".magnet-target");
+        magnets.forEach((el) => {
+          el.addEventListener("mousemove", (e) => {
+            const rect = el.getBoundingClientRect();
+            const relX = e.clientX - rect.left - rect.width / 2;
+            const relY = e.clientY - rect.top - rect.height / 2;
+            el.style.transform = `translate(${relX * 0.2}px, ${relY * 0.2}px)`;
+          });
+          el.addEventListener("mouseleave", () => {
+            el.style.transform = "translate(0, 0)";
+          });
+        });
+      }
+
+      /* =========================
+         TILT CARDS
+         ========================= */
+      function initTilt() {
+        const cards = document.querySelectorAll(".tilt-wrapper");
+        cards.forEach((card) => {
+          const inner = card.querySelector(".tilt-inner") || card;
+          card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -7;
+            const rotateY = ((x - centerX) / centerX) * 7;
+            inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            inner.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+          });
+        });
+      }
+
+      /* =========================
+         NAVBAR & SCROLL
+         ========================= */
+      function initNavbarScroll() {
+        const navbar = document.getElementById("navbar");
+        if (!navbar) return;
+        function onScroll() {
+          navbar.classList.toggle("scrolled", window.scrollY > 12);
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      }
+
+      function initSmoothAnchors() {
+        const links = document.querySelectorAll("a[href^='#']");
+        links.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const href = link.getAttribute("href");
+            if (!href || href === "#") return;
+            const id = href.slice(1);
+            const target = document.getElementById(id);
+            if (!target) return;
+            e.preventDefault();
+            const offset = 80;
+            const top =
+              target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: "smooth" });
+
+            // close mobile menu
+            const menu = document.getElementById("mobileMenu");
+            if (menu && menu.classList.contains("active")) {
+              menu.classList.remove("active");
             }
+          });
+        });
+      }
 
-            if (!window.gsap) {
-                preloader.style.display = 'none';
-                document.body.classList.remove('loading');
-                return;
-            }
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        if (!menu) return;
+        menu.classList.toggle("active");
+      }
 
-            const tl = gsap.timeline({
-                onComplete: () => document.body.classList.remove('loading')
+      /* =========================
+         PROJECT FILTER
+         ========================= */
+      function filterProjects(cat) {
+        const items = document.querySelectorAll(".project-item");
+        const buttons = document.querySelectorAll(".btn-filter");
+        buttons.forEach((btn) => {
+          const filter = btn.getAttribute("data-filter");
+          btn.classList.toggle("active", filter === cat);
+        });
+
+        items.forEach((item) => {
+          const category = item.getAttribute("data-category");
+          const show = cat === "all" || category === cat;
+          if (show) {
+            item.style.display = "block";
+            requestAnimationFrame(() => {
+              item.style.opacity = "1";
+              item.style.transform = "scale(1)";
             });
-
-            tl.to(loaderFill, { width: '100%', duration: 1.2, ease: 'power2.inOut' })
-              .to(preloader, { yPercent: -100, duration: 0.8, ease: 'power4.inOut' })
-              .from('.fade-in', { y: 50, opacity: 0, stagger: 0.1, duration: 1 }, '-=0.4');
-        }
-
-        function initLenis() {
-            if (typeof Lenis !== 'function') {
-                return;
-            }
-
-            const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
-
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
-        }
-
-        // --- BACKGROUND CANVAS (STARS/CONNECTIONS) ---
-        function initCanvas() {
-            const cvs = document.getElementById('canvas-bg');
-            if (!cvs || !cvs.getContext) return;
-
-            const ctx = cvs.getContext('2d');
-            let w, h;
-            const particles = [];
-            const count = 60;
-
-            const resize = () => {
-                w = cvs.width = window.innerWidth;
-                h = cvs.height = window.innerHeight;
-            };
-            window.addEventListener('resize', resize);
-            resize();
-
-            for (let i = 0; i < count; i++) {
-                particles.push({
-                    x: Math.random() * w,
-                    y: Math.random() * h,
-                    vx: (Math.random() - 0.5) * 0.5,
-                    vy: (Math.random() - 0.5) * 0.5,
-                    size: Math.random() * 2,
-                    opacity: Math.random() * 0.5
-                });
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, w, h);
-                particles.forEach((p, i) => {
-                    p.x += p.vx;
-                    p.y += p.vy;
-
-                    if (p.x < 0) p.x = w;
-                    if (p.x > w) p.x = 0;
-                    if (p.y < 0) p.y = h;
-                    if (p.y > h) p.y = 0;
-                    
-                    ctx.fillStyle = 'rgba(59, 130, 246,' + p.opacity + ')';
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    ctx.fill();
-
-                    for (let j = i; j < count; j++) {
-                        const dx = particles[j].x - p.x;
-                        const dy = particles[j].y - p.y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 100) {
-                            ctx.strokeStyle = 'rgba(59, 130, 246,' + (0.1 * (1 - dist / 100)) + ')';
-                            ctx.lineWidth = 0.5;
-                            ctx.beginPath();
-                            ctx.moveTo(p.x, p.y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                });
-                requestAnimationFrame(animate);
-            }
-            animate();
-        }
-
-        function initFan() {
-            const container = document.getElementById('fanContainer');
-            if (!container || !Array.isArray(CONFIG.viralCards)) return;
-
-            container.innerHTML = '';
-            const center = Math.floor(CONFIG.viralCards.length / 2);
-            const isMobile = window.innerWidth <= 900;
-
-            CONFIG.viralCards.forEach((card, i) => {
-                const el = document.createElement('div');
-                el.className = 'fan-card';
-                el.style.backgroundImage = 'url(' + card.img + ')';
-                el.innerHTML = '<div class="play-btn"><i class="fas fa-play"></i></div>';
-                el.addEventListener('click', () => {
-                    if (card.link) {
-                        window.open(card.link);
-                    }
-                });
-
-                if (!isMobile) {
-                    const offset = i - center;
-                    const rotate = offset * 8;
-                    const x = offset * 40;
-                    const y = Math.abs(offset) * 15;
-                    el.style.transform = 'translateX(' + x + 'px) translateY(' + y + 'px) rotate(' + rotate + 'deg)';
-                    el.style.zIndex = String(10 - Math.abs(offset));
-                }
-                container.appendChild(el);
-            });
-
-            if (window.gsap && window.ScrollTrigger) {
-                gsap.from('.fan-card', {
-                    scrollTrigger: { trigger: '#viral', start: 'top 70%' },
-                    y: 100,
-                    opacity: 0,
-                    stagger: 0.1,
-                    duration: 1,
-                    ease: 'back.out(1)'
-                });
-            }
-        }
-
-        function initManifesto() {
-            const txt = document.getElementById('manifestoText');
-            if (!txt || !window.gsap || !window.ScrollTrigger) return;
-
-            gsap.to(txt, {
-                backgroundPosition: '100% 50%',
-                scrollTrigger: {
-                    trigger: '.manifesto-section',
-                    start: 'top top',
-                    end: 'bottom bottom',
-                    scrub: true,
-                    pin: '.manifesto-sticky'
-                }
-            });
-        }
-
-        function initTilt() {
-            if (!window.gsap) return;
-
-            document.querySelectorAll('.tilt-wrapper').forEach(el => {
-                el.addEventListener('mousemove', e => {
-                    const r = el.getBoundingClientRect();
-                    gsap.to(el, {
-                        rotateX: -((e.clientY - r.top - r.height / 2) / 20),
-                        rotateY: (e.clientX - r.left - r.width / 2) / 20,
-                        scale: 1.02,
-                        duration: 0.5
-                    });
-                });
-                el.addEventListener('mouseleave', () => {
-                    gsap.to(el, { rotateX: 0, rotateY: 0, scale: 1, duration: 0.5 });
-                });
-            });
-        }
-
-        function initMagnetic() {
-            if (!window.gsap) return;
-
-            document.querySelectorAll('.magnet-target').forEach(el => {
-                el.addEventListener('mousemove', e => {
-                    const r = el.getBoundingClientRect();
-                    gsap.to(el, {
-                        x: (e.clientX - r.left - r.width / 2) * 0.5,
-                        y: (e.clientY - r.top - r.height / 2) * 0.5,
-                        duration: 0.3
-                    });
-                });
-                el.addEventListener('mouseleave', () => {
-                    gsap.to(el, {
-                        x: 0,
-                        y: 0,
-                        duration: 0.5,
-                        ease: 'elastic.out(1,0.3)'
-                    });
-                });
-            });
-        }
-
-        function initCursor() {
-            const dot = document.querySelector('.cursor-dot');
-            const out = document.querySelector('.cursor-outline');
-            const isCoarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-
-            if (!dot || !out || isCoarse) return;
-
-            window.addEventListener('mousemove', e => {
-                if (window.gsap) {
-                    gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 });
-                    gsap.to(out, { x: e.clientX - 20, y: e.clientY - 20, duration: 0.15 });
-                } else {
-                    dot.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
-                    out.style.transform = 'translate(' + (e.clientX - 20) + 'px,' + (e.clientY - 20) + 'px)';
-                }
-            });
-
-            document.addEventListener('mouseover', e => {
-                if (e.target.closest('a,button,.fan-card,.bento-card')) {
-                    document.body.classList.add('hovering');
-                } else {
-                    document.body.classList.remove('hovering');
-                }
-            });
-        }
-
-        function initNavbar() {
-            const nav = document.getElementById('navbar');
-            if (!nav) return;
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    nav.classList.add('scrolled');
-                } else {
-                    nav.classList.remove('scrolled');
-                }
-            });
-        }
-
-        function filterWork(cat) {
-            const items = document.querySelectorAll('#workGrid .bento-card');
-            if (!items.length) return;
-
-            const btns = document.querySelectorAll('button[onclick^="filterWork"]');
-            btns.forEach(b => {
-                const onclickVal = b.getAttribute('onclick') || '';
-                if (onclickVal.includes("'" + cat + "'")) {
-                    b.classList.add('active-filter');
-                } else {
-                    b.classList.remove('active-filter');
-                }
-            });
-
-            const hasGsap = !!window.gsap;
-
-            items.forEach(item => {
-                const category = item.getAttribute('data-cat');
-                const shouldShow = cat === 'all' || category === cat;
-
-                if (shouldShow) {
-                    item.style.display = 'block';
-                    if (hasGsap) {
-                        gsap.to(item, { autoAlpha: 1, scale: 1, duration: 0.3 });
-                    } else {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }
-                } else {
-                    if (hasGsap) {
-                        gsap.to(item, {
-                            autoAlpha: 0,
-                            scale: 0.9,
-                            duration: 0.3,
-                            onComplete: () => {
-                                item.style.display = 'none';
-                            }
-                        });
-                    } else {
-                        item.style.display = 'none';
-                    }
-                }
-            });
-        }
-
-        function initAIModalCloseHandlers() {
-            const modal = document.getElementById('aiModal');
-            if (!modal) return;
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeAI();
-            });
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeAI();
-            });
-        }
-
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (!mobileMenu) return;
-            mobileMenu.classList.toggle('active');
-        }
-
-        function openAI() {
-            const modal = document.getElementById('aiModal');
-            if (!modal) return;
-            modal.classList.add('open');
-        }
-
-        function closeAI() {
-            const modal = document.getElementById('aiModal');
-            if (!modal) return;
-            modal.classList.remove('open');
-        }
-        
-        function generateAI() {
-            const modal = document.getElementById('aiModal');
-            if (!modal) return;
-
-            const btn = modal.querySelector('.btn-primary');
-            const out = document.getElementById('aiOutput');
-            const promptInput = document.getElementById('aiPrompt');
-
-            if (!btn || !out || !promptInput) return;
-
-            const prompt = promptInput.value.trim();
-            if (!prompt) return;
-
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-
+          } else {
+            item.style.opacity = "0";
+            item.style.transform = "scale(0.96)";
             setTimeout(() => {
-                out.innerHTML =
-                    '<strong>Concept Generated:</strong> based on "' +
-                    prompt +
-                    '". <br> Strategy: Focus on minimalism and bold typography. Color Palette: Neon Blue & Dark Slate.';
-                btn.innerHTML = 'GENERATE BRIEF';
-            }, 1500);
+              item.style.display = "none";
+            }, 230);
+          }
+        });
+      }
+
+      /* =========================
+         TOAST
+         ========================= */
+      function showToast(msg) {
+        const container = document.getElementById("toastContainer");
+        if (!container) return;
+        const el = document.createElement("div");
+        el.className = "toast";
+        el.style.opacity = "0";
+        el.style.transform = "translateX(40px)";
+        el.innerHTML =
+          '<i class="fas fa-check-circle" style="color:var(--accent)"></i><span>' +
+          msg +
+          "</span>";
+        container.appendChild(el);
+        requestAnimationFrame(() => {
+          el.style.transition = "opacity .25s ease, transform .25s ease";
+          el.style.opacity = "1";
+          el.style.transform = "translateX(0)";
+        });
+        setTimeout(() => {
+          el.style.opacity = "0";
+          el.style.transform = "translateX(40px)";
+          setTimeout(() => el.remove(), 300);
+        }, 2800);
+      }
+
+      /* =========================
+         AI MODAL
+         ========================= */
+      function openAiModal() {
+        const modal = document.getElementById("aiModal");
+        if (!modal) return;
+        modal.classList.add("active");
+      }
+
+      function closeAiModal() {
+        const modal = document.getElementById("aiModal");
+        if (!modal) return;
+        modal.classList.remove("active");
+      }
+
+      function initAiModalCloseHandlers() {
+        const modal = document.getElementById("aiModal");
+        if (!modal) return;
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeAiModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeAiModal();
+        });
+      }
+
+      function setAiMode(mode) {
+        state.aiMode = mode === "visual" ? "visual" : "brief";
+        const briefBtn = document.getElementById("aiTabBrief");
+        const visualBtn = document.getElementById("aiTabVisual");
+        if (briefBtn && visualBtn) {
+          briefBtn.classList.toggle("active", state.aiMode === "brief");
+          visualBtn.classList.toggle("active", state.aiMode === "visual");
+        }
+      }
+
+      function generateContent() {
+        const btn = document.getElementById("aiGenBtn");
+        const out = document.getElementById("aiResult");
+        const textarea = document.getElementById("aiPrompt");
+        if (!btn || !out || !textarea) return;
+
+        const value = textarea.value.trim();
+        if (!value) {
+          showToast(
+            state.lang === "ar"
+              ? "من فضلك اكتب فكرتك أولاً"
+              : "Please describe your idea first"
+          );
+          return;
         }
 
-        function toggleLanguage() {
-            if (!CONFIG || !CONFIG.i18n) return;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
-            CONFIG.lang = CONFIG.lang === 'en' ? 'ar' : 'en';
-            document.documentElement.dir = CONFIG.lang === 'ar' ? 'rtl' : 'ltr';
+        setTimeout(() => {
+          const isBrief = state.aiMode === "brief";
+          let text;
+          if (isBrief) {
+            text =
+              "CONCEPT BRIEF\n\n" +
+              "Core Idea:\n" +
+              value +
+              "\n\nTone:\nBold, modern, and confident.\n\nVisual System:\n" +
+              "- Strong typography and clear hierarchy.\n" +
+              "- Limited color palette using deep navy, neon blue, and soft neutrals.\n\nMotion Direction:\n" +
+              "- Smooth transitions with purposeful moments of impact.\n" +
+              "- Micro-interactions that guide focus to the main message.\n\nDeliverables:\n" +
+              "- Hero key visual for social and web.\n" +
+              "- 15–30s motion teaser.\n" +
+              "- Story / Reels adaptations.";
+          } else {
+            text =
+              "VISUAL DIRECTION\n\n" +
+              "For:\n" +
+              value +
+              "\n\nStyle:\n" +
+              "- High-contrast layouts with generous negative space.\n" +
+              "- Clean grids and clear alignment.\n\nColor:\n" +
+              "- Base: Deep navy backgrounds.\n" +
+              "- Accent: Electric blue and violet highlights.\n\nTypography:\n" +
+              "- Bold geometric sans for headlines.\n" +
+              "- Simple grotesk for body copy.\n\nMotion:\n" +
+              "- Soft ease-in/ease-out animations.\n" +
+              "- No bouncy or chaotic motion; everything feels intentional.\n\nUsage:\n" +
+              "- Landing pages, social campaigns, short-form video intros.";
+          }
 
-            Object.keys(CONFIG.i18n).forEach(key => {
-                const value = CONFIG.i18n[key][CONFIG.lang];
-                document.querySelectorAll('[data-i18n="' + key + '"]').forEach(el => {
-                    el.innerHTML = value;
-                });
-            });
+          out.textContent = text;
+          out.style.display = "block";
+          btn.disabled = false;
+          btn.textContent = "Generate";
 
-            document.body.style.fontFamily = CONFIG.lang === 'ar'
-                ? 'var(--font-arabic)'
-                : 'var(--font-body)';
-        }
+          showToast(
+            state.lang === "ar"
+              ? "تم إنشاء اقتراح مبدئي"
+              : "Draft concept generated"
+          );
+        }, 800);
+      }
 
-        // Initialize manifesto scroll after plugins are ready
-        window.addEventListener('load', initManifesto);
-    </script>
+      /* =========================
+         INIT
+         ========================= */
+      document.addEventListener("DOMContentLoaded", () => {
+        applyTranslations();
+        initPreloader();
+        initCanvas();
+        initCursor();
+        initMagnetic();
+        initTilt();
+        initNavbarScroll();
+        initSmoothAnchors();
+        initAiModalCloseHandlers();
+      });
+
+      // Expose functions for inline handlers
+      window.toggleLanguage = toggleLanguage;
+      window.toggleMenu = toggleMenu;
+      window.filterProjects = filterProjects;
+      window.openAiModal = openAiModal;
+      window.closeAiModal = closeAiModal;
+      window.generateContent = generateContent;
+      window.setAiMode = setAiMode;
+    })();
+  </script>
 </body>
 </html>
