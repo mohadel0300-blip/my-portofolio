@@ -345,7 +345,7 @@
     }
 
     /* =========================================================
-       HERO IMPROVED (CINEMATIC & POLISHED)
+       HERO EDITORIAL (FIXED & LAYERED)
        ========================================================= */
     .hero-radical {
         position: relative;
@@ -355,42 +355,44 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding-top: 120px; /* More breathing room for lang button */
+        padding-top: 140px;
         padding-bottom: 80px;
         overflow: hidden;
+        perspective: 1000px; /* For 3D feel */
     }
 
     /* Background Ticker */
     .hero-ticker-bg {
         position: absolute;
-        top: 25%;
+        top: 35%;
         left: 0;
         width: 100%;
         white-space: nowrap;
         opacity: 0.04;
-        font-size: 16rem;
+        font-size: 14rem;
         font-weight: 900;
         text-transform: uppercase;
         font-family: 'Plus Jakarta Sans', sans-serif;
         pointer-events: none;
         user-select: none;
-        transform: rotate(-6deg) translateY(-50%);
+        transform: rotate(-4deg) translateY(-50%);
         z-index: 0;
         animation: tickerScroll 80s linear infinite;
     }
-    @keyframes tickerScroll { 0% { transform: translateX(0) rotate(-6deg) translateY(-50%); } 100% { transform: translateX(-50%) rotate(-6deg) translateY(-50%); } }
+    @keyframes tickerScroll { 0% { transform: translateX(0) rotate(-4deg) translateY(-50%); } 100% { transform: translateX(-50%) rotate(-4deg) translateY(-50%); } }
 
-    /* Central Layout */
+    /* Central Layout Container */
     .hero-center-content {
         position: relative;
         z-index: 5;
         width: 100%;
-        max-width: 1200px;
+        max-width: 1280px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
+    /* Status Badge */
     .hero-status-pill {
         display: inline-flex;
         align-items: center;
@@ -400,138 +402,117 @@
         background: rgba(255,255,255,0.03);
         border: 1px solid rgba(255,255,255,0.08);
         backdrop-filter: blur(10px);
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         font-size: 0.8rem;
         color: #94a3b8;
         font-weight: 600;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         transition: 0.3s;
+        z-index: 10; /* Above everything */
     }
     .hero-status-pill:hover { border-color: var(--accent); background: rgba(37,99,235,0.1); color: #fff; }
     .hero-status-dot { width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; }
 
-    /* Massive Name Container */
+    /* EDITORIAL SANDWICH LAYOUT */
     .hero-title-wrapper {
         position: relative;
-        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+        width: 100%;
     }
 
-    /* The Massive Text */
+    /* Text Layer (Back) */
     .hero-name-massive {
-        font-size: clamp(4rem, 13vw, 11rem);
-        line-height: 0.85;
+        font-size: clamp(4.5rem, 14vw, 12rem);
+        line-height: 1.1; /* More space between lines */
         font-weight: 800;
         letter-spacing: -0.04em;
         color: #fff;
         position: relative;
-        z-index: 2; /* In front of image usually, but see media query */
-        mix-blend-mode: overlay; /* Cool blending effect */
-    }
-    
-    /* Ensure readability without blend mode if needed */
-    @supports not (mix-blend-mode: overlay) {
-       .hero-name-massive { mix-blend-mode: normal; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        z-index: 1; /* BEHIND IMAGE */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    .hero-name-massive span {
-        display: block;
+    .hero-name-massive span:first-child {
+        transform: translateY(20px); /* Push down slightly */
+    }
+    .hero-name-massive span:last-child {
+        transform: translateY(-20px); /* Pull up slightly */
+        /* Outline effect for the last name to make image pop more? Optional. */
+        /* -webkit-text-stroke: 2px rgba(255,255,255,0.3); color: transparent; */
     }
     
-    /* Outline Text Style */
     .hero-name-accent {
-        color: transparent;
-        -webkit-text-stroke: 1px rgba(255,255,255,0.5);
-        position: relative;
+        color: #fff; /* Solid white for maximum impact */
     }
 
-    /* Floating Script */
-    .hero-hand-script {
-        font-family: 'Reenie Beanie', cursive;
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        color: var(--accent);
-        position: absolute;
-        bottom: 10%;
-        right: -5%;
-        transform: rotate(-12deg);
-        z-index: 10;
-        text-shadow: 0 0 20px var(--accent-glow);
-        white-space: nowrap;
-    }
-    html[dir="rtl"] .hero-hand-script { right: auto; left: -5%; transform: rotate(12deg); }
-
-    /* Central Visual Portal - Improved */
+    /* Image Layer (Front/Middle) */
     .hero-visual-portal {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 360px;
-        height: 480px;
-        border-radius: 180px;
-        z-index: 1; /* Behind text for depth */
+        width: 340px;
+        height: 460px;
+        border-radius: 200px; /* Pill shape */
+        z-index: 2; /* IN FRONT OF TEXT */
         overflow: hidden;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 0 8px rgba(255,255,255,0.05);
         border: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 0 120px rgba(37, 99, 235, 0.15);
-        opacity: 0.7;
-        transition: 0.5s ease;
-    }
-    
-    .hero-visual-portal::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to bottom, transparent 40%, #010208 100%);
-        z-index: 2;
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        background: #000;
     }
 
     .portal-img {
         width: 100%; height: 100%; object-fit: cover;
-        transition: transform 0.7s ease;
-        filter: grayscale(20%) contrast(1.1);
+        transition: transform 0.8s ease;
+        opacity: 0.9;
+        filter: contrast(1.1) saturate(1.1);
     }
     
-    /* Hover Effect: Bring image forward */
+    /* Hover Effects */
     .hero-title-wrapper:hover .hero-visual-portal {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.02);
-        box-shadow: 0 0 150px rgba(37, 99, 235, 0.3);
-        border-color: rgba(37, 99, 235, 0.3);
+        transform: translate(-50%, -52%) scale(1.03); /* Slight float up */
+        box-shadow: 0 40px 100px rgba(37, 99, 235, 0.3);
+        border-color: rgba(37, 99, 235, 0.4);
     }
     .hero-title-wrapper:hover .portal-img {
-        transform: scale(1.05);
-        filter: grayscale(0%);
+        transform: scale(1.08);
     }
 
-    /* Mobile Adjustment for Portal */
+    /* Floating Script (Top Layer) */
+    .hero-hand-script {
+        font-family: 'Reenie Beanie', cursive;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        color: var(--accent);
+        position: absolute;
+        bottom: 15%;
+        right: 15%;
+        transform: rotate(-8deg);
+        z-index: 3; /* Top most layer */
+        text-shadow: 0 0 20px rgba(0,0,0,0.8);
+        white-space: nowrap;
+        pointer-events: none;
+    }
+    html[dir="rtl"] .hero-hand-script { right: auto; left: 15%; transform: rotate(8deg); }
+
+    /* Mobile Adjustments */
     @media (max-width: 1024px) {
-        .hero-title-wrapper {
-            display: flex; flex-direction: column; align-items: center;
-        }
-        .hero-visual-portal {
-            position: relative;
-            top: auto; left: auto;
-            transform: none;
-            width: 280px; height: 380px;
-            margin: -60px auto 30px; /* Overlap manually */
-            opacity: 0.9;
-            z-index: 3; /* Bring to front on mobile */
-        }
-        .hero-title-wrapper:hover .hero-visual-portal {
-             transform: scale(1.02);
-        }
-        .hero-name-massive { 
-            font-size: 16vw; 
-            mix-blend-mode: normal; 
-            z-index: 4; 
-            text-shadow: 0 10px 40px rgba(0,0,0,0.8);
-        }
-        .hero-hand-script {
-            position: relative;
-            bottom: auto; right: auto; left: auto;
-            margin-top: -30px;
-            display: block;
-        }
+        .hero-name-massive { line-height: 1.4; } /* Increase gap for image */
+        .hero-visual-portal { width: 260px; height: 360px; border-radius: 130px; }
+    }
+    @media (max-width: 768px) {
+        .hero-radical { padding-top: 100px; }
+        .hero-name-massive { font-size: 15vw; line-height: 1.6; } /* Big gap on mobile */
+        .hero-visual-portal { width: 220px; height: 300px; }
+        .hero-hand-script { bottom: 10%; right: 5%; }
     }
 
     .hero-desc-central {
@@ -542,7 +523,7 @@
         line-height: 1.7;
         position: relative;
         z-index: 4;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Stronger shadow for readability */
     }
 
     /* Actions Bar */
@@ -559,7 +540,7 @@
         .btn-primary, .btn-glass { justify-content: center; width: 100%; }
     }
 
-    /* Bottom Cards (Redesigned for Center) */
+    /* Bottom Cards */
     .hero-bottom-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1310,7 +1291,7 @@
   <!-- MAIN -->
   <main>
     
-    <!-- HERO (POLISHED & CINEMATIC) -->
+    <!-- HERO (POLISHED EDITORIAL STYLE) -->
     <section id="about" class="hero-radical container">
         
         <!-- Background Scrolling Text -->
@@ -1328,18 +1309,21 @@
 
             <!-- Massive Name with Portal Effect -->
             <div class="hero-title-wrapper">
+                
+                <!-- Huge Text (Layer 1 - Behind) -->
                 <h1 class="hero-name-massive">
                     <span>MOHAMED</span>
                     <span class="hero-name-accent">AMER</span>
                 </h1>
                 
-                <!-- Script Hand Element -->
-                <span class="hero-hand-script" data-i18n="hero-script">designed to move</span>
-
-                 <!-- Image Cutout / Portal (Layered Behind Text) -->
+                <!-- Image Cutout / Portal (Layer 2 - Front/Middle) -->
                 <div class="hero-visual-portal">
                     <img src="MINED.png" alt="Mohamed Amer" class="portal-img">
                 </div>
+
+                <!-- Script Hand Element (Layer 3 - Floating Top) -->
+                <span class="hero-hand-script" data-i18n="hero-script">designed to move</span>
+
             </div>
 
             <!-- Description -->
@@ -1912,7 +1896,7 @@
               <div class="faq-toggle">+</div>
             </div>
             <div class="faq-answer" data-i18n="faq-3-a">
-              For motion and launch films, yes — I usually help shape the narrative, script and flow before we lock visuals.
+              For motion and launch films, yes — I usually help shape the narrative, script and flow, then we lock visuals and timing together.
             </div>
           </div>
           <div class="faq-item">
@@ -2235,7 +2219,7 @@
           ar: "بتشارك في السكريبت والكوبي ولا دي مسئوليتنا؟"
         },
         "faq-3-a": {
-          en: "For motion and launch films, yes — I usually help shape the narrative, script and flow before we lock visuals.",
+          en: "For motion and launch films, yes — I usually help shape the narrative, script and flow, then we lock visuals and timing together. For smaller projects, you provide the copy.",
           ar: "في فيديوهات اللانش والموشن، غالبًا بشارك في بناء القصة والسكريبت والترتيب قبل ما نقفل الفيجوالز."
         },
         "faq-4-q": {
