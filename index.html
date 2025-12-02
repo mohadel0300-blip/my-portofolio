@@ -1,1154 +1,989 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Mohamed Amer – Creative Director</title>
-  <meta name="description" content="Official Portfolio of Mohamed Amer – Graphic & Motion Designer." />
-  <meta name="theme-color" content="#020617" />
-  <meta name="author" content="Mohamed Amer" />
-
-  <!-- --- FONTS & ICONS --- -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Mohamed Amer – Creative Director | Ultimate Portfolio</title>
+    <meta name="description" content="Official Portfolio of Mohamed Amer – Graphic & Motion Designer." />
+    <meta name="theme-color" content="#020617" />
+    <meta name="author" content="Mohamed Amer" />
     
-  <!-- --- LIBRARIES --- -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <!-- GSAP Core & Plugins -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-
-  <style>
-    /* =========================================
-       1. CORE VARIABLES & RESET
-       ========================================= */
-    :root {
-      --bg-page: #020617;
-      --bg-glass: rgba(15, 23, 42, 0.7);
-      --bg-card: #0f172a;
-      --bg-card-hover: #1e293b;
-      
-      --accent: #3b82f6;
-      --accent-glow: rgba(59, 130, 246, 0.5);
-      --accent-secondary: #8b5cf6;
-      
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      
-      --radius-lg: 24px;
-      --section-spacing: clamp(8rem, 20vh, 15rem);
-      
-      --font-display: 'Montserrat', sans-serif;
-      --font-hand: 'Comforter Brush', cursive;
-      --font-body: 'Open Sans', sans-serif;
-      --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
-
-      --z-cursor: 9999;
-      --z-nav: 1000;
-      --z-modal: 2000;
-      --z-toast: 3000;
-      --z-loader: 4000;
-    }
-
-    /* GLOBAL RESET & NO UNDERLINE FIX */
-    *, *::before, *::after { 
-        box-sizing: border-box; 
-        margin: 0; 
-        padding: 0; 
-        outline: none; 
-        cursor: none; 
-    }
+    <!-- --- FONTS & ICONS --- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
-    .no-custom-cursor *,
-    .no-custom-cursor *::before,
-    .no-custom-cursor *::after {
-      cursor: auto;
-    }
-    
-    a { 
-        text-decoration: none !important; /* Force remove underline */
-        color: inherit; 
-    }
+    <!-- --- LIBRARIES --- -->
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- GSAP Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 
-    html { 
-        scroll-behavior: auto; 
-        font-size: 16px; 
-        overflow-x: hidden; 
-    }
-    
-    body {
-      background-color: var(--bg-page);
-      color: var(--text-main);
-      font-family: var(--font-body);
-      overflow-x: hidden; /* Critical for preventing horizontal scroll */
-      line-height: 1.6;
-    }
+    <style>
+        /* =========================================
+           1. CORE VARIABLES & THEME SETUP
+           ========================================= */
+        :root {
+            /* Palette: Deep Blue / Navy / Cyberpunk Blue */
+            --bg-page: #020617;
+            --bg-glass: rgba(15, 23, 42, 0.75);
+            --bg-card: #0f172a;
+            --bg-card-hover: #1e293b;
+            
+            --accent: #3b82f6; /* Primary Blue */
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --accent-dark: #1d4ed8;
+            --secondary: #6366f1;
+            
+            --danger: #ef4444; /* For Political Section */
+            
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #475569;
+            
+            --border-light: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(59, 130, 246, 0.3);
 
-    ::selection { background: var(--accent); color: white; }
+            /* Typography */
+            --font-display: 'Montserrat', sans-serif;
+            --font-hand: 'Comforter Brush', cursive;
+            --font-body: 'Open Sans', sans-serif;
+            --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
 
-    /* RTL Support */
-    html[dir="rtl"] body { font-family: var(--font-arabic); text-align: right; }
-    html[dir="rtl"] .hero-text-content { align-items: flex-end; text-align: right; }
-    html[dir="rtl"] .nav-items { flex-direction: row-reverse; }
-    html[dir="rtl"] .hero-title-big span { direction: ltr; display: inline-block; }
+            /* Z-Indices */
+            --z-back: -1;
+            --z-canvas: 0;
+            --z-content: 10;
+            --z-nav: 1000;
+            --z-modal: 2000;
+            --z-toast: 3000;
+            --z-loader: 5000;
+            --z-cursor: 9999;
+        }
 
-    /* =========================================
-       2. UTILITIES & LAYOUT
-       ========================================= */
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
-    .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
-    
-    .col-12 { grid-column: span 12; }
-    .col-8 { grid-column: span 8; }
-    .col-6 { grid-column: span 6; }
-    .col-4 { grid-column: span 4; }
-    .col-3 { grid-column: span 3; }
-    @media (max-width: 1024px) { .col-4 { grid-column: span 6; } .col-8 { grid-column: span 12; } .col-3 { grid-column: span 6; } }
-    @media (max-width: 768px) { .col-6 { grid-column: span 12; } .col-3 { grid-column: span 12; } }
+        /* =========================================
+           2. GLOBAL RESET & BASE STYLES
+           ========================================= */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; outline: none; cursor: none; }
+        
+        /* Mobile touch cursor fix */
+        @media (pointer: coarse) { *, *::before, *::after { cursor: auto; } }
+        
+        html { font-size: 16px; overflow-x: hidden; scroll-behavior: auto; }
+        
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
 
-    /* Canvas Background & Overlays */
-    #canvas-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-    .noise-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
-      pointer-events: none; z-index: 9000; opacity: 0.05;
-    }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img, iframe, video { max-width: 100%; display: block; }
+        ::selection { background: var(--accent); color: white; }
 
-    /* =========================================
-       3. COMPONENTS & STYLES
-       ========================================= */
-    /* Navbar */
-    .navbar {
-      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      width: 90%; max-width: 1000px; background: rgba(15, 23, 42, 0.6); 
-      backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); 
-      border-radius: 100px; padding: 0.8rem 1.5rem; display: flex; 
-      justify-content: space-between; align-items: center; z-index: var(--z-nav);
-      transition: 0.4s ease;
-    }
-    .navbar.scrolled { width: 95%; top: 10px; background: rgba(2, 6, 23, 0.9); }
-    .nav-link {
-      padding: 8px 16px; border-radius: 50px; color: var(--text-muted);
-      font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
-      transition: 0.3s; position: relative;
-    }
-    .nav-link:hover, .nav-link.active { color: white; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-page); }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; border: 2px solid var(--bg-page); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-    /* Buttons */
-    .btn-primary, .btn-glass {
-      padding: 14px 36px; border-radius: 100px; font-weight: 700; 
-      text-transform: uppercase; letter-spacing: 1px; border: none; 
-      cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px;
-      position: relative; overflow: hidden; z-index: 1; text-decoration: none;
-    }
-    .btn-primary { background: var(--accent); color: white; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4); }
-    .btn-primary::after {
-        content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
-        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
-        transform: translateX(-100%); transition: 0.5s; z-index: -1;
-    }
-    .btn-primary:hover::after { transform: translateX(100%); }
-    .btn-glass { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; }
-    .btn-glass:hover { background: white; color: black; }
+        /* RTL Support */
+        html[dir="rtl"] body { font-family: var(--font-arabic); text-align: right; }
+        html[dir="rtl"] .hero-text-content { align-items: flex-end; text-align: right; }
+        html[dir="rtl"] .nav-items { flex-direction: row-reverse; }
+        html[dir="rtl"] .hero-title span { direction: ltr; display: inline-block; }
+        html[dir="rtl"] .btn-primary { flex-direction: row-reverse; }
+        html[dir="rtl"] .btn-primary i { margin-left: 0; margin-right: 10px; }
+        html[dir="rtl"] .toolkit-item { flex-direction: row-reverse; }
+        html[dir="rtl"] .footer-socials { justify-content: flex-end; }
 
-    /* Bento Cards */
-    .bento-card {
-      background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.05);
-      border-radius: var(--radius-lg); overflow: hidden; position: relative;
-      display: flex; flex-direction: column; transform-style: preserve-3d;
-      will-change: transform;
-    }
-    .project-iframe { width: 100%; height: 100%; border: none; pointer-events: none; transform: scale(1.01); transition: 0.5s; }
-    
-    /* 3D Tilt */
-    .tilt-wrapper { perspective: 1000px; transform-style: preserve-3d; }
-    .tilt-inner { transition: transform 0.1s; transform-style: preserve-3d; }
+        /* =========================================
+           3. UTILITIES
+           ========================================= */
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 5vw; position: relative; z-index: 2; }
+        
+        /* Grid System */
+        .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+        .col-12 { grid-column: span 12; }
+        .col-8 { grid-column: span 8; }
+        .col-6 { grid-column: span 6; }
+        .col-4 { grid-column: span 4; }
+        .col-3 { grid-column: span 3; }
+        
+        @media (max-width: 1024px) { 
+            .col-8, .col-6, .col-4 { grid-column: span 12; } 
+            .col-3 { grid-column: span 6; }
+        }
+        @media (max-width: 600px) { .col-3 { grid-column: span 12; } }
 
-    /* Sections */
-    .section-spacing { margin-top: var(--section-spacing); position: relative; }
-    .title-lg { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; font-family: var(--font-display); line-height: 1; margin-bottom: 1rem; color: white; }
-    .label { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; margin-bottom: 1rem; display: block; }
+        .section-spacing { margin-top: clamp(6rem, 15vh, 12rem); position: relative; }
+        
+        /* Typography */
+        .display-text { font-family: var(--font-display); font-weight: 800; line-height: 1; letter-spacing: -1px; color: white; }
+        .text-gradient { background: linear-gradient(90deg, #fff, var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .label { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; margin-bottom: 1rem; display: block; }
 
-    /* Hero */
-    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 100px; position: relative; perspective: 1000px; }
-    .hero-title { font-family: var(--font-display); font-size: clamp(4rem, 10vw, 8rem); font-weight: 900; line-height: 0.9; margin-bottom: 1.5rem; }
-    .hero-title span { 
-        display: block; font-family: var(--font-hand); font-size: 0.4em; color: var(--accent); 
-        background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6); background-size: 200%;
-        -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-        animation: gradientFlow 3s linear infinite; margin-top: 10px;
-    }
-    @keyframes gradientFlow { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+        /* =========================================
+           4. BACKGROUND ANIMATION (CANVAS)
+           ========================================= */
+        #canvas-bg { position: fixed; inset: 0; z-index: var(--z-canvas); pointer-events: none; }
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+            pointer-events: none; z-index: 1; opacity: 0.07;
+        }
+        .bg-glow {
+            position: fixed; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+            top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 0;
+            animation: pulseGlow 10s ease-in-out infinite alternate;
+        }
+        @keyframes pulseGlow { from { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); } to { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); } }
 
-    /* Orbit */
-    .orbit-system { position: relative; width: 400px; height: 400px; display: flex; justify-content: center; align-items: center; transform-style: preserve-3d; }
-    .orbit-img { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); box-shadow: 0 0 60px rgba(59,130,246,0.3); z-index: 2; }
-    .orbit-circle { position: absolute; border: 1px dashed rgba(255,255,255,0.1); border-radius: 50%; width: 100%; height: 100%; animation: spin 40s linear infinite; }
-    .planet { 
-        position: absolute; width: 50px; height: 50px; background: #0f172a; 
-        border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; 
-        display: flex; justify-content: center; align-items: center; color: white;
-        transition: 0.3s;
-    }
-    .p-1 { top: -25px; left: 50%; transform: translateX(-50%); }
-    .p-2 { top: 50%; right: -25px; transform: translateY(-50%); }
-    .p-3 { bottom: -25px; left: 50%; transform: translateX(-50%); }
-    .p-4 { top: 50%; left: -25px; transform: translateY(-50%); }
-    @keyframes spin { to { transform: rotate(360deg); } }
+        /* =========================================
+           5. UI COMPONENTS
+           ========================================= */
+        /* Navbar */
+        .navbar {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: min(90%, 1000px); padding: 0.8rem 1.5rem;
+            background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-light); border-radius: 100px;
+            display: flex; justify-content: space-between; align-items: center; z-index: var(--z-nav);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .navbar.scrolled { top: 10px; width: 95%; background: rgba(2, 6, 23, 0.9); border-color: rgba(59,130,246,0.2); }
+        
+        .nav-link {
+            color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;
+            margin: 0 12px; position: relative;
+        }
+        .nav-link:hover, .nav-link.active { color: white; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -4px; left: 50%; width: 0; height: 2px;
+            background: var(--accent); transition: 0.3s; transform: translateX(-50%);
+        }
+        .nav-link:hover::after { width: 100%; }
 
-    /* Cursor */
-    .cursor-dot { width: 8px; height: 8px; background: white; position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; }
-    .cursor-outline { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.5); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transition: 0.1s; }
-    body.hovering .cursor-outline { width: 60px; height: 60px; border-color: transparent; background: rgba(255,255,255,0.1); backdrop-filter: blur(2px); }
+        /* Buttons */
+        .btn-primary, .btn-glass {
+            padding: 14px 32px; border-radius: 100px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; border: none; cursor: pointer; display: inline-flex; align-items: center;
+            gap: 10px; position: relative; overflow: hidden; font-size: 0.9rem; transition: 0.4s; z-index: 1;
+        }
+        .btn-primary { background: var(--accent); color: white; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25); }
+        .btn-primary::after {
+            content: ''; position: absolute; inset: 0; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%); transition: 0.6s; z-index: -1;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4); }
+        .btn-primary:hover::after { transform: translateX(100%); }
+        
+        .btn-glass { background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); color: white; }
+        .btn-glass:hover { background: white; color: #020617; transform: translateY(-3px); }
+        .btn-glass.active-filter { background: var(--accent); border-color: var(--accent); color: white; }
 
-    /* Political Scroll */
-    .political-wrapper { overflow: hidden; width: 100%; padding: 4rem 0; }
-    .political-track { display: flex; gap: 4rem; width: max-content; padding: 0 5vw; }
-    .political-poster { width: 300px; height: 420px; border-radius: 12px; position: relative; flex-shrink: 0; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); transform-style: preserve-3d; transition: transform 0.3s; }
-    .political-poster img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; }
-    .political-poster:hover img { transform: scale(1.1); }
-    .poster-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); transform: translateY(100%); transition: 0.4s; }
-    .political-poster:hover .poster-overlay { transform: translateY(0); }
+        /* Bento Cards */
+        .bento-card {
+            background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 24px;
+            overflow: hidden; position: relative; height: 100%; transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .bento-card:hover { border-color: rgba(59, 130, 246, 0.4); transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+        
+        /* Cursor */
+        .cursor-dot { width: 8px; height: 8px; background: white; position: fixed; border-radius: 50%; pointer-events: none; z-index: var(--z-cursor); mix-blend-mode: difference; }
+        .cursor-outline { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.5); position: fixed; border-radius: 50%; pointer-events: none; z-index: var(--z-cursor); transition: width 0.2s, height 0.2s, background-color 0.2s; mix-blend-mode: difference; }
+        body.hovering .cursor-outline { width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-color: transparent; backdrop-filter: blur(2px); }
 
-    /* Manifesto */
-    .manifesto-section { height: 300vh; position: relative; }
-    .manifesto-sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; background: #020617; overflow: hidden; }
-    .manifesto-text { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 800; text-align: center; line-height: 1.2; max-width: 1200px; padding: 0 20px; color: rgba(255,255,255,0.1); }
+        /* =========================================
+           6. HERO SECTION & ORBIT
+           ========================================= */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; position: relative; perspective: 1000px; }
+        
+        .hero-title { font-size: clamp(3.5rem, 8vw, 6rem); line-height: 0.9; margin-bottom: 2rem; }
+        .hero-title-big { 
+            font-size: clamp(5rem, 15vw, 12rem); font-weight: 900; color: white; 
+            background: linear-gradient(180deg, #fff 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5); display: block; margin-top: -20px;
+        }
+        
+        /* Orbit Animation */
+        .orbit-container { position: relative; width: 100%; height: 500px; display: flex; justify-content: center; align-items: center; transform-style: preserve-3d; }
+        .orbit-center-img {
+            width: 280px; height: 280px; border-radius: 50%; object-fit: cover; z-index: 10;
+            border: 2px solid rgba(255,255,255,0.1); box-shadow: 0 0 100px rgba(59,130,246,0.3);
+            position: relative;
+        }
+        .orbit-ring {
+            position: absolute; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.1);
+            transform-style: preserve-3d; animation: orbitSpin linear infinite;
+        }
+        .ring-1 { width: 400px; height: 400px; animation-duration: 25s; }
+        .ring-2 { width: 550px; height: 550px; animation-duration: 35s; animation-direction: reverse; border-color: rgba(59,130,246,0.2); }
+        
+        .orbit-icon {
+            position: absolute; width: 50px; height: 50px; background: #0f172a;
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 12px;
+            display: flex; justify-content: center; align-items: center; color: white; font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            /* Counter-rotation to keep icons upright */
+            animation: counterSpin linear infinite; 
+        }
+        
+        .ring-1 .icon-1 { top: -25px; left: 50%; margin-left: -25px; }
+        .ring-1 .icon-2 { bottom: -25px; left: 50%; margin-left: -25px; }
+        .ring-2 .icon-3 { top: 50%; left: -25px; margin-top: -25px; }
+        .ring-2 .icon-4 { top: 50%; right: -25px; margin-top: -25px; }
 
-    /* Toolkit */
-    .toolkit-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px; margin: 0 auto; }
-    .toolkit-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 1.5rem 2.5rem; border-radius: 100px; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; cursor: default; transition: 0.3s; }
-    .toolkit-item:hover { background: rgba(59, 130, 246, 0.2); border-color: var(--accent); transform: scale(1.05); }
+        @keyframes orbitSpin { from { transform: rotateZ(0deg); } to { transform: rotateZ(360deg); } }
+        @keyframes counterSpin { from { transform: rotateZ(360deg); } to { transform: rotateZ(0deg); } }
+        
+        /* Adjust animation durations for icons to match rings */
+        .ring-1 .orbit-icon { animation-duration: 25s; }
+        .ring-2 .orbit-icon { animation-duration: 35s; animation-direction: reverse; }
 
-    /* Insights */
-    .blog-card { padding: 3rem; display: flex; flex-direction: column; justify-content: space-between; height: 100%; background: linear-gradient(145deg, rgba(15,23,42,0.6), rgba(15,23,42,0.9)); transition: 0.4s; border: 1px solid rgba(255,255,255,0.05); }
-    .blog-card:hover { border-color: var(--accent); background: rgba(30, 41, 59, 0.8); }
-    .blog-date { font-size: 0.9rem; color: var(--accent); font-weight: 700; margin-bottom: 1rem; }
-    .blog-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+        /* =========================================
+           7. MARQUEE & LOOPS
+           ========================================= */
+        .marquee-container {
+            width: 100vw; background: var(--accent); color: #020617; padding: 1.5rem 0; margin: 4rem 0;
+            transform: rotate(-2deg) scale(1.05); overflow: hidden; position: relative; left: -2.5%;
+        }
+        .marquee-track { display: flex; gap: 4rem; width: max-content; animation: marqueeScroll 20s linear infinite; }
+        .marquee-item { font-family: var(--font-display); font-weight: 800; font-size: 2.5rem; text-transform: uppercase; white-space: nowrap; }
+        @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* Footer */
-    .footer { padding: 8rem 2rem 3rem; background: radial-gradient(circle at 50% 0%, #1e293b 0%, #020617 70%); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 8rem; }
+        /* Toolkit Loop */
+        .toolkit-scroller { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); width: 100%; padding: 2rem 0; }
+        .toolkit-track { display: flex; gap: 1.5rem; width: max-content; animation: scrollLeft 30s linear infinite; }
+        .toolkit-item {
+            display: flex; align-items: center; gap: 10px; padding: 12px 30px; border-radius: 50px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border-light);
+            color: rgba(255,255,255,0.7); font-weight: 600; transition: 0.3s; white-space: nowrap;
+        }
+        .toolkit-item:hover { background: rgba(59, 130, 246, 0.15); border-color: var(--accent); color: white; box-shadow: 0 0 20px rgba(59,130,246,0.4); }
+        @keyframes scrollLeft { to { transform: translateX(calc(-50% - 0.75rem)); } }
 
-    /* Play Icon */
-    .play-icon { position: absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60px; height:60px; background:rgba(0,0,0,0.6); backdrop-filter:blur(5px); border-radius:50%; display:flex; justify-content:center; align-items:center; border:1px solid rgba(255,255,255,0.3); color:white; font-size:1.5rem; transition:0.3s; }
-    .bento-card:hover .play-icon { transform:translate(-50%, -50%) scale(1.1); background:var(--accent); border-color:var(--accent); }
+        /* Political Loop */
+        .political-scroller { overflow: hidden; width: 100%; padding: 3rem 0; }
+        .political-track { display: flex; gap: 2.5rem; width: max-content; animation: scrollRight 40s linear infinite; }
+        .political-track:hover { animation-play-state: paused; }
+        .political-card {
+            width: 300px; height: 450px; border-radius: 20px; position: relative; overflow: hidden; flex-shrink: 0;
+            border: 1px solid var(--border-light); background: #0f172a;
+        }
+        .political-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.8; }
+        .political-card:hover img { transform: scale(1.1); opacity: 1; }
+        .political-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, #020617 10%, transparent);
+            display: flex; align-items: flex-end; padding: 2rem;
+        }
+        .political-overlay h3 { font-size: 1.5rem; font-weight: 800; transform: translateY(20px); opacity: 0; transition: 0.4s; }
+        .political-card:hover h3 { transform: translateY(0); opacity: 1; }
+        @keyframes scrollRight { from { transform: translateX(calc(-50% - 1.25rem)); } to { transform: translateX(0); } }
 
-    /* Drive Card */
-    .drive-section-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 32px; padding: 4rem; position: relative; overflow: hidden; text-align: center; margin-bottom: 4rem; }
-    .drive-section-card:hover .fa-folder-open { transform: scale(1.1); color: #FFD04B; transition:0.3s; }
+        /* =========================================
+           8. WORK & VIRAL SECTIONS
+           ========================================= */
+        .project-img-wrapper { position: relative; overflow: hidden; width: 100%; height: 100%; }
+        
+        /* Viral Fan */
+        .viral-section { padding: 6rem 0; overflow: hidden; }
+        .fan-container { position: relative; height: 600px; display: flex; justify-content: center; align-items: center; perspective: 1200px; }
+        .fan-card {
+            position: absolute; width: 260px; height: 450px; border-radius: 24px;
+            background-size: cover; background-position: center; border: 1px solid var(--border-light);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-origin: 50% 150%; cursor: pointer; display: flex; justify-content: center; align-items: center;
+        }
+        .fan-card::after { content:''; position: absolute; inset:0; background: rgba(0,0,0,0.4); transition: 0.3s; border-radius: 24px; }
+        .fan-card:hover { z-index: 100 !important; transform: translateY(-50px) scale(1.15) rotate(0deg) !important; border-color: var(--accent); box-shadow: 0 0 40px rgba(59,130,246,0.3); }
+        .fan-card:hover::after { opacity: 0; }
+        .play-btn { width: 60px; height: 60px; background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: white; opacity: 0; transform: scale(0.5); transition: 0.3s; z-index: 2; }
+        .fan-card:hover .play-btn { opacity: 1; transform: scale(1); }
 
-    /* Loading */
-    .preloader { position: fixed; inset: 0; background: #000; z-index: 4000; display: flex; justify-content: center; align-items: center; flex-direction: column; }
-    .loader-text { font-family: var(--font-display); font-weight: 900; font-size: 3rem; color: white; display: flex; gap: 1rem; }
-    .loader-text span { display: inline-block; transform: translateY(20px); opacity: 0; }
-    .progress-bar { width: 200px; height: 2px; background: rgba(255,255,255,0.1); margin-top: 20px; position: relative; overflow: hidden; }
-    .progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: var(--accent); }
+        /* =========================================
+           9. RESTORED SECTIONS (Services, Insights, Newsletter, Archive, Manifesto)
+           ========================================= */
+        /* Manifesto */
+        .manifesto-section { height: 200vh; position: relative; }
+        .manifesto-sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--bg-page); z-index: 1; }
+        .manifesto-text { 
+            font-family: var(--font-display); font-size: clamp(2rem, 6vw, 5rem); 
+            font-weight: 900; text-align: center; line-height: 1.1; max-width: 1200px; 
+            background: linear-gradient(180deg, #fff, #334155); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
 
-    /* Toast */
-    .toast-container { position: fixed; bottom: 40px; right: 40px; z-index: 3000; display: flex; flex-direction: column; gap: 15px; }
-    .toast { background: rgba(30, 41, 59, 0.9); backdrop-filter: blur(10px); color: white; padding: 1.2rem 2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--accent); display: flex; align-items: center; gap: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); min-width: 300px; opacity: 0; }
+        /* Archive */
+        .archive-card {
+            background: linear-gradient(135deg, #1e293b, #020617); border: 1px solid var(--border-light);
+            border-radius: 32px; padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden;
+        }
+        .archive-card:hover { border-color: #fbbf24; }
+        .archive-card i { font-size: 5rem; color: #475569; margin-bottom: 2rem; transition: 0.4s; }
+        .archive-card:hover i { color: #fbbf24; transform: scale(1.2) rotate(-10deg); text-shadow: 0 0 30px rgba(251, 191, 36, 0.4); }
 
-    /* AI Modal */
-    .ai-modal-wrap { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.4s; }
-    .ai-modal-wrap.active { opacity: 1; pointer-events: auto; }
-    .ai-box { width: 90%; max-width: 650px; background: #0f172a; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); padding: 3rem; transform: translateY(50px) scale(0.95); transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8); }
-    .ai-modal-wrap.active .ai-box { transform: translateY(0) scale(1); }
+        /* Services & Insights */
+        .service-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 1.5rem; }
+        .blog-date { color: var(--accent); font-weight: 700; font-size: 0.8rem; margin-bottom: 0.5rem; display: block; }
+        
+        /* Newsletter */
+        .newsletter-card {
+            background: linear-gradient(to right, #0f172a, #020617); padding: 4rem 2rem; border-radius: 24px;
+            border: 1px solid var(--border-light); text-align: center;
+        }
+        .newsletter-form { max-width: 500px; margin: 0 auto; display: flex; gap: 10px; position: relative; }
+        .newsletter-input {
+            flex: 1; padding: 1rem 1.5rem; border-radius: 50px; border: 1px solid #334155;
+            background: rgba(0,0,0,0.3); color: white; outline: none; transition: 0.3s;
+        }
+        .newsletter-input:focus { border-color: var(--accent); box-shadow: 0 0 15px rgba(59,130,246,0.2); }
 
-    @media (max-width: 900px) {
-        .navbar { width: 90%; top: 20px; padding: 0 1rem; }
-        .nav-items { display: none; }
-        .nav-items.active { display: block; margin-top: 0.75rem; }
-        .hero-title { font-size: 3.5rem; }
-        .orbit-system { transform: scale(0.7); }
-    }
-  </style>
+        /* =========================================
+           10. FOOTER
+           ========================================= */
+        .footer-big { background: #020617; padding: 8rem 0 3rem; border-top: 1px solid var(--border-light); }
+        .footer-cta { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 8rem); font-weight: 900; line-height: 0.9; margin-bottom: 4rem; color: white; }
+        .footer-links h4 { color: var(--text-dim); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; }
+        .footer-links a { display: block; font-size: 1.2rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+        .footer-links a:hover { color: var(--accent); transform: translateX(10px); }
+        .footer-socials { display: flex; gap: 15px; }
+        .social-circle {
+            width: 50px; height: 50px; border: 1px solid var(--border-light); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; color: white; transition: 0.4s;
+        }
+        .social-circle:hover { background: var(--accent); border-color: var(--accent); transform: rotate(360deg); }
+
+        /* =========================================
+           11. RESPONSIVE
+           ========================================= */
+        @media (max-width: 900px) {
+            .navbar { width: 95%; padding: 0.8rem 1rem; }
+            .nav-items { 
+                position: fixed; top: 80px; left: 0; width: 100%; background: #020617; padding: 2rem;
+                flex-direction: column; gap: 1.5rem; border-bottom: 1px solid #1e293b;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .nav-items.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+            
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 140px; }
+            .hero-title-big { font-size: 4rem; margin-top: 0; }
+            .orbit-container { transform: scale(0.7); height: 350px; }
+            
+            .fan-container { height: auto; overflow-x: auto; justify-content: flex-start; padding: 2rem 5vw; perspective: none; gap: 20px; }
+            .fan-card { position: relative; width: 220px; height: 350px; transform: none !important; left: auto !important; margin: 0 !important; flex-shrink: 0; }
+            
+            .footer-cta { font-size: 3.5rem; }
+            .footer-socials { justify-content: center; }
+            
+            /* Hide Cursor on Mobile */
+            .cursor-dot, .cursor-outline { display: none; }
+        }
+
+        /* =========================================
+           12. OVERLAYS (Loader, Modal)
+           ========================================= */
+        .preloader { position: fixed; inset: 0; background: #020617; z-index: var(--z-loader); display: flex; justify-content: center; align-items: center; flex-direction: column; }
+        .loader-bar { width: 200px; height: 2px; background: #1e293b; margin-top: 20px; position: relative; overflow: hidden; }
+        .loader-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: var(--accent); }
+
+        .ai-modal-wrap { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); z-index: var(--z-modal); display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.4s; }
+        .ai-modal-wrap.open { opacity: 1; pointer-events: auto; }
+        .ai-box { width: 90%; max-width: 600px; background: #0f172a; border: 1px solid var(--border-light); border-radius: 24px; padding: 2.5rem; transform: translateY(50px); transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+        .ai-modal-wrap.open .ai-box { transform: translateY(0); }
+    </style>
 </head>
 
 <body class="loading">
 
-  <!-- PRELOADER -->
-  <div class="preloader">
-    <div class="loader-text">
-      <span>MOHAMED</span> <span style="font-family:var(--font-hand); color:var(--accent);">Amer</span>
-    </div>
-    <div class="progress-bar"><div class="progress-fill"></div></div>
-  </div>
-
-  <!-- GLOBAL LAYERS -->
-  <canvas id="canvas-bg"></canvas>
-  <div class="noise-overlay"></div>
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
-  <div class="toast-container" id="toastContainer"></div>
-
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <a href="#" class="logo magnet-target" style="font-family:var(--font-display); font-weight:900; font-size:1.5rem; color:white; text-decoration:none;">MA.</a>
-    
-    <div class="nav-items" id="mobileMenu">
-      <a href="#about" class="nav-link magnet-target">Profile</a>
-      <a href="#work" class="nav-link magnet-target">Work</a>
-      <a href="#services" class="nav-link magnet-target">Services</a>
-      <a href="#political" class="nav-link magnet-target">Political</a>
-      <a href="#archive" class="nav-link magnet-target" style="color:var(--accent);">Archive</a>
-      <a href="#contact" class="nav-link magnet-target">Contact</a>
+    <!-- PRELOADER -->
+    <div class="preloader">
+        <h1 class="display-text" style="font-size: 2.5rem;">MOHAMED<span style="color:var(--accent)">.</span></h1>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
     </div>
 
-    <div style="display:flex; align-items:center; gap: 15px;">
-        <button class="btn-glass magnet-target" onclick="toggleLanguage()" style="padding: 8px 16px; font-size:0.75rem;">EN / AR</button>
-        <button class="menu-toggle magnet-target" onclick="toggleMenu()" style="background:none; border:none; color:white; font-size:1.5rem;"><i class="fas fa-bars"></i></button>
-    </div>
-  </nav>
+    <!-- BACKGROUND -->
+    <canvas id="canvas-bg"></canvas>
+    <div class="bg-glow"></div>
+    <div class="noise-overlay"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-  <main>
-
-    <!-- HERO SECTION -->
-    <section id="about" class="hero container">
-      <div class="grid-12" style="align-items:center; width:100%;">
-        <div class="col-6 hero-text-content">
-          <div class="label fade-in-up">
-            <span data-i18n="hero-badge">● Istanbul Based Creative</span>
-          </div>
-          <h1 class="hero-title fade-in-up">
-            MOHAMED<br><span>Amer</span>
-          </h1>
-          <p class="fade-in-up" style="font-size:1.2rem; color:var(--text-muted); margin-bottom:2.5rem; max-width:500px;" data-i18n="hero-desc">
-            Strategic Design & Motion Direction. I help brands communicate through <strong>visual storytelling</strong> that is bold, precise, and memorable.
-          </p>
-          <div class="fade-in-up" style="display:flex; gap:15px; flex-wrap:wrap;">
-            <a href="#work" class="btn-primary magnet-target" data-i18n="btn-view-work">View Projects</a>
-            <a href="My cv English .pdf" target="_blank" class="btn-glass magnet-target"><i class="fas fa-download"></i> CV</a>
-            <button onclick="openAiModal()" class="btn-glass magnet-target"><i class="fas fa-magic"></i> AI</button>
-          </div>
-        </div>
-
-        <div class="col-6" style="display:flex; justify-content:center;">
-          <div class="orbit-system fade-in-up">
-            <div class="orbit-circle"></div>
-            <img src="MINED.png" alt="Mohamed Amer" class="orbit-img tilt-element" />
-            <div class="orbit-circle" style="width:140%; height:140%; opacity:0.3; animation-direction:reverse;"></div>
-            <div class="orbit-circle" style="animation: spin 30s linear infinite;">
-                <div class="planet p-1 magnet-target" title="Photoshop"><i class="fas fa-image"></i></div>
-                <div class="planet p-2 magnet-target" title="After Effects"><i class="fas fa-film"></i></div>
-                <div class="planet p-3 magnet-target" title="Illustrator"><i class="fas fa-pen-nib"></i></div>
-                <div class="planet p-4 magnet-target" title="Figma"><i class="fab fa-figma"></i></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MARQUEE -->
-    <div class="marquee-container" style="transform: rotate(-1deg); margin: 6rem 0; background:var(--accent); padding:1rem 0; width:105%; margin-left:-2.5%;">
-       <div style="display:flex; gap:4rem; white-space:nowrap; animation: marquee 20s linear infinite;">
-          <span style="font-family:var(--font-display); font-weight:800; font-size:2rem; color:black;">BRAND IDENTITY • MOTION GRAPHICS • ART DIRECTION • SOCIAL MEDIA • UI/UX DESIGN •</span>
-          <span style="font-family:var(--font-display); font-weight:800; font-size:2rem; color:black;">BRAND IDENTITY • MOTION GRAPHICS • ART DIRECTION • SOCIAL MEDIA • UI/UX DESIGN •</span>
-       </div>
-    </div>
-    <style>@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
-
-    <!-- WORK SECTION -->
-    <section id="work" class="container section-spacing">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 4rem;">
-        <div>
-            <span class="label" data-i18n="label-portfolio">Selected Works</span>
-            <h2 class="title-lg" data-i18n="title-cases">FEATURED <span style="color:var(--accent)">CASES</span></h2>
-        </div>
-        <div style="display:flex; gap:10px;">
-            <button class="btn-glass magnet-target" onclick="filterProjects('all')" data-i18n="filter-all">All</button>
-            <button class="btn-glass magnet-target" onclick="filterProjects('branding')" data-i18n="filter-brand">Branding</button>
-            <button class="btn-glass magnet-target" onclick="filterProjects('motion')" data-i18n="filter-motion">Motion</button>
-        </div>
-      </div>
-
-      <div class="grid-12" id="projectGrid">
-        <div class="col-6 bento-card project-item tilt-wrapper" data-category="motion">
-          <div class="tilt-inner">
-              <div class="project-img-wrapper" style="aspect-ratio:16/9; overflow:hidden;">
-                 <iframe src="https://www.behance.net/embed/project/238580093?ilo0=1" class="project-iframe" loading="lazy"></iframe>
-              </div>
-              <div style="padding:1.5rem;">
-                <h3 style="font-size:1.5rem; font-weight:700; margin-bottom:0.5rem;">Orient Detectors</h3>
-                <p style="color:var(--text-muted);">Motion Campaign • 2024</p>
-              </div>
-          </div>
-        </div>
-        <div class="col-6 bento-card project-item tilt-wrapper" data-category="branding" style="margin-top:4rem;">
-           <div class="tilt-inner">
-               <div class="project-img-wrapper" style="aspect-ratio:16/9; overflow:hidden;">
-                 <iframe src="https://www.behance.net/embed/project/218895573?ilo0=1" class="project-iframe" loading="lazy"></iframe>
-               </div>
-               <div style="padding:1.5rem;">
-                <h3 style="font-size:1.5rem; font-weight:700; margin-bottom:0.5rem;">Ajax Systems</h3>
-                <p style="color:var(--text-muted);">Brand Identity • 2023</p>
-              </div>
-           </div>
-        </div>
-        <div class="col-12 bento-card project-item tilt-wrapper" data-category="social">
-            <div class="tilt-inner">
-                <div class="project-img-wrapper" style="height:500px; overflow:hidden;">
-                    <iframe src="https://www.behance.net/embed/project/199606419?ilo0=1" class="project-iframe" loading="lazy"></iframe>
-                </div>
-                <div style="padding:2rem;">
-                    <h3 style="font-size:2rem; font-weight:700;">Social Media Visuals</h3>
-                    <p style="color:var(--text-muted);">Content Strategy & Design</p>
-                </div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIRAL SHORTS -->
-    <section id="viral-shorts" class="container section-spacing">
-        <div style="text-align:center; margin-bottom:3rem;">
-            <span class="label" data-i18n="label-viral">VIRAL CONTENT</span>
-            <h2 class="title-lg" data-i18n="title-viral">FEATURED <span style="color:var(--accent)">SHORTS</span></h2>
-        </div>
-        <div class="grid-12">
-            <div class="col-3 bento-card tilt-wrapper" style="cursor:pointer;" onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS')">
-                <div class="tilt-inner">
-                    <div class="project-img-wrapper" style="aspect-ratio:9/16; position:relative;">
-                        <img src="https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Viral short 1">
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 bento-card tilt-wrapper" style="cursor:pointer;" onclick="window.open('https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90')">
-                <div class="tilt-inner">
-                    <div class="project-img-wrapper" style="aspect-ratio:9/16; position:relative;">
-                        <img src="https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Viral short 2">
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 bento-card tilt-wrapper" style="cursor:pointer;" onclick="window.open('https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB')">
-                <div class="tilt-inner">
-                    <div class="project-img-wrapper" style="aspect-ratio:9/16; position:relative;">
-                        <img src="https://img.youtube.com/vi/oKIJWxeoMZo/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Viral short 3">
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 bento-card tilt-wrapper" style="cursor:pointer;" onclick="window.open('https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==')">
-                <div class="tilt-inner">
-                    <div class="project-img-wrapper" style="aspect-ratio:9/16; position:relative; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); display:flex; justify-content:center; align-items:center;">
-                        <i class="fab fa-instagram" style="font-size:3rem; color:white;"></i>
-                        <div class="play-icon" style="background:rgba(255,255,255,0.2);"><i class="fas fa-eye"></i></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ARCHIVE -->
-    <section id="archive" class="container section-spacing">
-        <div class="drive-section-card tilt-wrapper magnet-target" onclick="window.open('https://drive.google.com/drive/u/0/folders/1-E4D0ktY12ONLEye6bAyVXkqgzAylrgD')">
-            <div style="font-size:5rem; color:#FFD04B; margin-bottom:1rem;"><i class="fas fa-folder-open"></i></div>
-            <h2 class="title-lg" style="font-size:3rem; margin-bottom:1rem;">PROJECT <span style="color:var(--accent)">ARCHIVE</span></h2>
-            <p style="color:var(--text-muted); max-width:600px; margin:0 auto 2rem auto; font-size:1.2rem;">
-                Gain exclusive access to high-resolution source files, open-project assets, and behind-the-scenes materials directly from my private drive.
-            </p>
-            <button class="btn-primary" style="padding:1rem 3rem; font-size:1.1rem;">
-                <i class="fab fa-google-drive"></i> Access Drive
-            </button>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="container section-spacing">
-        <div class="grid-12">
-            <div class="col-4">
-                <span class="label" data-i18n="label-what-i-do">Services</span>
-                <h2 class="title-lg" data-i18n="title-services">WHAT I <br><span style="color:var(--accent)">OFFER</span></h2>
-                <p style="color:var(--text-muted); margin-bottom:2rem;">I combine technical expertise with artistic vision to create digital products that stand out.</p>
-                <a href="#contact" class="btn-primary magnet-target">Start a Project</a>
-            </div>
-            <div class="col-8">
-                <div class="grid-12">
-                    <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
-                        <i class="fas fa-bezier-curve fa-2x" style="color:var(--accent); margin-bottom:1rem;"></i>
-                        <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:0.5rem;">Visual Identity</h3>
-                        <p style="color:var(--text-muted); font-size:0.9rem;">Logo design, typography, and comprehensive brand guidelines.</p>
-                    </div>
-                    <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
-                        <i class="fas fa-film fa-2x" style="color:var(--accent); margin-bottom:1rem;"></i>
-                        <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:0.5rem;">Motion Design</h3>
-                        <p style="color:var(--text-muted); font-size:0.9rem;">2D/3D animation, explainers, and UI interactions.</p>
-                    </div>
-                    <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
-                        <i class="fas fa-bullhorn fa-2x" style="color:var(--accent); margin-bottom:1rem;"></i>
-                        <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:0.5rem;">Social Strategy</h3>
-                        <p style="color:var(--text-muted); font-size:0.9rem;">Content planning and high-impact visual creation.</p>
-                    </div>
-                    <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
-                        <i class="fas fa-layer-group fa-2x" style="color:var(--accent); margin-bottom:1rem;"></i>
-                        <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:0.5rem;">Art Direction</h3>
-                        <p style="color:var(--text-muted); font-size:0.9rem;">Leading creative teams and visual conceptualization.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MANIFESTO -->
-    <div class="manifesto-section" id="manifesto">
-        <div class="manifesto-sticky">
-            <h2 class="manifesto-text" id="manifestoText">
-                "DESIGN ISN'T JUST ABOUT MAKING THINGS LOOK GOOD. IT'S ABOUT CLARITY, SPEED, AND TELLING A STORY THAT STICKS."
-            </h2>
-        </div>
-    </div>
-
-    <!-- POLITICAL -->
-    <section id="political" style="margin-top:10vh;">
-        <div class="container" style="margin-bottom:2rem;">
-            <span class="label" style="color:#ef4444;" data-i18n="label-passion">Passion Projects</span>
-            <h2 class="title-lg" data-i18n="title-political">POLITICAL & <span style="color:#ef4444">SOCIAL</span></h2>
-        </div>
-        <div class="political-wrapper">
-            <div class="political-track" id="politicalTrack">
-                <div class="political-poster tilt-wrapper">
-                    <img src="001 copy.png" alt="Poster 1">
-                    <div class="poster-overlay"><h4 style="font-weight:800; font-size:1.5rem;">FREEDOM</h4></div>
-                </div>
-                <div class="political-poster tilt-wrapper">
-                    <img src="002.png" alt="Poster 2">
-                    <div class="poster-overlay"><h4 style="font-weight:800; font-size:1.5rem;">JUSTICE</h4></div>
-                </div>
-                <div class="political-poster tilt-wrapper">
-                    <img src="٠٠٢.png" alt="Poster 3">
-                    <div class="poster-overlay"><h4 style="font-weight:800; font-size:1.5rem;">VOICE</h4></div>
-                </div>
-                <div class="political-poster tilt-wrapper">
-                    <img src="003.png" alt="Poster 4">
-                    <div class="poster-overlay"><h4 style="font-weight:800; font-size:1.5rem;">CHANGE</h4></div>
-                </div>
-                <div class="political-poster tilt-wrapper">
-                    <img src="٠٠٠٦.png" alt="Poster 5">
-                    <div class="poster-overlay"><h4 style="font-weight:800; font-size:1.5rem;">HOPE</h4></div>
-                </div>
-                <div class="political-poster tilt-wrapper">
-                    <img src="٣٨٢٩٥.png" alt="Poster 6">
-                    <div class="poster-overlay"><h4 style="font-weight:800; font-size:1.5rem;">PEACE</h4></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INSIGHTS & TOOLKIT -->
-    <section class="container section-spacing">
-        <div class="grid-12">
-            <div class="col-12" style="margin-bottom:2rem;">
-                <span class="label" data-i18n="label-thoughts">Knowledge</span>
-                <h2 class="title-lg" data-i18n="title-insights">DESIGN <span style="color:var(--accent)">INSIGHTS</span></h2>
-            </div>
-            
-            <div class="col-6">
-                <div class="blog-card tilt-wrapper">
-                    <div class="blog-date">MARCH 15, 2025</div>
-                    <h3 class="blog-title" data-i18n="blog-1-title">Why Motion Graphics is Essential for Tech Brands</h3>
-                    <p style="color:var(--text-muted); margin-bottom:1.5rem;" data-i18n="blog-1-desc">Static images are no longer enough. Learn how motion builds trust.</p>
-                    <a href="#" class="btn-glass magnet-target" style="width:fit-content">Read Article</a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="blog-card tilt-wrapper">
-                    <div class="blog-date">FEBRUARY 28, 2025</div>
-                    <h3 class="blog-title" data-i18n="blog-2-title">The Psychology of Color in Medical Branding</h3>
-                    <p style="color:var(--text-muted); margin-bottom:1.5rem;" data-i18n="blog-2-desc">How blue and green tones influence patient trust.</p>
-                    <a href="#" class="btn-glass magnet-target" style="width:fit-content">Read Article</a>
-                </div>
-            </div>
-
-            <!-- Toolkit -->
-            <div class="col-12 section-spacing">
-                <div style="text-align:center; margin-bottom:3rem;">
-                    <h2 class="title-lg" data-i18n="title-software">MY <span style="color:var(--accent)">TOOLKIT</span></h2>
-                </div>
-                <div class="toolkit-grid" id="toolkitGrid">
-                    <div class="toolkit-item tilt-wrapper"><i class="fab fa-adobe"></i> Photoshop</div>
-                    <div class="toolkit-item tilt-wrapper"><i class="fab fa-adobe"></i> Illustrator</div>
-                    <div class="toolkit-item tilt-wrapper"><i class="fas fa-video"></i> After Effects</div>
-                    <div class="toolkit-item tilt-wrapper"><i class="fas fa-film"></i> Premiere Pro</div>
-                    <div class="toolkit-item tilt-wrapper"><i class="fab fa-figma"></i> Figma</div>
-                    <div class="toolkit-item tilt-wrapper"><i class="fas fa-cube"></i> Blender</div>
-                    <div class="toolkit-item tilt-wrapper"><i class="fas fa-brain"></i> Midjourney</div>
-                    <div class="toolkit-item tilt-wrapper"><i class="fas fa-code"></i> HTML/CSS</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEWSLETTER -->
-    <section id="newsletter" class="section-spacing container">
-        <div class="bento-card tilt-wrapper col-12" style="background: #111827; text-align: center; justify-content: center; align-items: center; padding: 4rem 1rem;">
-            <h2 class="title-lg" data-i18n="title-updated">STAY <span style="color:var(--accent)">UPDATED</span></h2>
-            <p style="max-width: 500px; margin-bottom: 2rem; color: var(--text-muted);" data-i18n="newsletter-desc">Join my newsletter for design tips, motion graphics trends, and behind-the-scenes of my latest projects.</p>
-            <div style="display: flex; gap: 0.5rem; max-width: 400px; width: 100%; position:relative;">
-                <input type="email" placeholder="Enter your email" style="flex: 1; padding: 1rem 1.5rem; border-radius: 50px; border: 1px solid #334155; background: rgba(255,255,255,0.05); color: white; outline: none;">
-                <button class="btn-primary" data-i18n="btn-subscribe">Subscribe</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contact" class="footer">
-        <div class="container">
-            <span class="label" style="color:#10b981;">● Available for Work</span>
-            <h2 class="hero-title" style="font-size: clamp(3rem, 6vw, 6rem);">LET'S WORK <br><span style="color:white; font-family:var(--font-display); background:none; -webkit-text-fill-color:white;">TOGETHER</span></h2>
-            
-            <div style="margin: 4rem 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="mailto:mohadel0300@gmail.com" class="btn-primary magnet-target">mohadel0300@gmail.com</a>
-                <a href="My cv English .pdf" class="btn-glass magnet-target">Download CV</a>
-            </div>
-
-            <div style="display:flex; justify-content:center; gap:30px; margin-bottom:3rem;">
-                <a href="#" class="magnet-target" style="font-size:1.5rem; color:var(--text-muted); transition:0.3s;"><i class="fab fa-behance"></i></a>
-                <a href="#" class="magnet-target" style="font-size:1.5rem; color:var(--text-muted); transition:0.3s;"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="magnet-target" style="font-size:1.5rem; color:var(--text-muted); transition:0.3s;"><i class="fab fa-linkedin"></i></a>
-            </div>
-
-            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.9rem;">
-                <p>&copy; 2025 Mohamed Amer.</p>
-                <p>Designed & Developed with <i class="fas fa-heart" style="color:var(--accent)"></i></p>
-            </div>
-        </div>
-    </footer>
-
-  </main>
-
-  <!-- AI MODAL -->
-  <div class="ai-modal-wrap" id="aiModal">
-    <div class="ai-box">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
-            <h3 class="title-lg" style="font-size:1.8rem; margin:0;"><i class="fas fa-robot" style="color:var(--accent)"></i> AI ASSISTANT</h3>
-            <button onclick="closeAiModal()" class="magnet-target" style="background:none; border:none; color:white; font-size:1.5rem;"><i class="fas fa-times"></i></button>
-        </div>
-        <div style="position:relative; margin-bottom:1.5rem;">
-            <div style="position:absolute; top:-40px; right:0; display:flex; gap:10px;">
-                <button class="btn-glass" style="padding:5px 15px; font-size:0.8rem;" onclick="state.aiMode='brief'">Brief</button>
-                <button class="btn-glass" style="padding:5px 15px; font-size:0.8rem;" onclick="state.aiMode='visual'">Visuals</button>
-            </div>
-            <textarea id="aiPrompt" style="width:100%; height:150px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:1.5rem; color:white; font-family:inherit; resize:none;" placeholder="Describe your idea..."></textarea>
-        </div>
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size:0.8rem; color:var(--text-muted);">Powered by Gemini 2.0</span>
-            <button onclick="generateContent()" class="btn-primary magnet-target" id="aiGenBtn">Generate</button>
-        </div>
-        <div id="aiResult" style="margin-top:1.5rem; padding:1.5rem; background:rgba(59,130,246,0.1); border-radius:12px; display:none; max-height:200px; overflow-y:auto; font-size:0.9rem;"></div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      'use strict';
-
-      // ========================================
-      // 1. GLOBAL STATE & CONFIG
-      // ========================================
-      const state = window.state || { lang: 'en', aiMode: 'brief' };
-      window.state = state;
-
-      const CONFIG = window.APP_CONFIG || { apiKey: "" };
-      window.APP_CONFIG = CONFIG;
-
-      const hasGsap = typeof window.gsap !== 'undefined';
-
-      if (hasGsap) {
-        const plugins = [];
-        if (window.ScrollTrigger) plugins.push(window.ScrollTrigger);
-        if (window.ScrollToPlugin) plugins.push(window.ScrollToPlugin);
-        if (plugins.length) {
-          gsap.registerPlugin.apply(null, plugins);
-        }
-      }
-
-      // ========================================
-      // 2. CANVAS BACKGROUND PARTICLES
-      // ========================================
-      const canvas = document.getElementById('canvas-bg');
-      const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
-      let particles = [];
-
-      function resizeCanvas() {
-        if (!canvas || !ctx) return;
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-
-      class Particle {
-        constructor() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 1.5;
-          this.speedX = Math.random() * 0.5 - 0.25;
-          this.speedY = Math.random() * 0.5 - 0.25;
-          this.color = `rgba(${Math.random() > 0.5 ? '59,130,246' : '139,92,246'}, ${Math.random() * 0.5})`;
-        }
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          if (this.x > canvas.width) this.x = 0;
-          if (this.x < 0) this.x = canvas.width;
-          if (this.y > canvas.height) this.y = 0;
-          if (this.y < 0) this.y = canvas.height;
-        }
-        draw() {
-          if (!ctx) return;
-          ctx.fillStyle = this.color;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      function initParticles() {
-        if (!canvas || !ctx) return;
-        particles = [];
-        for (let i = 0; i < 100; i++) particles.push(new Particle());
-      }
-      
-      function animateParticles() {
-        if (!canvas || !ctx) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        window.requestAnimationFrame(animateParticles);
-      }
-
-      if (canvas && ctx) {
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-        initParticles();
-        window.requestAnimationFrame(animateParticles);
-      }
-
-      // ========================================
-      // 3. CUSTOM CURSOR
-      // ========================================
-      function initCustomCursor() {
-        const dot = document.querySelector('.cursor-dot');
-        const outline = document.querySelector('.cursor-outline');
-
-        if (!dot || !outline) return;
-
-        const supportsFinePointer =
-          window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-
-        if (!supportsFinePointer) {
-          dot.style.display = 'none';
-          outline.style.display = 'none';
-          document.body.classList.add('no-custom-cursor');
-          return;
-        }
-
-        window.addEventListener('mousemove', (e) => {
-          if (hasGsap) {
-            gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 });
-            gsap.to(outline, { x: e.clientX, y: e.clientY, duration: 0.15 });
-          } else {
-            dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-            outline.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-          }
-
-          const interactive = e.target.closest('a, button, .project-item, input, textarea');
-          document.body.classList.toggle('hovering', Boolean(interactive));
-        });
-      }
-
-      initCustomCursor();
-
-      // ========================================
-      // 4. GSAP-BASED ANIMATIONS & INTERACTIONS
-      // ========================================
-      function animateTilt(target, vars) {
-        if (!target) return;
-        if (hasGsap) {
-          gsap.to(target, vars);
-        } else {
-          const rotateX = vars.rotateX || 0;
-          const rotateY = vars.rotateY || 0;
-          const scale = vars.scale || 1;
-          target.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
-        }
-      }
-
-      function initMagnetic() {
-        if (!hasGsap) return;
-        const magnets = document.querySelectorAll('.magnet-target');
-        magnets.forEach(magnet => {
-          magnet.addEventListener('mousemove', (e) => {
-            const rect = magnet.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            gsap.to(magnet, { x: x * 0.3, y: y * 0.3, duration: 0.3, ease: 'power2.out' });
-          });
-          magnet.addEventListener('mouseleave', () => {
-            gsap.to(magnet, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
-          });
-        });
-      }
-
-      function initTilt() {
-        const cards = document.querySelectorAll('.tilt-wrapper');
-        if (!cards.length) return;
-
-        cards.forEach(card => {
-          const inner = card.querySelector('.tilt-inner') || card;
-          card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -5;
-            const rotateY = ((x - centerX) / centerX) * 5;
-            animateTilt(inner, { rotateX, rotateY, scale: 1.02, duration: 0.5, ease: 'power2.out' });
-          });
-          card.addEventListener('mouseleave', () => {
-            animateTilt(inner, { rotateX: 0, rotateY: 0, scale: 1, duration: 0.5 });
-          });
-        });
-      }
-
-      function initManifesto() {
-        const textEl = document.getElementById('manifestoText');
-        if (!textEl || !hasGsap || !window.ScrollTrigger) return;
-
-        const textContent = textEl.textContent;
-        textEl.textContent = '';
-        textContent.split('').forEach(char => {
-          const span = document.createElement('span');
-          span.textContent = char;
-          span.style.opacity = '0.1';
-          textEl.appendChild(span);
-        });
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="display-text magnet-target" style="font-size:1.5rem;">MA.</a>
         
-        gsap.to('#manifestoText span', {
-          opacity: 1,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: '.manifesto-section',
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: true,
-            pin: '.manifesto-sticky'
-          }
-        });
-      }
+        <div class="nav-items" id="mobileMenu">
+            <a href="#about" class="nav-link" data-i18n="nav-about">Profile</a>
+            <a href="#work" class="nav-link" data-i18n="nav-work">Work</a>
+            <a href="#viral" class="nav-link" data-i18n="nav-viral" style="color:var(--accent);">Viral</a>
+            <a href="#services" class="nav-link" data-i18n="nav-services">Services</a>
+            <a href="#political" class="nav-link" data-i18n="nav-political">Political</a>
+            <a href="#contact" class="nav-link" data-i18n="nav-contact">Contact</a>
+        </div>
 
-      function initPoliticalScroll() {
-        if (!hasGsap) return;
-        const posters = gsap.utils.toArray('.political-poster');
-        if (!posters.length) return;
+        <div style="display:flex; align-items:center; gap: 10px;">
+            <button class="btn-glass magnet-target" onclick="toggleLanguage()" style="padding: 8px 16px; font-size:0.75rem;">AR / EN</button>
+            <button class="btn-glass magnet-target" onclick="openAI()"><i class="fas fa-magic"></i></button>
+            <button class="magnet-target" onclick="toggleMenu()" style="background:none; border:none; color:white; font-size:1.5rem; display:none;" class="mobile-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <style>@media(max-width:900px){ .mobile-toggle { display:block!important; } }</style>
 
-        gsap.to(posters, {
-          xPercent: -100 * (posters.length - 1),
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.political-wrapper',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1
-          }
-        });
-      }
+    <main>
+        <!-- HERO SECTION (Restored Orbit + Giant Text) -->
+        <section id="about" class="hero container">
+            <div class="grid-12" style="width:100%; align-items:center;">
+                <div class="col-6 hero-text-content" style="display:flex; flex-direction:column; justify-content:center;">
+                    <span class="label fade-in" data-i18n="hero-badge">● ISTANBUL BASED</span>
+                    <h1 class="hero-title fade-in">
+                        <span class="display-text" style="font-size: 3rem; display:block;">MOHAMED</span>
+                        <span class="hero-title-big">AMER</span>
+                    </h1>
+                    <p class="fade-in" style="font-size:1.25rem; color:var(--text-muted); margin-bottom:2.5rem; max-width:550px;" data-i18n="hero-desc">
+                        Creative Director & Visual Artist. Crafting <strong>digital experiences</strong> that blend strategy, motion, and emotion.
+                    </p>
+                    <div class="fade-in" style="display:flex; gap:15px; flex-wrap:wrap;">
+                        <a href="#work" class="btn-primary magnet-target">View Projects</a>
+                        <a href="#" class="btn-glass magnet-target">Resume</a>
+                    </div>
+                </div>
 
-      function initToolkitReveal() {
-        if (!hasGsap || !window.ScrollTrigger) return;
-        const grid = document.getElementById('toolkitGrid');
-        if (!grid) return;
+                <div class="col-6" style="display:flex; justify-content:center;">
+                    <div class="orbit-container fade-in">
+                        <div class="orbit-ring ring-1">
+                            <div class="orbit-icon icon-1"><i class="fas fa-video"></i></div>
+                            <div class="orbit-icon icon-2"><i class="fab fa-figma"></i></div>
+                        </div>
+                        <div class="orbit-ring ring-2">
+                            <div class="orbit-icon icon-3"><i class="fab fa-adobe"></i></div>
+                            <div class="orbit-icon icon-4"><i class="fas fa-cube"></i></div>
+                        </div>
+                        <img src="MINED.png" alt="Mohamed Amer" class="orbit-center-img tilt-element" />
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        gsap.from('.toolkit-item', {
-          scrollTrigger: { trigger: '#toolkitGrid', start: 'top 80%' },
-          y: 50, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'back.out(1.7)'
-        });
-      }
+        <!-- MARQUEE LOOP -->
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <span class="marquee-item">BRAND IDENTITY • MOTION GRAPHICS • ART DIRECTION • UI/UX DESIGN •</span>
+                <span class="marquee-item">BRAND IDENTITY • MOTION GRAPHICS • ART DIRECTION • UI/UX DESIGN •</span>
+            </div>
+        </div>
 
-      function initNavbarScroll() {
-        const navbar = document.getElementById('navbar');
-        if (!navbar) return;
+        <!-- VIRAL FAN SECTION (FIXED) -->
+        <section id="viral" class="viral-section">
+            <div class="container" style="text-align:center;">
+                <span class="label" data-i18n="viral-label">TRENDING CONTENT</span>
+                <h2 class="display-text" style="font-size:clamp(2.5rem,5vw,4rem); margin-bottom:1rem;" data-i18n="viral-title">ON <span style="color:var(--accent)">SOCIALS</span></h2>
+                
+                <div class="fan-container" id="fanContainer">
+                    <!-- Javascript will inject cards here -->
+                </div>
+                
+                <div style="margin-top:3rem; display:flex; justify-content:center; gap:20px;">
+                    <a href="#" class="magnet-target" style="color:var(--text-muted);">TIKTOK</a>
+                    <a href="#" class="magnet-target" style="color:var(--text-muted);">INSTAGRAM</a>
+                </div>
+            </div>
+        </section>
 
-        const onScroll = () => {
-          navbar.classList.toggle('scrolled', window.scrollY > 10);
+        <!-- WORK SECTION (FIXED BEHANCE & FILTER) -->
+        <section id="work" class="container section-spacing">
+            <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 4rem; flex-wrap:wrap; gap:20px;">
+                <div>
+                    <span class="label" data-i18n="work-label">SELECTED WORKS</span>
+                    <h2 class="display-text" style="font-size:3rem;" data-i18n="work-title">FEATURED <span style="color:var(--accent)">CASES</span></h2>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn-glass magnet-target active-filter" onclick="filterWork('all')">All</button>
+                    <button class="btn-glass magnet-target" onclick="filterWork('branding')">Branding</button>
+                    <button class="btn-glass magnet-target" onclick="filterWork('motion')">Motion</button>
+                </div>
+            </div>
+
+            <div class="grid-12" id="workGrid">
+                <!-- Project 1 -->
+                <div class="col-8 bento-card tilt-wrapper" data-cat="motion">
+                    <div class="project-img-wrapper">
+                        <iframe src="https://www.behance.net/embed/project/238580093?ilo0=1" style="width:100%; height:450px; border:none; pointer-events:none;"></iframe>
+                    </div>
+                    <div style="padding:1.5rem;">
+                        <h3 style="font-size:1.5rem; font-weight:700;">Orient Detectors</h3>
+                        <p style="color:var(--text-muted);">Motion Campaign</p>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-4 bento-card tilt-wrapper" data-cat="branding">
+                    <div class="project-img-wrapper">
+                        <iframe src="https://www.behance.net/embed/project/218895573?ilo0=1" style="width:100%; height:450px; border:none; pointer-events:none;"></iframe>
+                    </div>
+                    <div style="padding:1.5rem;">
+                        <h3 style="font-size:1.5rem; font-weight:700;">Ajax Systems</h3>
+                        <p style="color:var(--text-muted);">Brand Identity</p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-12 bento-card tilt-wrapper" data-cat="social">
+                    <div class="project-img-wrapper">
+                        <iframe src="https://www.behance.net/embed/project/199606419?ilo0=1" style="width:100%; height:500px; border:none; pointer-events:none;"></iframe>
+                    </div>
+                    <div style="padding:2rem;">
+                        <h3 style="font-size:1.8rem; font-weight:700;">Social Media Visuals</h3>
+                        <p style="color:var(--text-muted);">Content Strategy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES (RESTORED) -->
+        <section id="services" class="container section-spacing">
+            <div class="grid-12" style="align-items:center;">
+                <div class="col-4">
+                    <span class="label" data-i18n="serv-label">SERVICES</span>
+                    <h2 class="display-text" style="font-size:3rem;" data-i18n="serv-title">WHAT I <span style="color:var(--accent)">DO</span></h2>
+                    <p style="color:var(--text-muted); margin: 1.5rem 0 2rem;">Transforming complex ideas into clear, compelling visuals.</p>
+                    <a href="#contact" class="btn-primary magnet-target">Start Project</a>
+                </div>
+                <div class="col-8">
+                    <div class="grid-12">
+                        <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
+                            <i class="fas fa-bezier-curve service-icon"></i>
+                            <h3>Brand Identity</h3>
+                            <p style="font-size:0.9rem; color:var(--text-muted);">Logos, Typography, Visual Systems.</p>
+                        </div>
+                        <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
+                            <i class="fas fa-film service-icon"></i>
+                            <h3>Motion Design</h3>
+                            <p style="font-size:0.9rem; color:var(--text-muted);">2D/3D Animation, Promo Videos.</p>
+                        </div>
+                        <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
+                            <i class="fas fa-bullhorn service-icon"></i>
+                            <h3>Social Strategy</h3>
+                            <p style="font-size:0.9rem; color:var(--text-muted);">Content planning & creation.</p>
+                        </div>
+                        <div class="col-6 bento-card tilt-wrapper" style="padding:2rem;">
+                            <i class="fas fa-layer-group service-icon"></i>
+                            <h3>Art Direction</h3>
+                            <p style="font-size:0.9rem; color:var(--text-muted);">Concept Development, Strategy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOOLKIT (INFINITE LOOP) -->
+        <section class="container section-spacing">
+            <div style="text-align:center; margin-bottom:2rem;">
+                <span class="label" data-i18n="toolkit-label">CREATIVE ARSENAL</span>
+            </div>
+            <div class="toolkit-scroller">
+                <div class="toolkit-track">
+                    <!-- Original -->
+                    <div class="toolkit-item"><i class="fab fa-adobe"></i> Photoshop</div>
+                    <div class="toolkit-item"><i class="fab fa-adobe"></i> Illustrator</div>
+                    <div class="toolkit-item"><i class="fas fa-video"></i> After Effects</div>
+                    <div class="toolkit-item"><i class="fas fa-film"></i> Premiere Pro</div>
+                    <div class="toolkit-item"><i class="fas fa-cube"></i> Blender 3D</div>
+                    <div class="toolkit-item"><i class="fab fa-figma"></i> Figma</div>
+                    <div class="toolkit-item"><i class="fas fa-robot"></i> Midjourney</div>
+                    <!-- Duplicate -->
+                    <div class="toolkit-item"><i class="fab fa-adobe"></i> Photoshop</div>
+                    <div class="toolkit-item"><i class="fab fa-adobe"></i> Illustrator</div>
+                    <div class="toolkit-item"><i class="fas fa-video"></i> After Effects</div>
+                    <div class="toolkit-item"><i class="fas fa-film"></i> Premiere Pro</div>
+                    <div class="toolkit-item"><i class="fas fa-cube"></i> Blender 3D</div>
+                    <div class="toolkit-item"><i class="fab fa-figma"></i> Figma</div>
+                    <div class="toolkit-item"><i class="fas fa-robot"></i> Midjourney</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POLITICAL (INFINITE LOOP) -->
+        <section id="political" class="section-spacing">
+            <div class="container">
+                <span class="label" style="color:var(--danger);" data-i18n="pol-label">PASSION PROJECTS</span>
+                <h2 class="display-text" style="font-size:3rem; margin-bottom:2rem;" data-i18n="pol-title">POLITICAL & <span style="color:var(--danger)">SOCIAL</span></h2>
+            </div>
+            <div class="political-scroller">
+                <div class="political-track">
+                    <div class="political-card"><img src="001 copy.png"><div class="political-overlay"><h3>FREEDOM</h3></div></div>
+                    <div class="political-card"><img src="002.png"><div class="political-overlay"><h3>JUSTICE</h3></div></div>
+                    <div class="political-card"><img src="٠٠٢.png"><div class="political-overlay"><h3>VOICE</h3></div></div>
+                    <div class="political-card"><img src="003.png"><div class="political-overlay"><h3>CHANGE</h3></div></div>
+                    <div class="political-card"><img src="٠٠٠٦.png"><div class="political-overlay"><h3>HOPE</h3></div></div>
+                    <!-- Duplicate -->
+                    <div class="political-card"><img src="001 copy.png"><div class="political-overlay"><h3>FREEDOM</h3></div></div>
+                    <div class="political-card"><img src="002.png"><div class="political-overlay"><h3>JUSTICE</h3></div></div>
+                    <div class="political-card"><img src="٠٠٢.png"><div class="political-overlay"><h3>VOICE</h3></div></div>
+                    <div class="political-card"><img src="003.png"><div class="political-overlay"><h3>CHANGE</h3></div></div>
+                    <div class="political-card"><img src="٠٠٠٦.png"><div class="political-overlay"><h3>HOPE</h3></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MANIFESTO & ARCHIVE -->
+        <div class="manifesto-section">
+            <div class="manifesto-sticky">
+                <h2 class="manifesto-text" id="manifestoText">
+                    "DESIGN ISN'T JUST ABOUT AESTHETICS. IT'S ABOUT SPEED, CLARITY, AND IMPACT."
+                </h2>
+            </div>
+        </div>
+
+        <section class="container section-spacing">
+            <div class="archive-card tilt-wrapper magnet-target" onclick="window.open('#')">
+                <i class="fas fa-folder-open"></i>
+                <h2 class="display-text" style="font-size:2.5rem; margin-bottom:1rem;" data-i18n="archive-title">PROJECT <span style="color:var(--accent)">ARCHIVE</span></h2>
+                <p style="color:var(--text-muted); max-width:600px; margin:0 auto 2rem;" data-i18n="archive-desc">Access high-res source files, open projects, and assets directly from my drive.</p>
+                <button class="btn-primary">ACCESS DRIVE</button>
+            </div>
+        </section>
+
+        <!-- INSIGHTS (RESTORED) -->
+        <section id="insights" class="container section-spacing">
+            <div class="grid-12">
+                <div class="col-12" style="text-align:center; margin-bottom:3rem;">
+                    <h2 class="display-text" style="font-size:3rem;" data-i18n="blog-title">DESIGN <span style="color:var(--accent)">INSIGHTS</span></h2>
+                </div>
+                <div class="col-6">
+                    <div class="bento-card tilt-wrapper" style="padding:2.5rem; display:flex; flex-direction:column; justify-content:space-between; height:100%;">
+                        <div>
+                            <span class="blog-date">MARCH 15, 2025</span>
+                            <h3 style="font-size:1.8rem; font-weight:800; margin:1rem 0;">Why Motion Matters in Tech</h3>
+                            <p style="color:var(--text-muted);">Static images are no longer enough. Learn how motion builds trust.</p>
+                        </div>
+                        <a href="#" class="btn-glass" style="width:fit-content; margin-top:2rem;">Read Article</a>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="bento-card tilt-wrapper" style="padding:2.5rem; display:flex; flex-direction:column; justify-content:space-between; height:100%;">
+                        <div>
+                            <span class="blog-date">FEB 28, 2025</span>
+                            <h3 style="font-size:1.8rem; font-weight:800; margin:1rem 0;">Color Psychology in Branding</h3>
+                            <p style="color:var(--text-muted);">How blue and green tones influence patient trust in medical fields.</p>
+                        </div>
+                        <a href="#" class="btn-glass" style="width:fit-content; margin-top:2rem;">Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER (RESTORED) -->
+        <section id="newsletter" class="container section-spacing">
+            <div class="newsletter-card">
+                <h2 class="display-text" style="font-size:2.5rem; margin-bottom:1rem;" data-i18n="news-title">JOIN THE <span style="color:var(--accent)">NEWSLETTER</span></h2>
+                <p style="color:var(--text-muted); margin-bottom:2rem;">Get insights, tips, and free assets delivered to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your Email" class="newsletter-input">
+                    <button class="btn-primary">JOIN</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER (BIG TYPOGRAPHY) -->
+        <footer id="contact" class="footer-big">
+            <div class="container">
+                <h2 class="footer-cta">LET'S<br><span>WORK</span><br>TOGETHER.</h2>
+                <div class="grid-12" style="margin-bottom:4rem;">
+                    <div class="col-6">
+                        <a href="mailto:mohadel0300@gmail.com" class="btn-primary magnet-target" style="font-size:1.2rem; padding:1rem 3rem;">mohadel0300@gmail.com</a>
+                    </div>
+                    <div class="col-3 footer-links">
+                        <h4 data-i18n="nav-sitemap">SITEMAP</h4>
+                        <a href="#about">Profile</a>
+                        <a href="#work">Work</a>
+                        <a href="#viral">Viral</a>
+                        <a href="#services">Services</a>
+                        <a href="#insights">Insights</a>
+                    </div>
+                    <div class="col-3 footer-socials">
+                        <div style="display:flex; gap:10px;">
+                            <a href="#" class="social-circle magnet-target"><i class="fab fa-behance"></i></a>
+                            <a href="#" class="social-circle magnet-target"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-circle magnet-target"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div style="border-top:1px solid #1e293b; padding-top:2rem; display:flex; justify-content:space-between; color:#475569; flex-wrap:wrap;">
+                    <span>© 2025 Mohamed Amer. All Rights Reserved.</span>
+                    <span>Istanbul, TR</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- AI MODAL -->
+    <div class="ai-modal-wrap" id="aiModal">
+        <div class="ai-box">
+            <div style="display:flex; justify-content:space-between; margin-bottom:1.5rem;">
+                <h3 style="font-weight:700; color:white;">AI ASSISTANT</h3>
+                <button onclick="closeAI()" style="background:none; border:none; color:white; font-size:1.5rem;"><i class="fas fa-times"></i></button>
+            </div>
+            <textarea id="aiPrompt" style="width:100%; height:120px; background:#020617; border:1px solid #334155; color:white; padding:1rem; border-radius:12px; resize:none;" placeholder="Tell me about your project idea..."></textarea>
+            <button onclick="generateAI()" class="btn-primary" style="width:100%; margin-top:1rem;">GENERATE BRIEF</button>
+            <div id="aiOutput" style="margin-top:1.5rem; color:var(--text-muted); font-size:0.9rem;"></div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const CONFIG = {
+            lang: 'en',
+            viralCards: [
+                { img: 'https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg', link: 'https://youtu.be/F-lmawsIKEI' },
+                { img: 'https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg', link: 'https://youtube.com/shorts/Z9xVIlCuQpA' },
+                { img: 'https://img.youtube.com/vi/oKIJWxeoMZo/hqdefault.jpg', link: 'https://youtube.com/shorts/oKIJWxeoMZo' },
+                { img: 'https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg', link: 'https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==' }, 
+                { img: 'https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg', link: '#' }
+            ],
+            i18n: {
+                'hero-badge': {en:'● ISTANBUL BASED', ar:'● مقيم في إسطنبول'},
+                'hero-desc': {en:'Creative Director & Visual Artist. Crafting <strong>digital experiences</strong> that blend strategy, motion, and emotion.', ar:'مخرج إبداعي وفنان بصري. أصمم <strong>تجارب رقمية</strong> تمزج بين الاستراتيجية والحركة والشعور.'},
+                'viral-label': {en:'TRENDING CONTENT', ar:'محتوى رائج'},
+                'viral-title': {en:'ON <span style="color:var(--accent)">SOCIALS</span>', ar:'على <span style="color:var(--accent)">المنصات</span>'},
+                'work-label': {en:'SELECTED WORKS', ar:'أعمال مختارة'},
+                'work-title': {en:'FEATURED <span style="color:var(--accent)">CASES</span>', ar:'دراسات <span style="color:var(--accent)">حالة</span>'},
+                'serv-label': {en:'SERVICES', ar:'خدمات'},
+                'serv-title': {en:'WHAT I <span style="color:var(--accent)">DO</span>', ar:'ماذا <span style="color:var(--accent)">أقدم</span>'},
+                'pol-label': {en:'PASSION PROJECTS', ar:'مشاريع شغف'},
+                'pol-title': {en:'POLITICAL & <span style="color:var(--danger)">SOCIAL</span>', ar:'مشاريع <span style="color:var(--danger)">سياسية</span>'},
+                'archive-title': {en:'PROJECT <span style="color:var(--accent)">ARCHIVE</span>', ar:'أرشيف <span style="color:var(--accent)">المشاريع</span>'},
+                'archive-desc': {en:'Access high-res source files, open projects, and assets directly from my drive.', ar:'وصول مباشر لملفات المصدر والمشاريع المفتوحة من الدرايف.'},
+                'blog-title': {en:'DESIGN <span style="color:var(--accent)">INSIGHTS</span>', ar:'رؤى <span style="color:var(--accent)">تصميمية</span>'},
+                'toolkit-label': {en:'CREATIVE ARSENAL', ar:'أدواتي الإبداعية'},
+                'news-title': {en:'JOIN THE <span style="color:var(--accent)">NEWSLETTER</span>', ar:'اشترك في <span style="color:var(--accent)">النشرة</span>'},
+                'nav-about': {en:'Profile', ar:'الرئيسية'},
+                'nav-work': {en:'Work', ar:'أعمالي'},
+                'nav-viral': {en:'Viral', ar:'فيرال'},
+                'nav-services': {en:'Services', ar:'خدمات'},
+                'nav-political': {en:'Political', ar:'سياسي'},
+                'nav-contact': {en:'Contact', ar:'تواصل'}
+            }
         };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
 
-      function initNavLinks() {
-        const links = document.querySelectorAll('.nav-link[href^="#"]');
-        if (!links.length) return;
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+            initLoader();
+            initLenis();
+            initCanvas();
+            initFan();
+            initTilt();
+            initMagnetic();
+            initManifesto();
+            initNavbar();
+            initCursor();
+            initAIModalCloseHandlers();
+        });
 
-        links.forEach(link => {
-          link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (!href || href === '#') return;
-            const targetId = href.slice(1);
-            const target = document.getElementById(targetId);
-            if (!target) return;
+        // --- FUNCTIONS ---
+        function initLoader() {
+            const tl = gsap.timeline({ onComplete: () => document.body.classList.remove('loading') });
+            tl.to('.loader-fill', { width:'100%', duration:1.2, ease:'power2.inOut' })
+              .to('.preloader', { yPercent:-100, duration:0.8, ease:'power4.inOut' })
+              .from('.fade-in', { y:50, opacity:0, stagger:0.1, duration:1 }, '-=0.4');
+        }
 
-            e.preventDefault();
+        function initLenis() {
+            const lenis = new Lenis({ duration:1.2, smoothWheel:true });
+            function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+        }
 
-            if (hasGsap && window.ScrollToPlugin) {
-              gsap.to(window, {
-                duration: 0.8,
-                scrollTo: { y: target, offsetY: 80 },
-                ease: 'power2.out'
-              });
-            } else {
-              window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        // --- BACKGROUND CANVAS (STARS/CONNECTIONS) ---
+        function initCanvas() {
+            const cvs = document.getElementById('canvas-bg');
+            const ctx = cvs.getContext('2d');
+            let w, h;
+            const particles = [];
+            const count = 60;
+
+            const resize = () => { w = cvs.width = window.innerWidth; h = cvs.height = window.innerHeight; };
+            window.addEventListener('resize', resize); resize();
+
+            for(let i=0; i<count; i++) {
+                particles.push({
+                    x: Math.random()*w, y: Math.random()*h,
+                    vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5,
+                    size: Math.random()*2, opacity: Math.random()*0.5
+                });
             }
-          });
-        });
-      }
 
-      // ========================================
-      // 5. APP LOGIC (LANG, FILTER, TOAST, AI)
-      // ========================================
-      const I18N_DICT = {
-        'hero-badge': {
-          en: '● Istanbul Based Creative',
-          ar: '● مبدع مقيم في إسطنبول'
-        },
-        'hero-desc': {
-          en: 'Strategic Design & Motion Direction. I help brands communicate through <strong>visual storytelling</strong> that is bold, precise, and memorable.',
-          ar: 'تصميم استراتيجي وإخراج حركي. أساعد العلامات التجارية على التواصل من خلال <strong>سرد بصري</strong> جريء ودقيق ولا يُنسى.'
-        },
-        'btn-view-work': { en: 'View Projects', ar: 'تصفّح الأعمال' },
-        'title-cases': { en: 'FEATURED <span style="color:var(--accent)">CASES</span>', ar: 'أعمال <span style="color:var(--accent)">مختارة</span>' },
-        'title-services': { en: 'WHAT I <br><span style="color:var(--accent)">OFFER</span>', ar: 'ماذا <br><span style="color:var(--accent)">أقدّم</span>' },
-        'title-political': { en: 'POLITICAL & <span style="color:#ef4444">SOCIAL</span>', ar: 'مشاريع <span style="color:#ef4444">قضية ومجتمع</span>' },
-        'title-insights': { en: 'DESIGN <span style="color:var(--accent)">INSIGHTS</span>', ar: 'رؤى <span style="color:var(--accent)">التصميم</span>' },
-        'title-software': { en: 'MY <span style="color:var(--accent)">TOOLKIT</span>', ar: 'أدواتي <span style="color:var(--accent)">المفضّلة</span>' },
-        'label-viral': { en: 'VIRAL CONTENT', ar: 'محتوى واسع الانتشار' },
-        'title-viral': { en: 'FEATURED <span style="color:var(--accent)">SHORTS</span>', ar: 'فيديوهات <span style="color:var(--accent)">قصيرة مميزة</span>' },
-        'label-portfolio': { en: 'Selected Works', ar: 'أعمال مختارة' },
-        'label-what-i-do': { en: 'Services', ar: 'الخدمات' },
-        'label-thoughts': { en: 'Knowledge', ar: 'معرفة' },
-        'label-passion': { en: 'Passion Projects', ar: 'مشاريع شغف' },
-        'title-updated': { en: 'STAY <span style="color:var(--accent)">UPDATED</span>', ar: 'كن <span style="color:var(--accent)">متابعًا</span>' },
-        'btn-subscribe': { en: 'Subscribe', ar: 'اشترك' }
-      };
+            function animate() {
+                ctx.clearRect(0,0,w,h);
+                particles.forEach((p, i) => {
+                    p.x += p.vx; p.y += p.vy;
+                    if(p.x < 0) p.x = w; if(p.x > w) p.x = 0;
+                    if(p.y < 0) p.y = h; if(p.y > h) p.y = 0;
+                    
+                    ctx.fillStyle = `rgba(59, 130, 246, ${p.opacity})`;
+                    ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
 
-      function filterProjects(cat) {
-        const projects = document.querySelectorAll('.project-item');
-        projects.forEach(p => {
-          const pCat = p.getAttribute('data-category');
-          const shouldShow = cat === 'all' || pCat === cat;
-
-          if (hasGsap) {
-            gsap.to(p, {
-              opacity: shouldShow ? 1 : 0,
-              scale: shouldShow ? 1 : 0.9,
-              duration: 0.3,
-              onStart: () => {
-                if (shouldShow) p.style.display = '';
-              },
-              onComplete: () => {
-                if (!shouldShow) p.style.display = 'none';
-              }
-            });
-          } else {
-            p.style.display = shouldShow ? '' : 'none';
-            p.style.opacity = shouldShow ? '1' : '0';
-            p.style.transform = shouldShow ? 'scale(1)' : 'scale(0.9)';
-          }
-        });
-      }
-
-      function toggleMenu() {
-        const menu = document.getElementById('mobileMenu');
-        if (!menu) return;
-        menu.classList.toggle('active');
-      }
-
-      function applyTranslations() {
-        document.documentElement.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-          const key = el.getAttribute('data-i18n');
-          const entry = I18N_DICT[key];
-          if (!entry) return;
-          el.innerHTML = entry[state.lang] || entry.en;
-        });
-      }
-
-      function toggleLanguage() {
-        state.lang = state.lang === 'en' ? 'ar' : 'en';
-        applyTranslations();
-        const msg = state.lang === 'ar' ? 'تم تغيير اللغة إلى العربية' : 'Language switched to English';
-        showToast(msg);
-      }
-
-      function openAiModal() {
-        const modal = document.getElementById('aiModal');
-        if (!modal) return;
-        modal.classList.add('active');
-      }
-
-      function closeAiModal() {
-        const modal = document.getElementById('aiModal');
-        if (!modal) return;
-        modal.classList.remove('active');
-      }
-
-      function showToast(msg) {
-        const container = document.getElementById('toastContainer');
-        if (!container) return;
-        const t = document.createElement('div');
-        t.className = 'toast';
-        t.innerHTML = `<i class="fas fa-check-circle" style="color:var(--accent)"></i> <span>${msg}</span>`;
-        container.appendChild(t);
-
-        if (hasGsap) {
-          gsap.to(t, { x: 0, opacity: 1, duration: 0.3 });
-          window.setTimeout(() => {
-            gsap.to(t, { x: 100, opacity: 0, duration: 0.3, onComplete: () => t.remove() });
-          }, 3000);
-        } else {
-          t.style.opacity = '1';
-          window.setTimeout(() => {
-            t.style.opacity = '0';
-            window.setTimeout(() => t.remove(), 300);
-          }, 3000);
-        }
-      }
-
-      async function generateContent() {
-        const btn = document.getElementById('aiGenBtn');
-        const resDiv = document.getElementById('aiResult');
-        const textarea = document.getElementById('aiPrompt');
-
-        if (!btn || !resDiv || !textarea) return;
-
-        const input = textarea.value.trim();
-        if (!input) {
-          const msg = state.lang === 'ar' ? 'من فضلك اكتب فكرتك أولاً' : 'Please write something first!';
-          showToast(msg);
-          return;
-        }
-
-        if (!CONFIG.apiKey) {
-          const msg = state.lang === 'ar' ? 'لم يتم إعداد مفتاح واجهة برمجة التطبيقات للذكاء الاصطناعي بعد.' : 'AI API key is not configured yet.';
-          showToast(msg);
-          return;
-        }
-
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-
-        const basePrompt = state.aiMode === 'visual'
-          ? 'Act as an art director. Suggest visual styles for: '
-          : 'Act as a creative director. Write a design brief for: ';
-
-        const prompt = `${basePrompt}${input}`;
-
-        try {
-          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${CONFIG.apiKey}`,
-            {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                    // Draw connections
+                    for(let j=i; j<count; j++) {
+                        const dx = particles[j].x - p.x;
+                        const dy = particles[j].y - p.y;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
+                        if(dist < 100) {
+                            ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - dist/100)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
+                        }
+                    }
+                });
+                requestAnimationFrame(animate);
             }
-          );
-
-          if (!res.ok) {
-            throw new Error(`API error: ${res.status}`);
-          }
-
-          const data = await res.json();
-          const text = data &&
-            data.candidates &&
-            data.candidates[0] &&
-            data.candidates[0].content &&
-            data.candidates[0].content.parts &&
-            data.candidates[0].content.parts[0] &&
-            data.candidates[0].content.parts[0].text;
-
-          if (!text) {
-            throw new Error('Empty AI response');
-          }
-
-          resDiv.innerHTML = window.marked ? marked.parse(text) : text;
-          resDiv.style.display = 'block';
-          showToast(state.lang === 'ar' ? 'تم إنشاء المحتوى' : 'Content generated!');
-        } catch (error) {
-          console.error(error);
-          showToast(state.lang === 'ar' ? 'حدث خطأ في خدمة الذكاء الاصطناعي' : 'AI error');
-        } finally {
-          btn.innerHTML = 'Generate';
+            animate();
         }
-      }
 
-      // ========================================
-      // 6. PRELOADER & INIT
-      // ========================================
-      function initPreloader() {
-        const preloader = document.querySelector('.preloader');
+        function initFan() {
+            const container = document.getElementById('fanContainer');
+            if(!container) return;
+            container.innerHTML = '';
+            const center = Math.floor(CONFIG.viralCards.length / 2);
+            const isMobile = window.innerWidth <= 900;
 
-        window.addEventListener('load', () => {
-          if (!preloader) return;
+            CONFIG.viralCards.forEach((card, i) => {
+                const el = document.createElement('div');
+                el.className = 'fan-card';
+                el.style.backgroundImage = `url(${card.img})`;
+                el.innerHTML = `<div class="play-btn"><i class="fas fa-play"></i></div>`;
+                el.onclick = () => window.open(card.link);
 
-          if (hasGsap) {
-            const tl = gsap.timeline({
-              onComplete: () => {
-                document.body.classList.remove('loading');
-              }
+                if(!isMobile) {
+                    const offset = i - center;
+                    const rotate = offset * 8;
+                    const x = offset * 40;
+                    const y = Math.abs(offset) * 15;
+                    el.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${rotate}deg)`;
+                    el.style.zIndex = 10 - Math.abs(offset);
+                }
+                container.appendChild(el);
             });
 
-            tl.to('.progress-fill', { width: '100%', duration: 1, ease: 'power2.inOut' })
-              .to('.loader-text span', {
-                y: 0,
-                opacity: 1,
-                stagger: 0.08,
-                duration: 0.6,
-                ease: 'back.out(1.7)'
-              }, '-=0.5')
-              .to('.preloader', { yPercent: -100, duration: 0.8, ease: 'power4.inOut', delay: 0.2 })
-              .from('.fade-in-up', { y: 50, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' }, '-=0.4');
-          } else {
-            preloader.style.display = 'none';
-            document.body.classList.remove('loading');
-          }
-        });
-      }
+            gsap.from('.fan-card', {
+                scrollTrigger: { trigger: '#viral', start: 'top 70%' },
+                y: 100, opacity: 0, stagger: 0.1, duration: 1, ease: 'back.out(1)'
+            });
+        }
 
-      function initAIModalCloseHandlers() {
-        const modal = document.getElementById('aiModal');
-        if (!modal) return;
+        function initManifesto() {
+            const txt = document.getElementById('manifestoText');
+            if(txt) {
+                gsap.to(txt, {
+                    backgroundPosition: '100% 50%', // Animate gradient text
+                    scrollTrigger: {
+                        trigger: '.manifesto-section',
+                        start: 'top top',
+                        end: 'bottom bottom',
+                        scrub: true,
+                        pin: '.manifesto-sticky'
+                    }
+                });
+            }
+        }
 
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) closeAiModal();
-        });
+        function initTilt() {
+            document.querySelectorAll('.tilt-wrapper').forEach(el => {
+                el.addEventListener('mousemove', e => {
+                    const r = el.getBoundingClientRect();
+                    gsap.to(el, { rotateX: -((e.clientY-r.top-r.height/2)/20), rotateY: (e.clientX-r.left-r.width/2)/20, scale:1.02, duration:0.5 });
+                });
+                el.addEventListener('mouseleave', () => gsap.to(el, { rotateX:0, rotateY:0, scale:1, duration:0.5 }));
+            });
+        }
 
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeAiModal();
-          }
-        });
-      }
+        function initMagnetic() {
+            document.querySelectorAll('.magnet-target').forEach(el => {
+                el.addEventListener('mousemove', e => {
+                    const r = el.getBoundingClientRect();
+                    gsap.to(el, { x:(e.clientX-r.left-r.width/2)*0.5, y:(e.clientY-r.top-r.height/2)*0.5, duration:0.3 });
+                });
+                el.addEventListener('mouseleave', () => gsap.to(el, { x:0, y:0, duration:0.5, ease:'elastic.out(1,0.3)' }));
+            });
+        }
 
-      // Initialize modules
-      applyTranslations();
-      initNavbarScroll();
-      initNavLinks();
-      initTilt();
-      initMagnetic();
-      initManifesto();
-      initPoliticalScroll();
-      initToolkitReveal();
-      initPreloader();
-      initAIModalCloseHandlers();
+        function initCursor() {
+            const dot=document.querySelector('.cursor-dot'), out=document.querySelector('.cursor-outline');
+            if(!dot || window.matchMedia('(pointer: coarse)').matches) return;
+            window.addEventListener('mousemove', e => {
+                gsap.to(dot, { x:e.clientX, y:e.clientY, duration:0 });
+                gsap.to(out, { x:e.clientX-20, y:e.clientY-20, duration:0.15 });
+            });
+            document.addEventListener('mouseover', e => {
+                e.target.closest('a,button,.fan-card,.bento-card') ? document.body.classList.add('hovering') : document.body.classList.remove('hovering');
+            });
+        }
 
-      // Expose functions for inline handlers
-      window.filterProjects = filterProjects;
-      window.toggleMenu = toggleMenu;
-      window.toggleLanguage = toggleLanguage;
-      window.openAiModal = openAiModal;
-      window.closeAiModal = closeAiModal;
-      window.generateContent = generateContent;
-    })();
-  </script>
+        function initNavbar() {
+            const nav = document.getElementById('navbar');
+            window.addEventListener('scroll', () => window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled'));
+        }
+
+        function filterWork(cat) {
+            const items = document.querySelectorAll('#workGrid .bento-card');
+            const btns = document.querySelectorAll('button[onclick^="filterWork"]');
+            
+            btns.forEach(b => {
+                if(b.getAttribute('onclick').includes(cat)) b.classList.add('active-filter');
+                else b.classList.remove('active-filter');
+            });
+
+            items.forEach(item => {
+                const category = item.getAttribute('data-cat');
+                if(cat === 'all' || category === cat) {
+                    item.style.display = 'block';
+                    gsap.to(item, { autoAlpha: 1, scale: 1, duration: 0.3 });
+                } else {
+                    gsap.to(item, { autoAlpha: 0, scale: 0.9, duration: 0.3, onComplete: () => item.style.display = 'none' });
+                }
+            });
+        }
+
+        function initAIModalCloseHandlers() {
+            const modal = document.getElementById('aiModal');
+            document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeAI(); });
+            modal.addEventListener('click', (e) => { if(e.target === modal) closeAI(); });
+        }
+
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        function openAI() { document.getElementById('aiModal').classList.add('open'); }
+        function closeAI() { document.getElementById('aiModal').classList.remove('open'); }
+        
+        async function generateAI() {
+            const btn = document.querySelector('#aiModal .btn-primary');
+            const out = document.getElementById('aiOutput');
+            const prompt = document.getElementById('aiPrompt').value;
+            if(!prompt) return;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            // Placeholder simulation
+            setTimeout(() => {
+                out.innerHTML = `<strong>Concept Generated:</strong> based on "${prompt}". <br> Strategy: Focus on minimalism and bold typography. Color Palette: Neon Blue & Dark Slate.`;
+                btn.innerHTML = 'GENERATE BRIEF';
+            }, 1500);
+        }
+
+        function toggleLanguage() {
+            CONFIG.lang = CONFIG.lang === 'en' ? 'ar' : 'en';
+            document.documentElement.dir = CONFIG.lang === 'ar' ? 'rtl' : 'ltr';
+            Object.keys(CONFIG.i18n).forEach(k => {
+                document.querySelectorAll(`[data-i18n="${k}"]`).forEach(el => el.innerHTML = CONFIG.i18n[k][CONFIG.lang]);
+            });
+            document.body.style.fontFamily = CONFIG.lang === 'ar' ? 'var(--font-arabic)' : 'var(--font-body)';
+        }
+    </script>
 </body>
 </html>
