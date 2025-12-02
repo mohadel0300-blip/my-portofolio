@@ -82,6 +82,19 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    body.menu-open { overflow: hidden; }
+
+    /* Scroll Reveal Animation Classes */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* RTL Support */
     html[dir="rtl"] body {
       font-family: var(--font-arabic);
@@ -90,7 +103,7 @@
     
     a { text-decoration: none; color: inherit; transition: 0.3s ease; }
     ul { list-style: none; }
-    button { border: none; background: none; font-family: inherit; }
+    button { border: none; background: none; font-family: inherit; cursor: pointer; }
 
     ::selection { background: var(--accent); color: white; }
 
@@ -116,7 +129,7 @@
       margin-bottom: clamp(6rem, 15vh, 12rem);
     }
 
-    /* Masonry Grid Layout */
+    /* Masonry Grid (Smart Adaptation) */
     .masonry-grid {
       column-count: 3;
       column-gap: 24px;
@@ -125,7 +138,8 @@
     .masonry-item {
       break-inside: avoid;
       margin-bottom: 24px;
-      display: block; /* Important for links */
+      display: block;
+      height: auto; 
     }
 
     .grid-standard {
@@ -181,7 +195,7 @@
       text-shadow: 0 0 35px rgba(37, 99, 235, 0.4); 
     }
 
-    /* Backgrounds */
+    /* Backgrounds & Ambience */
     .ambient-light {
       position: fixed;
       top: 50%;
@@ -192,9 +206,9 @@
       z-index: 0;
       pointer-events: none;
       background: 
-        radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.09), transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(20, 40, 100, 0.1), transparent 50%);
-      filter: blur(90px);
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.08), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(20, 30, 80, 0.1), transparent 40%);
+      filter: blur(100px);
     }
 
     #canvas-bg {
@@ -202,7 +216,7 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.15;
+      opacity: 0.2;
       mix-blend-mode: screen;
     }
     
@@ -215,78 +229,150 @@
     }
 
     /* =========================================
-       3. COMPONENTS: NAVBAR
+       3. COMPONENTS: RESTRUCTURED NAVBAR
        ========================================= */
     .navbar {
       position: fixed;
-      top: 24px;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      width: calc(100% - 48px);
-      max-width: 960px;
-      background: rgba(5, 10, 25, 0.8);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255,255,255,0.06);
+      width: calc(100% - 40px);
+      max-width: 1200px;
+      height: 64px;
+      background: rgba(10, 10, 12, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--radius-full);
-      padding: 14px 28px;
+      padding: 0 8px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: var(--z-nav);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
 
     .navbar.scrolled {
-      background: rgba(2, 5, 15, 0.95);
-      border-color: rgba(37, 99, 235, 0.2);
-      top: 16px;
+      background: rgba(5, 5, 8, 0.85);
+      border-color: rgba(37, 99, 235, 0.3);
+      top: 10px;
+      max-width: 1000px;
+    }
+
+    .logo-container {
+      background: #000;
+      border-radius: var(--radius-full);
+      height: 48px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .logo {
       font-weight: 900;
-      font-size: 1.4rem;
-      letter-spacing: -0.04em;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: #fff;
     }
 
-    .nav-items { display: flex; align-items: center; gap: 6px; }
+    .nav-center {
+      display: flex;
+      gap: 4px;
+      background: rgba(255,255,255,0.03);
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
 
     .nav-link {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--text-muted);
-      padding: 8px 18px;
+      padding: 8px 16px;
       border-radius: var(--radius-full);
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       letter-spacing: 0.02em;
+      position: relative;
     }
 
     .nav-link:hover, .nav-link.active {
       color: #fff;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255,255,255,0.1);
     }
 
-    .menu-toggle { display: none; color: #fff; font-size: 1.2rem; }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .nav-btn-icon:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: #010208;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-link {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.5);
+      transition: 0.3s;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    .mobile-menu-overlay.active .mobile-link {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .mobile-link:hover { color: var(--accent); letter-spacing: 2px; }
+
+    /* Stagger delay for mobile links */
+    .mobile-menu-overlay.active .mobile-link:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu-overlay.active .mobile-link:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-menu-overlay.active .mobile-link:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-menu-overlay.active .mobile-link:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-menu-overlay.active .mobile-link:nth-child(5) { transition-delay: 0.3s; }
+    .mobile-menu-overlay.active .mobile-link:nth-child(6) { transition-delay: 0.35s; }
 
     @media (max-width: 900px) {
-      .nav-items {
-        display: none;
-        position: absolute;
-        top: 110%;
-        left: 0;
-        right: 0;
-        background: #050a19;
-        flex-direction: column;
-        padding: 24px;
-        border-radius: var(--radius-card);
-        border: 1px solid var(--border-color);
-        gap: 12px;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-      }
-      .nav-items.active { display: flex; }
-      .menu-toggle { display: block; }
-      .nav-link { width: 100%; text-align: center; padding: 12px; }
+      .nav-center { display: none; }
     }
 
     /* =========================================
@@ -420,7 +506,7 @@
       animation: spin 60s linear infinite;
     }
 
-    /* Improved Planet Icons: Blob shape + Counter Rotation + Floating */
+    /* Improved Planet Icons */
     .planet-icon {
       position: absolute;
       width: 70px;
@@ -437,7 +523,6 @@
       transition: all 0.4s ease;
       cursor: pointer;
       border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      /* Complex Animation: Spin around + Counter spin to stay upright + Float + Morph */
       animation: counter-spin 60s linear infinite, morph 5s ease-in-out infinite, float-icon 4s ease-in-out infinite; 
     }
     
@@ -494,7 +579,7 @@
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* =========================================
-       7. WORK SECTION (ADAPTIVE MASONRY)
+       7. WORK SECTION (Adaptive Masonry)
        ========================================= */
     .work-header {
       display: flex;
@@ -505,58 +590,54 @@
       margin-bottom: 50px;
     }
 
-    /* Adaptive Project Card */
+    /* Project Card */
     .project-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-card);
       overflow: hidden;
       position: relative;
-      display: block; /* For anchor */
+      display: block; /* Link */
       margin-bottom: 24px;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      /* Remove fixed aspect ratio to adapt to content */
+      transition: all 0.4s ease;
     }
     
     .project-card:hover {
       border-color: var(--accent);
       transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     }
 
-    /* IFrame/Image Wrapper */
-    .project-media-wrapper {
+    .project-img-wrapper {
       width: 100%;
-      position: relative;
-      /* If IFrame is used, we need consistent height or aspect-ratio wrapper. 
-         Behance embeds are fixed height usually. We'll use CSS to force fit width. */
-      line-height: 0;
+      height: auto;
+      display: block;
     }
     
-    .project-media-wrapper iframe {
+    .project-img-wrapper img {
       width: 100%;
-      height: 100%;
-      min-height: 320px; /* Ensure visibility */
-      border: none;
-      /* Disable pointer events on IFrame so the CARD LINK works */
-      pointer-events: none; 
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
     }
 
-    /* Clickable Overlay Link behavior handled by wrapping card in <a> */
+    .project-card:hover .project-img-wrapper img {
+      transform: scale(1.03);
+    }
 
     .project-info-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      padding: 32px;
-      background: linear-gradient(to top, rgba(0,0,0,0.98) 10%, rgba(0,0,0,0.6) 50%, transparent 100%);
+      padding: 30px;
+      background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.5) 60%, transparent 100%);
       z-index: 5;
-      pointer-events: none; /* Let clicks pass through */
+      pointer-events: none;
     }
 
-    .project-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
-    .project-cat { font-size: 0.9rem; color: #ccc; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px;}
+    .project-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
+    .project-cat { font-size: 0.85rem; color: #ccc; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px;}
     .project-cat::before { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
 
     /* Behance CTA */
@@ -590,28 +671,59 @@
     }
 
     /* =========================================
-       8. VIRAL SHORTS (MASONRY & AUTO THUMB)
+       8. VIRAL SHORTS (Fan Deck / Spread Layout)
        ========================================= */
-    .short-card {
+    .shorts-deck-container {
       position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-card);
-      display: block;
-      margin-bottom: 24px;
-      transition: transform 0.4s ease;
-    }
-    
-    .short-card img {
       width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.6s ease;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 4rem;
+      perspective: 1000px;
     }
 
-    .short-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
-    .short-card:hover img { transform: scale(1.08); }
+    .deck-card {
+      position: absolute;
+      width: 260px;
+      aspect-ratio: 9/16;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      cursor: pointer;
+      background: #000;
+      transform-origin: bottom center;
+    }
 
-    .play-overlay {
+    .deck-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Fan Spread Positions */
+    .deck-card:nth-child(1) { transform: translateX(-240px) translateY(40px) rotate(-15deg); z-index: 1; }
+    .deck-card:nth-child(2) { transform: translateX(-120px) translateY(15px) rotate(-7deg); z-index: 2; }
+    .deck-card:nth-child(3) { transform: translateX(0px) translateY(0px) rotate(0deg); z-index: 3; }
+    .deck-card:nth-child(4) { transform: translateX(120px) translateY(15px) rotate(7deg); z-index: 2; }
+    .deck-card:nth-child(5) { transform: translateX(240px) translateY(40px) rotate(15deg); z-index: 1; }
+
+    /* Hover Effects for Fan Deck */
+    .deck-card:hover {
+      z-index: 10;
+      transform: scale(1.15) translateY(-20px) rotate(0deg) !important;
+      box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3);
+      border-color: var(--accent);
+    }
+
+    .shorts-deck-container:hover .deck-card:not(:hover) {
+      filter: brightness(0.5) blur(2px);
+    }
+
+    .deck-overlay {
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.3);
@@ -621,34 +733,29 @@
       opacity: 0;
       transition: 0.3s;
     }
+    
+    .deck-card:hover .deck-overlay { opacity: 1; }
 
-    .short-card:hover .play-overlay { opacity: 1; }
-    
-    .play-btn {
-      width: 64px;
-      height: 64px;
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-    }
-    
-    .short-card:hover .play-btn { 
-      background: var(--accent);
-      border-color: var(--accent);
-      animation: morph 2s infinite ease-in-out;
+    @media (max-width: 900px) {
+      .shorts-deck-container {
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 20px;
+        gap: 15px;
+        perspective: none;
+      }
+      .deck-card {
+        position: relative;
+        transform: none !important;
+        flex-shrink: 0;
+      }
     }
 
     /* =========================================
        9. POLITICAL LOOP & ARCHIVE
        ========================================= */
-    /* Political Loop */
     .political-loop-container {
       overflow: hidden;
       padding: 30px 0;
@@ -675,7 +782,7 @@
 
     .political-item {
       min-width: 320px;
-      height: 480px;
+      height: auto; /* Allow auto height */
       border-radius: var(--radius-card);
       overflow: hidden;
       position: relative;
@@ -688,31 +795,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: 0.5s;
+      display: block;
     }
 
     .political-item:hover { transform: translateY(-5px); border-color: var(--accent); }
-    .political-item:hover img { transform: scale(1.05); }
-
-    .political-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
-      opacity: 0.9;
-    }
-
-    .poster-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 30px;
-      font-weight: 800;
-      font-size: 2rem;
-      color: #fff;
-      z-index: 2;
-      text-shadow: 0 5px 20px #000;
-    }
 
     /* Archive (Vault Style) */
     .drive-card-redesigned {
@@ -771,8 +857,8 @@
     }
 
     /* Services */
-    .service-card { padding: 40px 30px; text-align: left; transition: all 0.3s; margin-bottom: 24px; break-inside: avoid; }
-    .service-card:hover { transform: translateY(-5px); background: var(--bg-surface-hover); }
+    .service-card { padding: 40px 30px; text-align: left; transition: all 0.3s; margin-bottom: 24px; break-inside: avoid; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 20px;}
+    .service-card:hover { transform: translateY(-5px); background: var(--bg-surface-hover); border-color: var(--accent); }
     
     .service-icon { 
       font-size: 2rem; 
@@ -936,16 +1022,6 @@
     
     .ai-textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }
 
-    .cursor-dot, .cursor-circle {
-      position: fixed;
-      top: 0; left: 0;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: var(--z-cursor);
-    }
-    .cursor-dot { width: 8px; height: 8px; background: #fff; border-radius: 50%; }
-    .cursor-circle { width: 40px; height: 40px; border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 50%; transition: width 0.2s, height 0.2s, background 0.2s; mix-blend-mode: screen; }
-    
     /* Preloader */
     .preloader {
       position: fixed;
@@ -975,34 +1051,43 @@
   <div class="ambient-light"></div>
   <canvas id="canvas-bg"></canvas>
   <div class="noise-overlay"></div>
-  <div class="cursor-dot"></div>
-  <div class="cursor-circle"></div>
   <div id="toastContainer" style="position: fixed; bottom: 30px; right: 30px; z-index: var(--z-toast); display: flex; flex-direction: column; gap: 10px;"></div>
 
   <!-- NAV -->
-  <nav class="navbar" id="navbar">
-    <a href="#about" class="logo magnet-target">MA.</a>
+  <nav class="navbar reveal-on-scroll" id="navbar">
+    <div class="logo-container"><a href="#about" class="logo">MA.</a></div>
     
-    <div class="nav-items" id="mobileMenu">
-      <a href="#about" class="nav-link magnet-target" data-i18n="nav-profile">Profile</a>
-      <a href="#work" class="nav-link magnet-target" data-i18n="nav-work">Work</a>
-      <a href="#services" class="nav-link magnet-target" data-i18n="nav-services">Services</a>
-      <a href="#political" class="nav-link magnet-target" data-i18n="nav-political">Political</a>
-      <a href="#archive" class="nav-link magnet-target" data-i18n="nav-archive" style="color: var(--accent);">Archive</a>
-      <a href="#contact" class="nav-link magnet-target" data-i18n="nav-contact">Contact</a>
+    <div class="nav-center">
+      <a href="#about" class="nav-link" data-i18n="nav-profile">Profile</a>
+      <a href="#work" class="nav-link" data-i18n="nav-work">Work</a>
+      <a href="#services" class="nav-link" data-i18n="nav-services">Services</a>
+      <a href="#political" class="nav-link" data-i18n="nav-political">Political</a>
+      <a href="#archive" class="nav-link" data-i18n="nav-archive" style="color: var(--accent);">Archive</a>
+      <a href="#contact" class="nav-link" data-i18n="nav-contact">Contact</a>
     </div>
 
-    <div style="display: flex; gap: 12px; align-items: center;">
-      <button onclick="toggleLanguage()" class="btn-glass magnet-target" style="padding: 10px 20px; font-size: 0.8rem;">EN/AR</button>
-      <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+    <div class="nav-right">
+      <button onclick="toggleLanguage()" class="nav-btn-icon"><i class="fas fa-globe"></i></button>
+      <button class="nav-btn-icon" onclick="toggleMenu()" style="border-radius: 12px;"><i class="fas fa-bars"></i></button>
     </div>
   </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobileOverlay">
+    <button onclick="toggleMenu()" style="position: absolute; top: 30px; right: 30px; color: #fff; font-size: 2rem;"><i class="fas fa-times"></i></button>
+    <a href="#about" class="mobile-link" onclick="toggleMenu()">Profile</a>
+    <a href="#work" class="mobile-link" onclick="toggleMenu()">Work</a>
+    <a href="#services" class="mobile-link" onclick="toggleMenu()">Services</a>
+    <a href="#political" class="mobile-link" onclick="toggleMenu()">Political</a>
+    <a href="#archive" class="mobile-link" onclick="toggleMenu()" style="color: var(--accent);">Archive</a>
+    <a href="#contact" class="mobile-link" onclick="toggleMenu()">Contact</a>
+  </div>
 
   <main>
     <!-- HERO -->
     <section id="about" class="hero container">
       <div class="hero-grid">
-        <div class="hero-content">
+        <div class="hero-content reveal-on-scroll">
           <span class="label" data-i18n="hero-badge">● Istanbul Based Creative</span>
           <h1 class="hero-title">
             MOHAMED<br>
@@ -1012,13 +1097,13 @@
             Strategic Design & Motion Direction. I help brands communicate through <strong>visual storytelling</strong> that is bold, precise, and memorable.
           </p>
           <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-            <a href="#work" class="btn-primary magnet-target" data-i18n="btn-view-work">View Projects <i class="fas fa-arrow-right"></i></a>
-            <a href="My cv English .pdf" target="_blank" class="btn-glass magnet-target"><i class="fas fa-download"></i> CV</a>
-            <button onclick="openAiModal()" class="btn-glass magnet-target"><i class="fas fa-magic"></i> AI</button>
+            <a href="#work" class="btn-primary" data-i18n="btn-view-work">View Projects <i class="fas fa-arrow-right"></i></a>
+            <a href="My cv English .pdf" target="_blank" class="btn-glass"><i class="fas fa-download"></i> CV</a>
+            <button onclick="openAiModal()" class="btn-glass"><i class="fas fa-magic"></i> AI</button>
           </div>
         </div>
 
-        <div class="orbit-container tilt-wrapper">
+        <div class="orbit-container reveal-on-scroll">
           <div class="tilt-inner" style="display: flex; align-items: center; justify-content: center;">
             <img src="MINED.png" alt="Mohamed Amer" class="profile-img">
             <div class="orbit-ring">
@@ -1034,7 +1119,7 @@
     </section>
 
     <!-- MARQUEE -->
-    <div class="marquee-wrapper">
+    <div class="marquee-wrapper reveal-on-scroll">
       <div class="marquee-content">
         <span class="marquee-item">Brand Identity</span>
         <span class="marquee-item">Motion Graphics</span>
@@ -1049,9 +1134,9 @@
       </div>
     </div>
 
-    <!-- WORK (MASONRY - CLICKABLE) -->
+    <!-- WORK (CLICKABLE MASONRY GRID) -->
     <section id="work" class="container section-spacing">
-      <div class="work-header">
+      <div class="work-header reveal-on-scroll">
         <div>
           <span class="label" data-i18n="label-portfolio">Selected Works</span>
           <h2 class="title-lg" data-i18n="title-cases">FEATURED <span class="accent-text">CASES</span></h2>
@@ -1059,10 +1144,10 @@
       </div>
 
       <div class="masonry-grid">
-        <!-- Project 1 -->
-        <a href="https://www.behance.net/gallery/181868927/Real-Estate-Social-Media" target="_blank" class="masonry-item project-card magnet-target">
-          <div class="project-media-wrapper">
-             <iframe src="https://www.behance.net/embed/project/181868927?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+        <!-- Project 1 (Behance Link Wrapper) -->
+        <a href="https://www.behance.net/gallery/181868927/Real-Estate-Social-Media" target="_blank" class="masonry-item project-card reveal-on-scroll">
+          <div class="project-img-wrapper">
+             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/52c803181868927.6527038e2d4de.jpg" alt="Real Estate Social Media">
           </div>
           <div class="project-info-overlay">
             <h3 class="project-title">Real Estate Social Media</h3>
@@ -1071,9 +1156,9 @@
         </a>
 
         <!-- Project 2 -->
-        <a href="https://www.behance.net/gallery/223143539/Food-Industry-Socials" target="_blank" class="masonry-item project-card magnet-target">
-          <div class="project-media-wrapper">
-            <iframe src="https://www.behance.net/embed/project/223143539?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+        <a href="https://www.behance.net/gallery/223143539/Food-Industry-Socials" target="_blank" class="masonry-item project-card reveal-on-scroll">
+          <div class="project-img-wrapper">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4c0c66223143539.67cb44788c7c9.jpg" alt="Food Industry Socials">
           </div>
           <div class="project-info-overlay">
             <h3 class="project-title">Food Industry Socials</h3>
@@ -1082,9 +1167,9 @@
         </a>
 
         <!-- Project 3 -->
-        <a href="https://www.behance.net/gallery/219706527/Gym-Fitness" target="_blank" class="masonry-item project-card magnet-target">
-          <div class="project-media-wrapper">
-             <iframe src="https://www.behance.net/embed/project/219706527?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+        <a href="https://www.behance.net/gallery/219706527/Gym-Fitness" target="_blank" class="masonry-item project-card reveal-on-scroll">
+          <div class="project-img-wrapper">
+             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d598e3219706527.67a14ec873b22.jpg" alt="Gym & Fitness">
           </div>
           <div class="project-info-overlay">
             <h3 class="project-title">Gym & Fitness</h3>
@@ -1093,9 +1178,9 @@
         </a>
 
         <!-- Project 4 -->
-        <a href="https://www.behance.net/gallery/238580093/Orient-Detectors" target="_blank" class="masonry-item project-card magnet-target">
-          <div class="project-media-wrapper">
-            <iframe src="https://www.behance.net/embed/project/238580093?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+        <a href="https://www.behance.net/gallery/238580093/Orient-Detectors" target="_blank" class="masonry-item project-card reveal-on-scroll">
+          <div class="project-img-wrapper">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a57a0238580093.67ae1a7b0a880.png" alt="Orient Detectors">
           </div>
           <div class="project-info-overlay">
             <h3 class="project-title">Orient Detectors</h3>
@@ -1104,9 +1189,9 @@
         </a>
 
         <!-- Project 5 -->
-        <a href="https://www.behance.net/gallery/218895573/Ajax-Systems" target="_blank" class="masonry-item project-card magnet-target">
-          <div class="project-media-wrapper">
-            <iframe src="https://www.behance.net/embed/project/218895573?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+        <a href="https://www.behance.net/gallery/218895573/Ajax-Systems" target="_blank" class="masonry-item project-card reveal-on-scroll">
+          <div class="project-img-wrapper">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7d3a04218895573.679133c949826.png" alt="Ajax Systems">
           </div>
           <div class="project-info-overlay">
             <h3 class="project-title">Ajax Systems</h3>
@@ -1115,9 +1200,9 @@
         </a>
 
         <!-- Project 6 -->
-        <a href="https://www.behance.net/gallery/199606419/Social-Media-Visuals" target="_blank" class="masonry-item project-card magnet-target">
-          <div class="project-media-wrapper">
-            <iframe src="https://www.behance.net/embed/project/199606419?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+        <a href="https://www.behance.net/gallery/199606419/Social-Media-Visuals" target="_blank" class="masonry-item project-card reveal-on-scroll">
+          <div class="project-img-wrapper">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/182046199606419.6654e70e9a4c4.jpg" alt="Social Media Visuals">
           </div>
           <div class="project-info-overlay">
             <h3 class="project-title">Social Media Visuals</h3>
@@ -1127,51 +1212,59 @@
       </div>
 
       <!-- Behance Link Button -->
-      <div class="behance-cta-wrapper">
-        <a href="https://www.behance.net/mohamedamer11" target="_blank" class="behance-cta magnet-target">
+      <div class="behance-cta-wrapper reveal-on-scroll">
+        <a href="https://www.behance.net/mohamedamer11" target="_blank" class="behance-cta">
           <i class="fab fa-behance" style="font-size: 1.4rem;"></i>
           Explore Full Portfolio
         </a>
       </div>
     </section>
 
-    <!-- VIRAL SHORTS (AUTO THUMBNAILS - MASONRY) -->
+    <!-- VIRAL SHORTS (FAN DECK STYLE) -->
     <section id="viral-shorts" class="container section-spacing">
-      <div style="text-align: center; margin-bottom: 4rem;">
+      <div style="text-align: center; margin-bottom: 2rem;" class="reveal-on-scroll">
         <span class="label" data-i18n="label-viral">Viral Content</span>
         <h2 class="title-lg" data-i18n="title-viral">FEATURED <span class="accent-text">SHORTS</span></h2>
       </div>
 
-      <div class="masonry-grid">
-        <!-- YouTube Short 1 -->
-        <div class="masonry-item short-card magnet-target" onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS','_blank')">
-          <img src="https://img.youtube.com/vi/F-lmawsIKEI/maxresdefault.jpg" alt="Viral short 1" onerror="this.src='https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg'">
+      <div class="shorts-deck-container reveal-on-scroll">
+        <!-- YouTube Short 1 (Auto Thumbnail) -->
+        <div class="deck-card" onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS','_blank')">
+          <img src="https://img.youtube.com/vi/F-lmawsIKEI/maxresdefault.jpg" alt="Viral short 1">
           <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
         </div>
 
-        <!-- YouTube Short 2 -->
-        <div class="masonry-item short-card magnet-target" onclick="window.open('https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90','_blank')">
-          <img src="https://img.youtube.com/vi/Z9xVIlCuQpA/maxresdefault.jpg" alt="Viral short 2" onerror="this.src='https://img.youtube.com/vi/Z9xVIlCuQpA/hqdefault.jpg'">
+        <!-- YouTube Short 2 (Auto Thumbnail) -->
+        <div class="deck-card" onclick="window.open('https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90','_blank')">
+          <img src="https://img.youtube.com/vi/Z9xVIlCuQpA/maxresdefault.jpg" alt="Viral short 2">
           <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
         </div>
 
-        <!-- YouTube Short 3 -->
-        <div class="masonry-item short-card magnet-target" onclick="window.open('https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB','_blank')">
-          <img src="https://img.youtube.com/vi/oKIJWxeoMZo/maxresdefault.jpg" alt="Viral short 3" onerror="this.src='https://img.youtube.com/vi/oKIJWxeoMZo/hqdefault.jpg'">
+        <!-- Center Card (Main Focus) - YouTube Short 3 -->
+        <div class="deck-card" onclick="window.open('https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB','_blank')">
+          <img src="https://img.youtube.com/vi/oKIJWxeoMZo/maxresdefault.jpg" alt="Viral short 3">
           <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
         </div>
 
-        <!-- Instagram Reel -->
-        <div class="masonry-item short-card magnet-target" onclick="window.open('https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==','_blank')" style="background: linear-gradient(45deg, #f09433, #bc1888); min-height: 350px; display: flex; align-items: center; justify-content: center;">
-           <i class="fab fa-instagram" style="font-size: 4rem; color: white;"></i>
-           <div class="play-overlay"><div class="play-btn"><i class="fas fa-eye"></i></div></div>
+        <!-- Instagram Reel (Styled Placeholder) -->
+        <div class="deck-card" onclick="window.open('https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==','_blank')">
+           <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;">
+             <i class="fab fa-instagram" style="font-size: 3.5rem; margin-bottom: 10px;"></i>
+             <span style="font-weight: 700; font-size: 1.2rem;">View Reel</span>
+           </div>
+        </div>
+
+        <!-- Extra Youtube Short (Auto Thumbnail) -->
+        <div class="deck-card" onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS','_blank')">
+          <img src="https://img.youtube.com/vi/F-lmawsIKEI/hqdefault.jpg" alt="Viral short 4">
+          <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
         </div>
       </div>
     </section>
 
     <!-- ARCHIVE (VAULT) -->
     <section id="archive" class="container section-spacing">
-      <a href="https://drive.google.com/drive/u/0/folders/1-E4D0ktY12ONLEye6bAyVXkqgzAylrgD" target="_blank" class="drive-card-redesigned tilt-wrapper magnet-target" style="display: block;">
+      <a href="https://drive.google.com/drive/u/0/folders/1-E4D0ktY12ONLEye6bAyVXkqgzAylrgD" target="_blank" class="drive-card-redesigned reveal-on-scroll">
         <div class="drive-bg-glow"></div>
         <div class="tilt-inner" style="position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center;">
           <div class="drive-icon-box">
@@ -1191,31 +1284,31 @@
     <!-- SERVICES (MASONRY) -->
     <section id="services" class="container section-spacing">
       <div class="grid-standard">
-        <div class="col-span-4">
+        <div class="col-span-4 reveal-on-scroll">
           <span class="label" data-i18n="label-what-i-do">Services</span>
           <h2 class="title-lg" data-i18n="title-services">WHAT I <span class="accent-text">OFFER</span></h2>
           <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem;">I combine technical expertise with artistic vision to create digital products that stand out.</p>
-          <a href="#contact" class="btn-glass magnet-target">Start a Project</a>
+          <a href="#contact" class="btn-glass">Start a Project</a>
         </div>
         
         <div class="col-span-8">
           <div class="masonry-grid">
-            <div class="masonry-item service-card bento-card">
+            <div class="masonry-item service-card bento-card reveal-on-scroll">
               <div class="service-icon"><i class="fas fa-bezier-curve"></i></div>
               <h3>Visual Identity</h3>
               <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Logo design, typography, and comprehensive brand guidelines.</p>
             </div>
-            <div class="masonry-item service-card bento-card">
+            <div class="masonry-item service-card bento-card reveal-on-scroll">
               <div class="service-icon"><i class="fas fa-film"></i></div>
               <h3>Motion Design</h3>
               <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">2D/3D animation, explainers, and UI interactions.</p>
             </div>
-            <div class="masonry-item service-card bento-card">
+            <div class="masonry-item service-card bento-card reveal-on-scroll">
               <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
               <h3>Social Strategy</h3>
               <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Content planning and high-impact visual creation.</p>
             </div>
-            <div class="masonry-item service-card bento-card">
+            <div class="masonry-item service-card bento-card reveal-on-scroll">
               <div class="service-icon"><i class="fas fa-layer-group"></i></div>
               <h3>Art Direction</h3>
               <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Leading creative teams and visual conceptualization.</p>
@@ -1227,7 +1320,7 @@
 
     <!-- MANIFESTO -->
     <section id="manifesto" style="padding: 120px 0; background: #000; text-align: center; position: relative;">
-      <div class="container">
+      <div class="container reveal-on-scroll">
         <h2 style="font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; color: #444; line-height: 1.3;">
           "DESIGN ISN'T JUST ABOUT MAKING THINGS LOOK GOOD. IT'S ABOUT <span style="color: #fff;">CLARITY</span>, <span style="color: #fff;">SPEED</span>, AND TELLING A STORY THAT STICKS."
         </h2>
@@ -1236,12 +1329,12 @@
 
     <!-- POLITICAL LOOP -->
     <section id="political" class="container section-spacing">
-      <div style="margin-bottom: 40px;">
+      <div style="margin-bottom: 40px;" class="reveal-on-scroll">
         <span class="label" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.1);" data-i18n="label-passion">Passion Projects</span>
         <h2 class="title-lg" data-i18n="title-political">POLITICAL & <span style="color: #ef4444">SOCIAL</span></h2>
       </div>
       
-      <div class="political-loop-container">
+      <div class="political-loop-container reveal-on-scroll">
         <div class="political-track">
           <!-- Poster 1 -->
           <div class="political-item">
@@ -1323,7 +1416,7 @@
         </div>
         
         <!-- TOOLKIT LOOP -->
-        <div class="col-span-12 toolkit-loop-container">
+        <div class="col-span-12 toolkit-loop-container reveal-on-scroll">
           <div class="toolkit-track">
              <div class="toolkit-pill"><i class="fab fa-adobe"></i> Photoshop</div>
              <div class="toolkit-pill"><i class="fas fa-pen-nib"></i> Illustrator</div>
@@ -1345,14 +1438,14 @@
           </div>
         </div>
 
-        <div class="col-span-6 bento-card" style="padding: 36px; margin-top: 2rem;">
+        <div class="col-span-6 bento-card reveal-on-scroll" style="padding: 36px; margin-top: 2rem;">
            <div style="font-size: 0.8rem; color: var(--accent); font-weight: 700;">MARCH 15, 2025</div>
            <h3 style="font-size: 1.6rem; font-weight: 800; margin: 12px 0;">Why Motion Graphics is Essential</h3>
            <p style="color: var(--text-muted); margin-bottom: 24px;" data-i18n="blog-1-desc">Static images are no longer enough. Learn how motion builds trust.</p>
            <a href="#" class="btn-glass" style="width: fit-content;">Read Article</a>
         </div>
 
-        <div class="col-span-6 bento-card" style="padding: 36px; margin-top: 2rem;">
+        <div class="col-span-6 bento-card reveal-on-scroll" style="padding: 36px; margin-top: 2rem;">
            <div style="font-size: 0.8rem; color: var(--accent); font-weight: 700;">FEBRUARY 28, 2025</div>
            <h3 style="font-size: 1.6rem; font-weight: 800; margin: 12px 0;">Psychology of Color</h3>
            <p style="color: var(--text-muted); margin-bottom: 24px;" data-i18n="blog-2-desc">How blue and green tones influence patient trust.</p>
@@ -1365,17 +1458,17 @@
     <footer id="contact" class="footer">
       <div class="container" style="text-align: center;">
         <span class="label" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2);">● Available for Work</span>
-        <h2 class="footer-cta">LET'S WORK TOGETHER</h2>
+        <h2 class="footer-cta reveal-on-scroll">LET'S WORK TOGETHER</h2>
         
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 60px;">
-          <a href="mailto:mohadel0300@gmail.com" class="btn-primary magnet-target" style="padding: 18px 40px; font-size: 1.1rem;">mohadel0300@gmail.com</a>
-          <a href="https://wa.me/YOUR_NUMBER_HERE" target="_blank" class="btn-glass magnet-target" style="padding: 18px 40px; font-size: 1.1rem;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 60px;" class="reveal-on-scroll">
+          <a href="mailto:mohadel0300@gmail.com" class="btn-primary" style="padding: 18px 40px; font-size: 1.1rem;">mohadel0300@gmail.com</a>
+          <a href="https://wa.me/YOUR_NUMBER_HERE" target="_blank" class="btn-glass" style="padding: 18px 40px; font-size: 1.1rem;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
 
-        <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 60px;">
-          <a href="#" class="social-link magnet-target"><i class="fab fa-behance"></i></a>
-          <a href="#" class="social-link magnet-target"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link magnet-target"><i class="fab fa-linkedin"></i></a>
+        <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 60px;" class="reveal-on-scroll">
+          <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
         </div>
 
         <div style="border-top: 1px solid #222; padding-top: 30px; font-size: 0.9rem; color: #555; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
@@ -1466,20 +1559,6 @@
         }, 800);
       });
 
-      // Cursor
-      const cursorDot = document.querySelector(".cursor-dot");
-      const cursorCircle = document.querySelector(".cursor-circle");
-      window.addEventListener("mousemove", (e) => {
-        cursorDot.style.top = e.clientY + "px";
-        cursorDot.style.left = e.clientX + "px";
-        cursorCircle.style.top = e.clientY + "px";
-        cursorCircle.style.left = e.clientX + "px";
-      });
-      document.querySelectorAll("a, button, .short-card, .masonry-item, .political-item").forEach(el => {
-        el.addEventListener("mouseenter", () => { cursorCircle.style.width = "60px"; cursorCircle.style.height = "60px"; cursorCircle.style.background = "rgba(59, 130, 246, 0.2)"; });
-        el.addEventListener("mouseleave", () => { cursorCircle.style.width = "40px"; cursorCircle.style.height = "40px"; cursorCircle.style.background = "transparent"; });
-      });
-
       // Canvas BG
       const canvas = document.getElementById("canvas-bg");
       const ctx = canvas.getContext("2d");
@@ -1497,7 +1576,6 @@
           if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
           if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
           
-          // Draw connecting lines if close
           particles.forEach(p2 => {
             const dx = p.x - p2.x;
             const dy = p.y - p2.y;
@@ -1519,14 +1597,25 @@
       }
       animate();
 
-      // Interactions
-      window.toggleMenu = () => document.getElementById("mobileMenu").classList.toggle("active");
+      // Scroll Reveal
+      const observerOptions = { threshold: 0.1 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
       
-      // Filter logic kept for future scalability
-      window.filterProjects = (cat) => {
-        // ...
-      };
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 
+      // Interactions
+      window.toggleMenu = () => {
+        const overlay = document.getElementById("mobileOverlay");
+        overlay.classList.toggle("active");
+        document.body.classList.toggle("menu-open");
+      }
+      
       window.openAiModal = () => document.getElementById("aiModal").classList.add("active");
       window.closeAiModal = () => document.getElementById("aiModal").classList.remove("active");
       
@@ -1552,29 +1641,6 @@
         document.getElementById("toastContainer").appendChild(t);
         setTimeout(() => t.remove(), 3000);
       }
-
-      // Magnetic Effect
-      document.querySelectorAll(".magnet-target").forEach(el => {
-        el.addEventListener("mousemove", (e) => {
-          const r = el.getBoundingClientRect();
-          const x = e.clientX - r.left - r.width/2;
-          const y = e.clientY - r.top - r.height/2;
-          el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        });
-        el.addEventListener("mouseleave", () => el.style.transform = "translate(0,0)");
-      });
-
-      // Tilt
-      document.querySelectorAll(".tilt-wrapper").forEach(el => {
-        el.addEventListener("mousemove", (e) => {
-          const inner = el.querySelector(".tilt-inner");
-          const r = el.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width - 0.5;
-          const y = (e.clientY - r.top) / r.height - 0.5;
-          inner.style.transform = `perspective(1000px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
-        });
-        el.addEventListener("mouseleave", () => el.querySelector(".tilt-inner").style.transform = "none");
-      });
 
       // Init
       applyTranslations();
