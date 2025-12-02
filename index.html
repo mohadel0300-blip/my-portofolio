@@ -64,10 +64,9 @@
       margin: 0;
       padding: 0;
       outline: none;
-      cursor: default; /* Changed from none to default for usability */
+      cursor: default;
     }
 
-    /* Custom Cursor Logic could go here, strictly sticking to CSS/Layout improvements requested */
     a, button, .deck-card, .project-card { cursor: pointer; }
 
     html {
@@ -510,7 +509,7 @@
       width: 100%;
       position: relative;
       overflow: hidden;
-      aspect-ratio: 4/3; /* Enforce consistent ratio for visuals */
+      aspect-ratio: 4/3;
     }
     
     .project-img-wrapper img {
@@ -583,7 +582,6 @@
       opacity: 0.8; transition: 0.4s;
     }
 
-    /* The Improved Hover Effect */
     .play-overlay {
       position: absolute;
       inset: 0;
@@ -613,7 +611,7 @@
     }
 
     .deck-card:hover img {
-      opacity: 0.4; /* Darken bg to pop the icon */
+      opacity: 0.4;
       transform: scale(1.1);
     }
 
@@ -648,10 +646,9 @@
     @keyframes scrollPolitical { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     .political-item {
-      /* REASONABLE SIZE FIX */
       height: 450px; 
       width: auto;
-      aspect-ratio: 3/4; /* Standard poster ratio */
+      aspect-ratio: 3/4;
       border-radius: 16px;
       overflow: hidden;
       position: relative;
@@ -804,13 +801,16 @@
   </nav>
 
   <div class="mobile-menu-overlay" id="mobileOverlay">
-    <button onclick="toggleMenu()" style="position: absolute; top: 30px; right: 30px; color: #fff; font-size: 2rem;"><i class="fas fa-times"></i></button>
-    <a href="#about" class="mobile-link" style="--i:1" onclick="toggleMenu()">Profile</a>
-    <a href="#work" class="mobile-link" style="--i:2" onclick="toggleMenu()">Work</a>
-    <a href="#services" class="mobile-link" style="--i:3" onclick="toggleMenu()">Services</a>
-    <a href="#political" class="mobile-link" style="--i:4" onclick="toggleMenu()">Political</a>
-    <a href="#archive" class="mobile-link" style="--i:5" onclick="toggleMenu()" style="color: var(--accent);">Archive</a>
-    <a href="#contact" class="mobile-link" style="--i:6" onclick="toggleMenu()">Contact</a>
+    <button onclick="toggleMenu()" style="position: absolute; top: 30px; right: 30px; color: #fff; font-size: 2rem;">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <a href="#about" class="mobile-link" style="--i:1" data-i18n="nav-profile" onclick="toggleMenu()">Profile</a>
+    <a href="#work" class="mobile-link" style="--i:2" data-i18n="nav-work" onclick="toggleMenu()">Work</a>
+    <a href="#services" class="mobile-link" style="--i:3" data-i18n="nav-services" onclick="toggleMenu()">Services</a>
+    <a href="#political" class="mobile-link" style="--i:4" data-i18n="nav-political" onclick="toggleMenu()">Political</a>
+    <a href="#archive" class="mobile-link" style="--i:5; color: var(--accent);" data-i18n="nav-archive" onclick="toggleMenu()">Archive</a>
+    <a href="#contact" class="mobile-link" style="--i:6" data-i18n="nav-contact" onclick="toggleMenu()">Contact</a>
   </div>
 
   <main>
@@ -818,7 +818,7 @@
       <div class="hero-grid">
         <div class="hero-content reveal-on-scroll">
           <span class="label" data-i18n="hero-badge">● Istanbul Based Creative</span>
-          <h1 class="hero-title">
+          <h1 class="hero-title" data-i18n="hero-title">
             MOHAMED<br>
             <span>Amer</span>
           </h1>
@@ -827,7 +827,9 @@
           </p>
           <div style="display: flex; flex-wrap: wrap; gap: 16px;">
             <a href="#work" class="btn-primary" data-i18n="btn-view-work">View Projects <i class="fas fa-arrow-right"></i></a>
-            <a href="My cv English .pdf" target="_blank" class="btn-glass"><i class="fas fa-download"></i> CV</a>
+            <a href="My cv English .pdf" target="_blank" class="btn-glass" data-i18n="btn-cv">
+              <i class="fas fa-download"></i> CV
+            </a>
           </div>
         </div>
 
@@ -855,8 +857,8 @@
              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/52c803181868927.6527038e2d4de.jpg" alt="Real Estate Social Media">
           </div>
           <div class="project-info-overlay">
-            <h3 class="project-title">Real Estate Social Media</h3>
-            <p class="project-cat">Graphic Design • 2024</p>
+            <h3 class="project-title" data-i18n="proj-1-title">Real Estate Social Media</h3>
+            <p class="project-cat" data-i18n="proj-1-cat">Graphic Design • 2024</p>
           </div>
         </a>
 
@@ -865,8 +867,8 @@
             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4c0c66223143539.67cb44788c7c9.jpg" alt="Food Industry Socials">
           </div>
           <div class="project-info-overlay">
-            <h3 class="project-title">Food Industry Socials</h3>
-            <p class="project-cat">Social Media • 2024</p>
+            <h3 class="project-title" data-i18n="proj-2-title">Food Industry Socials</h3>
+            <p class="project-cat" data-i18n="proj-2-cat">Social Media • 2024</p>
           </div>
         </a>
 
@@ -875,8 +877,8 @@
              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d598e3219706527.67a14ec873b22.jpg" alt="Gym & Fitness">
           </div>
           <div class="project-info-overlay">
-            <h3 class="project-title">Gym & Fitness</h3>
-            <p class="project-cat">Brand Identity • 2024</p>
+            <h3 class="project-title" data-i18n="proj-3-title">Gym & Fitness</h3>
+            <p class="project-cat" data-i18n="proj-3-cat">Brand Identity • 2024</p>
           </div>
         </a>
 
@@ -885,8 +887,8 @@
             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a57a0238580093.67ae1a7b0a880.png" alt="Orient Detectors">
           </div>
           <div class="project-info-overlay">
-            <h3 class="project-title">Orient Detectors</h3>
-            <p class="project-cat">Motion Campaign • 2024</p>
+            <h3 class="project-title" data-i18n="proj-4-title">Orient Detectors</h3>
+            <p class="project-cat" data-i18n="proj-4-cat">Motion Campaign • 2024</p>
           </div>
         </a>
 
@@ -895,8 +897,8 @@
             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7d3a04218895573.679133c949826.png" alt="Ajax Systems">
           </div>
           <div class="project-info-overlay">
-            <h3 class="project-title">Ajax Systems</h3>
-            <p class="project-cat">Brand Identity • 2023</p>
+            <h3 class="project-title" data-i18n="proj-5-title">Ajax Systems</h3>
+            <p class="project-cat" data-i18n="proj-5-cat">Brand Identity • 2023</p>
           </div>
         </a>
 
@@ -905,8 +907,8 @@
             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/182046199606419.6654e70e9a4c4.jpg" alt="Social Media Visuals">
           </div>
           <div class="project-info-overlay">
-            <h3 class="project-title">Social Media Visuals</h3>
-            <p class="project-cat">Content Strategy</p>
+            <h3 class="project-title" data-i18n="proj-6-title">Social Media Visuals</h3>
+            <p class="project-cat" data-i18n="proj-6-cat">Content Strategy</p>
           </div>
         </a>
       </div>
@@ -914,7 +916,7 @@
       <div class="behance-cta-wrapper reveal-on-scroll">
         <a href="https://www.behance.net/mohamedadel526" target="_blank" class="behance-cta">
           <i class="fab fa-behance" style="font-size: 1.4rem;"></i>
-          Explore Full Portfolio
+          <span data-i18n="behance-cta">Explore Full Portfolio</span>
         </a>
       </div>
     </section>
@@ -975,16 +977,20 @@
     <section id="archive" class="container section-spacing">
         <div class="reveal-on-scroll" style="text-align: center; background: linear-gradient(135deg, rgba(10,20,40,0.8), #010208); padding: 80px 20px; border-radius: 30px; border: 1px solid rgba(59,130,246,0.2);">
             <div style="font-size: 4rem; color: var(--accent); margin-bottom: 20px;"><i class="fas fa-folder-open"></i></div>
-            <h2 class="title-lg">EXCLUSIVE <span class="accent-text">VAULT</span></h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px;">Access source files and unreleased assets.</p>
-            <a href="https://drive.google.com/drive/u/0/folders/1-E4D0ktY12ONLEye6bAyVXkqgzAylrgD" target="_blank" class="btn-primary">Open Archive</a>
+            <h2 class="title-lg" data-i18n="archive-title">EXCLUSIVE <span class="accent-text">VAULT</span></h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px;" data-i18n="archive-text">
+              Access source files and unreleased assets.
+            </p>
+            <a href="https://drive.google.com/drive/u/0/folders/1-E4D0ktY12ONLEye6bAyVXkqgzAylrgD" target="_blank" class="btn-primary" data-i18n="archive-btn">
+              Open Archive
+            </a>
         </div>
     </section>
 
     <section id="services" class="container section-spacing">
         <div class="grid-standard">
              <div class="col-span-12" style="text-align: center; margin-bottom: 40px;">
-                 <h2 class="title-lg">MY <span class="accent-text">TOOLKIT</span></h2>
+                 <h2 class="title-lg" data-i18n="services-title">MY <span class="accent-text">TOOLKIT</span></h2>
                  <div class="political-loop-container" style="margin-top: 20px;">
                      <div class="political-track">
                          <div class="toolkit-pill"><i class="fab fa-adobe"></i> Photoshop</div>
@@ -1003,16 +1009,16 @@
              </div>
              
              <div class="col-span-4 service-card reveal-on-scroll">
-                 <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Branding</h3>
-                 <p style="color: #888;">Complete visual identity systems.</p>
+                 <h3 style="font-size: 1.5rem; margin-bottom: 10px;" data-i18n="service-branding-title">Branding</h3>
+                 <p style="color: #888;" data-i18n="service-branding-text">Complete visual identity systems.</p>
              </div>
              <div class="col-span-4 service-card reveal-on-scroll">
-                 <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Motion</h3>
-                 <p style="color: #888;">2D & 3D animation for web/social.</p>
+                 <h3 style="font-size: 1.5rem; margin-bottom: 10px;" data-i18n="service-motion-title">Motion</h3>
+                 <p style="color: #888;" data-i18n="service-motion-text">2D & 3D animation for web/social.</p>
              </div>
              <div class="col-span-4 service-card reveal-on-scroll">
-                 <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Social</h3>
-                 <p style="color: #888;">High-impact content creation.</p>
+                 <h3 style="font-size: 1.5rem; margin-bottom: 10px;" data-i18n="service-social-title">Social</h3>
+                 <p style="color: #888;" data-i18n="service-social-text">High-impact content creation.</p>
              </div>
         </div>
     </section>
@@ -1020,8 +1026,10 @@
     <footer id="contact" class="footer">
       <div class="container">
         <div class="footer-cta-container reveal-on-scroll">
-          <p style="color: var(--accent); font-weight: 700; margin-bottom: 10px;">HAVE AN IDEA?</p>
-          <a href="mailto:mohadel0300@gmail.com" class="footer-title">
+          <p style="color: var(--accent); font-weight: 700; margin-bottom: 10px;" data-i18n="footer-idea">
+            HAVE AN IDEA?
+          </p>
+          <a href="mailto:mohadel0300@gmail.com" class="footer-title" data-i18n="footer-title">
             LET'S <span>TALK</span>
           </a>
         </div>
@@ -1034,8 +1042,10 @@
         </div>
 
         <div class="footer-bottom">
-          <span>&copy; 2025 Mohamed Amer. All Rights Reserved.</span>
-          <span><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Istanbul, TR</span>
+          <span data-i18n="footer-copy">&copy; 2025 Mohamed Amer. All Rights Reserved.</span>
+          <span data-i18n="footer-location">
+            <i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Istanbul, TR
+          </span>
         </div>
       </div>
     </footer>
@@ -1047,106 +1057,319 @@
 
       const state = { lang: "en" };
 
-      // I18N DICTIONARY
+      // ====== CREATIVE I18N DICTIONARY (EN / AR) ======
       const I18N_DICT = {
-        "hero-badge": { en: "● Istanbul Based Creative", ar: "● مبدع مقيم في إسطنبول" },
-        "hero-desc": { en: "Strategic Design & Motion Direction. I help brands communicate through <strong>visual storytelling</strong> that is bold, precise, and memorable.", ar: "تصميم استراتيجي وإخراج حركي. أساعد العلامات التجارية على التواصل عبر <strong>سرد بصري</strong> جريء." },
-        "btn-view-work": { en: "View Projects", ar: "تصفّح الأعمال" },
-        "nav-profile": { en: "Profile", ar: "الرئيسية" },
-        "nav-work": { en: "Work", ar: "أعمالي" },
-        "nav-services": { en: "Services", ar: "الخدمات" },
-        "nav-political": { en: "Political", ar: "سياسي" },
-        "nav-archive": { en: "Archive", ar: "الأرشيف" },
-        "nav-contact": { en: "Contact", ar: "تواصل" },
-        "label-portfolio": { en: "Selected Works", ar: "أعمال مختارة" },
-        "title-cases": { en: "FEATURED <span class='accent-text'>CASES</span>", ar: "أعمال <span class='accent-text'>مختارة</span>" },
-        "label-viral": { en: "VIRAL CONTENT", ar: "محتوى رائج" },
-        "title-viral": { en: "FEATURED <span class='accent-text'>SHORTS</span>", ar: "ريلز <span class='accent-text'>مميزة</span>" },
-        "label-passion": { en: "Passion Projects", ar: "مشاريع شغف" },
-        "title-political": { en: "POLITICAL & <span style='color:#ef4444'>SOCIAL</span>", ar: "مشاريع <span style='color:#ef4444'>قضية ومجتمع</span>" }
+        // HERO
+        "hero-badge": {
+          en: "● Istanbul Based Creative",
+          ar: "● تصميم من إسطنبول بروح عالمية"
+        },
+        "hero-title": {
+          en: "MOHAMED<br><span>Amer</span>",
+          ar: "محمد<br><span>عامر</span>"
+        },
+        "hero-desc": {
+          en: "Strategic Design & Motion Direction. I help brands communicate through <strong>visual storytelling</strong> that is bold, precise, and memorable.",
+          ar: "إخراج حركي وتصميم استراتيجي يصنع للعلامات التجارية <strong>قصصًا بصرية</strong> جريئة، دقيقة، وسهلة التذكّر."
+        },
+        "btn-view-work": {
+          en: "View Projects <i class='fas fa-arrow-right'></i>",
+          ar: "استكشاف الأعمال <i class='fas fa-arrow-right'></i>"
+        },
+        "btn-cv": {
+          en: "<i class='fas fa-download'></i> CV",
+          ar: "<i class='fas fa-download'></i> السيرة الذاتية"
+        },
+
+        // NAV
+        "nav-profile": { en: "Profile",  ar: "الرئيسية" },
+        "nav-work":    { en: "Work",     ar: "الأعمال" },
+        "nav-services":{ en: "Services", ar: "الخدمات" },
+        "nav-political":{en: "Political",ar: "قضايا ووعي" },
+        "nav-archive": { en: "Archive",  ar: "الأرشيف" },
+        "nav-contact": { en: "Contact",  ar: "تواصل" },
+
+        // PORTFOLIO
+        "label-portfolio": {
+          en: "Selected Works",
+          ar: "أعمال مختارة بعناية"
+        },
+        "title-cases": {
+          en: "FEATURED <span class='accent-text'>CASES</span>",
+          ar: "أعمال <span class='accent-text'>مميزة</span>"
+        },
+
+        "proj-1-title": {
+          en: "Real Estate Social Media",
+          ar: "سوشيال ميديا للعقارات"
+        },
+        "proj-1-cat": {
+          en: "Graphic Design • 2024",
+          ar: "تصميم جرافيك • 2024"
+        },
+
+        "proj-2-title": {
+          en: "Food Industry Socials",
+          ar: "سوشيال للصناعات الغذائية"
+        },
+        "proj-2-cat": {
+          en: "Social Media • 2024",
+          ar: "محتوى سوشيال • 2024"
+        },
+
+        "proj-3-title": {
+          en: "Gym & Fitness",
+          ar: "جيم ولياقة"
+        },
+        "proj-3-cat": {
+          en: "Brand Identity • 2024",
+          ar: "هوية بصرية • 2024"
+        },
+
+        "proj-4-title": {
+          en: "Orient Detectors",
+          ar: "Orient Detectors"
+        },
+        "proj-4-cat": {
+          en: "Motion Campaign • 2024",
+          ar: "حملة موشن • 2024"
+        },
+
+        "proj-5-title": {
+          en: "Ajax Systems",
+          ar: "Ajax Systems"
+        },
+        "proj-5-cat": {
+          en: "Brand Identity • 2023",
+          ar: "هوية بصرية • 2023"
+        },
+
+        "proj-6-title": {
+          en: "Social Media Visuals",
+          ar: "تصميمات سوشيال ميديا"
+        },
+        "proj-6-cat": {
+          en: "Content Strategy",
+          ar: "استراتيجية محتوى بصري"
+        },
+
+        "behance-cta": {
+          en: "Explore Full Portfolio",
+          ar: "تصفّح البورتفوليو كاملًا"
+        },
+
+        // VIRAL
+        "label-viral": {
+          en: "VIRAL CONTENT",
+          ar: "محتوى حقق انتشارًا"
+        },
+        "title-viral": {
+          en: "FEATURED <span class='accent-text'>SHORTS</span>",
+          ar: "ريلز <span class='accent-text'>مميزة</span>"
+        },
+
+        // POLITICAL / PASSION
+        "label-passion": {
+          en: "Passion Projects",
+          ar: "مشاريع من القلب"
+        },
+        "title-political": {
+          en: "POLITICAL & <span style='color:#ef4444'>SOCIAL</span>",
+          ar: "قضايا <span style='color:#ef4444'>سياسية واجتماعية</span>"
+        },
+
+        // ARCHIVE
+        "archive-title": {
+          en: "EXCLUSIVE <span class='accent-text'>VAULT</span>",
+          ar: "أرشيف <span class='accent-text'>حصري</span>"
+        },
+        "archive-text": {
+          en: "Access source files and unreleased assets.",
+          ar: "وصول مباشر لملفات المصدر، اللقطات الأولى، وكل ما لم يُنشر بعد."
+        },
+        "archive-btn": {
+          en: "Open Archive",
+          ar: "فتح الأرشيف"
+        },
+
+        // SERVICES
+        "services-title": {
+          en: "MY <span class='accent-text'>TOOLKIT</span>",
+          ar: "أدوات <span class='accent-text'>صناعة التجربة</span>"
+        },
+        "service-branding-title": {
+          en: "Branding",
+          ar: "الهوية البصرية"
+        },
+        "service-branding-text": {
+          en: "Complete visual identity systems.",
+          ar: "هويات بصرية متكاملة تبني حضورًا واضحًا ومختلفًا للعلامة."
+        },
+        "service-motion-title": {
+          en: "Motion",
+          ar: "الموشن جرافيك"
+        },
+        "service-motion-text": {
+          en: "2D & 3D animation for web/social.",
+          ar: "موشن جرافيك يحرك الفكرة ويحكي القصة ببساطة."
+        },
+        "service-social-title": {
+          en: "Social",
+          ar: "محتوى السوشيال"
+        },
+        "service-social-text": {
+          en: "High-impact content creation.",
+          ar: "محتوى سريع، واضح، وقابل للمشاركة."
+        },
+
+        // FOOTER
+        "footer-idea": {
+          en: "HAVE AN IDEA?",
+          ar: "جاهز نخلق شيئًا جديدًا؟"
+        },
+        "footer-title": {
+          en: "LET'S <span>TALK</span>",
+          ar: "خلّينا <span>نتحدّث</span>"
+        },
+        "footer-copy": {
+          en: "&copy; 2025 Mohamed Amer. All Rights Reserved.",
+          ar: "&copy; 2025 محمد عامر. جميع الحقوق محفوظة."
+        },
+        "footer-location": {
+          en: "<i class='fas fa-map-marker-alt' style='color:var(--accent)'></i> Istanbul, TR",
+          ar: "<i class='fas fa-map-marker-alt' style='color:var(--accent)'></i> إسطنبول، تركيا"
+        }
       };
 
       function applyTranslations() {
         document.documentElement.dir = state.lang === "ar" ? "rtl" : "ltr";
+        document.documentElement.lang = state.lang === "ar" ? "ar" : "en";
+
         document.querySelectorAll("[data-i18n]").forEach((el) => {
           const key = el.getAttribute("data-i18n");
           const entry = I18N_DICT[key];
-          if (entry) el.innerHTML = entry[state.lang] || entry.en;
+          if (entry) {
+            el.innerHTML = entry[state.lang] || entry.en;
+          }
         });
+      }
+
+      function showToast(msg) {
+        const t = document.createElement("div");
+        t.style.background = "#222";
+        t.style.color = "#fff";
+        t.style.padding = "10px 20px";
+        t.style.borderRadius = "8px";
+        t.style.border = "1px solid rgba(255,255,255,0.1)";
+        t.innerText = msg;
+
+        const container = document.getElementById("toastContainer");
+        if (container) {
+          container.appendChild(t);
+          setTimeout(() => t.remove(), 3000);
+        }
       }
 
       window.toggleLanguage = () => {
         state.lang = state.lang === "en" ? "ar" : "en";
         applyTranslations();
-        showToast(state.lang === "ar" ? "اللغة العربية" : "English Language");
-      }
+        showToast(state.lang === "ar" ? "تم تفعيل النسخة العربية" : "Switched to English version");
+      };
 
       // Preloader
       window.addEventListener("load", () => {
         const loader = document.querySelector(".preloader");
         const fill = document.querySelector(".loader-fill");
-        fill.style.width = "100%";
+        if (fill) {
+          fill.style.width = "100%";
+        }
         setTimeout(() => {
-          loader.style.opacity = "0";
-          setTimeout(() => { loader.style.display = "none"; document.body.classList.remove("loading"); }, 500);
+          if (loader) {
+            loader.style.opacity = "0";
+            setTimeout(() => {
+              loader.style.display = "none";
+              document.body.classList.remove("loading");
+            }, 500);
+          }
         }, 800);
       });
 
       // Canvas BG
       const canvas = document.getElementById("canvas-bg");
-      const ctx = canvas.getContext("2d");
-      function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-      window.addEventListener("resize", resize); resize();
-      const particles = Array.from({length: 60}, () => ({
-        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 2
-      }));
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.x += p.vx; p.y += p.vy;
-          if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
-          if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
-          
-          ctx.fillStyle = "rgba(59, 130, 246, 0.4)";
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
-        });
-        requestAnimationFrame(animate);
+      if (canvas && canvas.getContext) {
+        const ctx = canvas.getContext("2d");
+        function resize() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        window.addEventListener("resize", resize);
+        resize();
+
+        const particles = Array.from({ length: 60 }, () => ({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          size: Math.random() * 2
+        }));
+
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach((p) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+            ctx.fillStyle = "rgba(59, 130, 246, 0.4)";
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          requestAnimationFrame(animate);
+        }
+        animate();
       }
-      animate();
 
       // Scroll Reveal
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
 
-      // Menus
+        document
+          .querySelectorAll(".reveal-on-scroll")
+          .forEach((el) => observer.observe(el));
+      } else {
+        document
+          .querySelectorAll(".reveal-on-scroll")
+          .forEach((el) => el.classList.add("is-visible"));
+      }
+
+      // Mobile Menu
       window.toggleMenu = () => {
-        document.getElementById("mobileOverlay").classList.toggle("active");
+        const overlay = document.getElementById("mobileOverlay");
+        if (!overlay) return;
+        overlay.classList.toggle("active");
         document.body.classList.toggle("menu-open");
-      }
+      };
 
-      function showToast(msg) {
-        const t = document.createElement("div");
-        t.style.background = "#222"; t.style.color = "#fff"; t.style.padding = "10px 20px"; t.style.borderRadius = "8px"; t.innerText = msg; t.style.border = "1px solid rgba(255,255,255,0.1)";
-        document.getElementById("toastContainer").appendChild(t);
-        setTimeout(() => t.remove(), 3000);
-      }
-
+      // Initial translation (EN as default)
       applyTranslations();
-      
+
       // Navbar scroll effect
       window.addEventListener("scroll", () => {
-          const nav = document.getElementById("navbar");
-          if(window.scrollY > 50) nav.classList.add("scrolled");
-          else nav.classList.remove("scrolled");
+        const nav = document.getElementById("navbar");
+        if (!nav) return;
+        if (window.scrollY > 50) nav.classList.add("scrolled");
+        else nav.classList.remove("scrolled");
       });
 
     })();
