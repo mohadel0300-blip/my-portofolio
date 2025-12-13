@@ -71,7 +71,7 @@
       cursor: default;
     }
 
-    /* شيل أي underline من كل اللينكات */
+    /* Remove underline from links */
     a {
       text-decoration: none;
       color: inherit;
@@ -451,14 +451,11 @@
     }
     html[dir="rtl"] .hero-hand-script { right: auto; left: -40px; transform: rotate(-12deg); }
 
-    /* POP-OUT IMAGE EFFECT 
-       This creates a frame behind the image, while the image itself floats
-       independently, giving the illusion of isolation/pop-out.
-    */
+    /* POP-OUT IMAGE EFFECT - REDESIGNED: SMALL & ROUNDED */
     .hero-visual-wrapper {
         position: relative;
-        width: 320px;
-        height: 440px;
+        width: 220px; /* Reduced from 320px for "Small" */
+        height: 220px; /* Square dimensions for perfect circle */
         margin-bottom: 40px;
         z-index: 5;
     }
@@ -466,13 +463,13 @@
     /* The "Frame" or "Hole" in the background */
     .hero-visual-frame {
         position: absolute;
-        top: 20px; left: 20px; right: 20px; bottom: 0;
-        border-radius: 200px 200px 20px 20px; /* Arch Shape */
+        top: -10px; left: -10px; right: -10px; bottom: -10px; /* Just slightly larger */
+        border-radius: 50%; /* Fully Rounded (Circle) */
         background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.4));
         border: 1px solid rgba(255,255,255,0.1);
         box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
         z-index: 1;
-        transform: scale(0.95);
+        /* No complex scale needed, just slight padding via negative values */
     }
 
     /* The Image Itself - Floating & Isolated */
@@ -480,8 +477,8 @@
         position: relative;
         width: 100%;
         height: 100%;
-        border-radius: 200px 200px 20px 20px; /* Matching Arch */
-        overflow: hidden; /* Keeps image shape */
+        border-radius: 50%; /* Fully Rounded (Circle) */
+        overflow: hidden; 
         z-index: 2;
         /* Strong shadow to lift it off the background */
         box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255,255,255,0.1);
@@ -500,7 +497,7 @@
 
     @keyframes float-vertical {
         0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-25px); } /* Move up */
+        50% { transform: translateY(-15px); } /* Slights less movement for small size */
     }
 
     /* Expressive Icons Row (Uniform Color) */
@@ -555,7 +552,9 @@
         .btn-primary, .btn-glass { justify-content: center; width: 100%; }
         .hero-name-massive { font-size: 16vw; }
         .hero-hand-script { position: relative; top: auto; right: auto; left: auto; display: block; margin-top: -10px; margin-bottom: 20px; text-align: center; }
-        .hero-visual-wrapper { width: 280px; height: 380px; }
+        
+        /* Updated Mobile Size for Circular Image */
+        .hero-visual-wrapper { width: 180px; height: 180px; }
     }
 
     /* Bottom Cards */
