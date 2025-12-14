@@ -970,6 +970,49 @@
     }
 
     /* =========================================================
+       NEW SECTION: PRODUCT SHOWCASE (HUGGIES)
+       ========================================================= */
+    .huggies-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 24px;
+    }
+    
+    .huggies-item {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        background: var(--bg-surface-soft);
+        transition: 0.4s var(--ease-smooth);
+        aspect-ratio: 4/3; /* Adjust if your images are square */
+    }
+
+    .huggies-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.6s var(--ease-smooth);
+    }
+
+    .huggies-item:hover {
+        border-color: var(--accent);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
+    }
+
+    .huggies-item:hover img {
+        transform: scale(1.06);
+    }
+
+    @media (max-width: 768px) {
+        .huggies-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* =========================================================
        10. POLITICAL LOOP (POSTERS)
        ========================================================= */
     .political-loop-container {
@@ -1286,73 +1329,58 @@
 
 <body class="loading">
 
-  <!-- PRELOADER -->
   <div class="preloader">
     <div class="loader-logo">MA.</div>
     <div class="loader-bar"><div class="loader-fill"></div></div>
   </div>
 
-  <!-- LANGUAGE TOGGLE (NEW) -->
   <button id="langToggle" class="lang-toggle-btn">
     <i class="fas fa-globe"></i>
     <span class="lang-text">AR</span>
   </button>
 
-  <!-- FX BACKGROUNDS -->
   <div class="ambient-light"></div>
   <canvas id="canvas-bg"></canvas>
   <div class="noise-overlay"></div>
 
   <div id="toastContainer" style="position: fixed; bottom: 30px; right: 30px; z-index: var(--z-toast); display: flex; flex-direction: column; gap: 10px;"></div>
 
-  <!-- MAIN -->
   <main>
     
-    <!-- HERO (SEPARATE & FLOATING) -->
     <section id="about" class="hero-radical container">
         
-        <!-- Background Scrolling Text -->
         <div class="hero-ticker-bg">
             CREATIVE DIRECTION · MOTION DESIGN · VISUAL SYSTEMS · CREATIVE DIRECTION ·
         </div>
 
         <div class="hero-center-content reveal-on-scroll">
             
-            <!-- Floating Status -->
             <div class="hero-status-pill" data-i18n="hero-badge">
                 <span class="hero-status-dot"></span>
                 Istanbul Based Creative
             </div>
 
-            <!-- Title Block (Text Only, Above Image) -->
             <div class="hero-title-block">
                 <h1 class="hero-name-massive">
                     <span>MOHAMED</span>
                     <span class="hero-name-accent">AMER</span>
                 </h1>
                 
-                <!-- Script Hand Element (Relative to title) -->
                 <span class="hero-hand-script" data-i18n="hero-script">designed to move</span>
             </div>
 
-            <!-- POP-OUT IMAGE WRAPPER -->
-            <!-- We use a wrapper to hold the "Frame" behind and the "Image" in front -->
             <div class="hero-visual-wrapper">
-                <!-- 1. Background Frame (Offset for depth) -->
                 <div class="hero-visual-frame"></div>
                 
-                <!-- 2. The Image (Floating above) -->
                 <div class="hero-visual-floating">
                     <img src="MINED.png" alt="Mohamed Amer" class="portal-img">
                 </div>
             </div>
 
-            <!-- Description -->
             <p class="hero-desc-central" data-i18n="hero-desc">
                 I build visual systems and motion experiences for brands that want to feel <strong>sharp, cinematic, and unapologetically modern</strong>.
             </p>
 
-            <!-- Expressive Icons Row (Uniform Color) -->
             <div class="hero-expressive-icons">
                 <i class="fab fa-behance hero-icon-item"></i>
                 <i class="fab fa-instagram hero-icon-item"></i>
@@ -1361,7 +1389,6 @@
                 <i class="fas fa-bolt hero-icon-item"></i>
             </div>
 
-            <!-- Buttons -->
             <div class="hero-actions-bar">
                 <a href="#work" class="btn-primary">
                     <span data-i18n="btn-view-work">View signature projects</span>
@@ -1373,7 +1400,6 @@
                 </a>
             </div>
 
-            <!-- Bottom Cards Row (Centered Grid) -->
             <div class="hero-bottom-grid">
                 <div class="hero-feature-card">
                     <i class="fas fa-wand-magic-sparkles hf-icon"></i>
@@ -1395,7 +1421,6 @@
         </div>
     </section>
 
-    <!-- WORK – BEHANCE -->
     <section id="work" class="container section-spacing">
       <div class="reveal-on-scroll" style="margin-bottom: 32px;">
         <span class="label">
@@ -1411,7 +1436,6 @@
       </div>
 
       <div class="masonry-grid">
-        <!-- Real Estate Social Media -->
         <a href="https://www.behance.net/gallery/181868927/Real-Estate-Social-Media"
            target="_blank" rel="noopener noreferrer"
            class="masonry-item project-card reveal-on-scroll">
@@ -1431,7 +1455,6 @@
           </div>
         </a>
 
-        <!-- Food Industry Socials -->
         <a href="https://www.behance.net/gallery/223143539/Food-Industry-Socials"
            target="_blank" rel="noopener noreferrer"
            class="masonry-item project-card reveal-on-scroll">
@@ -1451,7 +1474,6 @@
           </div>
         </a>
 
-        <!-- Gym & Fitness -->
         <a href="https://www.behance.net/gallery/219706527/Gym-Fitness"
            target="_blank" rel="noopener noreferrer"
            class="masonry-item project-card reveal-on-scroll">
@@ -1471,7 +1493,6 @@
           </div>
         </a>
 
-        <!-- Orient Detectors -->
         <a href="https://www.behance.net/gallery/238580093/Orient-Detectors"
            target="_blank" rel="noopener noreferrer"
            class="masonry-item project-card reveal-on-scroll">
@@ -1491,7 +1512,6 @@
           </div>
         </a>
 
-        <!-- Ajax Systems -->
         <a href="https://www.behance.net/gallery/218895573/Ajax-Systems"
            target="_blank" rel="noopener noreferrer"
            class="masonry-item project-card reveal-on-scroll">
@@ -1520,7 +1540,6 @@
       </div>
     </section>
 
-    <!-- VIRAL SHORTS – FAN LAYOUT -->
     <section id="viral-shorts" class="container section-spacing">
       <div style="text-align: center; margin-bottom: 3rem;" class="reveal-on-scroll">
         <span class="label">
@@ -1536,7 +1555,6 @@
       </div>
 
       <div class="shorts-deck-container reveal-on-scroll">
-        <!-- Left-most card -->
         <div
           class="deck-card"
           style="--rotate:-18deg; --offsetY:40px;"
@@ -1551,7 +1569,6 @@
           </div>
         </div>
 
-        <!-- Second card -->
         <div
           class="deck-card"
           style="--rotate:-9deg; --offsetY:18px;"
@@ -1566,7 +1583,6 @@
           </div>
         </div>
 
-        <!-- Center card -->
         <div
           class="deck-card"
           style="--rotate:0deg; --offsetY:0px;"
@@ -1581,7 +1597,6 @@
           </div>
         </div>
 
-        <!-- Fourth card -->
         <div
           class="deck-card"
           style="--rotate:9deg; --offsetY:18px;"
@@ -1614,7 +1629,6 @@
           </div>
         </div>
 
-        <!-- Right-most card -->
         <div
           class="deck-card"
           style="--rotate:18deg; --offsetY:40px;"
@@ -1631,7 +1645,6 @@
       </div>
     </section>
 
-    <!-- PROCESS & STATS -->
     <section id="process" class="container section-spacing">
       <div class="grid-standard">
         <div class="col-span-6 reveal-on-scroll">
@@ -1694,7 +1707,6 @@
 
           <div style="height: 30px;"></div>
 
-          <!-- TOOLKIT LOOP -->
           <span class="label">
             <span class="label-dot"></span>
             <span data-i18n="label-toolkit">Toolkit</span>
@@ -1717,7 +1729,6 @@
             </div>
           </div>
 
-          <!-- BRANDS LOOP -->
           <span class="label" style="margin-top: 20px;">
             <span class="label-dot"></span>
             <span data-i18n="label-brands">Platforms & verticals</span>
@@ -1739,7 +1750,6 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE & EDUCATION -->
     <section id="experience" class="container section-spacing">
         <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 40px;">
             <span class="label">
@@ -1752,7 +1762,6 @@
         </div>
 
         <div class="grid-standard">
-            <!-- Experience Column -->
             <div class="col-span-6 reveal-on-scroll">
                 <div style="margin-bottom: 20px;">
                     <h3 style="font-size: 1.5rem; font-weight: 700;">Professional Journey</h3>
@@ -1799,7 +1808,6 @@
                 </div>
             </div>
 
-            <!-- Education Column -->
             <div class="col-span-6 reveal-on-scroll">
                 <div style="margin-bottom: 20px;">
                     <h3 style="font-size: 1.5rem; font-weight: 700;">Education</h3>
@@ -1814,7 +1822,6 @@
         </div>
     </section>
 
-    <!-- SERVICES -->
     <section id="services" class="container section-spacing">
       <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 40px;">
         <span class="label">
@@ -1854,7 +1861,33 @@
       </div>
     </section>
 
-    <!-- POLITICAL / SOCIAL -->
+    <section id="product-showcase" class="container section-spacing">
+        <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 32px;">
+            <span class="label">
+              <span class="label-dot"></span>
+              <span data-i18n="label-product">Product Photography</span>
+            </span>
+            <h2 class="title-lg" data-i18n="title-product">
+              HUGGIES <span class="accent-text">CAMPAIGN</span>
+            </h2>
+            <p class="section-subtitle" style="margin: 0 auto;" data-i18n="subtitle-product">
+                Showcasing premium care moments with high-fidelity visuals.
+            </p>
+        </div>
+
+        <div class="huggies-grid reveal-on-scroll">
+            <div class="huggies-item">
+                <img src="003.jpg" alt="Baby crawling with Huggies Premium Care">
+            </div>
+            <div class="huggies-item">
+                 <img src="001.jpg" alt="Baby climbing stairs - Huggies Premium Care">
+            </div>
+            <div class="huggies-item">
+                 <img src="002.jpg" alt="Baby playing with blocks - Huggies Premium Care">
+            </div>
+        </div>
+    </section>
+
     <section id="political" class="container section-spacing">
       <div style="margin-bottom: 24px;" class="reveal-on-scroll">
         <span class="label" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.12);">
@@ -1885,7 +1918,6 @@
       </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq" class="container section-spacing">
       <div class="grid-standard">
         <div class="col-span-6 reveal-on-scroll">
@@ -1942,7 +1974,6 @@
       </div>
     </section>
 
-    <!-- ARCHIVE -->
     <section id="archive" class="container section-spacing">
       <div class="archive-card reveal-on-scroll">
         <div class="archive-inner">
@@ -1960,7 +1991,6 @@
       </div>
     </section>
 
-    <!-- IMPROVED FOOTER -->
     <footer id="contact" class="footer">
       <div class="container">
         
@@ -2205,6 +2235,11 @@
           en: "Monthly packs of posts, stories, and reels that keep your brand consistent but never repetitive.",
           ar: "باكدچ شهري من بوستات، ستوريز وريلز، تحافظ على ثبات البراند من غير ما الناس تحس إنك بتعيد نفس الكلام."
         },
+        
+        /* New Section Translations */
+        "label-product": { en: "Product Photography", ar: "تصوير المنتجات" },
+        "title-product": { en: "HUGGIES <span class='accent-text'>CAMPAIGN</span>", ar: "حملة <span class='accent-text'>هجيز</span>" },
+        "subtitle-product": { en: "Showcasing premium care moments with high-fidelity visuals.", ar: "عرض لحظات العناية الفائقة بصور عالية الجودة." },
 
         "label-passion": {
           en: "Passion narratives",
