@@ -2,1044 +2,844 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Mohamed Amer – Creative Director</title>
-  <meta
-    name="description"
-    content="Official Portfolio of Mohamed Amer – Creative Director, Graphic & Motion Designer."
-  />
+  <meta name="description" content="Official Portfolio of Mohamed Amer – Creative Director, Graphic & Motion Designer." />
   <meta name="theme-color" content="#000000" />
   <meta name="author" content="Mohamed Amer" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Reenie+Beanie&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Reenie+Beanie&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
     /* =========================================================
-       1. ULTRA-MODERN RESET & VARIABLES (Apple/DJI Style)
+       1. LUXURY CORE RESET & VARIABLES
        ========================================================= */
     :root {
       --bg-core: #000000;
-      --bg-card: rgba(28, 28, 30, 0.6);
-      --bg-card-hover: rgba(44, 44, 46, 0.8);
-      --glass-border: rgba(255, 255, 255, 0.08);
-      --accent: #0071e3; /* Apple Blue */
-      --accent-glow: rgba(0, 113, 227, 0.4);
-      --text-main: #f5f5f7;
-      --text-muted: #86868b;
+      --bg-glass: rgba(22, 22, 24, 0.6);
+      --bg-card: #0a0a0a;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(255, 255, 255, 0.2);
       
-      --font-main: "Plus Jakarta Sans", sans-serif;
+      /* Apple/Ferrari Style Accent - Electric Blue */
+      --accent: #2997ff; 
+      --accent-glow: rgba(41, 151, 255, 0.4);
+      
+      --text-primary: #f5f5f7;
+      --text-secondary: #86868b;
+      
+      --font-main: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
       --font-arabic: "IBM Plex Sans Arabic", sans-serif;
-      --font-script: "Reenie Beanie", cursive;
+      --font-hand: "Reenie Beanie", cursive;
 
       --ease-apple: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-    
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
     body {
       background-color: var(--bg-core);
-      color: var(--text-main);
+      color: var(--text-primary);
       font-family: var(--font-main);
+      margin: 0; padding: 0;
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
       line-height: 1.5;
     }
-
+    
     /* RTL Support */
-    html[dir="rtl"] body {
-      font-family: var(--font-arabic);
-      text-align: right;
-    }
-
-    a { text-decoration: none; color: inherit; cursor: pointer; transition: color 0.3s; }
-    ul { list-style: none; }
-
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+    html[dir="rtl"] body { font-family: var(--font-arabic); text-align: right; }
+    
+    *, *::before, *::after { box-sizing: border-box; outline: none; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    ::selection { background: var(--accent); color: #fff; }
 
     /* =========================================================
-       2. UTILITY CLASSES & ANIMATIONS
+       2. UTILITIES & ANIMATIONS
        ========================================================= */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 2;
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+    .section-spacing { padding: 120px 0; }
+    
+    /* Parallax & Reveal Classes */
+    .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s var(--ease-apple); }
+    .reveal-up.active { opacity: 1; transform: translateY(0); }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, #fff 0%, #86868b 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
-    .section-spacing {
-      padding: 120px 0;
-    }
-
-    /* Cinematic Reveal */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s var(--ease-apple);
-    }
-    .reveal-on-scroll.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Glass Effect */
-    .glass-panel {
-      background: var(--bg-card);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      transition: transform 0.4s var(--ease-apple), border-color 0.3s;
-    }
-    .glass-panel:hover {
-      border-color: rgba(255,255,255,0.2);
-      transform: translateY(-5px) scale(1.005);
-    }
-
-    /* Typography */
-    .title-display {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-    }
-    .accent-text {
-      background: linear-gradient(135deg, #2997ff, #9f55ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .section-subtitle {
-      font-size: 1.125rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin-bottom: 40px;
-    }
-
-    /* Badge */
-    .label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 100px;
-      background: rgba(255,255,255,0.1);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .label-dot {
-      width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent);
+    /* Noise Texture */
+    .noise-overlay {
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.03;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
     }
 
     /* =========================================================
-       3. HEADER & NAV
+       3. NAVIGATION & UI ELEMENTS
        ========================================================= */
     .lang-toggle-btn {
-      position: fixed;
-      top: 24px;
-      right: 24px;
-      z-index: 9999;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.3s;
+      position: fixed; top: 24px; right: 24px; z-index: 5000;
+      background: rgba(255,255,255,0.05); backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle); border-radius: 50px;
+      padding: 10px 24px; color: var(--text-primary); font-weight: 600; font-size: 0.9rem;
+      cursor: pointer; display: flex; align-items: center; gap: 8px;
+      transition: all 0.3s var(--ease-apple);
     }
-    html[dir="rtl"] .lang-toggle-btn { right: auto; left: 24px; }
-    .lang-toggle-btn:hover { background: var(--accent); border-color: var(--accent); }
+    .lang-toggle-btn:hover { background: rgba(255,255,255,0.1); transform: scale(1.05); }
+    html[dir="rtl"] .lang-toggle-btn { right: auto; left: 24px; flex-direction: row-reverse; }
+
+    /* Buttons */
+    .btn-lux {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 18px 40px; border-radius: 50px; font-weight: 600; font-size: 1rem;
+      background: var(--text-primary); color: #000; transition: all 0.4s var(--ease-apple);
+      position: relative; overflow: hidden;
+    }
+    .btn-lux:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(255,255,255,0.4); }
+    
+    .btn-glass {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 18px 40px; border-radius: 50px; font-weight: 600;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle);
+      color: var(--text-primary); backdrop-filter: blur(10px); transition: 0.3s;
+    }
+    .btn-glass:hover { background: rgba(255,255,255,0.15); border-color: var(--text-primary); }
 
     /* =========================================================
-       4. HERO SECTION (Immersive)
+       4. HERO SECTION (Apple Style)
        ========================================================= */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-    }
-
-    /* Dynamic Background */
-    #canvas-bg {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 0; opacity: 0.4; pointer-events: none;
-    }
-    .vignette {
-      position: absolute; inset: 0;
-      background: radial-gradient(circle, transparent 20%, #000000 90%);
-      z-index: 1; pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative; z-index: 3;
-      max-width: 900px;
-    }
-
-    .hero-image-wrapper {
-      width: 180px; height: 180px;
-      margin: 0 auto 30px;
-      position: relative;
-      border-radius: 50%;
-      padding: 4px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.1), transparent);
+    .hero-section {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      position: relative; overflow: hidden; text-align: center; padding-top: 80px;
     }
     
-    .hero-image {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      filter: contrast(1.1) grayscale(0.2);
-      transition: 0.5s;
+    .bg-gradient-glow {
+      position: absolute; width: 60vw; height: 60vh; background: radial-gradient(circle, rgba(41,151,255,0.15), transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%); filter: blur(80px); z-index: 0;
     }
-    .hero-image-wrapper:hover .hero-image { filter: grayscale(0); transform: scale(1.05); }
 
-    .hero-name {
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      background: linear-gradient(to bottom, #fff 40%, #666 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .hero-ticker {
+      position: absolute; font-size: 20vw; font-weight: 900; white-space: nowrap; opacity: 0.03;
+      top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-5deg); z-index: 0; pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 10; width: 100%; max-width: 1000px; }
+    
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
+      border-radius: 20px; background: rgba(41, 151, 255, 0.1); color: var(--accent);
+      font-size: 0.8rem; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(41, 151, 255, 0.2);
+    }
+    .status-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
+
+    .hero-title {
+      font-size: clamp(4rem, 10vw, 8.5rem); line-height: 0.95; font-weight: 800; letter-spacing: -0.04em;
       margin-bottom: 10px;
-      line-height: 1;
+    }
+    .hero-script {
+      font-family: var(--font-hand); font-size: 2.5rem; color: var(--accent);
+      transform: rotate(-5deg) translateY(-20px); display: inline-block;
     }
 
-    .script-text {
-      font-family: var(--font-script);
-      color: var(--accent);
-      font-size: 2rem;
-      transform: rotate(-5deg);
-      display: inline-block;
-      margin-bottom: 20px;
+    /* Cinematic Profile Image */
+    .hero-visual {
+      width: 280px; height: 280px; margin: 30px auto; position: relative;
+    }
+    .hero-visual img {
+      width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 60px rgba(0,0,0,0.8);
+      transition: transform 0.5s var(--ease-apple);
+    }
+    .hero-visual:hover img { transform: scale(1.05); }
+
+    .hero-desc {
+      font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px;
     }
 
-    .hero-actions {
-      display: flex; gap: 16px; justify-content: center; margin-top: 30px; flex-wrap: wrap;
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+    
+    .hero-stats-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto;
     }
-
-    .btn {
-      padding: 14px 32px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s;
-      border: 1px solid transparent;
-      display: inline-flex; align-items: center; gap: 8px;
+    .stat-mini-card {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 20px; border-radius: 16px;
+      text-align: left; transition: 0.3s;
     }
-    .btn-primary {
-      background: #fff; color: #000;
-    }
-    .btn-primary:hover {
-      background: var(--accent); color: #fff; box-shadow: 0 0 20px var(--accent-glow);
-    }
-    .btn-secondary {
-      background: rgba(255,255,255,0.1); color: #fff;
-      backdrop-filter: blur(10px);
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    /* Hero Features Grid */
-    .hero-features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 1000px;
-      margin: 60px auto 0;
-      width: 100%;
-    }
-    .feature-box {
-      background: rgba(255,255,255,0.03);
-      padding: 20px;
-      border-radius: 16px;
-      text-align: left;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    html[dir="rtl"] .feature-box { text-align: right; }
-    .feature-box i { color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; }
-    .feature-box h4 { font-size: 1rem; margin-bottom: 5px; color: #fff; }
-    .feature-box p { font-size: 0.85rem; color: #888; margin: 0; }
+    html[dir="rtl"] .stat-mini-card { text-align: right; }
+    .stat-mini-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-5px); }
+    .stat-mini-icon { color: var(--accent); font-size: 1.5rem; margin-bottom: 10px; }
+    .stat-mini-title { color: #fff; font-weight: 700; margin-bottom: 5px; }
+    .stat-mini-desc { color: var(--text-secondary); font-size: 0.85rem; }
 
     /* =========================================================
-       5. PORTFOLIO GRID (Bento Style)
+       5. BENTO GRID (Work Section)
        ========================================================= */
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 24px;
-    }
-    .col-span-12 { grid-column: span 12; }
-    .col-span-8 { grid-column: span 8; }
-    .col-span-6 { grid-column: span 6; }
-    .col-span-4 { grid-column: span 4; }
-    
-    @media (max-width: 900px) {
-      .col-span-8, .col-span-6, .col-span-4 { grid-column: span 12; }
-      .hero-features { grid-template-columns: 1fr; }
-    }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .title-md { font-size: 3.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .subtitle { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-    .project-card {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      background: #111;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: 0.4s var(--ease-apple);
-      height: 100%;
-      min-height: 400px; /* Taller cards */
-    }
-    .project-card:hover {
-      transform: scale(0.98);
-      border-color: var(--accent);
+    .bento-grid {
+      display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; auto-rows: minmax(300px, auto);
     }
     
-    .project-embed {
-      width: 100%; height: 100%;
-      border: none;
-      pointer-events: none; /* Make click go to link */
+    .bento-card {
+      position: relative; border-radius: 24px; overflow: hidden; background: var(--bg-card);
+      border: 1px solid var(--border-subtle); transition: all 0.5s var(--ease-apple); group;
     }
+    .bento-card:hover { transform: scale(0.98); border-color: var(--accent); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
     
+    /* Layouts */
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+    
+    @media (max-width: 900px) { .span-8, .span-6, .span-4 { grid-column: span 12; } }
+
+    .project-embed { width: 100%; height: 100%; border: none; display: block; pointer-events: none; }
     .project-overlay {
-      position: absolute;
-      bottom: 0; left: 0; width: 100%;
-      padding: 30px;
-      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-      z-index: 2;
+      position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); pointer-events: none;
     }
-    .project-btn {
-      position: absolute; top: 20px; right: 20px;
-      width: 40px; height: 40px; background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(5px);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; border: 1px solid rgba(255,255,255,0.2);
-      z-index: 5;
+    .project-title { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+    .project-cat { color: var(--accent); font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .project-link-icon {
+      position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s;
     }
-    html[dir="rtl"] .project-btn { right: auto; left: 20px; }
+    html[dir="rtl"] .project-link-icon { right: auto; left: 20px; }
+    .bento-card:hover .project-link-icon { background: var(--accent); border-color: var(--accent); }
 
     /* =========================================================
-       6. VIRAL SHORTS (Deck)
+       6. VIRAL SHORTS (Fan Deck)
        ========================================================= */
-    .shorts-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      perspective: 1000px;
-      flex-wrap: wrap;
+    .deck-container {
+      display: flex; justify-content: center; gap: 20px; padding: 60px 0; perspective: 1000px;
     }
-    .short-card {
-      width: 220px;
-      aspect-ratio: 9/16;
-      border-radius: 20px;
-      overflow: hidden;
-      position: relative;
-      transition: 0.4s;
-      transform-style: preserve-3d;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.1);
-      cursor: pointer;
+    .deck-card {
+      width: 220px; aspect-ratio: 9/16; background: #000; border-radius: 20px; border: 1px solid var(--border-subtle);
+      position: relative; transition: all 0.5s var(--ease-bounce); transform-origin: bottom center; cursor: pointer; overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     }
-    .short-card img { width: 100%; height: 100%; object-fit: cover; }
-    .short-card:hover { transform: translateY(-10px) rotateX(5deg); border-color: var(--accent); }
-    .play-icon {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      font-size: 2rem; opacity: 0; transition: 0.3s;
-    }
-    .short-card:hover .play-icon { opacity: 1; }
-
+    .deck-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
+    .deck-card:hover { transform: translateY(-40px) scale(1.1) rotate(0deg) !important; z-index: 100; border-color: var(--accent); box-shadow: 0 0 50px rgba(41,151,255,0.3); }
+    .deck-card:hover img { opacity: 1; }
+    
     /* =========================================================
-       7. STATS & PROCESS (Apple Grid)
+       7. PROCESS & STATS (Sticky Layout)
        ========================================================= */
-    .stats-box {
-      background: #09090b;
-      border-radius: 20px;
-      padding: 30px;
-      border: 1px solid #222;
-      display: flex; flex-direction: column; justify-content: space-between;
-      height: 100%;
-    }
-    .stat-num { font-size: 3rem; font-weight: 800; color: #fff; line-height: 1; }
-    .stat-label { font-size: 0.9rem; color: #666; margin-top: 10px; }
-
+    .process-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .sticky-col { position: sticky; top: 120px; height: fit-content; }
+    
     .process-step {
-      display: flex; align-items: flex-start; gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 40px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 24px;
+      margin-bottom: 24px; position: relative; overflow: hidden; transition: 0.3s;
     }
-    .step-num { font-size: 1.2rem; font-weight: 700; color: var(--accent); }
+    .process-step:hover { border-color: var(--accent); transform: translateX(10px); }
+    .step-num { font-size: 4rem; font-weight: 900; color: rgba(255,255,255,0.03); position: absolute; top: -10px; right: 20px; }
+    
+    .stat-grid-box {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .stat-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      padding: 30px; border-radius: 24px; border: 1px solid var(--border-subtle); text-align: center;
+    }
+    .stat-num { font-size: 3rem; font-weight: 800; color: var(--text-primary); display: block; }
+    .stat-lbl { color: var(--text-secondary); font-size: 0.9rem; }
+
+    @media (max-width: 900px) { .process-layout { grid-template-columns: 1fr; } .sticky-col { position: relative; top: 0; } }
 
     /* =========================================================
-       8. TOOLKIT LOOP
+       8. TOOLKIT & BRANDS (Marquee)
        ========================================================= */
-    .loop-wrapper {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    .marquee-wrap { overflow: hidden; white-space: nowrap; position: relative; padding: 20px 0; }
+    .marquee-wrap::before, .marquee-wrap::after {
+      content: ""; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2;
+      background: linear-gradient(90deg, #000, transparent);
     }
-    .loop-track {
-      display: inline-block;
-      animation: slide 30s linear infinite;
-    }
+    .marquee-wrap::after { right: 0; background: linear-gradient(-90deg, #000, transparent); }
+    .marquee-content { display: inline-flex; gap: 30px; animation: scroll 30s linear infinite; }
+    
     .pill {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 10px 24px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 50px;
-      margin-right: 15px;
-      color: #ccc;
+      background: rgba(255,255,255,0.05); padding: 12px 24px; border-radius: 100px;
+      border: 1px solid var(--border-subtle); color: #fff; display: flex; align-items: center; gap: 10px;
     }
-    @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .pill i { color: var(--accent); }
+    
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* =========================================================
-       9. SERVICES & TIMELINE
+       9. TIMELINE & SERVICES
        ========================================================= */
-    .service-box {
-      padding: 40px;
-      background: radial-gradient(circle at top right, rgba(40,40,40,0.5), rgba(10,10,10,0.8));
-    }
-    .service-icon { font-size: 2rem; margin-bottom: 20px; color: var(--accent); }
-
     .timeline-item {
-      padding-left: 20px;
-      border-left: 2px solid rgba(255,255,255,0.1);
-      margin-bottom: 30px;
-      position: relative;
+      padding-left: 40px; border-left: 2px solid var(--border-subtle); position: relative; padding-bottom: 40px;
     }
-    .timeline-item::before {
-      content:''; position: absolute; left: -6px; top: 0;
-      width: 10px; height: 10px; background: var(--accent); border-radius: 50%;
+    html[dir="rtl"] .timeline-item { padding-left: 0; padding-right: 40px; border-left: none; border-right: 2px solid var(--border-subtle); }
+    
+    .timeline-dot {
+      width: 16px; height: 16px; background: var(--bg-core); border: 2px solid var(--accent); border-radius: 50%;
+      position: absolute; left: -9px; top: 0; transition: 0.3s;
     }
-    html[dir="rtl"] .timeline-item { border-left: none; border-right: 2px solid rgba(255,255,255,0.1); padding-left: 0; padding-right: 20px; }
-    html[dir="rtl"] .timeline-item::before { left: auto; right: -6px; }
+    html[dir="rtl"] .timeline-dot { left: auto; right: -9px; }
+    
+    .timeline-item:hover .timeline-dot { background: var(--accent); box-shadow: 0 0 15px var(--accent); }
+    .time-date { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 5px; display: block; }
+
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--bg-card); padding: 40px 30px; border-radius: 24px; border: 1px solid var(--border-subtle);
+      transition: 0.4s; height: 100%; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .service-card:hover { background: #111; border-color: #333; transform: translateY(-10px); }
+    @media (max-width: 768px) { .service-grid { grid-template-columns: 1fr; } }
 
     /* =========================================================
-       10. FAQ & FOOTER
+       10. PRODUCTS & POLITICAL
        ========================================================= */
-    .faq-item {
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding: 20px 0;
-      cursor: pointer;
-    }
-    .faq-q { display: flex; justify-content: space-between; font-weight: 500; font-size: 1.1rem; }
-    .faq-a { 
-      max-height: 0; overflow: hidden; transition: 0.3s; color: var(--text-muted); margin-top: 0; 
-    }
-    .faq-item.active .faq-a { max-height: 200px; margin-top: 15px; }
+    .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    .showcase-img { border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; }
+    .showcase-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+    .showcase-img:hover img { transform: scale(1.1); }
 
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding: 80px 0 40px;
-      margin-top: 80px;
-      background: #050505;
-    }
-    .footer-title {
-      font-size: clamp(3rem, 10vw, 8rem);
-      font-weight: 900;
-      color: #111;
-      text-transform: uppercase;
-      line-height: 0.8;
-      transition: 0.3s;
-      display: block;
-    }
-    .footer-title:hover { color: #fff; }
+    .political-strip { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; }
+    .political-poster { min-width: 260px; height: 380px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); }
+    .political-poster img { width: 100%; height: 100%; object-fit: cover; }
 
     /* =========================================================
-       PRELOADER
+       11. FAQ & ARCHIVE
        ========================================================= */
-    #preloader {
-      position: fixed; inset: 0; background: #000; z-index: 10000;
-      display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.5s;
+    .faq-row { border-bottom: 1px solid var(--border-subtle); padding: 24px 0; cursor: pointer; }
+    .faq-q { display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 600; }
+    .faq-a { max-height: 0; overflow: hidden; color: var(--text-secondary); transition: 0.4s; font-size: 0.95rem; }
+    .faq-row.active .faq-a { max-height: 200px; margin-top: 16px; }
+    .faq-toggle { transition: 0.3s; }
+    .faq-row.active .faq-toggle { transform: rotate(45deg); color: var(--accent); }
+
+    .vault-box {
+      background: linear-gradient(135deg, #111, #000); border: 1px solid var(--border-subtle);
+      border-radius: 30px; padding: 80px 20px; text-align: center; position: relative; overflow: hidden;
     }
-    .loader-text { font-size: 2rem; font-weight: 800; letter-spacing: -1px; }
+    .vault-box::before {
+      content: ""; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(41,151,255,0.1), transparent 60%);
+    }
+
+    /* =========================================================
+       12. FOOTER
+       ========================================================= */
+    footer { border-top: 1px solid var(--border-subtle); padding: 100px 0 40px; margin-top: 100px; background: #050505; }
+    .footer-huge { font-size: 10vw; font-weight: 900; color: #222; text-transform: uppercase; line-height: 0.8; transition: 0.3s; display: block; }
+    .footer-huge:hover { color: var(--accent); letter-spacing: 5px; }
+    .footer-meta { display: flex; justify-content: space-between; margin-top: 60px; color: var(--text-secondary); flex-wrap: wrap; gap: 20px; }
+    .social-links a { width: 50px; height: 50px; border: 1px solid var(--border-subtle); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-left: 10px; transition: 0.3s; color: #fff; }
+    .social-links a:hover { background: var(--accent); border-color: var(--accent); }
+
+    /* Loader */
+    .loader { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s; }
+    .loader-bar { width: 200px; height: 2px; background: #333; overflow: hidden; }
+    .loader-progress { width: 0%; height: 100%; background: var(--accent); transition: width 1s; }
 
   </style>
 </head>
-<body class="loading">
+<body>
 
-  <div id="preloader">
-    <div class="loader-text">MA.</div>
+  <div class="noise-overlay"></div>
+  
+  <div class="loader" id="loader">
+    <div class="loader-bar"><div class="loader-progress" id="loaderProgress"></div></div>
   </div>
 
-  <canvas id="canvas-bg"></canvas>
-  <div class="vignette"></div>
-
   <button id="langToggle" class="lang-toggle-btn">
-    <i class="fas fa-globe"></i>
-    <span class="lang-text">AR</span>
+    <i class="fas fa-globe"></i> <span class="lang-text">AR</span>
   </button>
 
-  <div id="toastContainer" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;"></div>
-
-  <section class="hero container">
-    <div class="hero-content reveal-on-scroll">
-      <div class="label" data-i18n="hero-badge">
-        <span class="label-dot"></span> Istanbul Based Creative
-      </div>
+  <main>
+    <section class="hero-section">
+      <div class="bg-gradient-glow"></div>
+      <div class="hero-ticker">CREATIVE DIRECTION — MOTION — VISION</div>
       
-      <div class="hero-image-wrapper">
-        <img src="MINED.png" alt="Mohamed Amer" class="hero-image">
-      </div>
-
-      <h1 class="hero-name">
-        <span>MOHAMED</span><br>
-        <span class="accent-text">AMER</span>
-      </h1>
-      
-      <div class="script-text" data-i18n="hero-script">designed to move</div>
-      
-      <p class="section-subtitle" style="margin: 0 auto 30px;" data-i18n="hero-desc">
-        I build visual systems and motion experiences for brands that want to feel strong, cinematic, and unapologetically modern.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">
-          <span data-i18n="btn-view-work">View Projects</span>
-          <i class="fas fa-arrow-down"></i>
-        </a>
-        <a href="My cv English .pdf" target="_blank" class="btn btn-secondary">
-          <i class="fas fa-download"></i>
-          <span data-i18n="btn-cv">CV</span>
-        </a>
-      </div>
-
-      <div class="hero-features">
-        <div class="feature-box">
-          <i class="fas fa-wand-magic-sparkles"></i>
-          <h4 data-i18n="icon-concept-title">Concept → Launch</h4>
-          <p data-i18n="icon-concept-caption">From messy idea to shippable visual.</p>
-        </div>
-        <div class="feature-box">
-          <i class="fas fa-play-circle"></i>
-          <h4 data-i18n="icon-motion-title">Motion-first</h4>
-          <p data-i18n="icon-motion-caption">Design that thinks in keyframes.</p>
-        </div>
-        <div class="feature-box">
-          <i class="fas fa-chart-line"></i>
-          <h4 data-i18n="icon-growth-title">Built for growth</h4>
-          <p data-i18n="icon-growth-caption">Systems that scale seamlessly.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="work" class="container section-spacing">
-    <div class="reveal-on-scroll">
-      <span class="label"><span class="label-dot"></span> <span data-i18n="label-portfolio">Selected Work</span></span>
-      <h2 class="title-display" data-i18n="title-cases">FEATURED <span class="accent-text">WORK</span></h2>
-    </div>
-
-    <div class="grid-container">
-      <div class="col-span-8 project-card reveal-on-scroll">
-        <a href="https://www.behance.net/gallery/181868927/Real-Estate-Social-Media" target="_blank" class="project-btn"><i class="fab fa-behance"></i></a>
-        <iframe class="project-embed" src="https://www.behance.net/embed/project/181868927?ilo0=1" allowfullscreen></iframe>
-        <div class="project-overlay">
-          <h3 data-i18n="proj-1-title">Real Estate Social Media</h3>
-          <p style="color:var(--accent)" data-i18n="proj-1-cat">Graphic Design · 2024</p>
-        </div>
-      </div>
-
-      <div class="col-span-4 project-card reveal-on-scroll">
-        <a href="https://www.behance.net/gallery/223143539/Food-Industry-Socials" target="_blank" class="project-btn"><i class="fab fa-behance"></i></a>
-        <iframe class="project-embed" src="https://www.behance.net/embed/project/223143539?ilo0=1" allowfullscreen></iframe>
-        <div class="project-overlay">
-          <h3 data-i18n="proj-2-title">Food Industry</h3>
-          <p style="color:var(--accent)" data-i18n="proj-2-cat">Social Design</p>
-        </div>
-      </div>
-
-      <div class="col-span-4 project-card reveal-on-scroll">
-        <a href="https://www.behance.net/gallery/219706527/Gym-Fitness" target="_blank" class="project-btn"><i class="fab fa-behance"></i></a>
-        <iframe class="project-embed" src="https://www.behance.net/embed/project/219706527?ilo0=1" allowfullscreen></iframe>
-        <div class="project-overlay">
-          <h3 data-i18n="proj-3-title">Gym & Fitness</h3>
-          <p style="color:var(--accent)" data-i18n="proj-3-cat">Brand System</p>
-        </div>
-      </div>
-
-      <div class="col-span-8 project-card reveal-on-scroll">
-        <a href="https://www.behance.net/gallery/238580093/Orient-Detectors" target="_blank" class="project-btn"><i class="fab fa-behance"></i></a>
-        <iframe class="project-embed" src="https://www.behance.net/embed/project/238580093?ilo0=1" allowfullscreen></iframe>
-        <div class="project-overlay">
-          <h3 data-i18n="proj-4-title">Orient Detectors</h3>
-          <p style="color:var(--accent)" data-i18n="proj-4-cat">Motion Campaign</p>
-        </div>
-      </div>
-       <div class="col-span-12 project-card reveal-on-scroll" style="min-height: 500px;">
-        <a href="https://www.behance.net/gallery/218895573/Ajax-Systems" target="_blank" class="project-btn"><i class="fab fa-behance"></i></a>
-        <iframe class="project-embed" src="https://www.behance.net/embed/project/218895573?ilo0=1" allowfullscreen></iframe>
-        <div class="project-overlay">
-          <h3 data-i18n="proj-5-title">Ajax Systems</h3>
-          <p style="color:var(--accent)" data-i18n="proj-5-cat">Identity · 2023</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 50px;">
-      <a href="https://www.behance.net/mohamedadel526" target="_blank" class="btn btn-secondary" data-i18n="btn-behance-all">Explore Behance</a>
-    </div>
-  </section>
-
-  <section class="container section-spacing">
-    <div class="reveal-on-scroll" style="text-align:center; margin-bottom: 50px;">
-      <h2 class="title-display" data-i18n="title-viral">VIRAL <span class="accent-text">MOMENTS</span></h2>
-      <p class="section-subtitle" style="margin:0 auto;" data-i18n="subtitle-viral">Feed-first content designed to stop the scroll.</p>
-    </div>
-
-    <div class="shorts-container reveal-on-scroll">
-      <div class="short-card" onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS','_blank')">
-        <img src="https://img.youtube.com/vi/F-lmawsIKEI/maxresdefault.jpg" alt="Viral 1">
-        <i class="fas fa-play play-icon"></i>
-      </div>
-      <div class="short-card" style="margin-top: 40px;" onclick="window.open('https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90','_blank')">
-        <img src="https://img.youtube.com/vi/Z9xVIlCuQpA/maxresdefault.jpg" alt="Viral 2">
-        <i class="fas fa-play play-icon"></i>
-      </div>
-      <div class="short-card" onclick="window.open('https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB','_blank')">
-        <img src="https://img.youtube.com/vi/oKIJWxeoMZo/maxresdefault.jpg" alt="Viral 3">
-        <i class="fas fa-play play-icon"></i>
-      </div>
-      <div class="short-card" style="margin-top: 40px; background: linear-gradient(45deg, #405de6, #833ab4);" onclick="window.open('https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==','_blank')">
-        <div style="height:100%; display:flex; align-items:center; justify-content:center; color:#fff;">
-          <i class="fab fa-instagram" style="font-size:3rem;"></i>
-        </div>
-        <i class="fas fa-play play-icon"></i>
-      </div>
-    </div>
-  </section>
-
-  <section id="process" class="container section-spacing">
-    <div class="grid-container">
-      <div class="col-span-6 glass-panel reveal-on-scroll" style="padding: 40px;">
-        <h3 class="title-display" style="font-size: 2.5rem;" data-i18n="title-process">How we build.</h3>
-        <div class="process-step">
-          <span class="step-num">01</span>
-          <div>
-            <h4 data-i18n="process-1-title">Discovery</h4>
-            <p style="color:var(--text-muted)" data-i18n="process-1-body">Mapping the market & constraints.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <span class="step-num">02</span>
-          <div>
-            <h4 data-i18n="process-2-title">System Design</h4>
-            <p style="color:var(--text-muted)" data-i18n="process-2-body">Layouts, motion logic, and typography.</p>
-          </div>
-        </div>
-        <div class="process-step" style="border:none;">
-          <span class="step-num">03</span>
-          <div>
-            <h4 data-i18n="process-3-title">Rollout</h4>
-            <p style="color:var(--text-muted)" data-i18n="process-3-body">Assets delivered for reuse.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-span-6">
-        <div class="grid-container" style="grid-template-columns: 1fr 1fr; gap: 15px;">
-          <div class="stats-box reveal-on-scroll">
-            <div class="stat-num" data-counter="42">0</div>
-            <div class="stat-label" data-i18n="stat-1-label">Campaigns</div>
-          </div>
-          <div class="stats-box reveal-on-scroll">
-            <div class="stat-num" data-counter="7">0</div>
-            <div class="stat-label" data-i18n="stat-2-label">Platforms</div>
-          </div>
-          <div class="stats-box reveal-on-scroll">
-            <div class="stat-num" data-counter="80">0%</div>
-            <div class="stat-label" data-i18n="stat-3-label">Retention</div>
-          </div>
-          <div class="stats-box reveal-on-scroll">
-            <div class="stat-num" data-counter="3">3x</div>
-            <div class="stat-label" data-i18n="stat-4-label">Faster Delivery</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-spacing" style="border-top:1px solid rgba(255,255,255,0.05); border-bottom:1px solid rgba(255,255,255,0.05);">
-    <div class="loop-wrapper">
-      <div class="loop-track">
-        <span class="pill"><i class="fab fa-adobe"></i> Photoshop</span>
-        <span class="pill"><i class="fas fa-pen-nib"></i> Illustrator</span>
-        <span class="pill"><i class="fas fa-film"></i> After Effects</span>
-        <span class="pill"><i class="fas fa-video"></i> Premiere Pro</span>
-        <span class="pill"><i class="fab fa-figma"></i> Figma</span>
-        <span class="pill"><i class="fas fa-cube"></i> Blender</span>
-        <span class="pill"><i class="fas fa-brain"></i> Midjourney</span>
-        <span class="pill"><i class="fab fa-adobe"></i> Photoshop</span>
-        <span class="pill"><i class="fas fa-pen-nib"></i> Illustrator</span>
-        <span class="pill"><i class="fas fa-film"></i> After Effects</span>
-        <span class="pill"><i class="fas fa-video"></i> Premiere Pro</span>
-        <span class="pill"><i class="fab fa-figma"></i> Figma</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="container section-spacing">
-    <div class="grid-container">
-      <div class="col-span-4 glass-panel service-box reveal-on-scroll">
-        <i class="fas fa-fingerprint service-icon"></i>
-        <h3 data-i18n="service-1-title">Identity</h3>
-        <p style="color:var(--text-muted)" data-i18n="service-1-body">From logo to motion behavior.</p>
-      </div>
-      <div class="col-span-4 glass-panel service-box reveal-on-scroll">
-        <i class="fas fa-play service-icon"></i>
-        <h3 data-i18n="service-2-title">Motion</h3>
-        <p style="color:var(--text-muted)" data-i18n="service-2-body">Cinematic motion pieces.</p>
-      </div>
-      <div class="col-span-4 glass-panel service-box reveal-on-scroll">
-        <i class="fas fa-mobile-alt service-icon"></i>
-        <h3 data-i18n="service-3-title">Social</h3>
-        <p style="color:var(--text-muted)" data-i18n="service-3-body">Always-on content engines.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="container section-spacing">
-    <h2 class="title-display" style="text-align:center" data-i18n="title-product">HUGGIES <span class="accent-text">CAMPAIGN</span></h2>
-    <div class="grid-container" style="margin-top: 40px;">
-      <div class="col-span-4 reveal-on-scroll"><img src="0303.JPG" style="width:100%; border-radius:16px; opacity:0.8;"></div>
-      <div class="col-span-4 reveal-on-scroll"><img src="0101.JPG" style="width:100%; border-radius:16px; opacity:0.8;"></div>
-      <div class="col-span-4 reveal-on-scroll"><img src="0202.JPG" style="width:100%; border-radius:16px; opacity:0.8;"></div>
-    </div>
-  </section>
-
-  <section class="container section-spacing">
-    <div class="grid-container">
-      <div class="col-span-6 reveal-on-scroll">
-        <h2 class="title-display" style="font-size: 2.5rem;">Experience</h2>
-        <div class="timeline-item">
-          <div style="font-size:0.8rem; color:#888;">2023 - Present</div>
-          <h4>Freelance Graphic Designer</h4>
-          <p style="color:#666">Jewelry Brand | Saudi Arabia</p>
-        </div>
-        <div class="timeline-item">
-          <div style="font-size:0.8rem; color:#888;">2022 - Present</div>
-          <h4>Graphic & Motion Designer</h4>
-          <p style="color:#666">Orient Detectors | Istanbul</p>
-        </div>
-        <div class="timeline-item">
-          <div style="font-size:0.8rem; color:#888;">2021 - 2022</div>
-          <h4>Motion Designer</h4>
-          <p style="color:#666">PHC Elixir</p>
-        </div>
-        <div class="timeline-item">
-          <div style="font-size:0.8rem; color:#888;">Previous</div>
-          <h4>Video Editor</h4>
-          <p style="color:#666">Al Sharq TV</p>
-        </div>
-      </div>
-      <div class="col-span-6 reveal-on-scroll">
-        <h2 class="title-display" style="font-size: 2.5rem;">Education</h2>
-        <div class="timeline-item" style="border-color: var(--accent);">
-          <div style="font-size:0.8rem; color:#888;">2020 - 2025</div>
-          <h4>Bachelor's Degree</h4>
-          <p style="color:#666">Muğla Sıtkı Koçman University</p>
-          <p style="color:var(--accent)">Mining Engineering</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-spacing" style="background: #0a0000; overflow:hidden;">
-    <div class="container" style="text-align:center; margin-bottom:30px;">
-       <h2 class="title-display" style="font-size:2rem; color:#ef4444;" data-i18n="title-political">PASSION PROJECTS</h2>
-    </div>
-    <div class="loop-wrapper">
-       <div class="loop-track" style="animation-direction: reverse;">
-          <img src="001 copy.png" style="height:300px; border-radius:10px; margin-right:20px;">
-          <img src="002.png" style="height:300px; border-radius:10px; margin-right:20px;">
-          <img src="٠٠٢.png" style="height:300px; border-radius:10px; margin-right:20px;">
-          <img src="003.png" style="height:300px; border-radius:10px; margin-right:20px;">
-          <img src="٠٠٠٦.png" style="height:300px; border-radius:10px; margin-right:20px;">
-          <img src="٣٨٢٩٥.png" style="height:300px; border-radius:10px; margin-right:20px;">
-          <img src="001 copy.png" style="height:300px; border-radius:10px; margin-right:20px;">
-          <img src="002.png" style="height:300px; border-radius:10px; margin-right:20px;">
-       </div>
-    </div>
-  </section>
-
-  <section class="container section-spacing">
-    <h2 class="title-display" style="font-size: 2.5rem; text-align: center; margin-bottom: 50px;" data-i18n="title-faq">FAQ</h2>
-    <div style="max-width: 800px; margin: 0 auto;">
-      <div class="faq-item">
-        <div class="faq-q"><span data-i18n="faq-1-q">Typical Timeline?</span> <span>+</span></div>
-        <div class="faq-a" data-i18n="faq-1-a">3–6 weeks depending on scope.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span data-i18n="faq-2-q">Work with in-house teams?</span> <span>+</span></div>
-        <div class="faq-a" data-i18n="faq-2-a">Yes, I can plug in as a dedicated design arm.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span data-i18n="faq-3-q">Handle scripting?</span> <span>+</span></div>
-        <div class="faq-a" data-i18n="faq-3-a">Yes, for motion films I help shape the narrative.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span data-i18n="faq-4-q">How to start?</span> <span>+</span></div>
-        <div class="faq-a" data-i18n="faq-4-a">A short call with a clear brief.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="container" style="text-align:center; padding: 60px 0;">
-    <div class="glass-panel" style="padding: 60px;">
-      <i class="fas fa-folder-open" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
-      <h2 style="font-size:2rem; font-weight:700; margin-bottom:20px;" data-i18n="archive-title">EXCLUSIVE VAULT</h2>
-      <a href="https://drive.google.com/drive/u/0/folders/1-E4D0ktY12ONLEye6bAyVXkqgzAylrgD" target="_blank" class="btn btn-primary" data-i18n="archive-btn">Open Archive</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div style="text-align: center;">
-        <p style="color:var(--accent); font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;" data-i18n="footer-tag">NEXT BRIEF, PLEASE.</p>
-        <a href="mailto:mohadel0300@gmail.com" class="footer-title">LET'S TALK.</a>
-        <p style="color:#666; max-width:400px; margin: 30px auto;" data-i18n="footer-note">Share a link or rough idea. Short messages get the fastest reply.</p>
+      <div class="hero-content reveal-up">
+        <div class="status-badge" data-i18n="hero-badge"><span class="status-dot"></span>Istanbul Based Creative</div>
         
-        <div style="display:flex; justify-content:center; gap:20px; font-size:1.5rem; margin-bottom: 50px;">
-          <a href="https://www.behance.net/mohamedadel526" target="_blank"><i class="fab fa-behance"></i></a>
-          <a href="https://wa.me/905534766703" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <h1 class="hero-title">
+          <span style="display:block;">MOHAMED</span>
+          <span class="text-gradient">AMER</span>
+        </h1>
+        <span class="hero-script" data-i18n="hero-script">designed to move</span>
+
+        <div class="hero-visual">
+          <img src="MINED.png" alt="Mohamed Amer Profile">
         </div>
 
-        <div style="border-top:1px solid #222; padding-top:20px; display:flex; justify-content:space-between; color:#444; font-size:0.9rem;">
-          <span>&copy; 2025 Mohamed Amer. All rights reserved.</span>
-          <span><i class="fas fa-map-marker-alt"></i> Istanbul, TR</span>
+        <p class="hero-desc" data-i18n="hero-desc">
+          I build visual systems and motion experiences for brands that want to feel <strong>sharp, cinematic, and unapologetically modern</strong>.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#work" class="btn-lux">
+            <span data-i18n="btn-view-work">View Projects</span>
+            <i class="fas fa-arrow-down"></i>
+          </a>
+          <a href="My cv English .pdf" target="_blank" class="btn-glass">
+            <i class="fas fa-download"></i>
+            <span data-i18n="btn-cv">Download CV</span>
+          </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="stat-mini-card">
+            <i class="fas fa-wand-magic-sparkles stat-mini-icon"></i>
+            <div class="stat-mini-title" data-i18n="icon-concept-title">Concept → Launch</div>
+            <div class="stat-mini-desc" data-i18n="icon-concept-caption">Clear visual language.</div>
+          </div>
+          <div class="stat-mini-card">
+            <i class="fas fa-play-circle stat-mini-icon"></i>
+            <div class="stat-mini-title" data-i18n="icon-motion-title">Motion-First</div>
+            <div class="stat-mini-desc" data-i18n="icon-motion-caption">Thinking in keyframes.</div>
+          </div>
+          <div class="stat-mini-card">
+            <i class="fas fa-chart-line stat-mini-icon"></i>
+            <div class="stat-mini-title" data-i18n="icon-growth-title">For Growth</div>
+            <div class="stat-mini-desc" data-i18n="icon-growth-caption">Scalable systems.</div>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </section>
+
+    <section id="work" class="container section-spacing">
+      <div class="section-header reveal-up">
+        <h2 class="title-md" data-i18n="title-cases">Selected <span class="text-gradient">Work</span></h2>
+        <p class="subtitle" data-i18n="subtitle-cases">Where strategy meets cinematic motion.</p>
+      </div>
+
+      <div class="bento-grid">
+        <a href="https://www.behance.net/gallery/181868927/Real-Estate-Social-Media" target="_blank" class="bento-card span-8 reveal-up" style="height: 400px;">
+          <div class="project-link-icon"><i class="fab fa-behance"></i></div>
+          <iframe class="project-embed" src="https://www.behance.net/embed/project/181868927?ilo0=1"></iframe>
+          <div class="project-overlay">
+            <div class="project-title" data-i18n="proj-1-title">Real Estate Social Media</div>
+            <div class="project-cat" data-i18n="proj-1-cat">Graphic Design · 2024</div>
+          </div>
+        </a>
+
+        <a href="https://www.behance.net/gallery/223143539/Food-Industry-Socials" target="_blank" class="bento-card span-4 reveal-up" style="height: 400px;">
+          <div class="project-link-icon"><i class="fab fa-behance"></i></div>
+          <iframe class="project-embed" src="https://www.behance.net/embed/project/223143539?ilo0=1"></iframe>
+          <div class="project-overlay">
+            <div class="project-title" data-i18n="proj-2-title">Food Industry</div>
+            <div class="project-cat" data-i18n="proj-2-cat">Social Design</div>
+          </div>
+        </a>
+
+        <a href="https://www.behance.net/gallery/219706527/Gym-Fitness" target="_blank" class="bento-card span-4 reveal-up" style="height: 350px;">
+          <div class="project-link-icon"><i class="fab fa-behance"></i></div>
+          <iframe class="project-embed" src="https://www.behance.net/embed/project/219706527?ilo0=1"></iframe>
+          <div class="project-overlay">
+            <div class="project-title" data-i18n="proj-3-title">Gym & Fitness</div>
+          </div>
+        </a>
+
+        <a href="https://www.behance.net/gallery/238580093/Orient-Detectors" target="_blank" class="bento-card span-4 reveal-up" style="height: 350px;">
+          <div class="project-link-icon"><i class="fab fa-behance"></i></div>
+          <iframe class="project-embed" src="https://www.behance.net/embed/project/238580093?ilo0=1"></iframe>
+          <div class="project-overlay">
+            <div class="project-title" data-i18n="proj-4-title">Orient Detectors</div>
+          </div>
+        </a>
+
+        <a href="https://www.behance.net/gallery/218895573/Ajax-Systems" target="_blank" class="bento-card span-4 reveal-up" style="height: 350px;">
+          <div class="project-link-icon"><i class="fab fa-behance"></i></div>
+          <iframe class="project-embed" src="https://www.behance.net/embed/project/218895573?ilo0=1"></iframe>
+          <div class="project-overlay">
+            <div class="project-title" data-i18n="proj-5-title">Ajax Systems</div>
+          </div>
+        </a>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="https://www.behance.net/mohamedadel526" target="_blank" class="btn-glass" data-i18n="btn-behance-all">
+          <i class="fab fa-behance"></i> Full Archive
+        </a>
+      </div>
+    </section>
+
+    <section class="container section-spacing" style="overflow: hidden;">
+      <div class="section-header reveal-up">
+        <h2 class="title-md" data-i18n="title-viral">Feed-First <span class="text-gradient">Moments</span></h2>
+        <p class="subtitle" data-i18n="subtitle-viral">Stop the scroll. Sound on or off.</p>
+      </div>
+
+      <div class="deck-container reveal-up">
+        <div class="deck-card" style="transform: rotate(-10deg) translateY(20px);" onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS','_blank')">
+           <img src="https://img.youtube.com/vi/F-lmawsIKEI/maxresdefault.jpg" alt="Viral">
+        </div>
+        <div class="deck-card" style="transform: rotate(-5deg) translateY(0px);" onclick="window.open('https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90','_blank')">
+           <img src="https://img.youtube.com/vi/Z9xVIlCuQpA/maxresdefault.jpg" alt="Viral">
+        </div>
+        <div class="deck-card" style="transform: rotate(5deg) translateY(0px);" onclick="window.open('https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB','_blank')">
+           <img src="https://img.youtube.com/vi/oKIJWxeoMZo/maxresdefault.jpg" alt="Viral">
+        </div>
+        <div class="deck-card" style="transform: rotate(10deg) translateY(20px); background: linear-gradient(45deg, #405de6, #833ab4, #fd1d1d); display:flex; align-items:center; justify-content:center;" onclick="window.open('https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==','_blank')">
+           <i class="fab fa-instagram" style="font-size: 3rem; color: #fff;"></i>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="container section-spacing">
+      <div class="process-layout">
+        <div class="sticky-col reveal-up">
+          <h2 class="title-md" data-i18n="title-process">How we <span class="text-gradient">Build</span></h2>
+          <p class="subtitle" style="margin: 0 0 40px 0;" data-i18n="subtitle-process">A calm process for loud brands.</p>
+          
+          <div class="stat-grid-box">
+             <div class="stat-box">
+                <span class="stat-num" data-counter="42">42+</span>
+                <span class="stat-lbl" data-i18n="stat-1-pill">Campaigns</span>
+             </div>
+             <div class="stat-box">
+                <span class="stat-num" data-counter="80">80%</span>
+                <span class="stat-lbl" data-i18n="stat-3-pill">Retention</span>
+             </div>
+          </div>
+        </div>
+
+        <div>
+           <div class="process-step reveal-up">
+              <div class="step-num">01</div>
+              <h3 style="font-size:1.5rem; margin-bottom:10px;" data-i18n="process-1-title">Discovery</h3>
+              <p style="color:var(--text-secondary);" data-i18n="process-1-body">Mapping brand, market, and constraints. Sharp questions.</p>
+           </div>
+           <div class="process-step reveal-up">
+              <div class="step-num">02</div>
+              <h3 style="font-size:1.5rem; margin-bottom:10px;" data-i18n="process-2-title">System Design</h3>
+              <p style="color:var(--text-secondary);" data-i18n="process-2-body">Visual engine: layout, motion logic, typography.</p>
+           </div>
+           <div class="process-step reveal-up">
+              <div class="step-num">03</div>
+              <h3 style="font-size:1.5rem; margin-bottom:10px;" data-i18n="process-3-title">Rollout</h3>
+              <p style="color:var(--text-secondary);" data-i18n="process-3-body">Production assets delivered ready for scale.</p>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" style="border-top:1px solid var(--border-subtle); border-bottom:1px solid var(--border-subtle);">
+      <div class="marquee-wrap">
+        <div class="marquee-content">
+          <div class="pill"><i class="fab fa-adobe"></i> Photoshop</div>
+          <div class="pill"><i class="fas fa-pen-nib"></i> Illustrator</div>
+          <div class="pill"><i class="fas fa-film"></i> After Effects</div>
+          <div class="pill"><i class="fas fa-video"></i> Premiere Pro</div>
+          <div class="pill"><i class="fab fa-figma"></i> Figma</div>
+          <div class="pill"><i class="fas fa-cube"></i> Blender</div>
+          <div class="pill"><i class="fas fa-brain"></i> Midjourney</div>
+          <div class="pill"><i class="fab fa-adobe"></i> Photoshop</div>
+          <div class="pill"><i class="fas fa-pen-nib"></i> Illustrator</div>
+          <div class="pill"><i class="fas fa-film"></i> After Effects</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="container section-spacing">
+      <div class="section-header reveal-up">
+        <h2 class="title-md" data-i18n="title-experience">Journey</h2>
+      </div>
+      
+      <div class="process-layout">
+        <div class="reveal-up">
+          <h3 style="margin-bottom:30px; color: var(--accent);">Professional</h3>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="time-date">2023 - Present</span>
+            <h4>Freelance Graphic Designer</h4>
+            <p style="color:var(--text-secondary);">Jewelry Brand | Saudi Arabia</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="time-date">2022 - Present</span>
+            <h4>Graphic & Motion Designer</h4>
+            <p style="color:var(--text-secondary);">Orient Detectors | Istanbul</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="time-date">2021 - 2022</span>
+            <h4>Motion Designer</h4>
+            <p style="color:var(--text-secondary);">PHC Elixir</p>
+          </div>
+        </div>
+
+        <div class="reveal-up">
+          <h3 style="margin-bottom:30px; color: var(--accent);">Education</h3>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="time-date">2020 - 2025</span>
+            <h4>Bachelor's Degree</h4>
+            <p style="color:var(--text-secondary);">Mining Engineering (Muğla Sıtkı Koçman Univ)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section-spacing">
+      <div class="section-header reveal-up">
+        <h2 class="title-md" data-i18n="title-services">Studio <span class="text-gradient">Model</span></h2>
+        <p class="subtitle" data-i18n="subtitle-services">Plug into a creative director + production brain.</p>
+      </div>
+      
+      <div class="service-grid">
+        <div class="service-card reveal-up">
+           <i class="fas fa-fingerprint" style="font-size: 2rem; color:var(--accent); margin-bottom:20px;"></i>
+           <div>
+             <h3 data-i18n="service-1-title">Brand Systems</h3>
+             <p style="color:var(--text-secondary); margin-top:10px;" data-i18n="service-1-body">From logo to motion behavior.</p>
+           </div>
+        </div>
+        <div class="service-card reveal-up">
+           <i class="fas fa-play" style="font-size: 2rem; color:var(--accent); margin-bottom:20px;"></i>
+           <div>
+             <h3 data-i18n="service-2-title">Launch Films</h3>
+             <p style="color:var(--text-secondary); margin-top:10px;" data-i18n="service-2-body">Cinematic motion pieces.</p>
+           </div>
+        </div>
+        <div class="service-card reveal-up">
+           <i class="fas fa-bolt" style="font-size: 2rem; color:var(--accent); margin-bottom:20px;"></i>
+           <div>
+             <h3 data-i18n="service-3-title">Social Engine</h3>
+             <p style="color:var(--text-secondary); margin-top:10px;" data-i18n="service-3-body">Always-on content packs.</p>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section-spacing">
+       <h2 class="title-md reveal-up" style="text-align: center; margin-bottom: 40px;" data-i18n="title-product">Huggies <span class="text-gradient">Campaign</span></h2>
+       <div class="showcase-grid reveal-up">
+          <div class="showcase-img"><img src="0303.JPG" alt="Huggies 1"></div>
+          <div class="showcase-img"><img src="0101.JPG" alt="Huggies 2"></div>
+          <div class="showcase-img"><img src="0202.JPG" alt="Huggies 3"></div>
+       </div>
+
+       <div style="height: 100px;"></div>
+
+       <h2 class="title-md reveal-up" style="text-align: center; margin-bottom: 20px;" data-i18n="title-political">Passion <span style="color:#ef4444;">Narratives</span></h2>
+       <div class="political-strip reveal-up">
+          <div class="political-poster"><img src="001 copy.png" alt="Poster"></div>
+          <div class="political-poster"><img src="002.png" alt="Poster"></div>
+          <div class="political-poster"><img src="٠٠٢.png" alt="Poster"></div>
+          <div class="political-poster"><img src="003.png" alt="Poster"></div>
+          <div class="political-poster"><img src="٠٠٠٦.png" alt="Poster"></div>
+          <div class="political-poster"><img src="٣٨٢٩٥.png" alt="Poster"></div>
+       </div>
+    </section>
+
+    <section id="faq" class="container section-spacing">
+       <div class="process-layout">
+         <div class="reveal-up">
+           <h2 class="title-md" data-i18n="title-faq">FAQ</h2>
+           <p class="subtitle" style="margin:0;" data-i18n="subtitle-faq">Answers before the call.</p>
+         </div>
+         <div class="reveal-up">
+            <div class="faq-row">
+               <div class="faq-q"><span data-i18n="faq-1-q">Timeline?</span> <span class="faq-toggle">+</span></div>
+               <div class="faq-a" data-i18n="faq-1-a">3-6 weeks typically.</div>
+            </div>
+            <div class="faq-row">
+               <div class="faq-q"><span data-i18n="faq-2-q">Work with agencies?</span> <span class="faq-toggle">+</span></div>
+               <div class="faq-a" data-i18n="faq-2-a">Yes, I plug into internal teams easily.</div>
+            </div>
+            <div class="faq-row">
+               <div class="faq-q"><span data-i18n="faq-3-q">Scripting?</span> <span class="faq-toggle">+</span></div>
+               <div class="faq-a" data-i18n="faq-3-a">Yes, I help shape the narrative.</div>
+            </div>
+            <div class="faq-row">
+               <div class="faq-q"><span data-i18n="faq-4-q">Start?</span> <span class="faq-toggle">+</span></div>
+               <div class="faq-a" data-i18n="faq-4-a">A clear brief and a short call.</div>
+            </div>
+         </div>
+       </div>
+
+       <div style="margin-top: 80px;" class="reveal-up">
+         <div class="vault-box">
+            <i class="fas fa-folder-open" style="font-size:3rem; color:var(--accent); margin-bottom:20px;"></i>
+            <h2 data-i18n="archive-title">EXCLUSIVE VAULT</h2>
+            <p style="color:var(--text-secondary); margin: 20px 0;" data-i18n="archive-body">Full source files and concepts.</p>
+            <a href="https://drive.google.com/drive/u/0/folders/1-E4D0ktY12ONLEye6bAyVXkqgzAylrgD" target="_blank" class="btn-lux" data-i18n="archive-btn">Open Archive</a>
+         </div>
+       </div>
+    </section>
+
+    <footer>
+      <div class="container reveal-up">
+         <p style="color:var(--accent); font-weight:700; letter-spacing:2px; text-transform:uppercase;" data-i18n="footer-tag">Next brief, please.</p>
+         <a href="mailto:mohadel0300@gmail.com" class="footer-huge">
+            <span data-i18n="footer-title-line-1">Let's</span> <span data-i18n="footer-title-line-2">Talk.</span>
+         </a>
+         
+         <div class="footer-meta">
+            <div>&copy; 2025 <span data-i18n="footer-name">Mohamed Amer</span></div>
+            <div class="social-links">
+               <a href="https://www.behance.net/mohamedadel526" target="_blank"><i class="fab fa-behance"></i></a>
+               <a href="https://wa.me/905534766703" target="_blank"><i class="fab fa-whatsapp"></i></a>
+               <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+               <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer-location">Istanbul, TR</span></div>
+         </div>
+      </div>
+    </footer>
+
+  </main>
 
   <script>
-    (function () {
-      "use strict";
-
-      const state = { lang: "en" };
-      
-      // --- I18N DATA (Preserved from original) ---
-      const I18N_DICT = {
-        "hero-badge": { en: "<span class='label-dot'></span> ISTANBUL BASED CREATIVE", ar: "<span class='label-dot'></span> كريتيف ديـركتور مقيم في إسطنبول" },
-        "hero-script": { en: "designed to move", ar: "مصمَّم عشان يِتحرّك" },
-        "hero-desc": { en: "I build visual systems and motion experiences for brands that want to feel <strong>sharp, cinematic, and unapologetically modern</strong>.", ar: "باشتغل مع البراندز اللي عايزة تطلع <strong>شارب، سينمائي، وحديثة</strong>." },
-        "btn-view-work": { en: "View signature projects", ar: "شوف الشغل المميز" },
-        "btn-cv": { en: "Download CV", ar: "حمِّل السيرة الذاتية" },
-        
-        "icon-concept-title": { en: "Concept → Launch", ar: "من فكرة لإطلاق" },
-        "icon-concept-caption": { en: "From messy idea to shippable visual.", ar: "من فكرة مشوشة لفيجوال جاهز." },
-        "icon-motion-title": { en: "Motion-first", ar: "تفكير موشن" },
-        "icon-motion-caption": { en: "Design that thinks in keyframes.", ar: "تصميم جاهز للتحريك." },
-        "icon-growth-title": { en: "Built for growth", ar: "قابل للنمو" },
-        "icon-growth-caption": { en: "Systems that scale seamlessly.", ar: "أنظمة بتكبر مع البراند." },
-
-        "label-portfolio": { en: "Selected Work", ar: "أعمال مختارة" },
-        "title-cases": { en: "FEATURED <span class='accent-text'>WORK</span>", ar: "أبرز <span class='accent-text'>الأعمال</span>" },
-        
-        "proj-1-title": { en: "Real Estate Social Media", ar: "سوشيال ميديا عقارات" },
-        "proj-1-cat": { en: "Graphic Design · 2024", ar: "ديزاين بصري · ٢٠٢٤" },
+    /* =========================================================
+       LOGIC & INTERACTION
+       ========================================================= */
+    const state = { lang: "en" };
+    
+    // 1. Translations (Preserved from original)
+    const I18N_DICT = {
+        "hero-badge": { en: "<span class='status-dot'></span>ISTANBUL BASED CREATIVE", ar: "<span class='status-dot'></span>مقيم في إسطنبول" },
+        "hero-script": { en: "designed to move", ar: "مصمَّم ليتحرّك" },
+        "hero-desc": { en: "I build visual systems and motion experiences for brands that want to feel <strong>sharp, cinematic, and unapologetically modern</strong>.", ar: "أقوم ببناء أنظمة بصرية وتجارب موشن للبراندات التي تريد الظهور بشكل <strong>سينمائي، حاد، وحديث</strong>." },
+        "btn-view-work": { en: "View signature projects", ar: "شاهد الأعمال" },
+        "btn-cv": { en: "Download CV", ar: "تحميل السيرة الذاتية" },
+        "icon-concept-title": { en: "Concept → Launch", ar: "من الفكرة للإطلاق" },
+        "icon-concept-caption": { en: "Clear visual language.", ar: "لغة بصرية واضحة." },
+        "icon-motion-title": { en: "Motion-First", ar: "موشن أولاً" },
+        "icon-motion-caption": { en: "Thinking in keyframes.", ar: "تفكير بالحركة." },
+        "icon-growth-title": { en: "For Growth", ar: "للنمو" },
+        "icon-growth-caption": { en: "Scalable systems.", ar: "أنظمة قابلة للتوسع." },
+        "title-cases": { en: "Selected <span class='text-gradient'>Work</span>", ar: "أعمال <span class='text-gradient'>مختارة</span>" },
+        "subtitle-cases": { en: "Where strategy meets cinematic motion.", ar: "حيث تلتقي الاستراتيجية بالحركة السينمائية." },
+        "proj-1-title": { en: "Real Estate Social Media", ar: "عقارات سوشيال ميديا" },
+        "proj-1-cat": { en: "Graphic Design · 2024", ar: "تصميم جرافيك · ٢٠٢٤" },
         "proj-2-title": { en: "Food Industry", ar: "صناعة الأغذية" },
-        "proj-2-cat": { en: "Social Design", ar: "سوشيال ديزاين" },
+        "proj-2-cat": { en: "Social Design", ar: "تصميم سوشيال" },
         "proj-3-title": { en: "Gym & Fitness", ar: "جيم ولياقة" },
-        "proj-3-cat": { en: "Brand System", ar: "نظام هوية" },
-        "proj-4-title": { en: "Orient Detectors", ar: "أورينت ديتيكتورز" },
-        "proj-4-cat": { en: "Motion Campaign", ar: "حملة موشن" },
-        "proj-5-title": { en: "Ajax Systems", ar: "أجاكس سيستمز" },
-        "proj-5-cat": { en: "Identity · 2023", ar: "هوية · ٢٠٢٣" },
-
-        "btn-behance-all": { en: "Explore Behance Archive", ar: "تصفّح أرشيف بيهانس" },
-        
-        "title-viral": { en: "VIRAL <span class='accent-text'>MOMENTS</span>", ar: "لحيظات <span class='accent-text'>فيرال</span>" },
-        "subtitle-viral": { en: "Feed-first content designed to stop the scroll.", ar: "محتوى يوقف السكرول في السوشيال ميديا." },
-
-        "title-process": { en: "How we build.", ar: "كيف نبني العمل." },
-        "process-1-title": { en: "Discovery", ar: "الاكتشاف" },
-        "process-1-body": { en: "Mapping the market & constraints.", ar: "فهم السوق والقيود." },
+        "proj-4-title": { en: "Orient Detectors", ar: "Orient Detectors" },
+        "proj-5-title": { en: "Ajax Systems", ar: "Ajax Systems" },
+        "btn-behance-all": { en: "Full Archive", ar: "الأرشيف الكامل" },
+        "title-viral": { en: "Feed-First <span class='text-gradient'>Moments</span>", ar: "لحظات <span class='text-gradient'>المشاهدة</span>" },
+        "subtitle-viral": { en: "Stop the scroll.", ar: "توقف عن التمرير." },
+        "title-process": { en: "How we <span class='text-gradient'>Build</span>", ar: "كيف <span class='text-gradient'>نبني</span>" },
+        "subtitle-process": { en: "A calm process for loud brands.", ar: "عملية هادئة لعلامات تجارية قوية." },
+        "process-1-title": { en: "Discovery", ar: "اكتشاف" },
+        "process-1-body": { en: "Mapping brand, market, and constraints.", ar: "تحليل البراند والسوق." },
         "process-2-title": { en: "System Design", ar: "تصميم النظام" },
-        "process-2-body": { en: "Layouts, motion logic, typography.", ar: "تخطيط، منطق الحركة، والخطوط." },
+        "process-2-body": { en: "Visual engine: layout, motion logic.", ar: "المحرك البصري والمنطق الحركي." },
         "process-3-title": { en: "Rollout", ar: "الإطلاق" },
-        "process-3-body": { en: "Assets delivered for reuse.", ar: "تسليم الملفات لإعادة الاستخدام." },
-
-        "stat-1-label": { en: "Campaigns", ar: "حملة إعلانية" },
-        "stat-2-label": { en: "Platforms", ar: "منصة" },
-        "stat-3-label": { en: "Retention", ar: "نسبة احتفاظ" },
-        "stat-4-label": { en: "Faster Delivery", ar: "سرعة تسليم" },
-
-        "service-1-title": { en: "Identity", ar: "الهوية" },
-        "service-1-body": { en: "From logo to motion behavior.", ar: "من اللوجو لسلوك الحركة." },
-        "service-2-title": { en: "Motion", ar: "موشن جرافيك" },
-        "service-2-body": { en: "Cinematic motion pieces.", ar: "مقاطع موشن سينمائية." },
-        "service-3-title": { en: "Social", ar: "سوشيال ميديا" },
-        "service-3-body": { en: "Always-on content engines.", ar: "محتوى مستمر ومتجدد." },
-
-        "title-product": { en: "HUGGIES <span class='accent-text'>CAMPAIGN</span>", ar: "حملة <span class='accent-text'>هجيز</span>" },
-        "title-political": { en: "PASSION PROJECTS", ar: "مشاريع شغف" },
-        
-        "title-faq": { en: "FAQ", ar: "أسئلة شائعة" },
-        "faq-1-q": { en: "Typical Timeline?", ar: "المدة الزمنية؟" },
-        "faq-1-a": { en: "3–6 weeks depending on scope.", ar: "٣-٦ أسابيع حسب النطاق." },
-        "faq-2-q": { en: "Work with in-house teams?", ar: "العمل مع فرق داخلية؟" },
-        "faq-2-a": { en: "Yes, I can plug in as a dedicated design arm.", ar: "نعم، أعمل كذراع تصميم مخصص." },
-        "faq-3-q": { en: "Handle scripting?", ar: "كتابة السكريبت؟" },
-        "faq-3-a": { en: "Yes, for motion films I help shape the narrative.", ar: "نعم، للموشن أساعد في السرد." },
-        "faq-4-q": { en: "How to start?", ar: "كيف نبدأ؟" },
-        "faq-4-a": { en: "A short call with a clear brief.", ar: "مكالمة قصيرة مع ملخص واضح." },
-
+        "process-3-body": { en: "Production assets delivered.", ar: "تسليم ملفات الإنتاج." },
+        "stat-1-pill": { en: "Campaigns", ar: "حملات" },
+        "stat-3-pill": { en: "Retention", ar: "احتفاظ" },
+        "title-experience": { en: "Journey", ar: "الرحلة" },
+        "title-services": { en: "Studio <span class='text-gradient'>Model</span>", ar: "نموذج <span class='text-gradient'>الاستوديو</span>" },
+        "subtitle-services": { en: "Plug into a creative director.", ar: "تواصل مع مدير إبداعي." },
+        "service-1-title": { en: "Brand Systems", ar: "أنظمة البراند" },
+        "service-1-body": { en: "From logo to motion behavior.", ar: "من الشعار إلى سلوك الحركة." },
+        "service-2-title": { en: "Launch Films", ar: "أفلام الإطلاق" },
+        "service-2-body": { en: "Cinematic motion pieces.", ar: "قطع موشن سينمائية." },
+        "service-3-title": { en: "Social Engine", ar: "محرك سوشيال" },
+        "service-3-body": { en: "Always-on content packs.", ar: "حزم محتوى مستمرة." },
+        "title-product": { en: "Huggies <span class='text-gradient'>Campaign</span>", ar: "حملة <span class='text-gradient'>هجيز</span>" },
+        "title-political": { en: "Passion <span style='color:#ef4444;'>Narratives</span>", ar: "قصص <span style='color:#ef4444;'>شغف</span>" },
+        "title-faq": { en: "FAQ", ar: "أسئلة" },
+        "subtitle-faq": { en: "Answers before the call.", ar: "إجابات قبل المكالمة." },
+        "faq-1-q": { en: "Timeline?", ar: "المدة الزمنية؟" },
+        "faq-1-a": { en: "3-6 weeks typically.", ar: "عادة من ٣ إلى ٦ أسابيع." },
+        "faq-2-q": { en: "Work with agencies?", ar: "العمل مع وكالات؟" },
+        "faq-2-a": { en: "Yes, I plug into internal teams.", ar: "نعم، أندمج مع الفرق الداخلية." },
+        "faq-3-q": { en: "Scripting?", ar: "كتابة السيناريو؟" },
+        "faq-3-a": { en: "Yes, I help shape the narrative.", ar: "نعم، أساعد في صياغة القصة." },
+        "faq-4-q": { en: "Start?", ar: "البداية؟" },
+        "faq-4-a": { en: "A clear brief and a short call.", ar: "ملخص واضح ومكالمة قصيرة." },
         "archive-title": { en: "EXCLUSIVE VAULT", ar: "الأرشيف الخاص" },
-        "archive-btn": { en: "Open Archive", ar: "افتح الأرشيف" },
+        "archive-body": { en: "Full source files and concepts.", ar: "ملفات المصدر والمفاهيم." },
+        "archive-btn": { en: "Open Archive", ar: "فتح الأرشيف" },
+        "footer-tag": { en: "Next brief, please.", ar: "جاهز للمشروع التالي." },
+        "footer-title-line-1": { en: "Let's", ar: "لنبدأ" },
+        "footer-title-line-2": { en: "Talk.", ar: "الحديث." },
+        "footer-name": { en: "Mohamed Amer", ar: "محمد عامر" },
+        "footer-location": { en: "Istanbul, TR", ar: "إسطنبول، تركيا" }
+    };
 
-        "footer-tag": { en: "NEXT BRIEF, PLEASE.", ar: "المشروع القادم." },
-        "footer-note": { en: "Share a link or rough idea.", ar: "شارك رابط أو فكرة مبدئية." },
-      };
-
-      // --- LOGIC ---
-      
-      // 1. Preloader
-      window.addEventListener("load", () => {
-        const preloader = document.getElementById("preloader");
-        setTimeout(() => {
-          preloader.style.opacity = "0";
-          setTimeout(() => preloader.style.display = "none", 500);
-          document.body.classList.remove("loading");
-        }, 800);
+    function applyTranslations() {
+      document.documentElement.dir = state.lang === "ar" ? "rtl" : "ltr";
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        const entry = I18N_DICT[key];
+        if (entry) el.innerHTML = entry[state.lang] || entry.en;
       });
+    }
 
-      // 2. Language Toggle
-      const toggleBtn = document.getElementById("langToggle");
-      toggleBtn.addEventListener("click", () => {
-        state.lang = state.lang === "en" ? "ar" : "en";
-        toggleBtn.querySelector(".lang-text").innerText = state.lang === "en" ? "AR" : "EN";
-        document.documentElement.dir = state.lang === "ar" ? "rtl" : "ltr";
-        
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.getAttribute("data-i18n");
-          if(I18N_DICT[key]) el.innerHTML = I18N_DICT[key][state.lang];
-        });
-      });
+    document.getElementById("langToggle").addEventListener("click", () => {
+      state.lang = state.lang === "en" ? "ar" : "en";
+      document.querySelector(".lang-text").innerText = state.lang === "en" ? "AR" : "EN";
+      applyTranslations();
+    });
 
-      // 3. Reveal on Scroll (Intersection Observer)
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll(".reveal-on-scroll").forEach(el => observer.observe(el));
+    // 2. Preloader
+    window.addEventListener("load", () => {
+      document.getElementById("loaderProgress").style.width = "100%";
+      setTimeout(() => {
+        document.getElementById("loader").style.opacity = "0";
+        setTimeout(() => document.getElementById("loader").remove(), 500);
+      }, 800);
+    });
 
-      // 4. Counters Logic
-      function animateCounters() {
-        document.querySelectorAll("[data-counter]").forEach(el => {
-          const target = el.getAttribute("data-counter");
-          const isPct = target.includes("%");
-          const isX = target.includes("x");
-          const val = parseInt(target);
-          let curr = 0;
-          const inc = val / 50;
-          const interval = setInterval(() => {
-            curr += inc;
-            if(curr >= val) {
-               curr = val; 
-               clearInterval(interval); 
-            }
-            el.innerText = Math.floor(curr) + (isPct ? "%" : (isX ? "x" : "+"));
-          }, 30);
-        });
-      }
-      
-      // Trigger counters when Stats section is visible
-      const statsSection = document.getElementById("process");
-      const statsObs = new IntersectionObserver((entries) => {
-        if(entries[0].isIntersecting) {
-          animateCounters();
-          statsObs.disconnect();
+    // 3. Reveal on Scroll (IntersectionObserver)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // Animate Counters if inside
+          const counters = entry.target.querySelectorAll("[data-counter]");
+          counters.forEach(c => animateCounter(c));
         }
       });
-      if(statsSection) statsObs.observe(statsSection);
+    }, { threshold: 0.1 });
 
-      // 5. FAQ Toggle
-      document.querySelectorAll(".faq-item").forEach(item => {
-        item.addEventListener("click", () => item.classList.toggle("active"));
-      });
+    document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
 
-      // 6. Canvas Background (Particles)
-      const canvas = document.getElementById("canvas-bg");
-      const ctx = canvas.getContext("2d");
-      let w, h, particles = [];
-      
-      function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
-      window.addEventListener("resize", resize);
-      resize();
+    // 4. Counter Animation
+    function animateCounter(el) {
+       const target = el.getAttribute("data-counter");
+       let start = 0;
+       const end = parseInt(target.replace(/\D/g,'')); // remove non-digits
+       const duration = 2000;
+       const startTime = performance.now();
+       
+       function update(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const val = Math.floor(progress * end);
+          el.innerText = target.replace(end, val); // put number back with suffix
+          if(progress < 1) requestAnimationFrame(update);
+          else el.innerText = target;
+       }
+       requestAnimationFrame(update);
+    }
 
-      function initParticles() {
-        particles = [];
-        for(let i=0; i<50; i++) {
-          particles.push({
-            x: Math.random()*w, y: Math.random()*h,
-            vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5,
-            size: Math.random()*2, alpha: Math.random()*0.5
-          });
-        }
-      }
-      initParticles();
+    // 5. FAQ Toggle
+    document.querySelectorAll(".faq-row").forEach(row => {
+      row.addEventListener("click", () => row.classList.toggle("active"));
+    });
 
-      function animateCanvas() {
-        ctx.clearRect(0,0,w,h);
-        particles.forEach(p => {
-          p.x += p.vx; p.y += p.vy;
-          if(p.x < 0 || p.x > w) p.vx *= -1;
-          if(p.y < 0 || p.y > h) p.vy *= -1;
-          ctx.fillStyle = `rgba(0, 113, 227, ${p.alpha})`; // Apple Blue particles
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-          ctx.fill();
-        });
-        requestAnimationFrame(animateCanvas);
-      }
-      animateCanvas();
+    // 6. Simple Parallax Effect for Hero
+    window.addEventListener('scroll', () => {
+       const scrolled = window.scrollY;
+       const title = document.querySelector('.hero-title');
+       const ticker = document.querySelector('.hero-ticker');
+       
+       if(title && scrolled < 600) {
+          title.style.transform = `translateY(${scrolled * 0.2}px)`;
+          ticker.style.transform = `translate(-50%, -50%) rotate(-5deg) translateX(${-scrolled * 0.5}px)`;
+       }
+    });
 
-    })();
   </script>
 </body>
 </html>
