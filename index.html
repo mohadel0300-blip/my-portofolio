@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omar Alaa — Video Producer</title>
-  <meta name="description" content="Portfolio of Omar Alaa, Video Producer and Cinematographer based in Istanbul." />
+  <title>عمر علاء — منتج فيديو</title>
+  <meta name="description" content="معرض أعمال عمر علاء، منتج فيديو ومدير تصوير ومونتير مقيم في إسطنبول." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Using Noto Sans Arabic for professional Arabic typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -20,7 +21,7 @@
       --text-muted: #555555; 
       --accent: #000000;     
       --radius: 16px;        
-      --container: 1100px;   /* Slightly wider for the grid */
+      --container: 1100px;   
       
       /* Glassmorphism Variables */
       --glass-bg: rgba(255, 255, 255, 0.65);
@@ -36,7 +37,7 @@
     }
     
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Noto Sans Arabic', system-ui, -apple-system, sans-serif;
       color: var(--text-main);
       line-height: 1.6;
       font-size: 16px;
@@ -90,141 +91,64 @@
       transform: translateY(0);
     }
 
-    /* --- 3. REDESIGNED HERO SECTION --- */
+    /* --- 3. HERO SECTION --- */
     .hero { 
-      padding: 100px 0 100px 0; 
+      padding: 120px 0 80px 0; 
       border-bottom: 1px solid rgba(0,0,0,0.03);
       background: transparent; 
       text-align: center;
-      position: relative;
-      overflow: hidden;
     } 
-
-    /* Cinematic Spotlight Effect */
-    .hero::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-        z-index: -1;
-        animation: spotlightMove 8s infinite alternate ease-in-out;
-        pointer-events: none;
-    }
-
-    @keyframes spotlightMove {
-        0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-        100% { transform: translate(-50%, -45%) scale(1.2); opacity: 0.8; }
-    }
     
     .hero-grid {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
     }
     
-    /* New Logo Container */
-    .brand-mark {
-        margin-bottom: 40px;
-        animation: floatLogo 6s ease-in-out infinite;
-    }
-    
-    @keyframes floatLogo {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
-
-    .hero-title-large {
-        font-size: 5rem;
-        font-weight: 900;
-        letter-spacing: -0.04em;
-        line-height: 0.9;
-        margin-bottom: 20px;
-        background: linear-gradient(180deg, #000 0%, #444 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-transform: uppercase;
-    }
-    
-    .role-ticker {
-        font-size: 1.25rem;
-        font-weight: 500;
-        color: var(--text-main);
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        justify-content: center;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
-    }
-    
-    .role-dot {
-        width: 6px; 
-        height: 6px; 
-        background: var(--accent); 
-        border-radius: 50%;
-        opacity: 0.5;
-    }
-
-    .location-badge {
+    /* Location Badge */
+    .hero-content .label {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      padding: 8px 16px;
-      border-radius: 50px;
-      font-size: 0.9rem;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 30px; 
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      margin-bottom: 20px; 
+      backdrop-filter: blur(5px);
     }
 
-    .hero-desc {
-        font-size: 1.15rem;
-        color: var(--text-muted);
-        line-height: 1.7;
-        max-width: 700px;
-        margin: 0 auto;
-    }
-
-    /* Contact Info Styling */
     .hero-contact {
       display: flex;
       flex-direction: row;
       justify-content: center;
       flex-wrap: wrap;
       gap: 15px;
-      margin-top: 40px;
+      margin-top: 30px;
       margin-bottom: 30px; 
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
     .hero-contact a {
       display: flex;
       align-items: center;
       gap: 10px;
       color: var(--text-main);
-      font-weight: 600;
-      padding: 12px 24px;
-      background: white;
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 12px;
-      transition: all 0.2s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+      font-weight: 500;
+      padding: 10px 18px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50px;
+      transition: background 0.2s;
     }
     .hero-contact a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.8);
     }
     .hero-contact a svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
 
     .hero-buttons { 
@@ -298,7 +222,7 @@
 
     /* Experience Card Special Styling */
     .experience-card {
-        border-left: 4px solid var(--accent);
+        border-right: 4px solid var(--accent); /* Changed to right for RTL */
         background: rgba(255,255,255,0.6);
         margin-bottom: 40px;
     }
@@ -324,7 +248,7 @@
       border-radius: var(--radius);
       transition: all 0.3s ease;
       padding: 24px;
-      text-align: left;
+      text-align: right; /* RTL Alignment */
     }
     .work-item:hover { 
         transform: translateY(-3px); 
@@ -389,7 +313,7 @@
         align-items: center; 
         gap: 16px; 
         margin-bottom: 16px; 
-        color: var(--text-main); /* Darker text for tool names */
+        color: var(--text-main); 
         font-weight: 500;
         font-size: 0.95rem;
         background: rgba(255,255,255,0.4);
@@ -401,27 +325,12 @@
         background: rgba(255,255,255,0.8);
     }
     .tools-list li:last-child { margin-bottom: 0; }
-    
-    /* Brand Logo SVG Styling */
-    .brand-logo {
-        width: 32px;
-        height: 32px;
-        display: block;
-        border-radius: 4px;
-    }
-    .brand-logo-wide {
-        width: auto;
-        height: 16px;
-        display: block;
-    }
-
 
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
       section { padding: 60px 0; } 
       .hero { padding: 60px 0; } 
       h1 { font-size: 2rem; }
-      .hero-title-large { font-size: 3.5rem; } /* Scale down title on mobile */
       .grid-3 { grid-template-columns: 1fr; }
       .work-grid { grid-template-columns: 1fr; }
       .hero-contact { flex-direction: column; gap: 10px; }
@@ -435,57 +344,37 @@
   <section id="about" class="hero">
     <div class="container scroll-animate">
       <div class="hero-grid">
-        
-        <!-- NEW LOGO -->
-        <div class="brand-mark">
-          <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- A modern aperture/shutter design -->
-            <circle cx="50" cy="50" r="45" stroke="black" stroke-width="4"/>
-            <path d="M50 20 L50 40" stroke="black" stroke-width="3" stroke-linecap="round"/>
-            <path d="M50 60 L50 80" stroke="black" stroke-width="3" stroke-linecap="round"/>
-            <path d="M20 50 L40 50" stroke="black" stroke-width="3" stroke-linecap="round"/>
-            <path d="M60 50 L80 50" stroke="black" stroke-width="3" stroke-linecap="round"/>
-            <!-- Center Focus -->
-            <circle cx="50" cy="50" r="12" fill="black"/>
-            <!-- 'OA' Initials hint -->
-            <path d="M75 25 Q90 25 90 40" stroke="black" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
-          </svg>
-        </div>
-
-        <div class="location-badge">
-             <div data-lucide="map-pin" style="width:14px; height:14px;"></div>
-             Based in Istanbul, Turkey
-        </div>
-
         <div class="hero-content">
-          <!-- Big Typography Name -->
-          <h1 class="hero-title-large">OMAR ALAA</h1>
-          
-          <!-- Role Ticker -->
-          <div class="role-ticker">
-             <span>Video Producer</span>
-             <div class="role-dot"></div>
-             <span>Cinematographer</span>
-             <div class="role-dot"></div>
-             <span>Video Editor</span>
-          </div>
-
-          <p class="hero-desc">
-            Creative and skilled Video Producer with <strong>2 years of professional experience</strong>. Specializing in high-end cinematic shooting, precise lighting design, and post-production for modern corporate and creative environments.
+          <span class="label">
+            <div data-lucide="map-pin" style="width:16px;"></div> 
+            إسطنبول، تركيا
+          </span>
+          <h1>عمر علاء</h1>
+          <p style="margin: 0 auto 5px auto; font-weight: 500; font-size: 1.1rem; color: var(--text-main);">
+             منتج فيديو | مصوّر فيديو | مونتير
           </p>
           
-          <!-- CONTACT INFO (Styled as buttons) -->
+          <p style="margin: 25px auto 0 auto; line-height: 1.7;">
+            منتج ومصوّر ومحرّر فيديو بخبرة <strong>سنتين</strong> في التصوير، الإضاءة، وتحرير الفيديو. أعمل حاليًا في <strong>Procat Media</strong> بإسطنبول. متخصص في إنتاج محتوى بصري عالي الجودة للشركات، مع التركيز على جودة الصورة ووضوح الفكرة.
+          </p>
+          
+          <!-- CONTACT INFO -->
           <div class="hero-contact">
             <a href="mailto:omaralaasaad2020@gmail.com">
               <div data-lucide="mail"></div>
-              Email Me
+              omaralaasaad2020@gmail.com
             </a>
             <a href="tel:+905013484516">
               <div data-lucide="phone"></div>
-              Call Now
+              +90 501 348 4516
             </a>
           </div>
 
+          <div class="hero-buttons">
+            <a href="mailto:omaralaasaad2020@gmail.com" class="btn btn-primary pulsing" style="display:flex; align-items:center; gap:8px;">
+                تواصل معي <div data-lucide="arrow-left" style="width:16px;"></div> <!-- Arrow-left for RTL "next" logic -->
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -494,23 +383,23 @@
   <!-- PROFESSIONAL EXPERIENCE -->
   <section id="experience" style="padding-bottom: 20px;">
     <div class="container scroll-animate">
-      <h2>Professional Experience</h2>
+      <h2>الخبرة العملية</h2>
       <div class="card experience-card" style="max-width: 800px; margin: 0 auto;">
           <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:15px;">
               <div>
                   <h3 style="margin-bottom:5px;">Procat Media</h3>
-                  <span style="color:var(--text-muted); font-weight:500;">Istanbul, Turkey</span>
+                  <span style="color:var(--text-muted); font-weight:500;">إسطنبول، تركيا</span>
               </div>
-              <span style="background:#111; color:white; padding:5px 12px; border-radius:6px; font-size:0.85rem; font-weight:600;">2023 – Present</span>
+              <span style="background:#111; color:white; padding:5px 12px; border-radius:6px; font-size:0.85rem; font-weight:600;">2023 – الآن</span>
           </div>
-          <h4 style="margin-bottom:15px; font-size:1rem;">Video Producer | Cinematographer | Video Editor</h4>
-          <ul style="list-style:disc; padding-left:20px; color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
-              <li>Produce clean and modern product and promotional videos</li>
-              <li>Design lighting setups aligned with brand identity and scene mood</li>
-              <li>Shoot podcasts and studio‑based video content</li>
-              <li>Create short‑form videos and reels for social media platforms</li>
-              <li>Edit and finalize videos using Premiere Pro and After Effects</li>
-              <li>Collaborate closely with creative and marketing teams</li>
+          <h4 style="margin-bottom:15px; font-size:1rem;">منتج فيديو | مصوّر | محرّر فيديو</h4>
+          <ul style="list-style:disc; padding-right:20px; color:var(--text-muted); font-size:0.95rem; line-height:1.6;"> <!-- padding-right for RTL lists -->
+              <li>تصوير وإنتاج فيديوهات منتجات وفيديوهات تعريفية وترويجية</li>
+              <li>تجهيز الإضاءة بما يناسب المحتوى وهوية الجهة</li>
+              <li>تصوير بودكاست ومحتوى داخل الاستوديو</li>
+              <li>إعداد فيديوهات قصيرة (ريلز) لمنصات السوشيال ميديا</li>
+              <li>مونتاج وتسليم النسخ النهائية باستخدام Premiere Pro وAfter Effects</li>
+              <li>العمل مع فريق المحتوى والتسويق حسب خطة الإنتاج</li>
           </ul>
       </div>
     </div>
@@ -520,72 +409,41 @@
   <section id="services">
     <div class="container scroll-animate">
       <div class="section-desc">
-        <h2>Key Skills</h2>
-        <p>Comprehensive expertise covering the entire production lifecycle.</p>
+        <h2>المهارات الأساسية</h2>
+        <p>خبرة شاملة تغطي كافة مراحل الإنتاج الفني.</p>
       </div>
       
       <div class="grid-3">
         <!-- Skill 1 -->
         <div class="card">
           <div data-lucide="clapperboard" class="card-icon"></div>
-          <h3>Cinematography & Direction</h3>
-          <p>Cinematic shooting, visual storytelling, shot planning, and advanced camera movement techniques.</p>
+          <h3>التصوير والإخراج</h3>
+          <p>تصوير فيديو احترافي، تخطيط اللقطات، حركة الكاميرا، وتصوير داخل الاستوديو وخارجه.</p>
         </div>
         
         <!-- Skill 2 -->
         <div class="card">
           <div data-lucide="zap" class="card-icon"></div>
-          <h3>Lighting & Equipment</h3>
-          <p>Professional lighting setups (Indoor/Outdoor), mood creation. Expertise with Ronin/Gimbals, Sony & Canon cameras.</p>
+          <h3>الإضاءة والمعدات</h3>
+          <p>إعداد الإضاءة للمشاهد الداخلية والخارجية وضبطها حسب طبيعة المحتوى. خبرة في استخدام Ronin ومعدات الاستوديو.</p>
         </div>
         
         <!-- Skill 3 -->
         <div class="card">
           <div data-lucide="sliders-horizontal" class="card-icon"></div>
-          <h3>Editing & Post‑Production</h3>
-          <p>Adobe Premiere Pro & After Effects. Color correction, basic color grading, and motion graphics.</p>
+          <h3>المونتاج وما بعد الإنتاج</h3>
+          <p>Adobe Premiere Pro وAfter Effects. تصحيح ألوان، تدرّج الألوان، وموشن جرافيك بسيط.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TOOLS & PROGRAMS (AUTHENTIC LOGOS) -->
-  <section id="tools">
-    <div class="container scroll-animate">
-      <div class="section-desc">
-        <h2>Tools & Technologies</h2>
-        <p>The industry-standard hardware and software I use to bring stories to life.</p>
-      </div>
-
-      <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-        
-        <!-- Software Card -->
-        <div class="card">
-          <div data-lucide="monitor-play" class="card-icon"></div>
-          <h3>Editing & Software</h3>
-          <ul class="tools-list">
-            <li>
-              <!-- Adobe Premiere Pro Logo -->
-              <svg class="brand-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="64" height="64" rx="12" fill="#00005B"/>
-                <!-- 'Pr' approximation -->
-                <path d="M18 18H28C34 18 36 21 36 25C36 29 34 32 28 32H23V46H18V18Z" fill="#9999FF"/>
-                <path d="M23 22V28H28C30.5 28 31.5 27 31.5 25C31.5 23 30.5 22 28 22H23Z" fill="#00005B"/>
-                <path d="M40 26H44V29.5C44 29.5 45 26 49 26V30C49 30 45 30 44 33V46H40V26Z" fill="#9999FF"/>
-              </svg>
-              Adobe Premiere Pro
-            </li>
-            <li>
-              <!-- Adobe After Effects Logo -->
-              <svg class="brand-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="64" height="64" rx="12" fill="#00005B"/>
-                <!-- 'Ae' approximation -->
   <!-- TOOLS & PROGRAMS (ICONS) -->
   <section id="tools">
     <div class="container scroll-animate">
       <div class="section-desc">
-        <h2>Tools & Technologies</h2>
-        <p>The industry-standard hardware and software I use to bring stories to life.</p>
+        <h2>الأدوات والتقنيات</h2>
+        <p>البرامج والمعدات الاحترافية التي أستخدمها لإنتاج محتوى عالي الجودة.</p>
       </div>
 
       <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
@@ -593,7 +451,7 @@
         <!-- Software Card -->
         <div class="card">
           <div data-lucide="monitor-play" class="card-icon"></div>
-          <h3>Editing & Software</h3>
+          <h3>برامج المونتاج</h3>
           <ul class="tools-list">
             <li>
               <div data-lucide="clapperboard" style="width: 24px; color: var(--accent);"></div>
@@ -605,7 +463,7 @@
             </li>
             <li>
                <div data-lucide="palette" style="width: 24px; color: var(--accent);"></div> 
-               Color Grading & Motion
+               تصحيح الألوان والموشن
             </li>
           </ul>
         </div>
@@ -613,15 +471,15 @@
         <!-- Hardware Card -->
         <div class="card">
           <div data-lucide="camera" class="card-icon"></div>
-          <h3>Camera & Gear</h3>
+          <h3>الكاميرات والمعدات</h3>
           <ul class="tools-list">
              <li>
                <div data-lucide="camera" style="width: 24px; color: var(--accent);"></div>
-               Sony Cameras
+               كاميرات Sony
             </li>
             <li>
               <div data-lucide="aperture" style="width: 24px; color: var(--accent);"></div>
-              Canon Cameras
+              كاميرات Canon
             </li>
             <li>
               <div data-lucide="move-3d" style="width: 24px; color: var(--accent);"></div>
@@ -638,8 +496,8 @@
   <section id="work">
     <div class="container scroll-animate">
       <div class="section-desc">
-        <h2>Selected Projects & Clients</h2>
-        <p>A track record of delivering high-quality content for diverse organizations.</p>
+        <h2>أبرز الأعمال والعملاء</h2>
+        <p>سجل حافل بتقديم محتوى عالي الجودة لجهات متنوعة.</p>
       </div>
 
       <div class="work-grid">
@@ -648,8 +506,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="flag"></div></div>
           <div class="work-info">
-            <h3>UAE Embassy Official Events</h3>
-            <span>Coverage in Ankara, Istanbul, Bursa, Kahramanmaraş, Kastamonu</span>
+            <h3>فعاليات سفارة الإمارات</h3>
+            <span>تغطية رسمية (أنقرة، إسطنبول، بورصة، كهرمان مرعش)</span>
           </div>
         </div>
 
@@ -657,8 +515,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="book-open"></div></div>
           <div class="work-info">
-            <h3>Oranos Educational Company</h3>
-            <span>Event coverage, content production, and video editing</span>
+            <h3>شركة أورانوس التعليمية</h3>
+            <span>تغطية وإنتاج محتوى ومونتاج</span>
           </div>
         </div>
 
@@ -666,8 +524,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="mic"></div></div>
           <div class="work-info">
-            <h3>"Zilal" Podcast</h3>
-            <span>Filming and editing for Rawasekh Foundation</span>
+            <h3>بودكاست "ظلال"</h3>
+            <span>تصوير ومونتاج لمؤسسة رواسخ</span>
           </div>
         </div>
 
@@ -675,8 +533,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="mic-2"></div></div>
           <div class="work-info">
-            <h3>"Saheb Wajeb" Podcast</h3>
-            <span>Filming and editing for Action For Humanity</span>
+            <h3>بودكاست "صاحب واجب"</h3>
+            <span>تصوير ومونتاج لـ Action For Humanity</span>
           </div>
         </div>
         
@@ -684,8 +542,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="activity"></div></div>
           <div class="work-info">
-            <h3>Al-Biruni Hospital</h3>
-            <span>Interviews & promotional videos (Medical Zone Foundation)</span>
+            <h3>مستشفى البيروني</h3>
+            <span>مقابلات وفيديوهات تعريفية</span>
           </div>
         </div>
 
@@ -693,8 +551,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="calendar"></div></div>
           <div class="work-info">
-            <h3>Binghatti Event</h3>
-            <span>Event coverage and editing (Istanbul 2024)</span>
+            <h3>فعالية Binghatti</h3>
+            <span>تغطية ومونتاج (إسطنبول 2024)</span>
           </div>
         </div>
 
@@ -702,8 +560,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="user"></div></div>
           <div class="work-info">
-            <h3>Dr. Hala Samir</h3>
-            <span>Coverage, filming, and editing of events and lectures</span>
+            <h3>د. هالة سمير</h3>
+            <span>تغطية وتصوير فعاليات ومحاضرات</span>
           </div>
         </div>
 
@@ -711,8 +569,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="library"></div></div>
           <div class="work-info">
-            <h3>Sheikh Yusuf Al-Qaradawi</h3>
-            <span>Filming/editing educational program explaining his books</span>
+            <h3>الشيخ يوسف القرضاوي</h3>
+            <span>تصوير ومونتاج برنامج شرح كتبه</span>
           </div>
         </div>
 
@@ -720,8 +578,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="radio"></div></div>
           <div class="work-info">
-            <h3>"Ma‘a Montaser" Podcast</h3>
-            <span>Filming and editing for Midan Foundation</span>
+            <h3>بودكاست "مع منتصر"</h3>
+            <span>تصوير ومونتاج لمؤسسة ميدان</span>
           </div>
         </div>
 
@@ -729,8 +587,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="youtube"></div></div>
           <div class="work-info">
-            <h3>Dr. Ahmed Al-Nadi</h3>
-            <span>Filming and editing YouTube videos</span>
+            <h3>د. أحمد النادي</h3>
+            <span>تصوير ومونتاج فيديوهات يوتيوب</span>
           </div>
         </div>
 
@@ -738,8 +596,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="headphones"></div></div>
           <div class="work-info">
-            <h3>"Ghorba" Podcast</h3>
-            <span>Filming and editing for Ghorba Foundation</span>
+            <h3>بودكاست "غُربة"</h3>
+            <span>تصوير ومونتاج لمؤسسة غربة</span>
           </div>
         </div>
 
@@ -747,8 +605,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="video"></div></div>
           <div class="work-info">
-            <h3>Easy Study Company</h3>
-            <span>Filming and editing educational service reels</span>
+            <h3>شركة Easy Study</h3>
+            <span>تصوير ومونتاج ريلز تعليمية</span>
           </div>
         </div>
 
@@ -756,8 +614,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="school"></div></div>
           <div class="work-info">
-            <h3>Lokman Hekim University</h3>
-            <span>Filming interviews and reels (Ankara)</span>
+            <h3>جامعة لقمان حكيم</h3>
+            <span>تصوير ومونتاج مقابلات (أنقرة)</span>
           </div>
         </div>
 
@@ -766,7 +624,7 @@
           <div class="work-icon-box"><div data-lucide="heart-handshake"></div></div>
           <div class="work-info">
             <h3>Qatar Charity Foundation</h3>
-            <span>Filming and editing interviews</span>
+            <span>تصوير ومونتاج مقابلات</span>
           </div>
         </div>
 
@@ -774,8 +632,8 @@
         <div class="work-item">
           <div class="work-icon-box"><div data-lucide="award"></div></div>
           <div class="work-info">
-            <h3>Elib Educational Services</h3>
-            <span>Coverage of graduation ceremonies and exhibitions</span>
+            <h3>مكتب Elib للخدمات التعليمية</h3>
+            <span>تغطية حفلات تخرج ومعارض</span>
           </div>
         </div>
         
@@ -791,23 +649,23 @@
           <!-- Strengths Card -->
           <div class="card" style="text-align: center;">
               <div data-lucide="brain-circuit" class="card-icon" style="margin: 0 auto 20px auto;"></div>
-              <h3>Professional Strengths</h3>
+              <h3>نقاط القوة المهنية</h3>
               <div class="strengths-list" style="justify-content: center;">
-                  <span class="strength-tag">Strong visual sense</span>
-                  <span class="strength-tag">Attention to detail</span>
-                  <span class="strength-tag">Reliable under pressure</span>
-                  <span class="strength-tag">Team‑oriented</span>
+                  <span class="strength-tag">دقة في التنفيذ</span>
+                  <span class="strength-tag">التزام بالمواعيد</span>
+                  <span class="strength-tag">عمل تحت الضغط</span>
+                  <span class="strength-tag">تعاون ممتاز مع الفريق</span>
               </div>
           </div>
 
           <!-- Availability Card -->
           <div class="card" style="text-align: center;">
               <div data-lucide="clock" class="card-icon" style="margin: 0 auto 20px auto;"></div>
-              <h3>Availability</h3>
-              <p style="margin-bottom: 20px;">Open to new opportunities.</p>
+              <h3>التفرغ للعمل</h3>
+              <p style="margin-bottom: 20px;">متاح لفرص عمل جديدة.</p>
               <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                  <span class="avail-pill avail-full">Full‑time</span>
-                  <span class="avail-pill avail-free">Freelance</span>
+                  <span class="avail-pill avail-full">دوام كامل</span>
+                  <span class="avail-pill avail-free">عمل حر</span>
               </div>
           </div>
 
@@ -818,7 +676,7 @@
 
   <footer style="padding: 30px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid rgba(0,0,0,0.05);">
     <div class="container">
-      &copy; <span id="year"></span> Omar Alaa. Istanbul, Turkey.
+      &copy; <span id="year"></span> عمر علاء. إسطنبول، تركيا.
     </div>
   </footer>
 
@@ -861,4 +719,3 @@
 
 </body>
 </html>
-                
