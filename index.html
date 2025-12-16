@@ -691,85 +691,94 @@
     }
 
     /* =========================================================
-       NEW HARVEST CAMPAIGN SECTION (BENTO GRID STYLE)
+       NEW HARVEST CAMPAIGN SECTION (HORIZONTAL INTERACTIVE)
        ========================================================= */
-    .harvest-grid-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 280px;
-        gap: 20px;
+    .harvest-container {
+        width: 100%;
         margin-top: 40px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding-bottom: 20px;
+        scrollbar-width: none; /* Firefox */
+    }
+    .harvest-container::-webkit-scrollbar { display: none; }
+
+    /* The Track */
+    .harvest-track {
+        display: inline-flex;
+        gap: 16px;
+        padding: 0 20px;
     }
 
-    .harvest-item {
-        position: relative;
+    .harvest-card {
+        width: 260px;
+        height: 380px;
         border-radius: 20px;
         overflow: hidden;
-        border: 1px solid var(--border-color);
-        background: #000;
-        transition: 0.4s var(--ease-smooth);
+        position: relative;
+        flex-shrink: 0;
         cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        border: 1px solid rgba(255,255,255,0.1);
+        filter: grayscale(0.4) brightness(0.8);
     }
 
-    /* Hero Item (Splash) - Takes 2x2 space */
-    .harvest-item.item-hero {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    /* Wide Item (Flatlay) - Takes 2x1 space */
-    .harvest-item.item-wide {
-        grid-column: span 2;
-    }
-
-    .harvest-item img {
+    .harvest-card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.7s var(--ease-smooth);
+        transition: transform 0.6s ease;
     }
 
-    /* Hover Effects */
-    .harvest-item:hover {
+    /* Hover Interaction - Expand */
+    .harvest-card:hover {
+        width: 400px; /* Expands width on hover */
+        filter: grayscale(0) brightness(1);
         border-color: var(--accent);
-        box-shadow: 0 10px 40px rgba(37, 99, 235, 0.2);
-        z-index: 2;
+        box-shadow: 0 20px 60px rgba(37, 99, 235, 0.25);
+        z-index: 10;
+        transform: scale(1.02);
     }
     
-    .harvest-item:hover img {
-        transform: scale(1.06);
+    .harvest-card:hover img {
+        transform: scale(1.1);
     }
 
-    /* Overlay Gradient on Hover */
-    .harvest-item::after {
-        content: "";
+    /* Card Overlay Text */
+    .harvest-overlay {
         position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        bottom: 0; left: 0; width: 100%;
+        padding: 30px 20px;
+        background: linear-gradient(to top, #000 10%, transparent);
         opacity: 0;
-        transition: opacity 0.3s;
-    }
-    .harvest-item:hover::after { opacity: 1; }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-        .harvest-grid-container {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 250px;
-        }
-        .harvest-item.item-hero { grid-column: span 2; grid-row: span 2; }
-        .harvest-item.item-wide { grid-column: span 2; }
+        transform: translateY(20px);
+        transition: 0.4s ease;
     }
 
-    @media (max-width: 600px) {
-        .harvest-grid-container {
-            grid-template-columns: 1fr;
-            grid-auto-rows: auto;
-            gap: 16px;
-        }
-        .harvest-item { aspect-ratio: 4/3; }
-        .harvest-item.item-hero { grid-column: span 1; grid-row: span 1; aspect-ratio: 1/1; }
-        .harvest-item.item-wide { grid-column: span 1; }
+    .harvest-card:hover .harvest-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .h-tag {
+        font-size: 0.75rem;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        margin-bottom: 6px;
+    }
+    
+    .h-title {
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+        .harvest-card { width: 220px; height: 320px; }
+        .harvest-card:hover { width: 280px; } /* Smaller expansion on mobile */
     }
 
 
@@ -1623,6 +1632,9 @@
       </div>
     </section>
 
+    <!-- ============================================ -->
+    <!-- NEW SECTION: HARVEST CAMPAIGN (INTERACTIVE HORIZONTAL) -->
+    <!-- ============================================ -->
     <section id="commercial-visuals" class="container section-spacing">
         <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 40px;">
             <span class="label">
@@ -1637,34 +1649,97 @@
             </p>
         </div>
 
-        <div class="harvest-grid-container reveal-on-scroll">
-            
-            <div class="harvest-item item-hero">
-                <img src="Gemini_Generated_Image_eiwkigeiwkigeiwk.jpg" alt="Harvest Tomato Paste Splash">
-            </div>
+        <div class="harvest-container reveal-on-scroll">
+            <div class="harvest-track">
+                
+                <!-- Card 1 -->
+                <div class="harvest-card">
+                    <img src="Gemini_Generated_Image_eiwkigeiwkigeiwk.jpg" alt="Splash Art">
+                    <div class="harvest-overlay">
+                        <div class="h-tag">HERO</div>
+                        <div class="h-title">Dynamic Splash</div>
+                    </div>
+                </div>
 
-            <div class="harvest-item">
-                <img src="Gemini_Generated_Image_7oegz57oegz57oeg.jpg" alt="Creative Floating Can">
-            </div>
+                <!-- Card 2 -->
+                <div class="harvest-card">
+                    <img src="Gemini_Generated_Image_7oegz57oegz57oeg.jpg" alt="Floating Can">
+                    <div class="harvest-overlay">
+                        <div class="h-tag">COMPOSITING</div>
+                        <div class="h-title">Levitation Concept</div>
+                    </div>
+                </div>
 
-            <div class="harvest-item">
-                <img src="Gemini_Generated_Image_9l0go99l0go99l0g.jpg" alt="Top Down View">
-            </div>
+                <!-- Card 3 -->
+                <div class="harvest-card">
+                    <img src="Gemini_Generated_Image_9l0go99l0go99l0g.jpg" alt="Top Down">
+                    <div class="harvest-overlay">
+                        <div class="h-tag">ART DIRECTION</div>
+                        <div class="h-title">Top-Down Scene</div>
+                    </div>
+                </div>
 
-            <div class="harvest-item item-wide">
-                <img src="Gemini_Generated_Image_nkqnlbnkqnlbnkqn.jpg" alt="Ingredients Flat Lay">
-            </div>
+                <!-- Card 4 -->
+                <div class="harvest-card">
+                    <img src="Gemini_Generated_Image_nkqnlbnkqnlbnkqn.jpg" alt="Flat Lay">
+                    <div class="harvest-overlay">
+                        <div class="h-tag">STYLING</div>
+                        <div class="h-title">Ingredient Flatlay</div>
+                    </div>
+                </div>
 
-            <div class="harvest-item">
-                <img src="Gemini_Generated_Image_k6skjk6skjk6skjk.jpg" alt="Fridge Fisheye">
-            </div>
+                <!-- Card 5 -->
+                <div class="harvest-card">
+                    <img src="Gemini_Generated_Image_k6skjk6skjk6skjk.jpg" alt="Fridge View">
+                    <div class="harvest-overlay">
+                        <div class="h-tag">LIFESTYLE</div>
+                        <div class="h-title">In-Context Shot</div>
+                    </div>
+                </div>
 
-            <div class="harvest-item">
-                <img src="Gemini_Generated_Image_1txe9i1txe9i1txe.jpg" alt="Cooking Context">
-            </div>
+                 <!-- Card 6 -->
+                 <div class="harvest-card">
+                    <img src="Gemini_Generated_Image_1txe9i1txe9i1txe.jpg" alt="Cooking View">
+                    <div class="harvest-overlay">
+                        <div class="h-tag">ACTION</div>
+                        <div class="h-title">Culinary Moment</div>
+                    </div>
+                </div>
 
+                <!-- Card 7 (New) -->
+                <div class="harvest-card">
+                    <img src="Gemini_Generated_Image_v8bul6v8bul6v8bu.jpg" alt="Product Detail">
+                    <div class="harvest-overlay">
+                        <div class="h-tag">DETAIL</div>
+                        <div class="h-title">Close-up Shot</div>
+                    </div>
+                </div>
+
+                <!-- Card 8 (New) -->
+                <div class="harvest-card">
+                    <img src="Gemini_Generated_Image_o3isvho3isvho3is.jpg" alt="Creative Shot">
+                    <div class="harvest-overlay">
+                        <div class="h-tag">CREATIVE</div>
+                        <div class="h-title">Artistic Composition</div>
+                    </div>
+                </div>
+
+                <!-- Card 9 (New) -->
+                <div class="harvest-card">
+                    <img src="Gemini_Generated_Image_bcvdqrbcvdqrbcvd.jpg" alt="Final Polish">
+                    <div class="harvest-overlay">
+                        <div class="h-tag">FINESSE</div>
+                        <div class="h-title">Polished Visual</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
+    <!-- ============================================ -->
+    <!-- END NEW SECTION -->
+    <!-- ============================================ -->
+
     <section id="viral-shorts" class="container section-spacing">
       <div style="text-align: center; margin-bottom: 3rem;" class="reveal-on-scroll">
         <span class="label">
