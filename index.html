@@ -109,15 +109,13 @@
     /* REVEAL ANIMATIONS */
     .reveal-on-scroll {
       opacity: 0;
-      transform: translateY(40px) scale(0.98);
-      transition:
-        opacity 0.9s var(--ease-smooth),
-        transform 0.9s var(--ease-smooth);
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
       will-change: opacity, transform;
     }
     .reveal-on-scroll.is-visible {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
     /* RTL MODE */
@@ -722,6 +720,10 @@
         transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         border: 1px solid rgba(255,255,255,0.1);
         filter: grayscale(0.4) brightness(0.8);
+        background-color: #1a1a1a; /* Backup background if image fails */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .harvest-card img {
@@ -774,6 +776,22 @@
         font-size: 1.2rem;
         color: #fff;
         font-weight: 700;
+    }
+
+    /* Error Message Styling */
+    .error-msg {
+        display: none;
+        position: absolute;
+        inset: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        text-align: center;
+        color: #ff4d4d;
+        font-size: 0.8rem;
+        background: #1a1a1a;
+        z-index: 5;
     }
 
     @media (max-width: 768px) {
@@ -1654,7 +1672,13 @@
                 
                 <!-- Card 1 -->
                 <div class="harvest-card">
-                    <img src="Gemini_Generated_Image_eiwkigeiwkigeiwk.jpg" alt="Splash Art">
+                    <img src="Gemini_Generated_Image_eiwkigeiwkigeiwk.jpg" 
+                         alt="Splash Art"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
+                    <div class="error-msg">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;"></i>
+                        Missing:<br>Gemini_Generated_Image_eiwkigeiwkigeiwk.jpg
+                    </div>
                     <div class="harvest-overlay">
                         <div class="h-tag">HERO</div>
                         <div class="h-title">Dynamic Splash</div>
@@ -1663,7 +1687,13 @@
 
                 <!-- Card 2 -->
                 <div class="harvest-card">
-                    <img src="Gemini_Generated_Image_7oegz57oegz57oeg.jpg" alt="Floating Can">
+                    <img src="Gemini_Generated_Image_7oegz57oegz57oeg.jpg" 
+                         alt="Floating Can"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
+                    <div class="error-msg">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;"></i>
+                        Missing:<br>Gemini_Generated_Image_7oegz57oegz57oeg.jpg
+                    </div>
                     <div class="harvest-overlay">
                         <div class="h-tag">COMPOSITING</div>
                         <div class="h-title">Levitation Concept</div>
@@ -1672,7 +1702,13 @@
 
                 <!-- Card 3 -->
                 <div class="harvest-card">
-                    <img src="Gemini_Generated_Image_9l0go99l0go99l0g.jpg" alt="Top Down">
+                    <img src="Gemini_Generated_Image_9l0go99l0go99l0g.jpg" 
+                         alt="Top Down"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
+                    <div class="error-msg">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;"></i>
+                        Missing:<br>Gemini_Generated_Image_9l0go99l0go99l0g.jpg
+                    </div>
                     <div class="harvest-overlay">
                         <div class="h-tag">ART DIRECTION</div>
                         <div class="h-title">Top-Down Scene</div>
@@ -1681,7 +1717,13 @@
 
                 <!-- Card 4 -->
                 <div class="harvest-card">
-                    <img src="Gemini_Generated_Image_nkqnlbnkqnlbnkqn.jpg" alt="Flat Lay">
+                    <img src="Gemini_Generated_Image_nkqnlbnkqnlbnkqn.jpg" 
+                         alt="Flat Lay"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
+                    <div class="error-msg">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;"></i>
+                        Missing:<br>Gemini_Generated_Image_nkqnlbnkqnlbnkqn.jpg
+                    </div>
                     <div class="harvest-overlay">
                         <div class="h-tag">STYLING</div>
                         <div class="h-title">Ingredient Flatlay</div>
@@ -1690,7 +1732,13 @@
 
                 <!-- Card 5 -->
                 <div class="harvest-card">
-                    <img src="Gemini_Generated_Image_k6skjk6skjk6skjk.jpg" alt="Fridge View">
+                    <img src="Gemini_Generated_Image_k6skjk6skjk6skjk.jpg" 
+                         alt="Fridge View"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
+                    <div class="error-msg">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;"></i>
+                        Missing:<br>Gemini_Generated_Image_k6skjk6skjk6skjk.jpg
+                    </div>
                     <div class="harvest-overlay">
                         <div class="h-tag">LIFESTYLE</div>
                         <div class="h-title">In-Context Shot</div>
@@ -1699,34 +1747,58 @@
 
                  <!-- Card 6 -->
                  <div class="harvest-card">
-                    <img src="Gemini_Generated_Image_1txe9i1txe9i1txe.jpg" alt="Cooking View">
+                    <img src="Gemini_Generated_Image_1txe9i1txe9i1txe.jpg" 
+                         alt="Cooking View"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
+                    <div class="error-msg">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;"></i>
+                        Missing:<br>Gemini_Generated_Image_1txe9i1txe9i1txe.jpg
+                    </div>
                     <div class="harvest-overlay">
                         <div class="h-tag">ACTION</div>
                         <div class="h-title">Culinary Moment</div>
                     </div>
                 </div>
 
-                <!-- Card 7 (New) -->
+                <!-- Card 7 -->
                 <div class="harvest-card">
-                    <img src="Gemini_Generated_Image_v8bul6v8bul6v8bu.jpg" alt="Product Detail">
+                    <img src="Gemini_Generated_Image_v8bul6v8bul6v8bu.jpg" 
+                         alt="Product Detail"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
+                    <div class="error-msg">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;"></i>
+                        Missing:<br>Gemini_Generated_Image_v8bul6v8bul6v8bu.jpg
+                    </div>
                     <div class="harvest-overlay">
                         <div class="h-tag">DETAIL</div>
                         <div class="h-title">Close-up Shot</div>
                     </div>
                 </div>
 
-                <!-- Card 8 (New) -->
+                <!-- Card 8 -->
                 <div class="harvest-card">
-                    <img src="Gemini_Generated_Image_o3isvho3isvho3is.jpg" alt="Creative Shot">
+                    <img src="Gemini_Generated_Image_o3isvho3isvho3is.jpg" 
+                         alt="Creative Shot"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
+                    <div class="error-msg">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;"></i>
+                        Missing:<br>Gemini_Generated_Image_o3isvho3isvho3is.jpg
+                    </div>
                     <div class="harvest-overlay">
                         <div class="h-tag">CREATIVE</div>
                         <div class="h-title">Artistic Composition</div>
                     </div>
                 </div>
 
-                <!-- Card 9 (New) -->
+                <!-- Card 9 -->
                 <div class="harvest-card">
-                    <img src="Gemini_Generated_Image_bcvdqrbcvdqrbcvd.jpg" alt="Final Polish">
+                    <img src="Gemini_Generated_Image_bcvdqrbcvdqrbcvd.jpg" 
+                         alt="Final Polish"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
+                    <div class="error-msg">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;"></i>
+                        Missing:<br>Gemini_Generated_Image_bcvdqrbcvdqrbcvd.jpg
+                    </div>
                     <div class="harvest-overlay">
                         <div class="h-tag">FINESSE</div>
                         <div class="h-title">Polished Visual</div>
