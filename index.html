@@ -64,9 +64,6 @@
   </noscript>
 
   <style>
-    /* =========================================================
-       1) CORE VARIABLES + RESET
-       ========================================================= */
     :root {
       --bg-page: #f1f5f9;
       --bg-surface: rgba(255, 255, 255, 0.88);
@@ -157,13 +154,10 @@
     body.menu-open { overflow: hidden; }
     ::selection { background: var(--accent); color: #fff; }
 
-    a, button, .deck-card, .project-card, .interactive-icon-card, .harvest-card, .faq-header {
-      cursor: pointer;
-    }
+    a, button, .deck-card, .project-card, .interactive-icon-card, .harvest-card, .faq-header { cursor: pointer; }
     a { text-decoration: none; color: inherit; }
     a:hover, a:focus, a:active { text-decoration: none; }
 
-    /* REVEAL ANIMATIONS */
     .reveal-on-scroll {
       opacity: 0;
       transform: translateY(26px);
@@ -172,15 +166,11 @@
     }
     .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
-    /* RTL MODE */
     html[dir="rtl"] body {
       font-family: var(--font-arabic);
       text-align: right;
     }
 
-    /* =========================================================
-       2) LAYOUT UTILITIES
-       ========================================================= */
     .container {
       max-width: 1320px;
       margin: 0 auto;
@@ -194,7 +184,6 @@
       margin-bottom: clamp(4.5rem, 10vh, 9rem);
     }
 
-    /* PERF: render offscreen sections faster */
     @supports (content-visibility: auto) {
       .cv-auto {
         content-visibility: auto;
@@ -212,7 +201,6 @@
     .col-span-8 { grid-column: span 8; }
     .col-span-6 { grid-column: span 6; }
     .col-span-4 { grid-column: span 4; }
-
     @media (max-width: 1024px) {
       .col-span-8, .col-span-4, .col-span-6 { grid-column: span 12; }
     }
@@ -268,7 +256,6 @@
       text-shadow: 0 0 40px var(--accent-glow);
     }
 
-    /* BACKGROUND EFFECTS */
     .ambient-light {
       position: fixed;
       top: 50%; left: 50%;
@@ -296,9 +283,6 @@
       pointer-events: none; z-index: 1;
     }
 
-    /* =========================================================
-       3) TOP FLOATING BUTTONS
-       ========================================================= */
     .top-floating-controls {
       position: fixed;
       top: 26px;
@@ -308,7 +292,6 @@
       gap: 10px;
       align-items: center;
     }
-
     html[dir="rtl"] .top-floating-controls {
       right: auto;
       left: 26px;
@@ -340,9 +323,6 @@
     }
     .lang-text { font-family: var(--font-main); letter-spacing: 0.06em; }
 
-    /* =========================================================
-       4) BUTTONS
-       ========================================================= */
     .btn-primary, .btn-glass {
       padding: 16px 36px;
       border-radius: var(--radius-full);
@@ -379,7 +359,6 @@
       transform: translateY(-3px);
       box-shadow: 0 16px 44px rgba(37, 99, 235, 0.58);
     }
-
     .btn-primary:hover::before, .btn-glass:hover::before { opacity: 1; }
 
     .btn-glass {
@@ -394,9 +373,6 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     }
 
-    /* =========================================================
-       5) HERO
-       ========================================================= */
     .hero-radical {
       position: relative;
       min-height: 100vh;
@@ -626,9 +602,6 @@
       .hero-visual-wrapper { width: 185px; height: 185px; }
     }
 
-    /* =========================================================
-       6) WORK – BEHANCE EMBEDS
-       ========================================================= */
     .project-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
@@ -716,9 +689,6 @@
       transform: translateY(-2px) scale(1.02);
     }
 
-    /* =========================================================
-       7) HARVEST (HORIZONTAL INTERACTIVE)
-       ========================================================= */
     .harvest-container {
       width: 100%;
       margin-top: 40px;
@@ -801,9 +771,9 @@
       .harvest-card:hover { width: 280px; }
     }
 
-    /* =========================================================
-       8) VISUAL LIBRARY (MASONRY GALLERY)
-       ========================================================= */
+    /* =========================
+       VISUAL LIBRARY (MASONRY)
+       ========================= */
     .masonry-grid-gallery { column-count: 4; column-gap: 16px; }
     @media (max-width: 1200px) { .masonry-grid-gallery { column-count: 3; } }
     @media (max-width: 800px)  { .masonry-grid-gallery { column-count: 2; } }
@@ -829,7 +799,6 @@
     }
     .gallery-item img { width: 100%; height: auto; display: block; }
 
-    /* PERF/UX: fallback without showing filename */
     .gallery-fallback {
       display: none;
       align-items: center;
@@ -839,13 +808,11 @@
       color: var(--text-muted);
       background: var(--bg-surface-soft);
       min-height: 160px;
+      flex-direction: column;
     }
     .gallery-item.is-missing img { display: none; }
     .gallery-item.is-missing .gallery-fallback { display: flex; }
 
-    /* =========================================================
-       9) VIRAL SHORTS – FAN LAYOUT
-       ========================================================= */
     .shorts-deck-container {
       position: relative;
       display: flex;
@@ -936,9 +903,6 @@
       }
     }
 
-    /* =========================================================
-       10) PROCESS / STATS / TOOLKIT
-       ========================================================= */
     .process-card {
       padding: 28px 26px;
       border-radius: 22px;
@@ -1036,9 +1000,6 @@
     .toolkit-pill i { font-size: 1.1rem; color: var(--accent); }
     .brand-pill i { font-size: 1.15rem; color: var(--text-main); }
 
-    /* =========================================================
-       11) PRODUCT SHOWCASE
-       ========================================================= */
     .huggies-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1069,9 +1030,6 @@
     .huggies-item:hover img { transform: scale(1.06); }
     @media (max-width: 768px) { .huggies-grid { grid-template-columns: 1fr; } }
 
-    /* =========================================================
-       12) POLITICAL LOOP (POSTERS)
-       ========================================================= */
     .political-loop-container {
       overflow: hidden;
       padding: 20px 0;
@@ -1108,9 +1066,6 @@
     }
     .political-item:hover img { transform: scale(1.04); }
 
-    /* =========================================================
-       13) FAQ
-       ========================================================= */
     .faq-item { border-bottom: 1px solid var(--border-color); padding: 16px 0; }
     .faq-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
     .faq-question { font-size: 1rem; font-weight: 800; color: var(--text-main); }
@@ -1133,9 +1088,6 @@
     }
     .faq-item.open .faq-answer { max-height: 220px; opacity: 1; }
 
-    /* =========================================================
-       14) ARCHIVE CARD
-       ========================================================= */
     .archive-card {
       text-align: center;
       background: linear-gradient(135deg, #1e293b, #0f172a);
@@ -1160,9 +1112,6 @@
     .archive-card h2, .archive-card p { color: #fff !important; }
     .archive-card p { opacity: 0.82; }
 
-    /* =========================================================
-       15) SERVICES & EXPERIENCE
-       ========================================================= */
     .service-card, .timeline-card {
       padding: 32px;
       background: var(--bg-surface-soft);
@@ -1220,9 +1169,6 @@
     .chip i { color: var(--accent); margin-right: 8px; }
     html[dir="rtl"] .chip i { margin-right: 0; margin-left: 8px; }
 
-    /* =========================================================
-       16) FOOTER
-       ========================================================= */
     .footer {
       background: #0f172a;
       border-top: 1px solid rgba(255,255,255,0.08);
@@ -1302,9 +1248,6 @@
       z-index: 2;
     }
 
-    /* =========================================================
-       17) PRELOADER
-       ========================================================= */
     .preloader {
       position: fixed; inset: 0;
       background: #f1f5f9;
@@ -1639,34 +1582,6 @@
             <div class="error-msg" data-i18n="img-missing"><i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;" aria-hidden="true"></i>Missing image</div>
             <div class="harvest-overlay"><div class="h-tag">LIFESTYLE</div><div class="h-title">In-Context Shot</div></div>
           </div>
-
-          <div class="harvest-card">
-            <img src="Gemini_Generated_Image_1txe9i1txe9i1txe.jpg" alt="Harvest visual 6" loading="lazy" decoding="async"
-                 onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
-            <div class="error-msg" data-i18n="img-missing"><i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;" aria-hidden="true"></i>Missing image</div>
-            <div class="harvest-overlay"><div class="h-tag">ACTION</div><div class="h-title">Culinary Moment</div></div>
-          </div>
-
-          <div class="harvest-card">
-            <img src="Gemini_Generated_Image_v8bul6v8bul6v8bu.jpg" alt="Harvest visual 7" loading="lazy" decoding="async"
-                 onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
-            <div class="error-msg" data-i18n="img-missing"><i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;" aria-hidden="true"></i>Missing image</div>
-            <div class="harvest-overlay"><div class="h-tag">DETAIL</div><div class="h-title">Close-up Shot</div></div>
-          </div>
-
-          <div class="harvest-card">
-            <img src="Gemini_Generated_Image_o3isvho3isvho3is.jpg" alt="Harvest visual 8" loading="lazy" decoding="async"
-                 onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
-            <div class="error-msg" data-i18n="img-missing"><i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;" aria-hidden="true"></i>Missing image</div>
-            <div class="harvest-overlay"><div class="h-tag">CREATIVE</div><div class="h-title">Artistic Composition</div></div>
-          </div>
-
-          <div class="harvest-card">
-            <img src="Gemini_Generated_Image_bcvdqrbcvdqrbcvd.jpg" alt="Harvest visual 9" loading="lazy" decoding="async"
-                 onerror="this.style.display='none'; this.parentElement.querySelector('.error-msg').style.display='flex';">
-            <div class="error-msg" data-i18n="img-missing"><i class="fas fa-exclamation-triangle" style="font-size:1.5rem; margin-bottom:10px;" aria-hidden="true"></i>Missing image</div>
-            <div class="harvest-overlay"><div class="h-tag">FINESSE</div><div class="h-title">Polished Visual</div></div>
-          </div>
         </div>
       </div>
     </section>
@@ -1736,27 +1651,11 @@
           <img src="https://img.youtube.com/vi/oKIJWxeoMZo/maxresdefault.jpg" alt="Viral short 3" loading="lazy" decoding="async" />
           <div class="play-overlay"><div class="play-btn"><i class="fas fa-play" aria-hidden="true"></i></div></div>
         </div>
-
-        <div class="deck-card" style="--rotate:9deg; --offsetY:18px;"
-             onclick="window.open('https://www.instagram.com/reel/C4gCuKxhEH0/?igsh=MTl0ZnI2M3dhN2V1NA==','_blank')"
-             aria-label="Open Instagram reel">
-          <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;">
-            <i class="fab fa-instagram" style="font-size: 3rem; margin-bottom: 10px;" aria-hidden="true"></i>
-          </div>
-          <div class="play-overlay"><div class="play-btn"><i class="fas fa-play" aria-hidden="true"></i></div></div>
-        </div>
-
-        <div class="deck-card" style="--rotate:18deg; --offsetY:40px;"
-             onclick="window.open('https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS','_blank')"
-             aria-label="Open video 4">
-          <img src="https://img.youtube.com/vi/F-lmawsIKEI/maxresdefault.jpg" alt="Viral short 4" loading="lazy" decoding="async" />
-          <div class="play-overlay"><div class="play-btn"><i class="fas fa-play" aria-hidden="true"></i></div></div>
-        </div>
       </div>
     </section>
 
     <!-- =========================================================
-         6) GALLERY
+         6) GALLERY (VISUAL LIBRARY)
          ========================================================= -->
     <section id="gallery" class="container section-spacing cv-auto">
       <div class="reveal-on-scroll" style="margin-bottom: 32px; text-align: center;">
@@ -1772,121 +1671,93 @@
         </p>
       </div>
 
+      <!--
+        ✅ غيّر أسماء الصور دي لأسامي ملفاتك الحقيقية.
+        مثال: بدل vlib-01.jpg اكتب اسم ملفك الحقيقي زي: Ramadan_Post_01.png
+      -->
       <div class="masonry-grid-gallery">
+
         <div class="gallery-item reveal-on-scroll">
-          <img src="3edd13ed.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
+          <img src="vlib-01.jpg" alt="Design asset" loading="lazy" decoding="async"
+               onerror="this.closest('.gallery-item').classList.add('is-missing');">
+          <div class="gallery-fallback">
+            <i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i>
+            <div data-i18n="gallery-missing">الصورة مش موجودة</div>
+          </div>
         </div>
 
         <div class="gallery-item reveal-on-scroll">
-          <img src="3r4t.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
+          <img src="vlib-02.jpg" alt="Design asset" loading="lazy" decoding="async"
+               onerror="this.closest('.gallery-item').classList.add('is-missing');">
+          <div class="gallery-fallback">
+            <i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i>
+            <div data-i18n="gallery-missing">الصورة مش موجودة</div>
+          </div>
         </div>
 
         <div class="gallery-item reveal-on-scroll">
-          <img src="23r4.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
+          <img src="vlib-03.jpg" alt="Design asset" loading="lazy" decoding="async"
+               onerror="this.closest('.gallery-item').classList.add('is-missing');">
+          <div class="gallery-fallback">
+            <i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i>
+            <div data-i18n="gallery-missing">الصورة مش موجودة</div>
+          </div>
+        </div>
+
+        <!-- Placeholder card (Image not found) زي اللي في الصورة -->
+        <div class="gallery-item reveal-on-scroll is-missing">
+          <div class="gallery-fallback" style="display:flex;">
+            <i class="fas fa-image" style="font-size:1.8rem; margin-bottom:10px; color:var(--accent)"></i>
+            <div style="font-weight:900; margin-bottom:6px;">Image not found</div>
+            <div style="font-size:0.9rem; color:var(--text-muted);" data-i18n="gallery-missing">الصورة مش موجودة</div>
+          </div>
         </div>
 
         <div class="gallery-item reveal-on-scroll">
-          <img src="32df4gt53.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
+          <img src="vlib-04.jpg" alt="Design asset" loading="lazy" decoding="async"
+               onerror="this.closest('.gallery-item').classList.add('is-missing');">
+          <div class="gallery-fallback">
+            <i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i>
+            <div data-i18n="gallery-missing">الصورة مش موجودة</div>
+          </div>
         </div>
 
         <div class="gallery-item reveal-on-scroll">
-          <img src="6V.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
+          <img src="vlib-05.jpg" alt="Design asset" loading="lazy" decoding="async"
+               onerror="this.closest('.gallery-item').classList.add('is-missing');">
+          <div class="gallery-fallback">
+            <i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i>
+            <div data-i18n="gallery-missing">الصورة مش موجودة</div>
+          </div>
         </div>
 
         <div class="gallery-item reveal-on-scroll">
-          <img src="231r4.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
+          <img src="vlib-06.jpg" alt="Design asset" loading="lazy" decoding="async"
+               onerror="this.closest('.gallery-item').classList.add('is-missing');">
+          <div class="gallery-fallback">
+            <i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i>
+            <div data-i18n="gallery-missing">الصورة مش موجودة</div>
+          </div>
         </div>
 
         <div class="gallery-item reveal-on-scroll">
-          <img src="323w2d.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
+          <img src="vlib-07.jpg" alt="Design asset" loading="lazy" decoding="async"
+               onerror="this.closest('.gallery-item').classList.add('is-missing');">
+          <div class="gallery-fallback">
+            <i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i>
+            <div data-i18n="gallery-missing">الصورة مش موجودة</div>
+          </div>
         </div>
 
         <div class="gallery-item reveal-on-scroll">
-          <img src="423.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
+          <img src="vlib-08.jpg" alt="Design asset" loading="lazy" decoding="async"
+               onerror="this.closest('.gallery-item').classList.add('is-missing');">
+          <div class="gallery-fallback">
+            <i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i>
+            <div data-i18n="gallery-missing">الصورة مش موجودة</div>
+          </div>
         </div>
 
-        <div class="gallery-item reveal-on-scroll">
-          <img src="2134.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="2345.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="3241.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="21345.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="dw31.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="e1r23.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="e3df1.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="e3r4t.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="e22.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="e32r.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="fe3.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="fe3r1.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="sqwe32.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="w2er.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="w213r.png" alt="Design asset" loading="lazy" decoding="async" onerror="this.closest('.gallery-item').classList.add('is-missing');">
-          <div class="gallery-fallback"><i class="fas fa-image" style="font-size:1.6rem; margin-bottom:10px; color:var(--accent)"></i><div data-i18n="gallery-missing">الصورة مش موجودة</div></div>
-        </div>
       </div>
     </section>
 
@@ -2041,200 +1912,6 @@
     </section>
 
     <!-- =========================================================
-         9) EXPERIENCE
-         ========================================================= -->
-    <section id="experience" class="container section-spacing cv-auto">
-      <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 40px;">
-        <span class="label">
-          <span class="label-dot"></span>
-          <span data-i18n="label-experience">Career Path</span>
-        </span>
-        <h2 class="title-lg" data-i18n="title-experience">
-          EXPERIENCE & <span class="accent-text">EDUCATION</span>
-        </h2>
-      </div>
-
-      <div class="grid-standard">
-        <div class="col-span-6 reveal-on-scroll">
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 1.55rem; font-weight: 900;" data-i18n="exp-journey">Professional Journey</h3>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 16px;">
-            <div class="timeline-card">
-              <div class="timeline-period">2023 - Present</div>
-              <h3 data-i18n="exp-1-title">Freelance Graphic Designer</h3>
-              <div class="timeline-company" data-i18n="exp-1-company">Jewelry Brand | Saudi Arabia</div>
-              <ul class="timeline-desc">
-                <li data-i18n="exp-1-a">Produced high-end jewelry product videos for digital campaigns.</li>
-                <li data-i18n="exp-1-b">Designed social media content tailored to target audiences.</li>
-                <li data-i18n="exp-1-c">Created visuals aligned with brand identity.</li>
-              </ul>
-            </div>
-
-            <div class="timeline-card">
-              <div class="timeline-period">2022 - Present</div>
-              <h3 data-i18n="exp-2-title">Graphic & Motion Designer</h3>
-              <div class="timeline-company" data-i18n="exp-2-company">Orient Detectors | Istanbul</div>
-              <ul class="timeline-desc">
-                <li data-i18n="exp-2-a">Designed brochures, catalogs, and full brand identity.</li>
-                <li data-i18n="exp-2-b">Produced professional product videos.</li>
-                <li data-i18n="exp-2-c">Collaborated with marketing team on concepts.</li>
-              </ul>
-            </div>
-
-            <div class="timeline-card">
-              <div class="timeline-period">2021 - 2022</div>
-              <h3 data-i18n="exp-3-title">Motion Designer</h3>
-              <div class="timeline-company">PHC Elixir</div>
-              <ul class="timeline-desc">
-                <li data-i18n="exp-3-a">Produced promotional videos reflecting brand identity.</li>
-                <li data-i18n="exp-3-b">Created visually compelling designs for engagement.</li>
-              </ul>
-            </div>
-
-            <div class="timeline-card">
-              <div class="timeline-period" data-i18n="exp-4-period">Previous</div>
-              <h3 data-i18n="exp-4-title">Motion Designer / Video Editor</h3>
-              <div class="timeline-company">Al Sharq TV</div>
-              <ul class="timeline-desc">
-                <li data-i18n="exp-4-a">Edited and produced daily news videos (Premiere Pro & AE).</li>
-                <li data-i18n="exp-4-b">Designed engaging thumbnails for social distribution.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-span-6 reveal-on-scroll">
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 1.55rem; font-weight: 900;" data-i18n="edu-title">Education</h3>
-          </div>
-          <div class="timeline-card" style="border-left: 4px solid var(--accent);">
-            <div class="timeline-period">Oct 2020 - June 2025</div>
-            <h3 data-i18n="edu-degree">Bachelor's Degree</h3>
-            <div class="timeline-company">Muğla Sıtkı Koçman University</div>
-            <p style="color: var(--text-muted);" data-i18n="edu-major">Mining Engineering</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         10) POLITICAL
-         ========================================================= -->
-    <section id="political" class="container section-spacing cv-auto">
-      <div style="margin-bottom: 24px;" class="reveal-on-scroll">
-        <span class="label" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.12);">
-          <span class="label-dot" style="background:#ef4444; box-shadow:0 0 12px rgba(248,113,113,0.9)"></span>
-          <span data-i18n="label-passion">Passion narratives</span>
-        </span>
-
-        <h2 class="title-lg" data-i18n="title-political">
-          POLITICAL & <span style="color: #ef4444">SOCIAL</span> VISUALS
-        </h2>
-        <p class="section-subtitle" data-i18n="subtitle-political">
-          Visual campaigns built around causes, not brands — posters, key visuals, and social assets that carry a clear point of view.
-        </p>
-      </div>
-
-      <div class="political-loop-container reveal-on-scroll">
-        <div class="political-track" data-loop="true">
-          <div class="political-item"><img src="001 copy.png" alt="Poster 1" loading="lazy" decoding="async"></div>
-          <div class="political-item"><img src="002.png" alt="Poster 2" loading="lazy" decoding="async"></div>
-          <div class="political-item"><img src="٠٠٢.png" alt="Poster 3" loading="lazy" decoding="async"></div>
-          <div class="political-item"><img src="003.png" alt="Poster 4" loading="lazy" decoding="async"></div>
-          <div class="political-item"><img src="٠٠٠٦.png" alt="Poster 5" loading="lazy" decoding="async"></div>
-          <div class="political-item"><img src="٣٨٢٩٥.png" alt="Poster 6" loading="lazy" decoding="async"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         11) FAQ
-         ========================================================= -->
-    <section id="faq" class="container section-spacing cv-auto">
-      <div class="grid-standard">
-        <div class="col-span-6 reveal-on-scroll">
-          <span class="label">
-            <span class="label-dot"></span>
-            <span data-i18n="label-faq">FAQ</span>
-          </span>
-          <h2 class="title-lg" data-i18n="title-faq">
-            A few answers<br>before the call.
-          </h2>
-          <p class="section-subtitle" data-i18n="subtitle-faq">
-            If it still feels like a fit after this section, that’s a good sign.
-          </p>
-        </div>
-
-        <div class="col-span-6 reveal-on-scroll">
-          <div class="faq-item">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <div class="faq-question" data-i18n="faq-1-q">What does a typical project timeline look like?</div>
-              <div class="faq-toggle">+</div>
-            </div>
-            <div class="faq-answer" data-i18n="faq-1-a">
-              Most identity or motion-led projects run between 3–6 weeks depending on scope.
-              Smaller content packs can be turned around faster once the system is defined.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <div class="faq-question" data-i18n="faq-2-q">Can you work with our in-house team or agency?</div>
-              <div class="faq-toggle">+</div>
-            </div>
-            <div class="faq-answer" data-i18n="faq-2-a">
-              Yes. A lot of work happens alongside internal teams — I can plug in as a dedicated design/motion arm or help define the system they execute on.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <div class="faq-question" data-i18n="faq-3-q">Do you handle scripting and copy as well?</div>
-              <div class="faq-toggle">+</div>
-            </div>
-            <div class="faq-answer" data-i18n="faq-3-a">
-              For motion and launch films, yes — I usually help shape the narrative, script and flow, then we lock visuals and timing together. For smaller projects, you provide the copy.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <div class="faq-question" data-i18n="faq-4-q">What’s the best way to start?</div>
-              <div class="faq-toggle">+</div>
-            </div>
-            <div class="faq-answer" data-i18n="faq-4-a">
-              A short call with a clear brief and a single decision-maker on your side. From there we map scope, budget and timeline in one page.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         12) ARCHIVE
-         ========================================================= -->
-    <section id="archive" class="container section-spacing cv-auto">
-      <div class="archive-card reveal-on-scroll">
-        <div class="archive-inner">
-          <div style="font-size: 3.4rem; color: var(--accent); margin-bottom: 20px;">
-            <i class="fas fa-folder-open" aria-hidden="true"></i>
-          </div>
-          <h2 class="title-lg" data-i18n="archive-title">EXCLUSIVE <span class="accent-text">VAULT</span></h2>
-          <p style="max-width: 600px; margin: 0 auto 26px;" data-i18n="archive-body">
-            Full-resolution files, layered source projects, and in-progress concepts for selected collaborations — stored in a living archive.
-          </p>
-
-          <a href="https://drive.google.com/drive/u/0/folders/1-E4D0ktY12ONLEye6bAyVXkqgzAylrgD"
-             target="_blank" rel="noopener noreferrer"
-             class="btn-primary" data-i18n="archive-btn">
-            Open archive
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
          13) FOOTER
          ========================================================= -->
     <footer id="contact" class="footer cv-auto">
@@ -2293,18 +1970,11 @@
   (function () {
     "use strict";
 
-    /* =========================================================
-       State stored in localStorage (lang + theme)
-       themeMode: auto | light | dark
-       ========================================================= */
     const state = {
       lang: localStorage.getItem("lang") || "ar",
       themeMode: localStorage.getItem("themeMode") || "auto"
     };
 
-    /* =========================================================
-       Dark mode logic
-       ========================================================= */
     function applyTheme() {
       const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
       const hr = new Date().getHours();
@@ -2348,9 +2018,6 @@
       });
     }
 
-    /* =========================================================
-       I18N Dictionary
-       ========================================================= */
     const I18N_DICT = {
       "hero-badge": { en: "<span class='hero-status-dot'></span>ISTANBUL BASED CREATIVE", ar: "<span class='hero-status-dot'></span> كريتيف ديـركتور مقيم في إسطنبول" },
       "hero-script": { en: "designed to move", ar: "مصمَّم عشان يِتحرّك" },
@@ -2417,35 +2084,6 @@
       "label-toolkit": { en: "Toolkit", ar: "الأدوات" },
       "label-brands": { en: "Platforms & verticals", ar: "منصات ومجالات" },
 
-      "label-experience": { en: "Career Path", ar: "الخبرات" },
-      "title-experience": { en: "EXPERIENCE & <span class='accent-text'>EDUCATION</span>", ar: "الخبرة & <span class='accent-text'>التعليم</span>" },
-      "exp-journey": { en: "Professional Journey", ar: "الرحلة المهنية" },
-
-      "exp-1-title": { en: "Freelance Graphic Designer", ar: "جرافيك ديزاينر فريلانسر" },
-      "exp-1-company": { en: "Jewelry Brand | Saudi Arabia", ar: "براند مجوهرات | السعودية" },
-      "exp-1-a": { en: "Produced high-end jewelry product videos for digital campaigns.", ar: "عملت فيديوهات منتجات مجوهرات بجودة عالية للحملات الرقمية." },
-      "exp-1-b": { en: "Designed social media content tailored to target audiences.", ar: "صممت محتوى سوشيال مناسب للجمهور المستهدف." },
-      "exp-1-c": { en: "Created visuals aligned with brand identity.", ar: "طلعت ڤيجوالز متسقة مع هوية البراند." },
-
-      "exp-2-title": { en: "Graphic & Motion Designer", ar: "جرافيك + موشن ديزاينر" },
-      "exp-2-company": { en: "Orient Detectors | Istanbul", ar: "Orient Detectors | إسطنبول" },
-      "exp-2-a": { en: "Designed brochures, catalogs, and full brand identity.", ar: "صممت بروشورات وكاتالوج وهوية كاملة." },
-      "exp-2-b": { en: "Produced professional product videos.", ar: "عملت فيديوهات منتجات بشكل احترافي." },
-      "exp-2-c": { en: "Collaborated with marketing team on concepts.", ar: "اشتغلت مع فريق التسويق على الأفكار والكونسبت." },
-
-      "exp-3-title": { en: "Motion Designer", ar: "موشن ديزاينر" },
-      "exp-3-a": { en: "Produced promotional videos reflecting brand identity.", ar: "نفذت فيديوهات دعائية بتعكس هوية البراند." },
-      "exp-3-b": { en: "Created visually compelling designs for engagement.", ar: "صممت ڤيجوالز جذابة لرفع التفاعل." },
-
-      "exp-4-period": { en: "Previous", ar: "قبل كده" },
-      "exp-4-title": { en: "Motion Designer / Video Editor", ar: "موشن ديزاينر / ڤيديو إيديتور" },
-      "exp-4-a": { en: "Edited and produced daily news videos (Premiere Pro & AE).", ar: "منتجت وحررت فيديوهات أخبار يومية (Premiere + AE)." },
-      "exp-4-b": { en: "Designed engaging thumbnails for social distribution.", ar: "صممت ثَمبنيلز قوية للسوشيال." },
-
-      "edu-title": { en: "Education", ar: "التعليم" },
-      "edu-degree": { en: "Bachelor's Degree", ar: "بكالوريوس" },
-      "edu-major": { en: "Mining Engineering", ar: "هندسة تعدين" },
-
       "label-services": { en: "Services", ar: "الخدمات" },
       "title-services": { en: "Built as a small studio,<br>not a single designer.", ar: "شغال كأنه ستوديو صغير<br>مش شخص واحد." },
       "subtitle-services": { en: "Plug into a creative director + production brain in one place. No passing files through five different teams.", ar: "كريتيف دايركشن + تنفيذ في نفس المكان — من غير دوشة لفّ الملفات بين خمس فرق." },
@@ -2466,30 +2104,6 @@
       "title-product": { en: "HUGGIES <span class='accent-text'>CAMPAIGN</span>", ar: "حملة <span class='accent-text'>HUGGIES</span>" },
       "subtitle-product": { en: "Showcasing premium care moments with high-fidelity visuals.", ar: "ڤيجوالز عالية الجودة بتعرض لحظات عناية بشكل بريميوم." },
 
-      "label-passion": { en: "Passion narratives", ar: "شغل شغف" },
-      "title-political": { en: "POLITICAL & <span style='color: #ef4444'>SOCIAL</span> VISUALS", ar: "ڤيجوالز <span style='color: #ef4444'>سياسية</span> و<span style='color: #ef4444'>اجتماعية</span>" },
-      "subtitle-political": { en: "Visual campaigns built around causes, not brands — posters, key visuals, and social assets that carry a clear point of view.", ar: "حملات معمولّة لقضايا مش لبراندز — بوسترات وKey Visuals وأصول سوشيال فيها رأي واضح." },
-
-      "label-faq": { en: "FAQ", ar: "أسئلة سريعة" },
-      "title-faq": { en: "A few answers<br>before the call.", ar: "كام إجابة<br>قبل المكالمة." },
-      "subtitle-faq": { en: "If it still feels like a fit after this section, that’s a good sign.", ar: "لو لسه حاسس إنه مناسب بعد الجزء ده… يبقى إحنا تمام." },
-
-      "faq-1-q": { en: "What does a typical project timeline look like?", ar: "تايملاين المشروع بيكون عامل إزاي؟" },
-      "faq-1-a": { en: "Most identity or motion-led projects run between 3–6 weeks depending on scope. Smaller content packs can be turned around faster once the system is defined.", ar: "أغلب مشاريع الهوية أو الموشن بتاخد من 3 لـ 6 أسابيع حسب السكوب. باكدجات المحتوى بتبقى أسرع بعد ما السيستم يتقفل." },
-
-      "faq-2-q": { en: "Can you work with our in-house team or agency?", ar: "ينفع تشتغل مع فريقنا الداخلي أو وكالة؟" },
-      "faq-2-a": { en: "Yes. A lot of work happens alongside internal teams — I can plug in as a dedicated design/motion arm or help define the system they execute on.", ar: "أيوه. كتير من الشغل بيكون جنب فرق داخلية — أقدر أكون ذراع ديزاين/موشن أو أساعد في بناء السيستم اللي الفريق ينفذ عليه." },
-
-      "faq-3-q": { en: "Do you handle scripting and copy as well?", ar: "بتعمل سكريبت وكوبي كمان؟" },
-      "faq-3-a": { en: "For motion and launch films, yes — I usually help shape the narrative, script and flow, then we lock visuals and timing together. For smaller projects, you provide the copy.", ar: "للموشن وفيديوهات الإطلاق: غالبًا أيوه — بساعد في الستوري والسكريبت والفلو. المشاريع الصغيرة بتبقى أنت موفّر الكوبي." },
-
-      "faq-4-q": { en: "What’s the best way to start?", ar: "إيه أفضل طريقة نبدأ؟" },
-      "faq-4-a": { en: "A short call with a clear brief and a single decision-maker on your side. From there we map scope, budget and timeline in one page.", ar: "مكالمة قصيرة + برِيف واضح + شخص واحد صاحب قرار. بعدها بنحدد السكوب والميزانية والمدة في صفحة واحدة." },
-
-      "archive-title": { en: "EXCLUSIVE <span class='accent-text'>VAULT</span>", ar: "أرشيف <span class='accent-text'>خاص</span>" },
-      "archive-body": { en: "Full-resolution files, layered source projects, and in-progress concepts for selected collaborations — stored in a living archive.", ar: "ملفات Full Resolution + سورسات + أفكار قيد التطوير لتعاونات مختارة — محفوظة في أرشيف حي." },
-      "archive-btn": { en: "Open archive", ar: "افتح الأرشيف" },
-
       "footer-tag": { en: "Next brief, please.", ar: "هات البرِيف الجاي." },
       "footer-title-line-1": { en: "Let's", ar: "يلا" },
       "footer-title-line-2": { en: "Talk.", ar: "نتكلم." },
@@ -2501,9 +2115,6 @@
       "img-missing": { en: "<i class='fas fa-exclamation-triangle' style='font-size:1.5rem; margin-bottom:10px;'></i>Missing image", ar: "<i class='fas fa-exclamation-triangle' style='font-size:1.5rem; margin-bottom:10px;'></i>الصورة مش موجودة" }
     };
 
-    /* =========================================================
-       Helpers
-       ========================================================= */
     function applyTranslations() {
       const isAr = state.lang === "ar";
       document.documentElement.dir = isAr ? "rtl" : "ltr";
@@ -2533,9 +2144,6 @@
       });
     }
 
-    /* =========================================================
-       Language toggle
-       ========================================================= */
     const toggleBtn = document.getElementById("langToggle");
     if (toggleBtn) {
       const textSpan = toggleBtn.querySelector(".lang-text");
@@ -2548,9 +2156,6 @@
       });
     }
 
-    /* =========================================================
-       Preloader (slightly faster exit)
-       ========================================================= */
     window.addEventListener("load", () => {
       const loader = document.querySelector(".preloader");
       const fill = document.querySelector(".loader-fill");
@@ -2565,9 +2170,6 @@
       }, 450);
     }, { passive: true });
 
-    /* =========================================================
-       Reveal on scroll (unobserve after visible)
-       ========================================================= */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2579,31 +2181,6 @@
 
     document.querySelectorAll(".reveal-on-scroll").forEach(el => observer.observe(el));
 
-    /* =========================================================
-       FAQ (click + keyboard)
-       ========================================================= */
-    function toggleFAQ(item) {
-      item.classList.toggle("open");
-      const header = item.querySelector(".faq-header");
-      if (header) header.setAttribute("aria-expanded", item.classList.contains("open") ? "true" : "false");
-    }
-
-    document.querySelectorAll(".faq-item").forEach(item => {
-      const header = item.querySelector(".faq-header");
-      if (!header) return;
-
-      header.addEventListener("click", () => toggleFAQ(item));
-      header.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          toggleFAQ(item);
-        }
-      });
-    });
-
-    /* =========================================================
-       Counters
-       ========================================================= */
     function animateCounters() {
       document.querySelectorAll("[data-counter]").forEach(el => {
         const raw = el.getAttribute("data-counter");
@@ -2639,18 +2216,9 @@
       statsObserver.observe(statsSection);
     }
 
-    /* =========================================================
-       PERF: Clone loop tracks (toolkit/brands/political) once
-       ========================================================= */
     cloneForLoop(".loop-track[data-loop='true']");
     cloneForLoop(".political-track[data-loop='true']");
 
-    /* =========================================================
-       Canvas background (optimized)
-       - respects prefers-reduced-motion
-       - throttled to ~30fps
-       - pauses on hidden tabs
-       ========================================================= */
     const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const canvas = document.getElementById("canvas-bg");
@@ -2693,7 +2261,6 @@
     function drawParticles(now) {
       if (!canvas || !ctx || !running) return;
 
-      // throttle ~30fps
       if (now - lastFrame < 33) {
         rafId = requestAnimationFrame(drawParticles);
         return;
@@ -2722,7 +2289,6 @@
         ctx.fillStyle = "rgba(37, 99, 235, 0.25)";
         ctx.fill();
 
-        // fewer connections for performance
         for (let j = i + 1; j < particles.length; j++) {
           const q = particles[j];
           const dx = p.x - q.x;
@@ -2759,7 +2325,6 @@
       rafId = null;
     }
 
-    // pause/resume on tab visibility
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) stopCanvas();
       else startCanvas();
@@ -2771,7 +2336,6 @@
       initParticles();
     }, { passive: true });
 
-    // start when browser is idle (better first paint)
     if (!reduceMotion) {
       if ("requestIdleCallback" in window) {
         requestIdleCallback(startCanvas, { timeout: 1200 });
@@ -2780,7 +2344,6 @@
       }
     }
 
-    // apply translations once at start
     applyTranslations();
   })();
   </script>
