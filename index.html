@@ -2,8 +2,6 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-
-  <!-- UPDATED: Accessibility-friendly viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Mohamed Amer – Creative Director</title>
@@ -22,17 +20,11 @@
   <meta name="twitter:description" content="Official Portfolio of Mohamed Amer – Creative Director, Graphic & Motion Designer." />
   <meta name="twitter:image" content="MINED.png" />
 
-  <!-- PERF: dns-prefetch for external origins -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="//www.behance.net">
-  <link rel="dns-prefetch" href="//img.youtube.com">
-
-  <!-- PERF: Preload hero image -->
   <link rel="preload" as="image" href="MINED.png" fetchpriority="high">
 
-  <!-- Fonts: async load (non render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -49,7 +41,6 @@
     />
   </noscript>
 
-  <!-- Font Awesome: async load -->
   <link
     rel="preload"
     as="style"
@@ -99,16 +90,6 @@
 
       --card-shadow: 0 12px 34px -8px rgba(0, 0, 0, 0.08);
       --card-shadow-strong: 0 24px 60px rgba(0,0,0,0.14);
-
-      --space-1: 8px;
-      --space-2: 12px;
-      --space-3: 16px;
-      --space-4: 20px;
-      --space-5: 24px;
-      --space-6: 32px;
-      --space-7: 40px;
-      --space-8: 56px;
-      --space-9: 80px;
     }
 
     body.dark-mode {
@@ -1030,6 +1011,7 @@
     .huggies-item:hover img { transform: scale(1.06); }
     @media (max-width: 768px) { .huggies-grid { grid-template-columns: 1fr; } }
 
+    /* Political/Moving Section Loop */
     .political-loop-container {
       overflow: hidden;
       padding: 20px 0;
@@ -1312,8 +1294,8 @@
   <main>
 
     <!-- =========================================================
-         1) HERO
-         ========================================================= -->
+          1) HERO
+          ========================================================= -->
     <section id="about" class="hero-radical container">
       <div class="hero-ticker-bg" aria-hidden="true">
         CREATIVE DIRECTION · MOTION DESIGN · VISUAL SYSTEMS ·
@@ -1402,8 +1384,8 @@
     </section>
 
     <!-- =========================================================
-         2) WORK (Behance Embeds - Kept as Signature Projects)
-         ========================================================= -->
+          2) WORK (Behance Embeds - Kept as Signature Projects)
+          ========================================================= -->
     <section id="work" class="container section-spacing cv-auto">
       <div class="reveal-on-scroll" style="margin-bottom: 32px;">
         <span class="label">
@@ -1490,8 +1472,8 @@
     </section>
 
     <!-- =========================================================
-         3) SOCIAL MEDIA (S)
-         ========================================================= -->
+          3) SOCIAL MEDIA (S)
+          ========================================================= -->
     <section id="social-media" class="container section-spacing cv-auto">
       <div class="reveal-on-scroll" style="margin-bottom: 32px; text-align: center;">
         <span class="label">
@@ -1503,7 +1485,7 @@
       </div>
 
       <div class="masonry-grid-gallery">
-        <!-- Loop s1 -> s24 -->
+        <!-- Manually verified loop s1 -> s24 -->
         <div class="gallery-item reveal-on-scroll"><img src="s1.png" loading="lazy"></div>
         <div class="gallery-item reveal-on-scroll"><img src="s2.png" loading="lazy"></div>
         <div class="gallery-item reveal-on-scroll"><img src="s3.png" loading="lazy"></div>
@@ -1525,6 +1507,7 @@
         <div class="gallery-item reveal-on-scroll"><img src="s19.png" loading="lazy"></div>
         <div class="gallery-item reveal-on-scroll"><img src="s20.png" loading="lazy"></div>
         <div class="gallery-item reveal-on-scroll"><img src="s21.png" loading="lazy"></div>
+        <!-- s22, s23, s24 are JPGs based on file list -->
         <div class="gallery-item reveal-on-scroll"><img src="s22.jpg" loading="lazy"></div>
         <div class="gallery-item reveal-on-scroll"><img src="s23.jpg" loading="lazy"></div>
         <div class="gallery-item reveal-on-scroll"><img src="s24.jpg" loading="lazy"></div>
@@ -1532,31 +1515,58 @@
     </section>
 
     <!-- =========================================================
-         4) POLITICAL (B) - Animated Loop
-         ========================================================= -->
-    <section id="political" class="container section-spacing cv-auto">
+          4) POLITICAL POSTERS (P) - ANIMATED LOOP
+          (Swapped logic as requested: P is Political & Moving)
+          ========================================================= -->
+    <section id="political-posters" class="container section-spacing cv-auto">
       <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 40px;">
         <span class="label">
           <span class="label-dot"></span>
-          <span>B - Files</span>
+          <span>P - Files</span>
         </span>
-        <h2 class="title-lg">POLITICAL <span class="accent-text">BANNERS</span></h2>
-        <p class="section-subtitle" style="margin: 0 auto;">High impact campaign visuals.</p>
+        <h2 class="title-lg" data-i18n="title-political">POLITICAL <span class="accent-text">POSTERS</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;" data-i18n="subtitle-political">Impactful political visuals and statements.</p>
       </div>
 
       <div class="political-loop-container reveal-on-scroll">
         <div class="political-track" data-loop="true">
-          <div class="political-item"><img src="b1.png" loading="lazy"></div>
-          <div class="political-item"><img src="b2.png" loading="lazy"></div>
-          <div class="political-item"><img src="b3.png" loading="lazy"></div>
-          <div class="political-item"><img src="b4.png" loading="lazy"></div>
+          <!-- P files in loop -->
+          <div class="political-item"><img src="p1.png" loading="lazy"></div>
+          <div class="political-item"><img src="p2.png" loading="lazy"></div>
+          <div class="political-item"><img src="p3.png" loading="lazy"></div>
+          <div class="political-item"><img src="p4.png" loading="lazy"></div>
+          <div class="political-item"><img src="p5.png" loading="lazy"></div>
+          <div class="political-item"><img src="p6.png" loading="lazy"></div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================
-         5) CARDS (C)
-         ========================================================= -->
+          5) BANNERS (B) - STATIC GRID
+          (Swapped logic as requested: B is Banner Grid)
+          ========================================================= -->
+    <section id="banners" class="container section-spacing cv-auto">
+      <div class="reveal-on-scroll" style="margin-bottom: 32px; text-align:center;">
+        <span class="label">
+          <span class="label-dot"></span>
+          <span>B - Files</span>
+        </span>
+        <h2 class="title-lg" data-i18n="title-banners">CREATIVE <span class="accent-text">BANNERS</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;" data-i18n="subtitle-banners">High-res banners for web and print.</p>
+      </div>
+
+      <div class="masonry-grid-gallery reveal-on-scroll">
+        <!-- B files in grid -->
+        <div class="gallery-item"><img src="b1.png" loading="lazy"></div>
+        <div class="gallery-item"><img src="b2.png" loading="lazy"></div>
+        <div class="gallery-item"><img src="b3.png" loading="lazy"></div>
+        <div class="gallery-item"><img src="b4.png" loading="lazy"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+          6) CARDS (C)
+          ========================================================= -->
     <section id="cards" class="container section-spacing cv-auto">
       <div class="reveal-on-scroll" style="margin-bottom: 32px; text-align:center;">
         <span class="label">
@@ -1578,8 +1588,8 @@
     </section>
 
     <!-- =========================================================
-         6) AI CAMPAIGNS (AI)
-         ========================================================= -->
+          7) AI CAMPAIGNS (AI)
+          ========================================================= -->
     <section id="ai-campaigns" class="container section-spacing cv-auto">
       <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 40px;">
         <span class="label">
@@ -1603,15 +1613,15 @@
     </section>
 
     <!-- =========================================================
-         7) MEDICAL (G)
-         ========================================================= -->
-    <section id="medical" class="container section-spacing cv-auto">
+          8) DEVICE DESIGNS (G) - Renamed from Medical
+          ========================================================= -->
+    <section id="device-designs" class="container section-spacing cv-auto">
       <div class="reveal-on-scroll" style="margin-bottom: 32px; text-align:center;">
         <span class="label">
           <span class="label-dot"></span>
           <span>G - Files</span>
         </span>
-        <h2 class="title-lg">MEDICAL <span class="accent-text">SECTOR</span></h2>
+        <h2 class="title-lg" data-i18n="title-devices">DEVICE <span class="accent-text">DESIGNS</span></h2>
       </div>
 
       <div class="grid-standard reveal-on-scroll">
@@ -1628,30 +1638,8 @@
     </section>
 
     <!-- =========================================================
-         8) POSTERS (P)
-         ========================================================= -->
-    <section id="posters" class="container section-spacing cv-auto">
-      <div class="reveal-on-scroll" style="margin-bottom: 32px; text-align:center;">
-        <span class="label">
-          <span class="label-dot"></span>
-          <span>P - Files</span>
-        </span>
-        <h2 class="title-lg">CREATIVE <span class="accent-text">POSTERS</span></h2>
-      </div>
-
-      <div class="masonry-grid-gallery reveal-on-scroll">
-        <div class="gallery-item"><img src="p1.png" loading="lazy"></div>
-        <div class="gallery-item"><img src="p2.png" loading="lazy"></div>
-        <div class="gallery-item"><img src="p3.png" loading="lazy"></div>
-        <div class="gallery-item"><img src="p4.png" loading="lazy"></div>
-        <div class="gallery-item"><img src="p5.png" loading="lazy"></div>
-        <div class="gallery-item"><img src="p6.png" loading="lazy"></div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         9) PRODUCT (Huggies - H)
-         ========================================================= -->
+          9) PRODUCT (Huggies - H)
+          ========================================================= -->
     <section id="product-showcase" class="container section-spacing cv-auto">
       <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 32px;">
         <span class="label">
@@ -1680,8 +1668,8 @@
     </section>
 
     <!-- =========================================================
-         10) VIRAL SHORTS (Existing)
-         ========================================================= -->
+          10) VIRAL SHORTS (Existing)
+          ========================================================= -->
     <section id="viral-shorts" class="container section-spacing cv-auto">
       <div style="text-align: center; margin-bottom: 3rem;" class="reveal-on-scroll">
         <span class="label">
@@ -1718,8 +1706,8 @@
     </section>
 
     <!-- =========================================================
-         11) PROCESS & STATS
-         ========================================================= -->
+          11) PROCESS & STATS
+          ========================================================= -->
     <section id="process" class="container section-spacing cv-auto">
       <div class="grid-standard">
         <div class="col-span-6 reveal-on-scroll">
@@ -1826,8 +1814,8 @@
     </section>
 
     <!-- =========================================================
-         13) FOOTER
-         ========================================================= -->
+          13) FOOTER
+          ========================================================= -->
     <footer id="contact" class="footer cv-auto">
       <div class="container">
         <div class="footer-grid">
@@ -1964,15 +1952,18 @@
 
       "btn-behance-all": { en: "Explore full Behance archive", ar: "شوف كل الشغل على Behance" },
 
-      "label-harvest": { en: "Commercial Visuals", ar: "ڤيجوالز إعلانية" },
-      "title-harvest": { en: "ADVERTISING <span class='accent-text'>VISUALS</span>", ar: "ڤيجوالز <span class='accent-text'>إعلانية</span>" },
-      "subtitle-harvest": { en: "High-end compositing and art direction for Harvest. Blending product photography with creative manipulation to create a delicious visual narrative.", ar: "كومبوزيتنج عالي الجودة وآرت دايركشن لمشروع Harvest — دمج تصوير المنتج مع معالجة إبداعية لستوري بصرية شهية." },
+      /* UPDATED SECTIONS */
+      "title-political": { en: "POLITICAL <span class='accent-text'>POSTERS</span>", ar: "ملصقات <span class='accent-text'>سياسية</span>" },
+      "subtitle-political": { en: "Impactful political visuals and statements.", ar: "تصاميم سياسية قوية ومؤثرة." },
+
+      "title-banners": { en: "CREATIVE <span class='accent-text'>BANNERS</span>", ar: "بانرات <span class='accent-text'>إبداعية</span>" },
+      "subtitle-banners": { en: "High-res banners for web and print.", ar: "بانرات عالية الدقة للويب والطباعة." },
+
+      "title-devices": { en: "DEVICE <span class='accent-text'>DESIGNS</span>", ar: "تصاميم <span class='accent-text'>أجهزة</span>" },
 
       "label-gallery": { en: "New Assets", ar: "إضافات جديدة" },
       "title-gallery": { en: "VISUAL <span class='accent-text'>LIBRARY</span>", ar: "مكتبة <span class='accent-text'>الڤيجوالز</span>" },
       "subtitle-gallery": { en: "A collection of recent design explorations and assets.", ar: "مجموعة من آخر الاستكشافات والملفات اللي اشتغلت عليها." },
-
-      "gallery-missing": { en: "Image not found", ar: "الصورة مش موجودة" },
 
       "label-viral": { en: "Viral Content", ar: "محتوى Viral" },
       "title-viral": { en: "FEED-FIRST <span class='accent-text'>MOMENTS</span>", ar: "لحظات <span class='accent-text'>للـFeed</span> أولًا" },
@@ -2000,22 +1991,6 @@
       "label-toolkit": { en: "Toolkit", ar: "الأدوات" },
       "label-brands": { en: "Platforms & verticals", ar: "منصات ومجالات" },
 
-      "label-services": { en: "Services", ar: "الخدمات" },
-      "title-services": { en: "Built as a small studio,<br>not a single designer.", ar: "شغال كأنه ستوديو صغير<br>مش شخص واحد." },
-      "subtitle-services": { en: "Plug into a creative director + production brain in one place. No passing files through five different teams.", ar: "كريتيف دايركشن + تنفيذ في نفس المكان — من غير دوشة لفّ الملفات بين خمس فرق." },
-
-      "service-1-tag": { en: "Identity", ar: "هوية" },
-      "service-1-title": { en: "Brand systems & refresh", ar: "سيستم هوية + ريفرش" },
-      "service-1-body": { en: "From logo to motion behavior: we define how your brand looks, feels, and moves across every touchpoint.", ar: "من اللوجو لحد سلوك الموشن: بنحدد شكل البراند وإحساسه وحركته في كل نقطة تماس." },
-
-      "service-2-tag": { en: "Motion", ar: "موشن" },
-      "service-2-title": { en: "Launch films & product explainers", ar: "فيديوهات إطلاق + شرح منتج" },
-      "service-2-body": { en: "Cinematic motion pieces that explain, launch, or reintroduce your product without feeling like a slideshow.", ar: "موشن سينمائي يشرح/يطلق/يعيد تقديم المنتج من غير ما يحسّسك إنه سلايد شو." },
-
-      "service-3-tag": { en: "Social", ar: "سوشيال" },
-      "service-3-title": { en: "Always-on content engines", ar: "سيستم محتوى مستمر" },
-      "service-3-body": { en: "Monthly packs of posts, stories, and reels that keep your brand consistent but never repetitive.", ar: "باكدج شهري بوستات وستوريز ورييلز يخلي البراند ثابت… بس عمره ما يبقى مكرر." },
-
       "label-product": { en: "Product Photography", ar: "تصوير منتجات" },
       "title-product": { en: "HUGGIES <span class='accent-text'>CAMPAIGN</span>", ar: "حملة <span class='accent-text'>HUGGIES</span>" },
       "subtitle-product": { en: "Showcasing premium care moments with high-fidelity visuals.", ar: "ڤيجوالز عالية الجودة بتعرض لحظات عناية بشكل بريميوم." },
@@ -2027,8 +2002,6 @@
       "footer-name": { en: "Mohamed Amer", ar: "محمد عامر" },
       "footer-rights": { en: "All rights reserved.", ar: "كل الحقوق محفوظة." },
       "footer-location": { en: "Cairo, Egypt", ar: "القاهرة، مصر" },
-
-      "img-missing": { en: "<i class='fas fa-exclamation-triangle' style='font-size:1.5rem; margin-bottom:10px;'></i>Missing image", ar: "<i class='fas fa-exclamation-triangle' style='font-size:1.5rem; margin-bottom:10px;'></i>الصورة مش موجودة" }
     };
 
     function applyTranslations() {
