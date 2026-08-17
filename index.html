@@ -6,7 +6,7 @@
   <title>Mohamed Amer — Visual & Graphic Designer</title>
   <meta name="description" content="Portfolio of Mohamed Amer, a Visual & Graphic Designer with experience across agency, technology, retail and media." />
   <meta name="author" content="Mohamed Amer" />
-  <meta name="theme-color" content="#F4F0E8" />
+  <meta name="theme-color" content="#F3F0E8" />
   <meta property="og:title" content="Mohamed Amer — Visual & Graphic Designer" />
   <meta property="og:description" content="Selected campaign, social, product, digital and print design work by Mohamed Amer." />
   <meta property="og:type" content="website" />
@@ -18,19 +18,19 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --paper:#F4F0E8;
-      --paper-2:#E9E3D8;
-      --ink:#10100F;
-      --muted:#6D685F;
-      --line:#C9C2B6;
-      --signal:#F04A2A;
-      --acid:#DFFF63;
+      --paper:#F3F0E8;
+      --paper-2:#E5E0D6;
+      --ink:#0C0C0B;
+      --muted:#655F56;
+      --line:#BFB7AA;
+      --signal:#E3422D;
+      --mark:#C6CEBE;
       --white:#FFFDF8;
-      --sans:"Syne",Arial,sans-serif;
+      --sans:Arial,"Helvetica Neue",Helvetica,sans-serif;
       --mono:"IBM Plex Mono",monospace;
       --arabic:"IBM Plex Sans Arabic",sans-serif;
       --max:1440px;
@@ -44,7 +44,7 @@
     a{color:inherit;text-decoration:none}
     button{font:inherit;color:inherit}
     img{max-width:100%;display:block}
-    ::selection{background:var(--acid);color:var(--ink)}
+    ::selection{background:var(--mark);color:var(--ink)}
 
     .site-shell{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
     .hairline{border-top:1px solid var(--line)}
@@ -52,8 +52,8 @@
     html[dir="rtl"] .mono{font-family:var(--arabic);letter-spacing:0;text-transform:none}
 
     /* NAV */
-    .nav{position:sticky;top:0;z-index:100;background:rgba(244,240,232,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    .nav-inner{height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+    .nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--line)}
+    .nav-inner{height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
     .brand{font-weight:800;font-size:1.1rem;letter-spacing:-.03em}
     .nav-center{display:flex;gap:24px;align-items:center}
     .nav-center a{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;position:relative}
@@ -66,35 +66,43 @@
     .cv-link:hover{background:var(--signal);border-color:var(--signal)}
 
     /* HERO */
-    .hero{min-height:calc(100vh - 72px);display:grid;grid-template-columns:1.2fr .8fr;border-bottom:1px solid var(--ink);position:relative;overflow:hidden}
-    .hero-copy{padding:clamp(56px,8vw,124px) var(--pad) 54px 0;display:flex;flex-direction:column;justify-content:space-between;min-height:calc(100vh - 72px)}
-    html[dir="rtl"] .hero-copy{padding:clamp(56px,8vw,124px) 0 54px var(--pad)}
+    .hero{min-height:78vh;display:grid;grid-template-columns:1.28fr .72fr;border-bottom:1px solid var(--ink);position:relative;overflow:hidden}
+    .hero-copy{padding:clamp(46px,6vw,86px) var(--pad) 42px 0;display:flex;flex-direction:column;justify-content:space-between;min-height:78vh}
+    html[dir="rtl"] .hero-copy{padding:clamp(46px,6vw,86px) 0 42px var(--pad)}
     .eyebrow{display:flex;gap:12px;align-items:center;color:var(--muted);font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
     html[dir="rtl"] .eyebrow{font-family:var(--arabic);text-transform:none;letter-spacing:0}
     .eyebrow .dot{width:9px;height:9px;background:var(--signal);border-radius:50%}
-    .hero-name{font-size:clamp(4.5rem,10.5vw,10.7rem);line-height:.78;letter-spacing:-.075em;font-weight:800;text-transform:uppercase;margin:42px 0 36px;max-width:900px}
+    .hero-name{font-size:clamp(4.6rem,9.8vw,10rem);line-height:.78;letter-spacing:-.085em;font-weight:800;text-transform:uppercase;margin:38px 0 34px;max-width:950px}
+    .hero-name span{display:block}
+    .hero-name .name-second{color:var(--signal);margin-left:clamp(30px,9vw,150px)}
+    html[dir="rtl"] .hero-name .name-second{margin-left:0;margin-right:clamp(30px,9vw,150px)}
     html[dir="rtl"] .hero-name{letter-spacing:-.04em}
-    .hero-name .outline{-webkit-text-stroke:1.5px var(--ink);color:transparent}
-    .hero-statement{display:grid;grid-template-columns:minmax(220px,1fr) minmax(300px,1.2fr);gap:40px;align-items:end;max-width:950px}
-    .hero-role{font-size:clamp(1.3rem,2.3vw,2.5rem);font-weight:600;line-height:1.08;letter-spacing:-.04em}
+    .hero-statement{display:grid;grid-template-columns:minmax(240px,.9fr) minmax(320px,1.1fr);gap:48px;align-items:end;max-width:950px}
+    .hero-role{font-size:clamp(1.35rem,2.2vw,2.35rem);font-weight:700;line-height:1.02;letter-spacing:-.045em}
     .hero-desc{font-size:clamp(.98rem,1.25vw,1.15rem);line-height:1.65;color:var(--muted);max-width:620px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+    .hero-action{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 15px;border:1px solid var(--ink);font-family:var(--mono);font-size:.68rem;text-transform:uppercase;transition:.2s}
+    html[dir="rtl"] .hero-action{font-family:var(--arabic);text-transform:none}
+    .hero-action.primary{background:var(--ink);color:var(--paper)}
+    .hero-action:hover{background:var(--signal);border-color:var(--signal);color:#fff}
     .hero-foot{margin-top:46px;display:flex;gap:10px;flex-wrap:wrap}
     .hero-tag{border-top:1px solid var(--ink);padding:10px 0;margin-right:30px;font-family:var(--mono);font-size:.7rem;text-transform:uppercase}
     html[dir="rtl"] .hero-tag{font-family:var(--arabic);text-transform:none;margin-right:0;margin-left:30px}
 
-    .hero-portrait{position:relative;background:var(--ink);min-height:calc(100vh - 72px);overflow:hidden}
+    .hero-portrait{position:relative;background:var(--ink);min-height:78vh;overflow:hidden}
     .hero-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%) contrast(1.04);mix-blend-mode:luminosity}
     .hero-portrait::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(16,16,15,.8));z-index:1}
-    .hero-portrait::after{content:"AVAILABLE / CAIRO";position:absolute;left:22px;bottom:24px;color:var(--paper);z-index:2;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;writing-mode:vertical-rl;transform:rotate(180deg)}
-    .portrait-stamp{position:absolute;right:24px;top:24px;z-index:2;width:104px;height:104px;border-radius:50%;background:var(--acid);display:grid;place-items:center;text-align:center;font-family:var(--mono);font-size:.64rem;line-height:1.3;text-transform:uppercase;transform:rotate(8deg);color:var(--ink)}
+    .hero-portrait::after{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:rgba(255,255,255,.45);z-index:2}
+    .portrait-stamp{position:absolute;left:0;right:0;bottom:0;z-index:3;background:var(--signal);padding:13px 16px;text-align:left;font-family:var(--mono);font-size:.64rem;line-height:1.35;text-transform:uppercase;color:#fff}
+    html[dir="rtl"] .portrait-stamp{text-align:right;font-family:var(--arabic);text-transform:none}
 
     /* INTRO STRIP */
     .proof-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--ink)}
-    .proof{padding:22px 20px 24px;border-right:1px solid var(--ink);min-height:116px;display:flex;flex-direction:column;justify-content:space-between}
+    .proof{padding:18px 18px 20px;border-right:1px solid var(--ink);min-height:96px;display:flex;flex-direction:column;justify-content:space-between}
     html[dir="rtl"] .proof{border-right:0;border-left:1px solid var(--ink)}
     .proof:last-child{border-right:0}
     html[dir="rtl"] .proof:last-child{border-left:0}
-    .proof strong{font-size:clamp(1.2rem,1.8vw,1.85rem);letter-spacing:-.04em}
+    .proof strong{font-size:clamp(1.02rem,1.45vw,1.48rem);letter-spacing:-.035em;line-height:1.05}
     .proof span{color:var(--muted);font-size:.78rem;line-height:1.45}
 
     /* SECTION SYSTEM */
@@ -102,7 +110,7 @@
     .section-head{display:grid;grid-template-columns:170px 1fr;gap:42px;margin-bottom:56px;align-items:start}
     .section-index{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;color:var(--muted);padding-top:12px}
     html[dir="rtl"] .section-index{font-family:var(--arabic);text-transform:none}
-    .section-title{font-size:clamp(2.8rem,6vw,6.8rem);line-height:.9;letter-spacing:-.065em;font-weight:700;max-width:1050px}
+    .section-title{font-size:clamp(2.7rem,5.4vw,5.9rem);line-height:.9;letter-spacing:-.065em;font-weight:700;max-width:1050px}
     .section-title em{font-style:normal;color:var(--signal)}
     .section-lead{margin-top:22px;max-width:700px;color:var(--muted);line-height:1.65;font-size:1rem}
 
@@ -112,7 +120,7 @@
     .case-num{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
     .case-preview{aspect-ratio:16/10;background:#ddd;overflow:hidden;position:relative;border:1px solid var(--ink)}
     .case-preview iframe{width:100%;height:100%;border:0;pointer-events:none;display:block;background:#fff}
-    .case-preview::after{content:"OPEN CASE ↗";position:absolute;right:12px;top:12px;background:var(--acid);padding:8px 10px;font-family:var(--mono);font-size:.61rem;z-index:2}
+    .case-preview::after{content:"OPEN CASE ↗";position:absolute;right:12px;top:12px;background:var(--signal);color:#fff;padding:8px 10px;font-family:var(--mono);font-size:.61rem;z-index:2}
     html[dir="rtl"] .case-preview::after{content:"فتح المشروع ↗";right:auto;left:12px;font-family:var(--arabic)}
     .case-info{min-height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
     .case-title{font-size:clamp(2rem,3.8vw,4.4rem);line-height:.95;letter-spacing:-.055em;margin-bottom:12px}
@@ -150,7 +158,7 @@
     /* EXPERIENCE */
     .experience{background:var(--ink);color:var(--paper)}
     .experience .section-index,.experience .section-lead{color:#AFA99F}
-    .experience .section-title em{color:var(--acid)}
+    .experience .section-title em{color:var(--signal)}
     .career{border-top:1px solid #3A3935}
     .career-row{display:grid;grid-template-columns:150px 1fr 1fr;gap:36px;padding:28px 0;border-bottom:1px solid #3A3935;align-items:start}
     .career-period{font-family:var(--mono);font-size:.67rem;color:#AFA99F}
@@ -161,7 +169,7 @@
     /* CAPABILITIES */
     .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
     .cap{min-height:260px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:24px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s}
-    .cap:hover{background:var(--acid)}
+    .cap:hover{background:#E8E1D6}
     .cap-kicker{font-family:var(--mono);font-size:.64rem;color:var(--muted);text-transform:uppercase}
     .cap h3{font-size:clamp(1.45rem,2.5vw,2.5rem);line-height:1.02;letter-spacing:-.04em;max-width:340px}
     .cap p{font-size:.84rem;color:var(--muted);line-height:1.55;max-width:330px}
@@ -183,7 +191,7 @@
     .video-card{position:relative;aspect-ratio:9/16;background:#000;overflow:hidden}
     .video-card img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:.35s}
     .video-card:hover img{transform:scale(1.025);opacity:1}
-    .video-card::after{content:"▶";position:absolute;left:20px;bottom:18px;width:46px;height:46px;background:var(--acid);display:grid;place-items:center;border-radius:50%;font-size:.9rem;color:var(--ink)}
+    .video-card::after{content:"▶";position:absolute;left:20px;bottom:18px;width:46px;height:46px;background:var(--signal);display:grid;place-items:center;border-radius:50%;font-size:.9rem;color:#fff}
     .video-meta{position:absolute;right:14px;top:14px;background:var(--paper);padding:7px 9px;font-family:var(--mono);font-size:.58rem;text-transform:uppercase}
 
     /* CONTACT */
@@ -210,18 +218,24 @@
     .reveal.in{opacity:1;transform:none}
 
     @media(max-width:1050px){
-      .hero{grid-template-columns:1fr}.hero-copy{padding-right:0;min-height:auto}.hero-portrait{min-height:65vh}.proof-strip{grid-template-columns:repeat(2,1fr)}
+      .hero{grid-template-columns:1fr}.hero-copy{padding-right:0;padding-left:0;min-height:auto}.hero-portrait{min-height:65vh}.proof-strip{grid-template-columns:repeat(2,1fr)}
       .case{grid-template-columns:100px 1fr}.case-info{grid-column:2}.work-item{grid-column:span 4}.work-item.wide{grid-column:span 8}
       .cap-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(2,1fr)}.contact-head{grid-template-columns:1fr}.career-row{grid-template-columns:130px 1fr}.career-desc{grid-column:2}
     }
     @media(max-width:760px){
       .nav-inner{grid-template-columns:1fr auto}.nav-center{display:none}.nav-actions .cv-link{display:none}
-      .hero-name{font-size:clamp(4.2rem,22vw,7.6rem)}.hero-statement{grid-template-columns:1fr}.hero-portrait{min-height:58vh}.portrait-stamp{width:86px;height:86px}
+      .hero-name{font-size:clamp(4.2rem,22vw,7.6rem)}.hero-statement{grid-template-columns:1fr}.hero-portrait{min-height:58vh}.portrait-stamp{width:auto;height:auto}
       .proof-strip{grid-template-columns:1fr 1fr}.section-head{grid-template-columns:1fr;gap:12px}.section-index{padding-top:0}.section-title{font-size:clamp(3rem,15vw,5.6rem)}
       .case{grid-template-columns:1fr;gap:18px}.case-info{grid-column:auto}.case-num{display:none}.case.featured{margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad))}
       .archive-toolbar{align-items:flex-start;flex-direction:column}.work-wall{grid-template-columns:repeat(2,1fr)}.work-item,.work-item.wide{grid-column:span 1;aspect-ratio:4/5}.work-item:nth-child(5n){grid-column:span 2;aspect-ratio:16/10}
-      .career-row{grid-template-columns:1fr;gap:8px}.career-desc{grid-column:auto}.cap-grid{grid-template-columns:1fr}.cap{min-height:220px}.process-grid{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line);min-height:220px;padding-right:0}
+      .career-row{grid-template-columns:1fr;gap:8px}.career-desc{grid-column:auto}.education-note{grid-template-columns:1fr!important;gap:8px!important}.cap-grid{grid-template-columns:1fr}.cap{min-height:220px}.process-grid{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line);min-height:220px;padding-right:0}
       .video-strip{overflow-x:auto;grid-template-columns:repeat(3,72vw);padding-bottom:10px}.contact h2{font-size:clamp(4rem,19vw,7rem)}.contact-foot{flex-direction:column;gap:10px}
+    }
+    @media(max-width:500px){
+      .proof-strip{grid-template-columns:1fr}
+      .proof{border-right:0!important;border-left:0!important;border-bottom:1px solid var(--ink);min-height:82px}
+      .proof:last-child{border-bottom:0}
+      .hero-actions{width:100%}.hero-action{flex:1 1 auto}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.work-item img,.video-card img{transition:none}}
   </style>
@@ -233,8 +247,9 @@
       <a href="#top" class="brand">MA.</a>
       <div class="nav-center">
         <a href="#work" data-en="Work" data-ar="الأعمال">Work</a>
-        <a href="#archive" data-en="Archive" data-ar="الأرشيف">Archive</a>
         <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
+        <a href="#capabilities" data-en="Capabilities" data-ar="القدرات">Capabilities</a>
+        <a href="#archive" data-en="Archive" data-ar="الأرشيف">Archive</a>
         <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
       </div>
       <div class="nav-actions">
@@ -250,10 +265,14 @@
         <div class="hero-copy">
           <div>
             <div class="eyebrow"><span class="dot"></span><span data-en="Visual & Graphic Designer · Cairo, Egypt" data-ar="مصمم بصري وجرافيك · القاهرة، مصر">Visual & Graphic Designer · Cairo, Egypt</span></div>
-            <h1 class="hero-name"><span>MOHAMED</span><br><span class="outline">AMER</span></h1>
+            <h1 class="hero-name"><span>MOHAMED</span><span class="name-second">AMER</span></h1>
             <div class="hero-statement">
-              <div class="hero-role" data-en="I turn briefs into clear visual directions." data-ar="أحوّل البريف إلى اتجاه بصري واضح.">I turn briefs into clear visual directions.</div>
-              <p class="hero-desc" data-en="Graphic designer with experience across agency, technology, retail and media. I develop key visuals and carry them consistently across campaigns, social media, web and print." data-ar="مصمم جرافيك بخبرة في الوكالات والتقنية والتجزئة والإعلام. أطور الـKey Visuals وأحافظ على اتساقها عبر الحملات والسوشيال ميديا والويب والطباعة.">Graphic designer with experience across agency, technology, retail and media. I develop key visuals and carry them consistently across campaigns, social media, web and print.</p>
+              <div class="hero-role" data-en="Graphic design that holds together from key visual to rollout." data-ar="تصميم جرافيك يحافظ على قوته من الـKey Visual حتى كل تطبيقات الحملة.">Graphic design that holds together from key visual to rollout.</div>
+              <p class="hero-desc" data-en="I work across campaign, social, brand and product communication — building visual systems that stay consistent across digital and print." data-ar="أعمل على الحملات والسوشيال وتطبيقات الهوية وتواصل المنتجات، وأبني أنظمة بصرية تظل متسقة عبر الديجيتال والطباعة.">I work across campaign, social, brand and product communication — building visual systems that stay consistent across digital and print.</p>
+            </div>
+            <div class="hero-actions">
+              <a class="hero-action primary" href="#work" data-en="Selected work ↓" data-ar="الأعمال المختارة ↓">Selected work ↓</a>
+              <a class="hero-action" href="My cv English .pdf" target="_blank" rel="noopener noreferrer" data-en="Download CV ↗" data-ar="تحميل السيرة ↗">Download CV ↗</a>
             </div>
           </div>
           <div class="hero-foot">
@@ -265,23 +284,23 @@
         </div>
         <div class="hero-portrait">
           <img src="MINED.png" alt="Mohamed Amer" loading="eager" fetchpriority="high" />
-          <div class="portrait-stamp" data-en="Open to graphic design opportunities" data-ar="متاح لفرص تصميم الجرافيك">Open to graphic design opportunities</div>
+          <div class="portrait-stamp" data-en="Open to full-time graphic design roles · Cairo / Remote" data-ar="متاح لفرص جرافيك ديزاين بدوام كامل · القاهرة / عن بُعد">Open to full-time graphic design roles · Cairo / Remote</div>
         </div>
       </section>
 
       <div class="proof-strip">
-        <div class="proof"><span class="mono">01 / ROLE</span><strong data-en="Visual & Graphic Designer" data-ar="مصمم بصري وجرافيك">Visual & Graphic Designer</strong></div>
-        <div class="proof"><span class="mono">02 / RANGE</span><strong data-en="Digital → Print" data-ar="ديجيتال ← طباعة">Digital → Print</strong></div>
-        <div class="proof"><span class="mono">03 / CONTEXT</span><strong data-en="Agency · Tech · Media" data-ar="وكالات · تقنية · إعلام">Agency · Tech · Media</strong></div>
-        <div class="proof"><span class="mono">04 / LOCATION</span><strong data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</strong></div>
+        <div class="proof"><span class="mono">01 / EXPERIENCE</span><strong data-en="2021 → NOW" data-ar="2021 ← الآن">2021 → NOW</strong></div>
+        <div class="proof"><span class="mono">02 / ENVIRONMENTS</span><strong data-en="Agency · Tech · Retail · Media" data-ar="وكالات · تقنية · تجزئة · إعلام">Agency · Tech · Retail · Media</strong></div>
+        <div class="proof"><span class="mono">03 / OUTPUT</span><strong data-en="Digital + Print" data-ar="ديجيتال + طباعة">Digital + Print</strong></div>
+        <div class="proof"><span class="mono">04 / FOCUS</span><strong data-en="Campaigns · Social · Brand" data-ar="حملات · سوشيال · هوية">Campaigns · Social · Brand</strong></div>
       </div>
 
       <section id="work" class="block reveal">
         <div class="section-head">
-          <div class="section-index">01 / SELECTED EVIDENCE</div>
+          <div class="section-index" data-en="01 / SELECTED WORK" data-ar="01 / أعمال مختارة">01 / SELECTED WORK</div>
           <div>
-            <h2 class="section-title" data-en="Three projects that show <em>how I think.</em>" data-ar="ثلاثة مشاريع توضح <em>كيف أفكر.</em>">Three projects that show <em>how I think.</em></h2>
-            <p class="section-lead" data-en="I lead with work that shows range, consistency and real production across different industries — not just isolated visuals." data-ar="أبدأ بأعمال توضح التنوع والاتساق والتنفيذ الفعلي عبر صناعات مختلفة، وليس مجرد صور منفصلة.">I lead with work that shows range, consistency and real production across different industries — not just isolated visuals.</p>
+            <h2 class="section-title" data-en="From brief to <em>rollout.</em>" data-ar="من البريف إلى <em>التطبيق الكامل.</em>">From brief to <em>rollout.</em></h2>
+            <p class="section-lead" data-en="Three projects, three different visual problems: technical product communication, real-estate social systems and fast-moving food content." data-ar="ثلاثة مشاريع وثلاثة تحديات بصرية مختلفة: تواصل منتجات تقنية، أنظمة سوشيال للعقارات، ومحتوى سريع لقطاع الأغذية.">Three projects, three different visual problems: technical product communication, real-estate social systems and fast-moving food content.</p>
           </div>
         </div>
 
@@ -296,7 +315,7 @@
                 <h3 class="case-title">Orient Detectors</h3>
                 <div class="case-meta" data-en="Product & Campaign Design · Technology · 2024" data-ar="تصميم منتجات وحملات · تقنية · 2024">Product & Campaign Design · Technology · 2024</div>
               </div>
-              <p class="case-copy" data-en="A strong example of translating technical products into clearer marketing communication across campaign, digital and product-focused visuals." data-ar="مثال قوي على تحويل المنتجات التقنية إلى تواصل تسويقي أوضح عبر الحملات والتصميمات الرقمية وتصميمات المنتجات.">A strong example of translating technical products into clearer marketing communication across campaign, digital and product-focused visuals.</p>
+              <p class="case-copy" data-en="Campaign and marketing design for technical products, spanning product-led visuals and digital/print communication." data-ar="تصميم حملات ومواد تسويقية لمنتجات تقنية، تشمل تصميمات تركز على المنتج وتطبيقات رقمية ومطبوعة.">Campaign and marketing design for technical products, spanning product-led visuals and digital/print communication.</p>
               <a class="case-link" href="https://www.behance.net/gallery/238580093/Orient-Detectors" target="_blank" rel="noopener noreferrer" data-en="View full project ↗" data-ar="عرض المشروع كاملًا ↗">View full project ↗</a>
             </div>
           </article>
@@ -311,7 +330,7 @@
                 <h3 class="case-title" data-en="Real Estate Social Media" data-ar="سوشيال ميديا للعقارات">Real Estate Social Media</h3>
                 <div class="case-meta" data-en="Campaign & Social Design · Real Estate · 2024" data-ar="حملات وسوشيال · عقارات · 2024">Campaign & Social Design · Real Estate · 2024</div>
               </div>
-              <p class="case-copy" data-en="A social design system built around consistent composition, premium property presentation and repeatable campaign formats." data-ar="نظام تصميم للسوشيال يعتمد على تكوينات متسقة وعرض راقٍ للعقارات وصيغ قابلة للتطبيق عبر الحملة.">A social design system built around consistent composition, premium property presentation and repeatable campaign formats.</p>
+              <p class="case-copy" data-en="A real-estate social series built around clear property presentation, consistent layouts and reusable campaign formats." data-ar="سلسلة سوشيال للعقارات مبنية على عرض واضح للمشروعات، Layouts متسقة وصيغ قابلة لإعادة الاستخدام عبر الحملة.">A real-estate social series built around clear property presentation, consistent layouts and reusable campaign formats.</p>
               <a class="case-link" href="https://www.behance.net/gallery/181868927/Real-Estate-Social-Media" target="_blank" rel="noopener noreferrer" data-en="View full project ↗" data-ar="عرض المشروع كاملًا ↗">View full project ↗</a>
             </div>
           </article>
@@ -326,19 +345,68 @@
                 <h3 class="case-title" data-en="Food Industry Socials" data-ar="سوشيال لقطاع الأغذية">Food Industry Socials</h3>
                 <div class="case-meta" data-en="Social & Campaign Design · Food · 2024" data-ar="سوشيال وحملات · أغذية · 2024">Social & Campaign Design · Food · 2024</div>
               </div>
-              <p class="case-copy" data-en="A more energetic side of my work: campaign visuals designed for fast communication, appetite appeal and social-first formats." data-ar="جانب أكثر حيوية من أعمالي: تصميمات حملات مبنية على سرعة التواصل والجاذبية البصرية وصيغ السوشيال.">A more energetic side of my work: campaign visuals designed for fast communication, appetite appeal and social-first formats.</p>
+              <p class="case-copy" data-en="Social campaign work using product imagery, bold hierarchy and fast-read promotional layouts for food content." data-ar="أعمال حملات للسوشيال تعتمد على صور المنتجات وHierarchy واضح وLayouts ترويجية سريعة القراءة لمحتوى الأغذية.">Social campaign work using product imagery, bold hierarchy and fast-read promotional layouts for food content.</p>
               <a class="case-link" href="https://www.behance.net/gallery/223143539/Food-Industry-Socials" target="_blank" rel="noopener noreferrer" data-en="View full project ↗" data-ar="عرض المشروع كاملًا ↗">View full project ↗</a>
             </div>
           </article>
         </div>
       </section>
 
+    </div>
+
+    <section id="experience" class="block experience reveal">
+      <div class="site-shell">
+        <div class="section-head">
+          <div class="section-index" data-en="02 / EXPERIENCE" data-ar="02 / الخبرة">02 / EXPERIENCE</div>
+          <div>
+            <h2 class="section-title" data-en="Five roles. <em>One design thread.</em>" data-ar="خمس تجارب. <em>مسار تصميم واحد.</em>">Five roles. <em>One design thread.</em></h2>
+            <p class="section-lead" data-en="Agency, technology, retail and media experience, with graphic design at the center of the work." data-ar="خبرة في الوكالات والتقنية والتجزئة والإعلام، مع تصميم الجرافيك في قلب كل مرحلة.">Agency, technology, retail and media experience, with graphic design at the center of the work.</p>
+          </div>
+        </div>
+        <div class="career">
+          <div class="career-row"><div class="career-period">2026</div><div><div class="career-company">Brief Agency</div><div class="career-role" data-en="Visual & Graphic Designer" data-ar="مصمم بصري وجرافيك">Visual & Graphic Designer</div></div><p class="career-desc" data-en="Client work across websites, company profiles, presentations, social campaigns and email/WhatsApp assets, with AI used when it supports concept exploration and production." data-ar="أعمال عملاء تشمل المواقع وبروفايلات الشركات والعروض والحملات الاجتماعية ومواد البريد وواتساب، مع استخدام AI عندما يخدم تطوير الفكرة والإنتاج.">Client work across websites, company profiles, presentations, social campaigns and email/WhatsApp assets, with AI used when it supports concept exploration and production.</p></div>
+          <div class="career-row"><div class="career-period">2022—2025</div><div><div class="career-company">Orient Detectors</div><div class="career-role" data-en="Graphic Designer" data-ar="مصمم جرافيك">Graphic Designer</div></div><p class="career-desc" data-en="Campaign visuals, catalogs, brochures, social media and digital/print marketing materials for technology products." data-ar="تصميمات حملات وكتالوجات وبروشورات وسوشيال ميديا ومواد تسويقية رقمية ومطبوعة لمنتجات تقنية.">Campaign visuals, catalogs, brochures, social media and digital/print marketing materials for technology products.</p></div>
+          <div class="career-row"><div class="career-period">2023—2025</div><div><div class="career-company" data-en="Jewelry Brand" data-ar="براند مجوهرات">Jewelry Brand</div><div class="career-role" data-en="Freelance Graphic Designer" data-ar="مصمم جرافيك مستقل">Freelance Graphic Designer</div></div><p class="career-desc" data-en="Product-focused visual content with attention to premium composition, product presentation and consistent brand language." data-ar="محتوى بصري يركز على المنتج مع اهتمام بالتكوين الراقي وعرض المنتج واتساق اللغة البصرية للعلامة.">Product-focused visual content with attention to premium composition, product presentation and consistent brand language.</p></div>
+          <div class="career-row"><div class="career-period">2024</div><div><div class="career-company">PHC Elixir</div><div class="career-role" data-en="Designer" data-ar="مصمم">Designer</div></div><p class="career-desc" data-en="Selected design support across brand and promotional applications." data-ar="دعم تصميمي مختار عبر تطبيقات الهوية والمواد الترويجية.">Selected design support across brand and promotional applications.</p></div>
+          <div class="career-row"><div class="career-period">2021—2022</div><div><div class="career-company">Al Sharq TV</div><div class="career-role" data-en="Video Editor / Multimedia Designer" data-ar="مونتير / مصمم ملتيميديا">Video Editor / Multimedia Designer</div></div><p class="career-desc" data-en="Earlier multimedia experience across news and social video, thumbnails and supporting visual content." data-ar="خبرة سابقة في محتوى الأخبار والسوشيال بالفيديو والصور المصغرة والعناصر البصرية المساندة.">Earlier multimedia experience across news and social video, thumbnails and supporting visual content.</p></div>
+        </div>
+        <div class="education-note" style="margin-top:26px;padding-top:18px;border-top:1px solid #3A3935;display:grid;grid-template-columns:150px 1fr;gap:36px;">
+          <div class="career-period" data-en="EDUCATION" data-ar="التعليم">EDUCATION</div>
+          <div><div class="career-role" style="color:var(--paper);" data-en="B.Sc. Mining Engineering · Muğla Sıtkı Koçman University" data-ar="بكالوريوس هندسة التعدين · جامعة Muğla Sıtkı Koçman">B.Sc. Mining Engineering · Muğla Sıtkı Koçman University</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="site-shell">
+      <section id="capabilities" class="block reveal">
+        <div class="section-head">
+          <div class="section-index" data-en="03 / RESPONSIBILITIES" data-ar="03 / المسؤوليات">03 / RESPONSIBILITIES</div>
+          <div>
+            <h2 class="section-title" data-en="What I’m hired to <em>make.</em>" data-ar="ما أُوظَّف من أجل <em>تنفيذه.</em>">What I’m hired to <em>make.</em></h2>
+            <p class="section-lead" data-en="The recurring design responsibilities across my recent roles and freelance work." data-ar="المسؤوليات التصميمية المتكررة في خبراتي الأخيرة وأعمالي المستقلة.">The recurring design responsibilities across my recent roles and freelance work.</p>
+          </div>
+        </div>
+        <div class="cap-grid">
+          <article class="cap"><span class="cap-kicker">01 / PRIMARY</span><h3 data-en="Campaign Key Visuals" data-ar="Key Visuals للحملات">Campaign Key Visuals</h3><p data-en="Developing a clear visual direction from a marketing brief and carrying it across campaign assets." data-ar="تطوير اتجاه بصري واضح من البريف التسويقي وتطبيقه عبر مواد الحملة.">Developing a clear visual direction from a marketing brief and carrying it across campaign assets.</p></article>
+          <article class="cap"><span class="cap-kicker">02 / PRIMARY</span><h3 data-en="Social & Digital Design" data-ar="تصميم السوشيال والديجيتال">Social & Digital Design</h3><p data-en="Social systems, promotional posts, paid-media formats and digital adaptations." data-ar="أنظمة سوشيال، منشورات ترويجية، صيغ إعلانات مدفوعة وتطبيقات رقمية.">Social systems, promotional posts, paid-media formats and digital adaptations.</p></article>
+          <article class="cap"><span class="cap-kicker">03 / PRIMARY</span><h3 data-en="Brand Applications" data-ar="تطبيقات الهوية">Brand Applications</h3><p data-en="Applying existing identities consistently across presentations, profiles, brochures and campaign formats." data-ar="تطبيق الهويات الموجودة باتساق عبر العروض والبروفايلات والبروشورات وصيغ الحملات.">Applying existing identities consistently across presentations, profiles, brochures and campaign formats.</p></article>
+          <article class="cap"><span class="cap-kicker">04 / DIGITAL</span><h3 data-en="Website Visual Design" data-ar="التصميم البصري للمواقع">Website Visual Design</h3><p data-en="Visual direction, layout and graphic assets for marketing websites and landing pages." data-ar="اتجاه بصري وتخطيط وعناصر جرافيكية للمواقع التسويقية وصفحات الهبوط.">Visual direction, layout and graphic assets for marketing websites and landing pages.</p></article>
+          <article class="cap"><span class="cap-kicker">05 / PRODUCTION</span><h3 data-en="Print & Layout" data-ar="الطباعة والـLayout">Print & Layout</h3><p data-en="Catalogs, company profiles, brochures and production-ready layout work." data-ar="كتالوجات وبروفايلات شركات وبروشورات وملفات Layout جاهزة للإنتاج.">Catalogs, company profiles, brochures and production-ready layout work.</p></article>
+          <article class="cap"><span class="cap-kicker">06 / WORKFLOW</span><h3 data-en="AI-Assisted Production" data-ar="إنتاج بمساعدة AI">AI-Assisted Production</h3><p data-en="Using AI for concept exploration and image generation, then refining outputs to fit the brand and final application." data-ar="استخدام AI في استكشاف الأفكار وتوليد الصور ثم تنقيح النتائج لتناسب البراند والتطبيق النهائي.">Using AI for concept exploration and image generation, then refining outputs to fit the brand and final application.</p></article>
+        </div>
+        <div class="tool-line" aria-label="Design tools">
+          <span class="tool">CORE / Photoshop</span><span class="tool">Illustrator</span><span class="tool">InDesign</span><span class="tool">Figma</span>
+          <span class="tool">WORKFLOW / AI Image Generation</span>
+          <span class="tool">EARLIER MULTIMEDIA / Premiere Pro · After Effects</span>
+        </div>
+      </section>
+
       <section id="archive" class="block reveal hairline">
         <div class="section-head">
-          <div class="section-index">02 / WORK INDEX</div>
+          <div class="section-index" data-en="04 / WORK INDEX" data-ar="04 / فهرس الأعمال">04 / WORK INDEX</div>
           <div>
-            <h2 class="section-title" data-en="The wider <em>range.</em>" data-ar="نطاق <em>أوسع من الأعمال.</em>">The wider <em>range.</em></h2>
-            <p class="section-lead" data-en="Instead of splitting the portfolio into long galleries, this index lets a reviewer scan the breadth of my work and filter only what matters to the role." data-ar="بدل تقسيم البورتفوليو إلى معارض طويلة، يتيح هذا الفهرس لمسؤول التوظيف رؤية نطاق الأعمال بسرعة وتصفيتها حسب ما يهم الوظيفة.">Instead of splitting the portfolio into long galleries, this index lets a reviewer scan the breadth of my work and filter only what matters to the role.</p>
+            <h2 class="section-title" data-en="A wider view of the <em>work.</em>" data-ar="نظرة أوسع على <em>الأعمال.</em>">A wider view of the <em>work.</em></h2>
+            <p class="section-lead" data-en="Campaigns, editorial work, brand applications, AI-assisted visuals and product communication beyond the three selected cases." data-ar="حملات، أعمال تحريرية، تطبيقات هوية، تصميمات بمساعدة AI وتواصل منتجات خارج المشاريع الثلاثة المختارة.">Campaigns, editorial work, brand applications, AI-assisted visuals and product communication beyond the three selected cases.</p>
           </div>
         </div>
 
@@ -427,54 +495,12 @@
         </div>
         <div class="archive-more"><button class="load-more" id="loadMore" data-en="Show more work ↓" data-ar="عرض المزيد من الأعمال ↓">Show more work ↓</button></div>
       </section>
-    </div>
-
-    <section id="experience" class="block experience reveal">
-      <div class="site-shell">
-        <div class="section-head">
-          <div class="section-index">03 / EXPERIENCE</div>
-          <div>
-            <h2 class="section-title" data-en="Where the work was <em>built.</em>" data-ar="أين بُنيت <em>الخبرة.</em>">Where the work was <em>built.</em></h2>
-            <p class="section-lead" data-en="A career path across agency, technology, freelance retail and media — with graphic design as the core thread." data-ar="مسار مهني عبر الوكالات والتقنية والعمل الحر والإعلام، مع تصميم الجرافيك كخط أساسي مستمر.">A career path across agency, technology, freelance retail and media — with graphic design as the core thread.</p>
-          </div>
-        </div>
-        <div class="career">
-          <div class="career-row"><div class="career-period">2026</div><div><div class="career-company">Brief Agency</div><div class="career-role" data-en="Visual & Graphic Designer" data-ar="مصمم بصري وجرافيك">Visual & Graphic Designer</div></div><p class="career-desc" data-en="Client work across websites, company profiles, presentations, social campaigns and email/WhatsApp assets, with AI used when it supports concept exploration and production." data-ar="أعمال عملاء تشمل المواقع وبروفايلات الشركات والعروض والحملات الاجتماعية ومواد البريد وواتساب، مع استخدام AI عندما يخدم تطوير الفكرة والإنتاج.">Client work across websites, company profiles, presentations, social campaigns and email/WhatsApp assets, with AI used when it supports concept exploration and production.</p></div>
-          <div class="career-row"><div class="career-period">2022—2025</div><div><div class="career-company">Orient Detectors</div><div class="career-role" data-en="Graphic Designer" data-ar="مصمم جرافيك">Graphic Designer</div></div><p class="career-desc" data-en="Campaign visuals, catalogs, brochures, social media and digital/print marketing materials for technology products." data-ar="تصميمات حملات وكتالوجات وبروشورات وسوشيال ميديا ومواد تسويقية رقمية ومطبوعة لمنتجات تقنية.">Campaign visuals, catalogs, brochures, social media and digital/print marketing materials for technology products.</p></div>
-          <div class="career-row"><div class="career-period">2023—2025</div><div><div class="career-company" data-en="Jewelry Brand" data-ar="براند مجوهرات">Jewelry Brand</div><div class="career-role" data-en="Freelance Graphic Designer" data-ar="مصمم جرافيك مستقل">Freelance Graphic Designer</div></div><p class="career-desc" data-en="Product-focused visual content with attention to premium composition, product presentation and consistent brand language." data-ar="محتوى بصري يركز على المنتج مع اهتمام بالتكوين الراقي وعرض المنتج واتساق اللغة البصرية للعلامة.">Product-focused visual content with attention to premium composition, product presentation and consistent brand language.</p></div>
-          <div class="career-row"><div class="career-period">2024</div><div><div class="career-company">PHC Elixir</div><div class="career-role" data-en="Designer" data-ar="مصمم">Designer</div></div><p class="career-desc" data-en="Selected design support across brand and promotional applications." data-ar="دعم تصميمي مختار عبر تطبيقات الهوية والمواد الترويجية.">Selected design support across brand and promotional applications.</p></div>
-          <div class="career-row"><div class="career-period">2021—2022</div><div><div class="career-company">Al Sharq TV</div><div class="career-role" data-en="Video Editor / Multimedia Designer" data-ar="مونتير / مصمم ملتيميديا">Video Editor / Multimedia Designer</div></div><p class="career-desc" data-en="Earlier multimedia experience across news and social video, thumbnails and supporting visual content." data-ar="خبرة سابقة في محتوى الأخبار والسوشيال بالفيديو والصور المصغرة والعناصر البصرية المساندة.">Earlier multimedia experience across news and social video, thumbnails and supporting visual content.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <div class="site-shell">
-      <section id="capabilities" class="block reveal">
-        <div class="section-head">
-          <div class="section-index">04 / WHAT I CAN OWN</div>
-          <div>
-            <h2 class="section-title" data-en="The work I can step into <em>immediately.</em>" data-ar="العمل الذي أستطيع الدخول فيه <em>مباشرة.</em>">The work I can step into <em>immediately.</em></h2>
-            <p class="section-lead" data-en="This section is intentionally practical: the areas a hiring team can assign me from day one." data-ar="هذا القسم عملي عمدًا: المجالات التي يمكن لفريق التوظيف إسنادها لي من اليوم الأول.">This section is intentionally practical: the areas a hiring team can assign me from day one.</p>
-          </div>
-        </div>
-        <div class="cap-grid">
-          <article class="cap"><span class="cap-kicker">01 / PRIMARY</span><h3 data-en="Campaign Key Visuals" data-ar="Key Visuals للحملات">Campaign Key Visuals</h3><p data-en="Developing a clear visual direction from a marketing brief and carrying it across campaign assets." data-ar="تطوير اتجاه بصري واضح من البريف التسويقي وتطبيقه عبر مواد الحملة.">Developing a clear visual direction from a marketing brief and carrying it across campaign assets.</p></article>
-          <article class="cap"><span class="cap-kicker">02 / PRIMARY</span><h3 data-en="Social & Digital Design" data-ar="تصميم السوشيال والديجيتال">Social & Digital Design</h3><p data-en="Social systems, promotional posts, paid-media formats and digital adaptations." data-ar="أنظمة سوشيال، منشورات ترويجية، صيغ إعلانات مدفوعة وتطبيقات رقمية.">Social systems, promotional posts, paid-media formats and digital adaptations.</p></article>
-          <article class="cap"><span class="cap-kicker">03 / PRIMARY</span><h3 data-en="Brand Applications" data-ar="تطبيقات الهوية">Brand Applications</h3><p data-en="Applying existing identities consistently across presentations, profiles, brochures and campaign formats." data-ar="تطبيق الهويات الموجودة باتساق عبر العروض والبروفايلات والبروشورات وصيغ الحملات.">Applying existing identities consistently across presentations, profiles, brochures and campaign formats.</p></article>
-          <article class="cap"><span class="cap-kicker">04 / DIGITAL</span><h3 data-en="Website Visual Design" data-ar="التصميم البصري للمواقع">Website Visual Design</h3><p data-en="Visual direction, layout and graphic assets for marketing websites and landing pages." data-ar="اتجاه بصري وتخطيط وعناصر جرافيكية للمواقع التسويقية وصفحات الهبوط.">Visual direction, layout and graphic assets for marketing websites and landing pages.</p></article>
-          <article class="cap"><span class="cap-kicker">05 / PRODUCTION</span><h3 data-en="Print & Layout" data-ar="الطباعة والـLayout">Print & Layout</h3><p data-en="Catalogs, company profiles, brochures and production-ready layout work." data-ar="كتالوجات وبروفايلات شركات وبروشورات وملفات Layout جاهزة للإنتاج.">Catalogs, company profiles, brochures and production-ready layout work.</p></article>
-          <article class="cap"><span class="cap-kicker">06 / WORKFLOW</span><h3 data-en="AI-Assisted Production" data-ar="إنتاج بمساعدة AI">AI-Assisted Production</h3><p data-en="Using AI for concept exploration and image generation, then refining outputs to fit the brand and final application." data-ar="استخدام AI في استكشاف الأفكار وتوليد الصور ثم تنقيح النتائج لتناسب البراند والتطبيق النهائي.">Using AI for concept exploration and image generation, then refining outputs to fit the brand and final application.</p></article>
-        </div>
-        <div class="tool-line" aria-label="Design tools">
-          <span class="tool">Photoshop</span><span class="tool">Illustrator</span><span class="tool">InDesign</span><span class="tool">Figma</span><span class="tool">AI Image Generation</span><span class="tool">Premiere Pro</span><span class="tool">After Effects / earlier experience</span>
-        </div>
-      </section>
 
       <section id="process" class="block reveal hairline">
         <div class="section-head">
-          <div class="section-index">05 / AFTER THE BRIEF</div>
+          <div class="section-index" data-en="05 / PROCESS" data-ar="05 / طريقة العمل">05 / PROCESS</div>
           <div>
-            <h2 class="section-title" data-en="A working process, not <em>agency jargon.</em>" data-ar="طريقة عمل فعلية، لا <em>كلام وكالات.</em>">A working process, not <em>agency jargon.</em></h2>
+            <h2 class="section-title" data-en="From brief to <em>delivery.</em>" data-ar="من البريف إلى <em>التسليم.</em>">From brief to <em>delivery.</em></h2>
           </div>
         </div>
         <div class="process-grid">
@@ -487,10 +513,10 @@
 
       <section id="video" class="block reveal hairline">
         <div class="section-head">
-          <div class="section-index">06 / EARLIER MULTIMEDIA</div>
+          <div class="section-index" data-en="06 / MULTIMEDIA" data-ar="06 / ملتيميديا">06 / MULTIMEDIA</div>
           <div>
-            <h2 class="section-title" data-en="Video is an <em>added range,</em> not my title." data-ar="الفيديو <em>خبرة إضافية،</em> وليس مسماي.">Video is an <em>added range,</em> not my title.</h2>
-            <p class="section-lead" data-en="Selected earlier work from my multimedia background. It supports my graphic design profile without competing with it." data-ar="مختارات من خبرتي السابقة في الملتيميديا؛ تدعم ملفي كمصمم جرافيك دون أن تنافس تخصصي الأساسي.">Selected earlier work from my multimedia background. It supports my graphic design profile without competing with it.</p>
+            <h2 class="section-title" data-en="Earlier <em>multimedia work.</em>" data-ar="أعمال <em>ملتيميديا سابقة.</em>">Earlier <em>multimedia work.</em></h2>
+            <p class="section-lead" data-en="Editing and supporting visual content from my earlier media experience." data-ar="مونتاج ومحتوى بصري مساند من خبرتي السابقة في الإعلام.">Editing and supporting visual content from my earlier media experience.</p>
           </div>
         </div>
         <div class="video-strip">
@@ -506,7 +532,7 @@
         <div class="contact-head">
           <h2 data-en="LET'S<br>WORK." data-ar="لنعمل<br>معًا.">LET'S<br>WORK.</h2>
           <div class="contact-copy">
-            <p data-en="If your team needs a graphic designer who can take a brief, build a clear visual direction and carry it consistently across formats, I’d be glad to talk." data-ar="إذا كان فريقك يبحث عن مصمم جرافيك يستطيع تحويل البريف إلى اتجاه بصري واضح والحفاظ عليه عبر مختلف المقاسات والمنصات، يسعدني أن نتحدث.">If your team needs a graphic designer who can take a brief, build a clear visual direction and carry it consistently across formats, I’d be glad to talk.</p>
+            <p data-en="Open to full-time graphic design roles and selected freelance projects. For opportunities, briefs or collaborations, email me." data-ar="متاح لفرص جرافيك ديزاين بدوام كامل ولمشاريع مستقلة مختارة. للفرص أو البريفات أو التعاون، راسلني عبر البريد.">Open to full-time graphic design roles and selected freelance projects. For opportunities, briefs or collaborations, email me.</p>
             <a class="mail-link" href="mailto:mohadel0300@gmail.com">mohadel0300@gmail.com</a>
             <div class="socials">
               <a href="https://www.behance.net/mohamedadel526" target="_blank" rel="noopener noreferrer">Behance ↗</a>
@@ -560,21 +586,35 @@
       let activeFilter = 'all';
       let visibleLimit = 12;
 
+      function getMatching(){
+        if(activeFilter !== 'all') return items.filter(item => item.dataset.cat === activeFilter);
+        const cats = ['social','editorial','print','ai','tech'];
+        const groups = cats.map(cat => items.filter(item => item.dataset.cat === cat));
+        const mixed = [];
+        let i = 0;
+        while(groups.some(group => i < group.length)){
+          groups.forEach(group => { if(i < group.length) mixed.push(group[i]); });
+          i++;
+        }
+        return mixed;
+      }
+
       function renderArchive(){
-        const matching = items.filter(item => activeFilter === 'all' || item.dataset.cat === activeFilter);
+        const matching = getMatching();
         items.forEach(item => item.classList.remove('visible'));
         matching.slice(0, visibleLimit).forEach(item => item.classList.add('visible'));
         const shown = Math.min(visibleLimit, matching.length);
         count.textContent = `${lang === 'ar' ? 'المعروض' : 'SHOWING'} ${shown} / ${matching.length}`;
         loadMore.style.display = shown >= matching.length ? 'none' : 'inline-block';
       }
-      filters.forEach(btn => btn.addEventListener('click', () => {
-        filters.forEach(b => b.classList.remove('active'));
+      filters.forEach(btn => { btn.setAttribute('aria-selected', btn.classList.contains('active') ? 'true' : 'false'); btn.addEventListener('click', () => {
+        filters.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
         btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
         activeFilter = btn.dataset.filter;
         visibleLimit = 12;
         renderArchive();
-      }));
+      }); });
       loadMore.addEventListener('click', () => { visibleLimit += 12; renderArchive(); });
       renderArchive();
 
@@ -586,7 +626,10 @@
       const lightboxImage = document.getElementById('lightboxImage');
       const lightboxCaption = document.getElementById('lightboxCaption');
       const closeLightbox = () => { lightbox.classList.remove('open'); lightbox.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
-      document.querySelectorAll('.work-item').forEach(item => item.addEventListener('click', () => {
+      document.querySelectorAll('.work-item').forEach(item => {
+        item.setAttribute('tabindex','0');
+        item.setAttribute('role','button');
+        const openItem = () => {
         const img = item.querySelector('img');
         lightboxImage.src = img.src;
         lightboxImage.alt = img.alt;
@@ -594,7 +637,10 @@
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden','false');
         document.body.style.overflow='hidden';
-      }));
+        };
+        item.addEventListener('click', openItem);
+        item.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openItem(); } });
+      });
       document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
       lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLightbox(); });
       document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
