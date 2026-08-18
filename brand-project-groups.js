@@ -43,19 +43,26 @@
     document.head.appendChild(link);
   }
 
+  // Keep the four visual hits exactly as curated. Grouping comes after them as a fast index.
   const topIds = ['sociallab','briefstudio','realestate','orient'];
   const topProjects = topIds.map(byId).filter(Boolean);
-  const moreSelected = selected.filter(p => !topIds.includes(p.id));
-  const archiveProjects = additional;
+
+  const categoryDefs = [
+    {id:'technology',en:'Technology & Digital Solutions',ar:'التكنولوجيا والحلول الرقمية',ids:['sociallab','orient','ecommerce','digitalartboards']},
+    {id:'campaigns',en:'Campaigns & Social',ar:'الحملات والسوشيال',ids:['briefstudio','event','socialartboards','social','campaignbanners']},
+    {id:'realestate',en:'Real Estate',ar:'العقارات',ids:['realestate']},
+    {id:'healthcare',en:'Healthcare & Clinics',ar:'العيادات والرعاية الصحية',ids:['healthcare']},
+    {id:'image',en:'AI & Image-making',ar:'الذكاء الاصطناعي وصناعة الصورة',ids:['natural','aiarchive']},
+    {id:'product',en:'Product & Brand',ar:'المنتجات والهوية',ids:['huggies','brandapps','covers']},
+    {id:'editorial',en:'Editorial & Media',ar:'التصميم التحريري والميديا',ids:['editorial']}
+  ];
 
   const copy = () => lang === 'ar' ? {
-    moreTitle:'أعمال مختارة أخرى', moreText:'مشاريع إضافية توضح تنوع الشغل بدون إبطاء التصفح.',
-    archiveTitle:'أرشيف الأعمال', archiveText:'باقي الأعمال المرفوعة لمن يريد التعمق أكثر.',
-    view:'عرض المشروع ↗', note:'عن المشروع'
+    browseTitle:'استعرض حسب المجال', browseText:'نفس الأعمال مرتبة حسب المجال لسهولة الوصول.',
+    view:'عرض المشروع ↗', note:'عن المشروع', projects:'مشاريع'
   } : {
-    moreTitle:'More selected work', moreText:'Additional projects that show range without slowing down the first scan.',
-    archiveTitle:'Work archive', archiveText:'The rest of the uploaded work for anyone who wants to look deeper.',
-    view:'View project ↗', note:'Project note'
+    browseTitle:'Browse by field', browseText:'The same work, grouped by field for faster scanning.',
+    view:'View project ↗', note:'Project note', projects:'projects'
   };
 
   const thumbSrc = f => f.endsWith('.svg') ? f : `web/thumb/${f}.webp`;
@@ -79,17 +86,24 @@
     </article>`;
   };
 
-  const moreMarkup = p => {
+  const categoryProjectMarkup = p => {
     const title = pText(p,'title');
-    return `<article class="more-project" data-id="${p.id}">
-      <div class="more-project-visual" role="button" tabindex="0" aria-label="${copy().view.replace(' ↗','')}: ${title}">${previewImage(p.files[0],`${title} — 01`)}</div>
-      <div class="more-project-info"><div><h4>${title}</h4><p>${pText(p,'eyebrow')} · ${countLabel(p.files.length)}</p></div><button type="button">${copy().view}</button></div>
+    return `<article class="category-project" data-id="${p.id}">
+      <div class="category-project-visual" role="button" tabindex="0" aria-label="${copy().view.replace(' ↗','')}: ${title}">${previewImage(p.files[0],`${title} — 01`)}</div>
+      <div class="category-project-copy">
+        <div><h4>${title}</h4><p>${pText(p,'eyebrow')} · ${countLabel(p.files.length)}</p></div>
+        <button type="button" aria-label="${copy().view.replace(' ↗','')}: ${title}">↗</button>
+      </div>
     </article>`;
   };
 
-  const archiveMarkupV3 = (p,i) => {
-    const title = pText(p,'title');
-    return `<article class="recruiter-archive-row" data-id="${p.id}"><button type="button" aria-label="${copy().view.replace(' ↗','')}: ${title}"><span class="recruiter-archive-no">${String(i+1).padStart(2,'0')}</span><span class="recruiter-archive-title">${title}</span><span class="recruiter-archive-meta">${pText(p,'eyebrow')}<br>${countLabel(p.files.length)}</span><span class="recruiter-archive-arrow">↗</span></button></article>`;
+  const categoryMarkup = def => {
+    const list = def.ids.map(byId).filter(Boolean);
+    const title = lang === 'ar' ? def.ar : def.en;
+    return `<section class="work-category" data-category="${def.id}">
+      <header class="work-category-head"><h4>${title}</h4><span>${list.length} ${copy().projects}</span></header>
+      <div class="work-category-grid">${list.map(categoryProjectMarkup).join('')}</div>
+    </section>`;
   };
 
   const bindOpen = (scope, selector, buttonSelector) => {
@@ -106,24 +120,19 @@
     });
   };
 
-  // Replace the horizontal deck with a natural vertical recruiter scan.
+  // First: four large visual hits. Then: a compact grouped index across every field.
   renderProjects = function(){
     const selectedRoot = $('#selectedProjects');
     const moreRoot = document.querySelector('.more-work');
     selectedRoot.innerHTML = `<div class="recruiter-featured">${topProjects.map(impactMarkup).join('')}</div>`;
-    moreRoot.innerHTML = `<div class="recruiter-more">
-      <div class="recruiter-more-head"><h3>${copy().moreTitle}</h3><p>${copy().moreText}</p></div>
-      <div class="more-selected-grid">${moreSelected.map(moreMarkup).join('')}</div>
-    </div>
-    <div class="recruiter-archive">
-      <div class="recruiter-archive-head"><h3>${copy().archiveTitle}</h3><p>${copy().archiveText}</p></div>
-      <div class="recruiter-archive-list">${archiveProjects.map(archiveMarkupV3).join('')}</div>
+    moreRoot.innerHTML = `<div class="recruiter-browse">
+      <div class="recruiter-browse-head"><h3>${copy().browseTitle}</h3><p>${copy().browseText}</p></div>
+      <div class="work-categories">${categoryDefs.map(categoryMarkup).join('')}</div>
     </div>`;
 
     addFallbacks(selectedRoot); addFallbacks(moreRoot);
     bindOpen(selectedRoot,'.impact-project','.impact-open');
-    bindOpen(moreRoot,'.more-project','.more-project-info button');
-    moreRoot.querySelectorAll('.recruiter-archive-row button').forEach(btn=>btn.addEventListener('click',()=>openProject(byId(btn.closest('.recruiter-archive-row').dataset.id))));
+    bindOpen(moreRoot,'.category-project','.category-project-copy button');
   };
 
   // Inside a project, show the work first. The explanatory note is deliberately last.
