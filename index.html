@@ -4,1120 +4,254 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohamed Amer — Visual & Graphic Designer</title>
-  <meta name="description" content="Portfolio of Mohamed Amer, a Visual & Graphic Designer in Cairo. Campaign key visuals, social and digital design, brand applications, product communication, print, web visuals and AI-assisted production." />
+  <meta name="description" content="Portfolio of Mohamed Amer, a Visual & Graphic Designer focused on campaign visuals, product communication, social systems and brand applications." />
   <meta name="author" content="Mohamed Amer" />
   <meta name="robots" content="index,follow" />
-  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#f3f0e8" />
   <link rel="canonical" href="https://mohadel0300-blip.github.io/my-portofolio/" />
-  <meta name="theme-color" content="#F1EFE8" />
   <meta property="og:title" content="Mohamed Amer — Visual & Graphic Designer" />
-  <meta property="og:description" content="Selected graphic design work by Mohamed Amer across campaigns, social media, brand applications, product communication, digital, print and web visuals." />
+  <meta property="og:description" content="Selected campaign, product communication, social and AI-assisted design work by Mohamed Amer." />
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://mohadel0300-blip.github.io/my-portofolio/" />
-  <meta property="og:site_name" content="Mohamed Amer Portfolio" />
   <meta property="og:image" content="https://mohadel0300-blip.github.io/my-portofolio/MINED.png" />
-  <meta property="og:image:alt" content="Mohamed Amer — Visual & Graphic Designer" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mohamed Amer — Visual & Graphic Designer" />
-  <meta name="twitter:description" content="Selected graphic design work by Mohamed Amer across campaigns, social media, brand applications, product communication, digital, print and web visuals." />
+  <meta name="twitter:description" content="Campaign visuals, product communication, social systems and brand applications." />
   <meta name="twitter:image" content="https://mohadel0300-blip.github.io/my-portofolio/MINED.png" />
-  <meta name="twitter:image:alt" content="Mohamed Amer — Visual & Graphic Designer" />
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mohamed Amer",
-    "jobTitle": "Visual & Graphic Designer",
-    "url": "https://mohadel0300-blip.github.io/my-portofolio/",
-    "image": "https://mohadel0300-blip.github.io/my-portofolio/MINED.png",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Cairo",
-      "addressCountry": "EG"
-    },
-    "sameAs": [
-      "https://www.behance.net/mohamedadel526"
-    ]
-  }
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --paper:#F1EFE8;
-      --paper-2:#E6E2D8;
-      --ink:#11110F;
-      --ink-soft:#24231F;
-      --muted:#686259;
-      --line:#C8C1B4;
-      --signal:#B44737;
-      --signal-soft:#F1DDD8;
-      --mark:#D9D4CA;
-      --white:#FFFDF8;
+      --paper:#f3f0e8;
+      --paper-2:#e8e3d8;
+      --ink:#11110f;
+      --muted:#686158;
+      --line:#c9c1b4;
+      --accent:#b44737;
+      --white:#fffdf8;
+      --max:1380px;
+      --pad:clamp(18px,3.4vw,52px);
       --sans:Arial,"Helvetica Neue",Helvetica,sans-serif;
       --mono:"IBM Plex Mono",monospace;
-      --arabic:"IBM Plex Sans Arabic",sans-serif;
-      --max:1440px;
-      --pad:clamp(18px,3.2vw,54px);
+      --ar:"IBM Plex Sans Arabic",sans-serif;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;background:var(--paper)}
-    body{font-family:var(--sans);background:var(--paper);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-    html[dir="rtl"] body{font-family:var(--arabic);text-align:right}
+    body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    html[dir="rtl"] body{font-family:var(--ar);text-align:right}
+    img{display:block;max-width:100%}
     a{color:inherit;text-decoration:none}
     button{font:inherit;color:inherit}
-    img{max-width:100%;display:block}
-    ::selection{background:var(--signal-soft);color:var(--ink)}
-    :focus-visible{outline:3px solid var(--signal);outline-offset:4px}
-    section[id]{scroll-margin-top:110px}
-    section.block{content-visibility:auto;contain-intrinsic-size:1px 900px}
-    .skip-link{position:fixed;left:16px;top:12px;z-index:1000;background:var(--ink);color:var(--paper);padding:10px 14px;transform:translateY(-180%);transition:transform .2s}
-    .skip-link:focus{transform:translateY(0)}
-    html[dir="rtl"] .skip-link{left:auto;right:16px}
+    ::selection{background:var(--accent);color:#fff}
+    :focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    section[id]{scroll-margin-top:88px}
+    .shell{max-width:var(--max);margin:auto;padding:0 var(--pad)}
+    .mono{font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase}
+    html[dir="rtl"] .mono{font-family:var(--ar);letter-spacing:0;text-transform:none}
 
-    .site-shell{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-    .hairline{border-top:1px solid var(--line)}
-    .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
-    html[dir="rtl"] .mono{font-family:var(--arabic);letter-spacing:0;text-transform:none}
-
-    /* NAV */
-    .nav{position:sticky;top:0;z-index:100;background:rgba(241,239,232,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-    .nav-inner{height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
-    .brand{font-weight:800;font-size:1.1rem;letter-spacing:-.03em;display:flex;align-items:center;gap:9px}.brand::after{content:"PORTFOLIO / 2026";font-family:var(--mono);font-size:.55rem;font-weight:400;letter-spacing:.08em;color:var(--muted)}
-    html[dir="rtl"] .brand::after{content:"ملف أعمال / 2026";font-family:var(--arabic);letter-spacing:0}
-    .nav-center{display:flex;gap:24px;align-items:center}
-    .nav-center a{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;position:relative}
-    .nav-center a::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;background:var(--signal);transition:.25s}
-    .nav-center a:hover::after,.nav-center a[aria-current="true"]::after{width:100%}.nav-center a[aria-current="true"]{color:var(--signal)}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(243,240,232,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:66px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:22px}
+    .brand{font-weight:800;letter-spacing:-.04em;font-size:1.05rem}.brand small{font-family:var(--mono);font-size:.54rem;color:var(--muted);font-weight:400;margin-left:8px;letter-spacing:.07em}
+    html[dir="rtl"] .brand small{font-family:var(--ar);margin-left:0;margin-right:8px;letter-spacing:0}
+    .nav-links{display:flex;gap:22px}.nav-links a{font-family:var(--mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.06em}.nav-links a:hover{color:var(--accent)}
+    html[dir="rtl"] .nav-links a{font-family:var(--ar);text-transform:none;letter-spacing:0}
     .nav-actions{justify-self:end;display:flex;gap:8px;align-items:center}
-    .icon-btn,.text-btn{border:1px solid var(--ink);background:transparent;padding:10px 13px;cursor:pointer;transition:.2s}
-    .text-btn:hover,.icon-btn:hover{background:var(--ink);color:var(--paper)}
-    .cv-link{background:var(--ink);color:var(--paper);padding:11px 15px;border:1px solid var(--ink);font-family:var(--mono);font-size:.72rem;text-transform:uppercase}
-    .cv-link:hover{background:var(--signal);border-color:var(--signal)}
+    .nav-btn,.cv-btn{border:1px solid var(--ink);padding:9px 12px;background:transparent;cursor:pointer;font-family:var(--mono);font-size:.62rem;text-transform:uppercase}
+    .cv-btn{background:var(--ink);color:var(--paper)}.nav-btn:hover,.cv-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 
-    /* HERO */
-    .hero{min-height:78vh;display:grid;grid-template-columns:1.45fr .55fr;border-bottom:1px solid var(--ink);position:relative;overflow:hidden}
-    .hero-copy{padding:clamp(46px,6vw,86px) var(--pad) 42px 0;display:flex;flex-direction:column;justify-content:space-between;min-height:78vh}
-    html[dir="rtl"] .hero-copy{padding:clamp(46px,6vw,86px) 0 42px var(--pad)} html[dir="rtl"] .hero-portrait{border-left:0;border-right:1px solid var(--ink)}
-    .eyebrow{display:flex;gap:12px;align-items:center;color:var(--muted);font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
-    html[dir="rtl"] .eyebrow{font-family:var(--arabic);text-transform:none;letter-spacing:0}
-    .eyebrow .dot{width:9px;height:9px;background:var(--signal);border-radius:50%}
-    .hero-name{font-size:clamp(4.6rem,9.8vw,10rem);line-height:.78;letter-spacing:-.085em;font-weight:800;text-transform:uppercase;margin:38px 0 34px;max-width:950px}
-    .hero-name span{display:block}
-    .hero-name .name-second{color:var(--ink);margin-left:clamp(30px,9vw,150px);position:relative;width:max-content}.hero-name .name-second::before{content:"";position:absolute;width:clamp(18px,2vw,30px);height:clamp(18px,2vw,30px);background:var(--signal);left:calc(-1 * clamp(30px,4vw,58px));bottom:.06em}
-    html[dir="rtl"] .hero-name .name-second{margin-left:0;margin-right:clamp(30px,9vw,150px)} html[dir="rtl"] .hero-name .name-second::before{left:auto;right:calc(-1 * clamp(30px,4vw,58px))}
-    html[dir="rtl"] .hero-name{letter-spacing:-.04em}
-    .hero-statement{display:grid;grid-template-columns:minmax(240px,.9fr) minmax(320px,1.1fr);gap:48px;align-items:end;max-width:950px}
-    .hero-role{font-size:clamp(1.35rem,2.2vw,2.35rem);font-weight:700;line-height:1.02;letter-spacing:-.045em}
-    .hero-desc{font-size:clamp(.98rem,1.25vw,1.15rem);line-height:1.65;color:var(--muted);max-width:620px}
-    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
-    .hero-action{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 15px;border:1px solid var(--ink);font-family:var(--mono);font-size:.68rem;text-transform:uppercase;transition:.2s}
-    html[dir="rtl"] .hero-action{font-family:var(--arabic);text-transform:none}
-    .hero-action.primary{background:var(--ink);color:var(--paper)}
-    .hero-action:hover{background:var(--signal);border-color:var(--signal);color:#fff}
-    .hero-foot{margin-top:46px;display:flex;gap:10px;flex-wrap:wrap}
-    .hero-tag{border-top:1px solid var(--ink);padding:10px 0;margin-right:30px;font-family:var(--mono);font-size:.7rem;text-transform:uppercase}
-    html[dir="rtl"] .hero-tag{font-family:var(--arabic);text-transform:none;margin-right:0;margin-left:30px}
+    .hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.5fr);border-bottom:1px solid var(--ink)}
+    .hero-copy{padding:clamp(58px,8vw,112px) var(--pad) clamp(48px,6vw,82px) 0;display:flex;flex-direction:column;justify-content:center}
+    html[dir="rtl"] .hero-copy{padding-right:0;padding-left:var(--pad)}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--muted);font-family:var(--mono);font-size:.7rem;text-transform:uppercase}.eyebrow i{width:8px;height:8px;background:var(--accent);border-radius:50%}
+    html[dir="rtl"] .eyebrow{font-family:var(--ar);text-transform:none}
+    .hero h1{font-size:clamp(4.4rem,9vw,9rem);line-height:.78;letter-spacing:-.085em;text-transform:uppercase;margin:34px 0 38px}.hero h1 span{display:block}.hero h1 span:last-child{margin-left:clamp(28px,8vw,130px)}
+    html[dir="rtl"] .hero h1{letter-spacing:-.035em}html[dir="rtl"] .hero h1 span:last-child{margin-left:0;margin-right:clamp(28px,8vw,130px)}
+    .hero-message{display:grid;grid-template-columns:minmax(230px,.85fr) minmax(300px,1.15fr);gap:38px;max-width:920px;align-items:end}
+    .hero-position{font-size:clamp(1.4rem,2.3vw,2.35rem);font-weight:700;line-height:1.02;letter-spacing:-.045em}
+    .hero-desc{font-size:clamp(.96rem,1.15vw,1.08rem);color:var(--muted);line-height:1.65;max-width:590px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.hero-action{border:1px solid var(--ink);padding:11px 15px;font-family:var(--mono);font-size:.64rem;text-transform:uppercase}.hero-action.primary{background:var(--ink);color:var(--paper)}.hero-action:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+    html[dir="rtl"] .hero-action{font-family:var(--ar);text-transform:none}
+    .hero-photo{border-left:1px solid var(--ink);display:flex;align-items:flex-end;background:var(--paper-2);overflow:hidden;min-height:620px}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+    html[dir="rtl"] .hero-photo{border-left:0;border-right:1px solid var(--ink)}
 
-    .hero-portrait{position:relative;background:var(--ink);min-height:78vh;overflow:hidden;border-left:1px solid var(--ink)}
-    .hero-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%) contrast(1.04);mix-blend-mode:luminosity}
-    .hero-portrait::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(180,71,55,.06),transparent 44%,rgba(16,16,15,.78));z-index:1}
-    .hero-portrait::after{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:rgba(255,255,255,.45);z-index:2}
-    .portrait-stamp{position:absolute;left:0;right:0;bottom:0;z-index:3;background:var(--signal);padding:14px 16px;text-align:left;font-family:var(--mono);font-size:.64rem;line-height:1.35;text-transform:uppercase;color:#fff}
-    html[dir="rtl"] .portrait-stamp{text-align:right;font-family:var(--arabic);text-transform:none}
+    .focus-strip{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--ink)}
+    .focus{padding:20px 22px;border-right:1px solid var(--ink)}.focus:last-child{border-right:0}.focus .mono{color:var(--accent)}.focus strong{display:block;font-size:1.25rem;letter-spacing:-.035em;margin:9px 0 4px}.focus p{font-size:.82rem;line-height:1.5;color:var(--muted)}
+    html[dir="rtl"] .focus{border-right:0;border-left:1px solid var(--ink)}html[dir="rtl"] .focus:last-child{border-left:0}
 
-    /* INTRO STRIP */
-    .proof-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--ink)}
-    .proof{padding:18px 18px 20px;border-right:1px solid var(--ink);min-height:96px;display:flex;flex-direction:column;justify-content:space-between}
-    html[dir="rtl"] .proof{border-right:0;border-left:1px solid var(--ink)}
-    .proof:last-child{border-right:0}
-    html[dir="rtl"] .proof:last-child{border-left:0}
-    .proof strong{font-size:clamp(1.02rem,1.45vw,1.48rem);letter-spacing:-.035em;line-height:1.05}.proof .mono{color:var(--signal)}
-    .proof span{color:var(--muted);font-size:.78rem;line-height:1.45}
+    .block{padding:clamp(72px,8vw,118px) 0}.section-head{display:grid;grid-template-columns:145px minmax(0,1fr);gap:36px;margin-bottom:38px}.section-no{font-family:var(--mono);font-size:.64rem;color:var(--accent);padding-top:8px;text-transform:uppercase}.section-title{font-size:clamp(2.55rem,5vw,5.2rem);line-height:.91;letter-spacing:-.06em;max-width:940px}.section-title em{font-style:normal;color:var(--accent)}.section-lead{margin-top:17px;max-width:680px;color:var(--muted);line-height:1.62;font-size:.94rem}
+    html[dir="rtl"] .section-no{font-family:var(--ar);text-transform:none}.hairline{border-top:1px solid var(--line)}
 
-    /* SECTION SYSTEM */
-    section.block{padding:clamp(80px,10vw,150px) 0}
-    .section-head{display:grid;grid-template-columns:170px 1fr;gap:42px;margin-bottom:56px;align-items:start}
-    .section-index{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;color:var(--signal);padding-top:12px}
-    html[dir="rtl"] .section-index{font-family:var(--arabic);text-transform:none}
-    .section-title{font-size:clamp(2.7rem,5.4vw,5.9rem);line-height:.9;letter-spacing:-.065em;font-weight:700;max-width:1050px}
-    .section-title em{font-style:normal;color:var(--signal)}
-    .section-lead{margin-top:22px;max-width:700px;color:var(--muted);line-height:1.65;font-size:1rem}
+    .work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.work-card{grid-column:span 4;cursor:zoom-in}.work-card.wide{grid-column:span 8}.work-image{background:var(--paper-2);border:1px solid rgba(17,17,15,.14);overflow:hidden}.work-image img{width:100%;height:auto;transition:transform .25s ease}.work-card:hover img{transform:scale(1.012)}.work-meta{display:flex;justify-content:space-between;gap:16px;padding:9px 0 18px;font-family:var(--mono);font-size:.56rem;text-transform:uppercase;color:var(--muted)}
+    html[dir="rtl"] .work-meta{font-family:var(--ar);text-transform:none}
 
-    /* CASE STUDIES */
-    .case-list{display:grid;gap:18px}
-    .case-featured{display:grid;grid-template-columns:170px minmax(0,1fr);gap:0;border:1px solid var(--ink);background:var(--white)}
-    .case-featured .case-index{grid-row:1 / span 2;padding:24px;border-right:1px solid var(--ink);display:flex;flex-direction:column;justify-content:space-between;background:var(--signal);color:#fff}
-    html[dir="rtl"] .case-featured .case-index{border-right:0;border-left:1px solid var(--ink)}
-    .case-index .case-num{font-family:var(--mono);font-size:.7rem;text-transform:uppercase}
-    .case-index .case-year{font-family:var(--mono);font-size:.65rem;opacity:.82}
-    .case-featured .case-main{padding:28px 30px 24px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:1px solid var(--ink)}
-    .case-title{font-size:clamp(2.1rem,4.5vw,5rem);line-height:.9;letter-spacing:-.06em}
-    .case-meta{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;color:var(--muted);line-height:1.65;max-width:320px;text-align:right}
-    html[dir="rtl"] .case-meta{font-family:var(--arabic);text-transform:none;text-align:left}
-    .case-featured .case-body{padding:18px;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.45fr);gap:18px}
-    .case-preview{aspect-ratio:16/9;background:var(--paper-2);overflow:hidden;position:relative;border:1px solid var(--ink)}
-    .case-preview iframe{width:100%;height:100%;border:0;pointer-events:none;display:block;background:#fff}
-    .case-preview::after{content:"OPEN CASE ↗";position:absolute;right:10px;top:10px;background:var(--signal);color:#fff;padding:8px 10px;font-family:var(--mono);font-size:.59rem;z-index:2}
-    html[dir="rtl"] .case-preview::after{content:"فتح المشروع ↗";right:auto;left:10px;font-family:var(--arabic)}
-    .case-proof{border-top:1px solid var(--ink);padding-top:16px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
-    .case-copy{color:var(--muted);line-height:1.65;font-size:.93rem}
-    .case-scope{display:grid;gap:0;border-top:1px solid var(--line)}
-    .scope-row{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.72rem;line-height:1.45}
-    .scope-row span:first-child{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;color:var(--muted)}
-    .case-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.68rem;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:5px;width:max-content}
-    .case-link:hover{color:var(--signal);border-color:var(--signal)}
-    html[dir="rtl"] .case-link{font-family:var(--arabic);text-transform:none}
-    .case-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .case-compact{border-top:1px solid var(--ink);padding-top:18px;display:grid;grid-template-rows:auto auto 1fr;gap:16px}
-    .case-compact .case-topline{display:flex;justify-content:space-between;gap:18px;align-items:center}
-    .case-compact .case-num{font-family:var(--mono);font-size:.65rem;color:var(--signal)}
-    .case-compact .case-title{font-size:clamp(1.9rem,3.2vw,3.6rem)}
-    .case-compact .case-info{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
-    .case-compact .case-copy{max-width:540px}
+    .case-stack{display:grid;gap:70px}.case{display:grid;grid-template-columns:minmax(260px,.48fr) minmax(0,1.52fr);gap:42px;border-top:1px solid var(--ink);padding-top:24px}.case-kicker{font-family:var(--mono);font-size:.62rem;color:var(--accent);text-transform:uppercase}.case h3{font-size:clamp(2rem,3.4vw,3.7rem);letter-spacing:-.055em;line-height:.95;margin:12px 0 18px}.case-copy{color:var(--muted);font-size:.92rem;line-height:1.65;max-width:480px}.case-list{margin-top:22px;border-top:1px solid var(--line)}.case-list div{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.76rem}.case-list span:first-child{font-family:var(--mono);font-size:.56rem;color:var(--muted);text-transform:uppercase}.case-link{display:inline-block;margin-top:22px;border-bottom:1px solid var(--ink);padding-bottom:4px;font-family:var(--mono);font-size:.62rem;text-transform:uppercase}.case-link:hover{color:var(--accent);border-color:var(--accent)}
+    html[dir="rtl"] .case-kicker,html[dir="rtl"] .case-link,html[dir="rtl"] .case-list span:first-child{font-family:var(--ar);text-transform:none}
+    .case-gallery{display:grid;grid-template-columns:1.35fr .65fr;gap:12px;align-items:start}.case-gallery img{width:100%;height:auto;border:1px solid rgba(17,17,15,.12);background:var(--paper-2)}.case-side{display:grid;gap:12px}
 
-    /* ARCHIVE */
-    .archive-toolbar{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:26px;border-bottom:1px solid var(--ink);padding-bottom:18px}
-    .filters{display:flex;gap:18px;flex-wrap:wrap}
-    .filter{background:transparent;border:0;border-bottom:1px solid transparent;padding:6px 0;cursor:pointer;font-family:var(--mono);font-size:.66rem;text-transform:uppercase;color:var(--muted)}
-    .filter.active,.filter:hover{background:transparent;color:var(--signal);border-color:var(--signal)}
-    html[dir="rtl"] .filter{font-family:var(--arabic);text-transform:none}
-    .archive-count{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
-    .work-wall{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;grid-auto-flow:dense}
-    .work-item{grid-column:span 3;position:relative;overflow:hidden;background:var(--paper-2);aspect-ratio:4/5;cursor:zoom-in;display:none;border:1px solid rgba(17,17,15,.12)}
-    .work-item.visible{display:block}
-    .work-item.wide{grid-column:span 6;aspect-ratio:16/10}
-    .work-item.tall{aspect-ratio:3/5}
-    .work-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1),filter .3s}
-    .work-item:hover img,.work-item:focus-visible img{transform:scale(1.025)}
-    .work-label{position:absolute;left:8px;bottom:8px;background:rgba(241,239,232,.94);border:1px solid var(--ink);padding:7px 9px;font-family:var(--mono);font-size:.59rem;text-transform:uppercase}
-    html[dir="rtl"] .work-label{left:auto;right:8px;border:1px solid var(--ink);font-family:var(--arabic);text-transform:none}
-    .archive-more{margin-top:28px;display:flex;justify-content:center}
-    .load-more{border:1px solid var(--ink);background:transparent;padding:14px 22px;cursor:pointer;font-family:var(--mono);font-size:.7rem;text-transform:uppercase}
-    .load-more:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+    .experience{background:var(--ink);color:var(--paper)}.experience .section-lead,.experience .section-no{color:#aaa399}.career{border-top:1px solid #3b3935}.career-row{display:grid;grid-template-columns:120px minmax(240px,.72fr) minmax(0,1.28fr);gap:28px;padding:24px 0;border-bottom:1px solid #3b3935}.career-time{font-family:var(--mono);font-size:.62rem;color:#aaa399}.career-company{font-size:1.75rem;letter-spacing:-.04em}.career-role{color:#d6d0c5;font-size:.88rem;margin-top:5px}.career-desc{color:#aaa399;font-size:.86rem;line-height:1.58;max-width:650px}.education{display:grid;grid-template-columns:120px 1fr;gap:28px;padding-top:22px;margin-top:4px}.education .career-role{color:var(--paper)}
 
-    /* EXPERIENCE */
-    .experience{background:var(--ink);color:var(--paper)}
-    .experience .section-index,.experience .section-lead{color:#AFA99F}
-    .experience .section-title em{color:var(--signal)}
-    .career{border-top:1px solid #3A3935}
-    .career-row{display:grid;grid-template-columns:150px 1fr 1fr;gap:36px;padding:28px 0;border-bottom:1px solid #3A3935;align-items:start}
-    .career-period{font-family:var(--mono);font-size:.67rem;color:#AFA99F}
-    .career-company{font-size:clamp(1.5rem,2.5vw,2.6rem);font-weight:600;letter-spacing:-.04em}
-    .career-role{font-size:.95rem;margin-top:4px;color:#D4CEC4}.education-degree{color:var(--paper)}
-    .career-desc{color:#AFA99F;line-height:1.6;font-size:.9rem;max-width:650px}.education-note{margin-top:26px;padding-top:18px;border-top:1px solid #3A3935;display:grid;grid-template-columns:150px 1fr;gap:36px}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}.skill{padding:22px 24px 26px 0;border-right:1px solid var(--line);border-bottom:1px solid var(--ink)}.skill:last-child{border-right:0}.skill .mono{color:var(--accent)}.skill h3{font-size:1.45rem;letter-spacing:-.04em;margin:13px 0 9px}.skill p{color:var(--muted);font-size:.84rem;line-height:1.55}.tools{margin-top:26px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:14px 0;font-family:var(--mono);font-size:.62rem;text-transform:uppercase;line-height:1.8}
+    html[dir="rtl"] .skill{padding-right:0;padding-left:24px;border-right:0;border-left:1px solid var(--line)}html[dir="rtl"] .skill:last-child{border-left:0}html[dir="rtl"] .tools{font-family:var(--ar);text-transform:none}
 
-    /* CAPABILITIES */
-    .cap-grid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink)}
-    .cap{min-height:205px;border-bottom:1px solid var(--ink);padding:24px 26px 24px 0;display:grid;grid-template-columns:120px 1fr;grid-template-rows:auto 1fr;column-gap:22px;align-items:start;transition:.2s}.cap:nth-child(odd){border-right:1px solid var(--ink);padding-right:26px}.cap:nth-child(even){padding-left:26px}
-    .cap:hover{background:var(--signal-soft)}
-    .cap-kicker{font-family:var(--mono);font-size:.62rem;color:var(--signal);text-transform:uppercase;grid-row:1 / span 2}
-    .cap h3{font-size:clamp(1.45rem,2.35vw,2.45rem);line-height:1.02;letter-spacing:-.04em;max-width:430px;margin-bottom:18px}
-    .cap p{font-size:.86rem;color:var(--muted);line-height:1.58;max-width:500px}
-    .tool-line{margin-top:36px;display:grid;grid-template-columns:1.2fr 1fr 1fr;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
-    .tool{padding:15px 18px 15px 0;border-right:1px solid var(--line);font-family:var(--mono);font-size:.66rem;text-transform:uppercase;line-height:1.5}.tool:last-child{border-right:0;padding-left:18px}
+    .contact{background:var(--accent);color:#fff;padding:clamp(76px,10vw,136px) 0 34px}.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end}.contact h2{font-size:clamp(4rem,9vw,9.5rem);line-height:.8;letter-spacing:-.075em;text-transform:uppercase}.contact-copy p{font-size:1.1rem;line-height:1.55;max-width:520px;margin-bottom:24px}.email{display:inline-block;font-size:clamp(1.2rem,2vw,1.9rem);font-weight:700;border-bottom:2px solid #fff;padding-bottom:5px}.contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.contact-links a{border:1px solid rgba(255,255,255,.65);padding:10px 13px;font-family:var(--mono);font-size:.62rem;text-transform:uppercase}.contact-links a:hover{background:#fff;color:var(--accent)}.footer{border-top:1px solid rgba(255,255,255,.45);margin-top:70px;padding-top:18px;display:flex;justify-content:space-between;gap:20px;font-family:var(--mono);font-size:.58rem;text-transform:uppercase}
 
+    .lightbox{position:fixed;inset:0;background:rgba(12,12,11,.95);z-index:100;display:none;align-items:center;justify-content:center;padding:28px}.lightbox.open{display:flex}.lightbox img{max-width:92vw;max-height:88vh;object-fit:contain}.lightbox button{position:absolute;top:20px;right:20px;width:44px;height:44px;border:1px solid #fff;background:transparent;color:#fff;cursor:pointer;font-size:1.2rem}.lightbox figcaption{position:absolute;left:24px;bottom:18px;color:#fff;font-family:var(--mono);font-size:.6rem;text-transform:uppercase}
 
-    html[dir="rtl"] .cap:nth-child(odd){border-right:0;border-left:1px solid var(--ink);padding-right:0;padding-left:26px}
-    html[dir="rtl"] .cap:nth-child(even){padding-left:0;padding-right:26px}
-    html[dir="rtl"] .tool{border-right:0;border-left:1px solid var(--line);padding:15px 0 15px 18px}
-    html[dir="rtl"] .tool:last-child{border-left:0;padding-right:18px}
-    html[dir="rtl"] .section-title,html[dir="rtl"] .case-title,html[dir="rtl"] .career-company,html[dir="rtl"] .cap h3{letter-spacing:0}
-
-    /* PROCESS */
-    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);position:relative}.process-grid::before{content:"";position:absolute;left:0;right:0;top:46px;height:1px;background:var(--signal);z-index:0}
-    .step{padding:24px 24px 28px 0;border-right:1px solid var(--line);min-height:270px;display:flex;flex-direction:column;justify-content:space-between}
-    html[dir="rtl"] .step{padding:24px 0 28px 24px;border-right:0;border-left:1px solid var(--line)}
-    .step:last-child{border-right:0}
-    html[dir="rtl"] .step:last-child{border-left:0}
-    .step-n{font-family:var(--mono);font-size:.7rem;color:#fff;background:var(--signal);width:34px;height:34px;display:grid;place-items:center;position:relative;z-index:1}
-    .step h3{font-size:1.55rem;letter-spacing:-.04em;margin-bottom:12px}
-    .step p{font-size:.87rem;color:var(--muted);line-height:1.55}
-
-    /* VIDEO */
-    .video-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .video-card{position:relative;aspect-ratio:9/16;background:#000;overflow:hidden}
-    .video-card img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:.35s}
-    .video-card:hover img{transform:scale(1.025);opacity:1}
-    .video-card::after{content:"▶";position:absolute;left:20px;bottom:18px;width:46px;height:46px;background:var(--signal);display:grid;place-items:center;border-radius:50%;font-size:.9rem;color:#fff}
-    .video-meta{position:absolute;right:14px;top:14px;background:var(--paper);padding:7px 9px;font-family:var(--mono);font-size:.58rem;text-transform:uppercase}
-
-    /* CONTACT */
-    .contact{background:var(--signal);color:#fff;padding:clamp(80px,11vw,150px) 0 42px}
-    .contact-head{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end}
-    .contact h2{font-size:clamp(4rem,10vw,10.5rem);line-height:.78;letter-spacing:-.08em;text-transform:uppercase;max-width:950px}
-    .contact-copy{padding-bottom:10px}
-    .contact-copy p{font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.55;max-width:560px;margin-bottom:28px}
-    .mail-link{display:inline-block;border-bottom:2px solid #fff;font-size:clamp(1.2rem,2vw,2rem);font-weight:600;padding-bottom:6px}
-    .socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
-    .socials a{border:1px solid rgba(255,255,255,.65);padding:10px 13px;font-family:var(--mono);font-size:.67rem;text-transform:uppercase}
-    .socials a:hover{background:#fff;color:var(--signal)}
-    .contact-foot{border-top:1px solid rgba(255,255,255,.5);margin-top:80px;padding-top:18px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:.64rem;text-transform:uppercase}
-
-    /* LIGHTBOX */
-    .lightbox{position:fixed;inset:0;background:rgba(16,16,15,.94);z-index:999;display:none;align-items:center;justify-content:center;padding:30px}
-    .lightbox.open{display:flex}
-    .lightbox img{max-width:min(1200px,92vw);max-height:88vh;object-fit:contain}
-    .lightbox button{border:1px solid #fff;background:rgba(17,17,15,.45);color:#fff;width:46px;height:46px;cursor:pointer;font-size:1.15rem}.lightbox-close{position:absolute;right:22px;top:20px}.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%)}.lightbox-prev{left:22px}.lightbox-next{right:22px}html[dir="rtl"] .lightbox-close{right:auto;left:22px}
-    .lightbox-caption{position:absolute;left:26px;bottom:20px;color:#fff;font-family:var(--mono);font-size:.66rem;text-transform:uppercase}
-
-    /* REVEAL */
-    .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
-    .reveal.in{opacity:1;transform:none}
-
-    @media(max-width:1050px){
-      .hero{grid-template-columns:1fr}.hero-copy{padding-right:0;padding-left:0;min-height:auto}.hero-portrait{min-height:56vh;border-left:0;border-top:1px solid var(--ink)}html[dir="rtl"] .hero-portrait{border-right:0}
-      .proof-strip{grid-template-columns:repeat(2,1fr)}
-      .case-featured{grid-template-columns:110px 1fr}.case-featured .case-body{grid-template-columns:1fr}.case-pair{grid-template-columns:1fr 1fr}.case-compact .case-info{grid-template-columns:1fr}
-      .work-item{grid-column:span 4}.work-item.wide{grid-column:span 8}
-      .cap-grid{grid-template-columns:1fr}.cap:nth-child(odd){border-right:0}.cap:nth-child(even){padding-left:0}html[dir="rtl"] .cap:nth-child(odd){border-left:0;padding-left:0}html[dir="rtl"] .cap:nth-child(even){padding-right:0}.tool-line{grid-template-columns:1fr 1fr}.tool:last-child{grid-column:1/-1;border-top:1px solid var(--line);padding-left:0}
-      .process-grid{grid-template-columns:repeat(2,1fr)}.process-grid::before{display:none}.contact-head{grid-template-columns:1fr}.career-row{grid-template-columns:130px 1fr}.career-desc{grid-column:2}
-    }
-    @media(max-width:760px){
-      .nav-inner{height:auto;grid-template-columns:1fr auto;padding-top:9px}.nav-center{grid-column:1/-1;display:flex;overflow-x:auto;gap:18px;padding:11px 0 10px;border-top:1px solid var(--line);scrollbar-width:none}.nav-center::-webkit-scrollbar{display:none}.nav-center a{flex:0 0 auto}.nav-actions .cv-link{display:none}
-      .brand::after{display:none}
-      .hero-name{font-size:clamp(4.2rem,22vw,7.6rem)}.hero-statement{grid-template-columns:1fr}.hero-portrait{min-height:52vh}.portrait-stamp{width:auto;height:auto}
-      .proof-strip{grid-template-columns:1fr 1fr}.section-head{grid-template-columns:1fr;gap:12px}.section-index{padding-top:0}.section-title{font-size:clamp(3rem,15vw,5.6rem)}
-      .case-featured{grid-template-columns:1fr}.case-featured .case-index{grid-row:auto;border-right:0!important;border-left:0!important;border-bottom:1px solid var(--ink);flex-direction:row}.case-featured .case-main{grid-template-columns:1fr;padding:22px}.case-featured .case-body{padding:12px}.case-pair{grid-template-columns:1fr}.case-compact .case-info{grid-template-columns:1fr}
-      .archive-toolbar{align-items:flex-start;flex-direction:column}.work-wall{grid-template-columns:repeat(2,1fr)}.work-item,.work-item.wide{grid-column:span 1;aspect-ratio:4/5}.work-item.mobile-feature{grid-column:span 2;aspect-ratio:16/10}
-      .career-row{grid-template-columns:1fr;gap:8px}.career-desc{grid-column:auto}.education-note{grid-template-columns:1fr;gap:8px}.cap{grid-template-columns:86px 1fr;min-height:190px;padding-right:0}.tool-line{grid-template-columns:1fr}.tool,.tool:last-child{grid-column:auto;border-right:0;border-top:1px solid var(--line);padding:12px 0}.tool:first-child{border-top:0}html[dir="rtl"] .tool,html[dir="rtl"] .tool:last-child{border-left:0;padding-left:0;padding-right:0}
-      .process-grid{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line);min-height:220px;padding-right:0}
-      .video-strip{overflow-x:auto;grid-template-columns:repeat(3,72vw);padding-bottom:10px}.contact h2{font-size:clamp(3.6rem,17vw,6.5rem)}.contact-foot{flex-direction:column;gap:10px}
-    }
-    @media(max-width:500px){
-      .proof-strip{grid-template-columns:1fr}.proof{border-right:0!important;border-left:0!important;border-bottom:1px solid var(--ink);min-height:82px}.proof:last-child{border-bottom:0}
-      .hero-actions{width:100%}.hero-action{flex:1 1 auto}.cap{grid-template-columns:1fr;row-gap:12px}.cap-kicker{grid-row:auto}.filters{gap:13px}
-    }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.work-item img,.video-card img{transition:none}}
-
-    /* =========================================================
-       FINAL DIRECTION ADJUSTMENTS
-       - On-site work has priority over Behance embeds
-       - No blue accent
-       - Portrait keeps its original color and aspect ratio
-       ========================================================= */
-    .hero-portrait{
-      min-height:0;
-      background:transparent;
-      overflow:hidden;
-      align-self:center;
-    }
-    .hero-portrait img{
-      position:relative;
-      inset:auto;
-      width:100%;
-      height:auto;
-      aspect-ratio:auto;
-      object-fit:contain;
-      object-position:center;
-      filter:none;
-      mix-blend-mode:normal;
-      background:transparent;
-    }
-    .hero-portrait::before,.hero-portrait::after{display:none}
-    .portrait-stamp{display:none}
-
-    /* Behance is a compact secondary reference, not the visual centerpiece. */
-    #work.block{padding:34px 0 clamp(70px,8vw,110px)}
-    #work .section-head{
-      grid-template-columns:150px minmax(0,1fr);
-      gap:28px;
-      margin-bottom:24px;
-      padding-top:24px;
-      border-top:1px solid var(--line);
-    }
-    #work .section-index{color:var(--muted);font-size:.64rem}
-    #work .section-title{font-size:clamp(1.55rem,2.7vw,2.8rem);line-height:1;letter-spacing:-.045em;max-width:720px}
-    #work .section-lead{margin-top:12px;font-size:.86rem;max-width:660px}
-    #work .case-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    #work .case-pair{display:contents}
-    #work .case-featured,#work .case-compact{
-      display:flex;
-      flex-direction:column;
-      min-width:0;
-      border:1px solid var(--line);
-      background:transparent;
-      padding:14px;
-      gap:12px;
-    }
-    #work .case-featured .case-index{
-      grid-row:auto;
-      padding:0 0 8px;
-      border:0;
-      border-bottom:1px solid var(--line);
-      background:transparent;
-      color:var(--muted);
-      flex-direction:row;
-      min-height:auto;
-    }
-    html[dir="rtl"] #work .case-featured .case-index{border-left:0;border-right:0}
-    #work .case-featured .case-main{
-      padding:0;
-      border:0;
-      display:block;
-    }
-    #work .case-featured .case-body{padding:0;display:flex;flex-direction:column;gap:12px}
-    #work .case-preview{aspect-ratio:16/10;border-color:var(--line);order:1}
-    #work .case-preview::after{font-size:.5rem;padding:6px 7px;background:var(--ink)}
-    #work .case-preview iframe{width:100%;height:100%}
-    #work .case-title{font-size:clamp(1.25rem,1.85vw,1.8rem);line-height:1;letter-spacing:-.035em}
-    #work .case-meta{font-size:.58rem;text-align:left;max-width:none;margin-top:6px}
-    html[dir="rtl"] #work .case-meta{text-align:right}
-    #work .case-proof{border:0;padding:0;gap:12px;order:2}
-    #work .case-copy{font-size:.78rem;line-height:1.5}
-    #work .case-scope{display:none}
-    #work .case-link{font-size:.6rem;margin-top:auto}
-    #work .case-compact{border-top:1px solid var(--line);grid-template-rows:none}
-    #work .case-compact .case-topline{min-height:22px}
-    #work .case-compact .case-num{font-size:.58rem}
-    #work .case-compact .case-info{display:flex;flex-direction:column;gap:12px}
-    #work .case-compact .case-copy{font-size:.78rem;line-height:1.5}
-
-    @media(max-width:1050px){
-      .hero-portrait{min-height:0;border-top:1px solid var(--ink)}
-      #work .case-list{grid-template-columns:repeat(3,minmax(0,1fr))}
-    }
-    @media(max-width:760px){
-      .hero-portrait{min-height:0}
-      #work .section-head{grid-template-columns:1fr;gap:8px}
-      #work .case-list{grid-template-columns:1fr}
-      #work .case-pair{display:contents}
-      #work .case-featured,#work .case-compact{padding:12px}
-    }
-
+    @media(max-width:980px){.hero{grid-template-columns:1fr minmax(240px,.42fr)}.hero-message{grid-template-columns:1fr}.hero-photo{min-height:520px}.work-card{grid-column:span 6}.work-card.wide{grid-column:span 12}.case{grid-template-columns:1fr}.case-gallery{max-width:820px}.career-row{grid-template-columns:100px 1fr}.career-desc{grid-column:2}.skills-grid{grid-template-columns:1fr 1fr}.skill:nth-child(2){border-right:0}.skill:last-child{grid-column:1/-1}.contact-grid{grid-template-columns:1fr}}
+    @media(max-width:720px){.nav-inner{height:auto;grid-template-columns:1fr auto;padding-top:9px}.nav-links{grid-column:1/-1;overflow-x:auto;padding:10px 0 11px;border-top:1px solid var(--line);gap:17px}.nav-links a{flex:0 0 auto}.nav-actions .cv-btn{display:none}.brand small{display:none}.hero{grid-template-columns:1fr}.hero-copy{padding:42px 0}.hero h1{font-size:clamp(4rem,20vw,6.7rem);margin:28px 0}.hero h1 span:last-child{margin-left:0}.hero-photo{border-left:0;border-top:1px solid var(--ink);min-height:0}.hero-photo img{height:auto;object-fit:contain}.focus-strip{grid-template-columns:1fr}.focus{border-right:0;border-bottom:1px solid var(--ink)}.focus:last-child{border-bottom:0}.section-head{grid-template-columns:1fr;gap:8px}.section-title{font-size:clamp(2.5rem,12vw,3.8rem)}.work-grid{display:block}.work-card,.work-card.wide{margin-bottom:18px}.case-gallery{grid-template-columns:1fr}.case-side{grid-template-columns:1fr 1fr}.career-row{grid-template-columns:1fr;gap:7px}.career-desc{grid-column:auto}.education{grid-template-columns:1fr;gap:8px}.skills-grid{grid-template-columns:1fr}.skill,.skill:nth-child(2),.skill:last-child{grid-column:auto;border-right:0;padding-right:0}.contact h2{font-size:clamp(3.7rem,17vw,6rem)}.footer{flex-direction:column}.lightbox figcaption{right:24px}}
   </style>
-  <noscript><style>.reveal{opacity:1!important;transform:none!important}.work-item{display:block!important}
-
-    /* =========================================================
-       DECLUTTERED HIRING REVIEW
-       - fewer competing elements
-       - portfolio images shown at their real aspect ratio
-       - Behance reduced to optional text references
-       ========================================================= */
-
-    /* Give the first screen one job: identity + positioning + portrait. */
-    .hero{min-height:auto;grid-template-columns:minmax(0,1.55fr) minmax(280px,.45fr)}
-    .hero-copy{min-height:auto;padding-top:clamp(46px,6vw,76px);padding-bottom:clamp(44px,5vw,68px);justify-content:center}
-    .hero-name{font-size:clamp(4.25rem,8.7vw,8.5rem);margin:30px 0 30px}
-    .hero-statement{grid-template-columns:minmax(230px,.82fr) minmax(300px,1.18fr);gap:38px}
-    .hero-role{font-size:clamp(1.25rem,1.8vw,1.9rem);line-height:1.08}
-    .hero-desc{font-size:.98rem;line-height:1.62}
-    .hero-actions{margin-top:24px}
-    .hero-foot,.proof-strip{display:none!important}
-
-    /* Smaller section headers create breathing room instead of restarting the page at every section. */
-    section.block{padding:clamp(62px,7.5vw,104px) 0}
-    .section-head{grid-template-columns:130px minmax(0,1fr);gap:32px;margin-bottom:36px}
-    .section-title{font-size:clamp(2.35rem,4.15vw,4.2rem);line-height:.94;letter-spacing:-.055em;max-width:900px}
-    .section-lead{margin-top:16px;max-width:650px;font-size:.94rem;line-height:1.6}
-    .section-index{font-size:.64rem;padding-top:8px}
-
-    /* The work is the hero. Never crop portfolio artwork. */
-    .archive-toolbar{align-items:center;margin-bottom:28px;padding-bottom:14px;gap:18px}
-    .filters{gap:14px}
-    .filter{font-size:.62rem;padding:5px 0}
-    .archive-count{font-size:.62rem;white-space:nowrap}
-    .work-wall{display:block;columns:3;column-gap:22px;grid-auto-flow:unset}
-    .work-item,.work-item.wide,.work-item.tall{
-      width:100%;
-      display:none;
-      break-inside:avoid;
-      -webkit-column-break-inside:avoid;
-      page-break-inside:avoid;
-      margin:0 0 24px;
-      aspect-ratio:auto;
-      overflow:visible;
-      border:0;
-      background:transparent;
-    }
-    .work-item.visible{display:inline-block}
-    .work-item img{
-      width:100%;
-      height:auto;
-      max-height:none;
-      object-fit:contain;
-      border:1px solid rgba(17,17,15,.12);
-      background:var(--paper-2);
-      transition:transform .25s ease;
-    }
-    .work-item:hover img,.work-item:focus-visible img{transform:translateY(-2px)}
-    .work-label{
-      position:static;
-      display:block;
-      background:transparent;
-      border:0;
-      padding:8px 0 0;
-      color:var(--muted);
-      font-size:.56rem;
-      line-height:1.3;
-    }
-    html[dir="rtl"] .work-label{border:0;padding:8px 0 0}
-    .archive-more{margin-top:18px}
-    .load-more{padding:12px 18px;font-size:.64rem}
-
-    /* Experience should read like a CV, not like another gallery. */
-    .career-row{grid-template-columns:120px minmax(220px,.72fr) minmax(0,1.28fr);gap:28px;padding:23px 0}
-    .career-company{font-size:clamp(1.35rem,2vw,2rem)}
-    .career-desc{font-size:.85rem;line-height:1.55}
-
-    /* Responsibilities become a quiet professional list. */
-    .cap-grid{grid-template-columns:1fr;border-top:1px solid var(--ink)}
-    .cap,.cap:nth-child(odd),.cap:nth-child(even){
-      min-height:0;
-      border-right:0;
-      border-left:0;
-      padding:20px 0;
-      grid-template-columns:105px minmax(190px,.65fr) minmax(0,1.35fr);
-      grid-template-rows:1fr;
-      column-gap:22px;
-      border-bottom:1px solid var(--line);
-      align-items:start;
-    }
-    html[dir="rtl"] .cap:nth-child(odd),html[dir="rtl"] .cap:nth-child(even){border-left:0;padding:20px 0}
-    .cap-kicker{grid-row:auto}
-    .cap h3{font-size:clamp(1.25rem,1.8vw,1.75rem);margin-bottom:0;line-height:1.08}
-    .cap p{font-size:.82rem;line-height:1.55;max-width:620px}
-    .cap:hover{background:transparent}
-    .tool-line{margin-top:26px}
-
-    /* Process is a short reading sequence, not four competing cards. */
-    .process-grid{display:block;border-top:1px solid var(--ink)}
-    .process-grid::before{display:none}
-    .step,html[dir="rtl"] .step{
-      min-height:0;
-      padding:20px 0;
-      border-right:0;
-      border-left:0;
-      border-bottom:1px solid var(--line);
-      display:grid;
-      grid-template-columns:70px minmax(180px,.45fr) minmax(0,1.55fr);
-      gap:24px;
-      align-items:start;
-    }
-    .step-n{width:30px;height:30px}
-    .step h3{font-size:1.25rem;margin:3px 0 0}
-    .step p{font-size:.84rem;line-height:1.55;max-width:700px}
-
-    /* Behance is intentionally only a supporting reference. */
-    .project-links-section{padding-top:54px!important;padding-bottom:64px!important}
-    .project-links-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.55fr);gap:40px;align-items:end;margin-bottom:24px}
-    .project-links-title{font-size:clamp(1.8rem,3vw,3rem);line-height:1;letter-spacing:-.045em;margin-top:10px;max-width:700px}
-    .project-links-title em{font-style:normal;color:var(--signal)}
-    .project-links-note{font-size:.84rem;line-height:1.55;color:var(--muted);max-width:520px}
-    .project-link-list{border-top:1px solid var(--ink)}
-    .project-link-row{display:grid;grid-template-columns:44px minmax(220px,.7fr) minmax(0,1fr) 26px;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);transition:.2s}
-    .project-link-row:hover{color:var(--signal)}
-    .project-link-no{font-family:var(--mono);font-size:.58rem;color:var(--muted)}
-    .project-link-row strong{font-size:1rem}
-    .project-link-row>span:nth-child(3){font-size:.78rem;color:var(--muted)}
-    .project-link-arrow{text-align:right}
-    html[dir="rtl"] .project-link-arrow{text-align:left}
-
-    /* Multimedia remains a footnote to the graphic design story. */
-    .video-strip{gap:14px}
-    .video-card{min-height:0}
-
-    @media(max-width:1050px){
-      .hero{grid-template-columns:1fr minmax(240px,.42fr)}
-      .work-wall{columns:2}
-      .cap,.cap:nth-child(odd),.cap:nth-child(even){grid-template-columns:90px minmax(170px,.7fr) minmax(0,1.3fr)}
-      .career-row{grid-template-columns:100px minmax(200px,.75fr) minmax(0,1.25fr)}
-    }
-
-    @media(max-width:760px){
-      .hero{grid-template-columns:1fr}
-      .hero-copy{padding-top:36px;padding-bottom:40px}
-      .hero-name{font-size:clamp(4rem,20vw,6.8rem);margin:26px 0}
-      .hero-statement{grid-template-columns:1fr;gap:14px}
-      .hero-portrait{border-top:1px solid var(--ink);padding-top:22px}
-      .section-head{grid-template-columns:1fr;gap:8px;margin-bottom:28px}
-      .section-title{font-size:clamp(2.1rem,11vw,3.2rem)}
-      .archive-toolbar{display:block;overflow:hidden}
-      .filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
-      .filters::-webkit-scrollbar{display:none}
-      .archive-count{margin-top:7px}
-      .work-wall{columns:1}
-      .work-item,.work-item.wide,.work-item.tall{margin-bottom:22px}
-      .career-row{grid-template-columns:1fr;gap:8px;padding:20px 0}
-      .education-note{grid-template-columns:1fr;gap:8px}
-      .cap,.cap:nth-child(odd),.cap:nth-child(even),html[dir="rtl"] .cap:nth-child(odd),html[dir="rtl"] .cap:nth-child(even){grid-template-columns:1fr;gap:8px;padding:18px 0}
-      .step,html[dir="rtl"] .step{grid-template-columns:44px 1fr;gap:10px 14px}
-      .step p{grid-column:2}
-      .project-links-head{grid-template-columns:1fr;gap:16px}
-      .project-link-row{grid-template-columns:34px 1fr 24px;gap:10px}
-      .project-link-row>span:nth-child(3){grid-column:2;grid-row:2}
-      .project-link-arrow{grid-column:3;grid-row:1 / span 2}
-    }
-
-  </style></noscript>
 </head>
 <body>
-  <a class="skip-link" href="#archive" data-en="Skip to selected work" data-ar="الانتقال إلى الأعمال المختارة">Skip to selected work</a>
-
   <nav class="nav">
-    <div class="site-shell nav-inner">
-      <a href="#top" class="brand">MA.</a>
-      <div class="nav-center">
-        <a href="#archive" data-en="Work" data-ar="الأعمال">Work</a>
+    <div class="shell nav-inner">
+      <a class="brand" href="#top">MA.<small>PORTFOLIO / 2026</small></a>
+      <div class="nav-links">
+        <a href="#work" data-en="Work" data-ar="الأعمال">Work</a>
+        <a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a>
         <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
-        <a href="#capabilities" data-en="Capabilities" data-ar="القدرات">Capabilities</a>
-        <a href="#work" data-en="Project links" data-ar="روابط المشاريع">Project links</a>
         <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
       </div>
       <div class="nav-actions">
-        <button class="text-btn" id="langToggle" type="button" aria-label="Switch language">AR</button>
-        <a class="cv-link" href="My cv English .pdf" target="_blank" rel="noopener noreferrer" data-en="Download CV ↗" data-ar="تحميل السيرة ↗">Download CV ↗</a>
+        <button class="nav-btn" id="langToggle" type="button">AR</button>
+        <a class="cv-btn" href="My cv English .pdf" target="_blank" rel="noopener">CV ↗</a>
       </div>
     </div>
   </nav>
 
   <main id="top">
-    <div class="site-shell">
+    <div class="shell">
       <section class="hero">
         <div class="hero-copy">
-          <div>
-            <div class="eyebrow"><span class="dot"></span><span data-en="Visual & Graphic Designer · Cairo / Remote" data-ar="مصمم بصري وجرافيك · القاهرة / عن بُعد">Visual & Graphic Designer · Cairo / Remote</span></div>
-            <h1 class="hero-name"><span>MOHAMED</span><span class="name-second">AMER</span></h1>
-            <div class="hero-statement">
-              <div class="hero-role" data-en="I turn briefs into visual directions that stay clear across campaign, social, digital and print." data-ar="أحوّل البريف إلى اتجاه بصري واضح يظل متماسكًا عبر الحملات والسوشيال والديجيتال والطباعة.">I turn briefs into visual directions that stay clear across campaign, social, digital and print.</div>
-              <p class="hero-desc" data-en="Experience since 2021 across agency, technology, retail and media — spanning key visuals, social systems, brand applications, product communication, website visuals and layout." data-ar="خبرة منذ 2021 عبر الوكالات والتقنية والتجزئة والإعلام، تشمل الـKey Visuals وأنظمة السوشيال وتطبيقات الهوية وتواصل المنتجات والتصميم البصري للمواقع والـLayout.">Experience since 2021 across agency, technology, retail and media — spanning key visuals, social systems, brand applications, product communication, website visuals and layout.</p>
-            </div>
-            <div class="hero-actions">
-              <a class="hero-action primary" href="#archive" data-en="Selected work ↓" data-ar="الأعمال المختارة ↓">Selected work ↓</a>
-              <a class="hero-action" href="My cv English .pdf" target="_blank" rel="noopener noreferrer" data-en="Download CV ↗" data-ar="تحميل السيرة ↗">Download CV ↗</a>
+          <div class="eyebrow"><i></i><span data-en="Visual & Graphic Designer · Cairo / Remote" data-ar="مصمم بصري وجرافيك · القاهرة / عن بُعد">Visual & Graphic Designer · Cairo / Remote</span></div>
+          <h1><span>MOHAMED</span><span>AMER</span></h1>
+          <div class="hero-message">
+            <div class="hero-position" data-en="I turn marketing briefs into campaign visuals and product communication systems built to stay clear across every format." data-ar="أحوّل البريفات التسويقية إلى حملات بصرية وأنظمة تواصل للمنتجات تظل واضحة ومتسقة عبر كل المقاسات.">I turn marketing briefs into campaign visuals and product communication systems built to stay clear across every format.</div>
+            <div>
+              <p class="hero-desc" data-en="Graphic designer with experience since 2021 across agency, technology, retail and media. Strongest in campaign key visuals, product-focused communication, social systems and brand applications — with AI used as a production tool when it adds value." data-ar="مصمم جرافيك بخبرة منذ 2021 عبر الوكالات والتقنية والتجزئة والإعلام. أركز على الـKey Visuals للحملات، تواصل المنتجات، أنظمة السوشيال وتطبيقات الهوية، مع استخدام الذكاء الاصطناعي كأداة إنتاج عندما يضيف قيمة حقيقية.">Graphic designer with experience since 2021 across agency, technology, retail and media. Strongest in campaign key visuals, product-focused communication, social systems and brand applications — with AI used as a production tool when it adds value.</p>
+              <div class="hero-actions">
+                <a class="hero-action primary" href="#work" data-en="View selected work ↓" data-ar="شاهد الأعمال المختارة ↓">View selected work ↓</a>
+                <a class="hero-action" href="My cv English .pdf" target="_blank" rel="noopener" data-en="Download CV ↗" data-ar="تحميل السيرة ↗">Download CV ↗</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="hero-portrait">
-          <img src="MINED.png" alt="Mohamed Amer" loading="eager" decoding="async" fetchpriority="high" />
-          <div class="portrait-stamp" data-en="Open to full-time graphic design roles · Cairo / Remote" data-ar="متاح لفرص جرافيك ديزاين بدوام كامل · القاهرة / عن بُعد">Open to full-time graphic design roles · Cairo / Remote</div>
-        </div>
+        <div class="hero-photo"><img src="MINED.png" alt="Mohamed Amer, Visual and Graphic Designer" fetchpriority="high"></div>
       </section>
 
-      <section id="archive" class="block reveal hairline">
+      <div class="focus-strip">
+        <article class="focus"><span class="mono">01 / PRIMARY</span><strong data-en="Campaign Key Visuals" data-ar="Key Visuals للحملات">Campaign Key Visuals</strong><p data-en="From brief to a visual direction that can scale across campaign formats." data-ar="من البريف إلى اتجاه بصري قابل للتطبيق عبر كل مواد الحملة.">From brief to a visual direction that can scale across campaign formats.</p></article>
+        <article class="focus"><span class="mono">02 / PRIMARY</span><strong data-en="Product Communication" data-ar="تواصل المنتجات">Product Communication</strong><p data-en="Commercial visuals that make product features, value and hierarchy easier to understand." data-ar="تصميمات تجارية توضح خصائص المنتج وقيمته وتراتبية الرسالة.">Commercial visuals that make product features, value and hierarchy easier to understand.</p></article>
+        <article class="focus"><span class="mono">03 / PRIMARY</span><strong data-en="Social & Digital Systems" data-ar="أنظمة السوشيال والديجيتال">Social & Digital Systems</strong><p data-en="Consistent visual systems for promotional, paid and always-on content." data-ar="أنظمة بصرية متسقة للمحتوى الترويجي والإعلاني والمستمر.">Consistent visual systems for promotional, paid and always-on content.</p></article>
+      </div>
+
+      <section id="work" class="block">
         <div class="section-head">
-          <div class="section-index" data-en="01 / SELECTED WORK" data-ar="01 / أعمال مختارة">01 / SELECTED WORK</div>
-          <div>
-            <h2 class="section-title" data-en="Selected <em>visual work.</em>" data-ar="أعمال بصرية <em>مختارة.</em>">Selected <em>visual work.</em></h2>
-            <p class="section-lead" data-en="A curated view across campaign, social, editorial, print, AI-assisted and product-focused work. Filter by category when you want to go deeper." data-ar="عرض مختار من أعمال الحملات والسوشيال والتحريري والطباعة والأعمال المدعومة بالذكاء الاصطناعي وتصميمات المنتجات. استخدم الفلاتر للتعمق في نوع محدد.">A curated view across campaign, social, editorial, print, AI-assisted and product-focused work. Filter by category when you want to go deeper.</p>
-          </div>
+          <div class="section-no" data-en="01 / SELECTED WORK" data-ar="01 / أعمال مختارة">01 / SELECTED WORK</div>
+          <div><h2 class="section-title" data-en="A tighter edit of the <em>work that represents me best.</em>" data-ar="اختيار أدق من <em>الأعمال التي تمثل مستواي بشكل أفضل.</em>">A tighter edit of the <em>work that represents me best.</em></h2><p class="section-lead" data-en="Twelve pieces only. The goal here is not to show everything I have made, but to show the visual judgment, composition and commercial communication I want to be hired for." data-ar="اثنا عشر عملاً فقط. الهدف ليس عرض كل ما قمت به، بل إظهار الحكم البصري والتكوين والتواصل التجاري الذي أريد أن يتم توظيفي من أجله.">Twelve pieces only. The goal here is not to show everything I have made, but to show the visual judgment, composition and commercial communication I want to be hired for.</p></div>
         </div>
-
-        <div class="archive-toolbar">
-          <div class="filters" role="group" aria-label="Filter portfolio archive">
-            <button class="filter active" type="button" aria-pressed="true" aria-controls="workWall" data-filter="all" data-en="All" data-ar="الكل">All</button>
-            <button class="filter" type="button" aria-pressed="false" aria-controls="workWall" data-filter="social" data-en="Social & Campaign" data-ar="سوشيال وحملات">Social & Campaign</button>
-            <button class="filter" type="button" aria-pressed="false" aria-controls="workWall" data-filter="editorial" data-en="Editorial" data-ar="تحريري">Editorial</button>
-            <button class="filter" type="button" aria-pressed="false" aria-controls="workWall" data-filter="print" data-en="Brand & Print" data-ar="هوية وطباعة">Brand & Print</button>
-            <button class="filter" type="button" aria-pressed="false" aria-controls="workWall" data-filter="ai" data-en="AI-Assisted" data-ar="بمساعدة AI">AI-Assisted</button>
-            <button class="filter" type="button" aria-pressed="false" aria-controls="workWall" data-filter="tech" data-en="Tech & Product Visuals" data-ar="تقنية وتصميمات منتجات">Tech & Product Visuals</button>
-          </div>
-          <div class="archive-count" id="archiveCount" aria-live="polite">SHOWING 15</div>
+        <div class="work-grid">
+          <figure class="work-card wide" data-label="Product Communication / 01"><div class="work-image"><img src="g1.png" alt="Technology product communication visual" loading="lazy"></div><figcaption class="work-meta"><span>Product Communication</span><span>01</span></figcaption></figure>
+          <figure class="work-card" data-label="Campaign Visual / 01"><div class="work-image"><img src="h1.JPG" alt="Consumer product campaign visual" loading="lazy"></div><figcaption class="work-meta"><span>Campaign Visual</span><span>01</span></figcaption></figure>
+          <figure class="work-card" data-label="AI-Assisted Commercial / 01"><div class="work-image"><img src="ai1.jpg" alt="AI-assisted commercial visual" loading="lazy"></div><figcaption class="work-meta"><span>AI-Assisted Commercial</span><span>01</span></figcaption></figure>
+          <figure class="work-card" data-label="Product Communication / 02"><div class="work-image"><img src="g2.png" alt="Technology product visual" loading="lazy"></div><figcaption class="work-meta"><span>Product Communication</span><span>02</span></figcaption></figure>
+          <figure class="work-card" data-label="Campaign Visual / 02"><div class="work-image"><img src="h2.JPG" alt="Product campaign design" loading="lazy"></div><figcaption class="work-meta"><span>Campaign Visual</span><span>02</span></figcaption></figure>
+          <figure class="work-card wide" data-label="Campaign & Brand / 01"><div class="work-image"><img src="b1.png" alt="Campaign and brand communication banner" loading="lazy"></div><figcaption class="work-meta"><span>Campaign & Brand</span><span>01</span></figcaption></figure>
+          <figure class="work-card" data-label="AI-Assisted Commercial / 02"><div class="work-image"><img src="ai2.jpg" alt="AI-assisted product visual" loading="lazy"></div><figcaption class="work-meta"><span>AI-Assisted Commercial</span><span>02</span></figcaption></figure>
+          <figure class="work-card" data-label="Product Communication / 03"><div class="work-image"><img src="g3.png" alt="Technology commercial visual" loading="lazy"></div><figcaption class="work-meta"><span>Product Communication</span><span>03</span></figcaption></figure>
+          <figure class="work-card" data-label="Campaign Visual / 03"><div class="work-image"><img src="h3.JPG" alt="Product campaign visual" loading="lazy"></div><figcaption class="work-meta"><span>Campaign Visual</span><span>03</span></figcaption></figure>
+          <figure class="work-card wide" data-label="Campaign & Brand / 02"><div class="work-image"><img src="b2.png" alt="Digital campaign banner" loading="lazy"></div><figcaption class="work-meta"><span>Campaign & Brand</span><span>02</span></figcaption></figure>
+          <figure class="work-card" data-label="AI-Assisted Commercial / 03"><div class="work-image"><img src="ai3.jpg" alt="AI-assisted commercial image" loading="lazy"></div><figcaption class="work-meta"><span>AI-Assisted Commercial</span><span>03</span></figcaption></figure>
+          <figure class="work-card" data-label="Brand Application / 01"><div class="work-image"><img src="c1.png" alt="Brand application design" loading="lazy"></div><figcaption class="work-meta"><span>Brand Application</span><span>01</span></figcaption></figure>
         </div>
-
-        <div class="work-wall" id="workWall" aria-label="Portfolio work index">
-          <!-- Social / campaign -->
-          <figure class="work-item wide" data-cat="social"><img src="s1.png" alt="Social campaign design 1" loading="lazy" decoding="async"><figcaption class="work-label">Social / 01</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s2.png" alt="Social campaign design 2" loading="lazy" decoding="async"><figcaption class="work-label">Social / 02</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="s3.png" alt="Social campaign design 3" loading="lazy" decoding="async"><figcaption class="work-label">Social / 03</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s4.png" alt="Social campaign design 4" loading="lazy" decoding="async"><figcaption class="work-label">Social / 04</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s5.png" alt="Social campaign design 5" loading="lazy" decoding="async"><figcaption class="work-label">Social / 05</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s6.png" alt="Social campaign design 6" loading="lazy" decoding="async"><figcaption class="work-label">Social / 06</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s7.png" alt="Social campaign design 7" loading="lazy" decoding="async"><figcaption class="work-label">Social / 07</figcaption></figure>
-          <figure class="work-item wide" data-cat="social"><img src="s8.png" alt="Social campaign design 8" loading="lazy" decoding="async"><figcaption class="work-label">Social / 08</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s9.png" alt="Social campaign design 9" loading="lazy" decoding="async"><figcaption class="work-label">Social / 09</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s10.png" alt="Social campaign design 10" loading="lazy" decoding="async"><figcaption class="work-label">Social / 10</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s11.png" alt="Social campaign design 11" loading="lazy" decoding="async"><figcaption class="work-label">Social / 11</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s12.png" alt="Social campaign design 12" loading="lazy" decoding="async"><figcaption class="work-label">Social / 12</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s13.png" alt="Social campaign design 13" loading="lazy" decoding="async"><figcaption class="work-label">Social / 13</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s14.png" alt="Social campaign design 14" loading="lazy" decoding="async"><figcaption class="work-label">Social / 14</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s15.png" alt="Social campaign design 15" loading="lazy" decoding="async"><figcaption class="work-label">Social / 15</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s16.png" alt="Social campaign design 16" loading="lazy" decoding="async"><figcaption class="work-label">Social / 16</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s17.png" alt="Social campaign design 17" loading="lazy" decoding="async"><figcaption class="work-label">Social / 17</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s18.png" alt="Social campaign design 18" loading="lazy" decoding="async"><figcaption class="work-label">Social / 18</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s19.png" alt="Social campaign design 19" loading="lazy" decoding="async"><figcaption class="work-label">Social / 19</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s20.png" alt="Social campaign design 20" loading="lazy" decoding="async"><figcaption class="work-label">Social / 20</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s21.png" alt="Social campaign design 21" loading="lazy" decoding="async"><figcaption class="work-label">Social / 21</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s22.jpg" alt="Social campaign design 22" loading="lazy" decoding="async"><figcaption class="work-label">Social / 22</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s23.jpg" alt="Social campaign design 23" loading="lazy" decoding="async"><figcaption class="work-label">Social / 23</figcaption></figure>
-          <figure class="work-item" data-cat="social"><img src="s24.jpg" alt="Social campaign design 24" loading="lazy" decoding="async"><figcaption class="work-label">Social / 24</figcaption></figure>
-          <!-- Editorial -->
-          <figure class="work-item tall" data-cat="editorial"><img src="p1.png" alt="Editorial poster 1" loading="lazy" decoding="async"><figcaption class="work-label">Editorial / 01</figcaption></figure>
-          <figure class="work-item tall" data-cat="editorial"><img src="p2.png" alt="Editorial poster 2" loading="lazy" decoding="async"><figcaption class="work-label">Editorial / 02</figcaption></figure>
-          <figure class="work-item tall" data-cat="editorial"><img src="p3.png" alt="Editorial poster 3" loading="lazy" decoding="async"><figcaption class="work-label">Editorial / 03</figcaption></figure>
-          <figure class="work-item tall" data-cat="editorial"><img src="p4.png" alt="Editorial poster 4" loading="lazy" decoding="async"><figcaption class="work-label">Editorial / 04</figcaption></figure>
-          <figure class="work-item tall" data-cat="editorial"><img src="p5.png" alt="Editorial poster 5" loading="lazy" decoding="async"><figcaption class="work-label">Editorial / 05</figcaption></figure>
-          <figure class="work-item tall" data-cat="editorial"><img src="p6.png" alt="Editorial poster 6" loading="lazy" decoding="async"><figcaption class="work-label">Editorial / 06</figcaption></figure>
-          <!-- Banners -->
-          <figure class="work-item wide" data-cat="print"><img src="b1.png" alt="Digital and print campaign 1" loading="lazy" decoding="async"><figcaption class="work-label">Campaign / 01</figcaption></figure>
-          <figure class="work-item wide" data-cat="print"><img src="b2.png" alt="Digital and print campaign 2" loading="lazy" decoding="async"><figcaption class="work-label">Campaign / 02</figcaption></figure>
-          <figure class="work-item wide" data-cat="print"><img src="b3.png" alt="Digital and print campaign 3" loading="lazy" decoding="async"><figcaption class="work-label">Campaign / 03</figcaption></figure>
-          <figure class="work-item wide" data-cat="print"><img src="b4.png" alt="Digital and print campaign 4" loading="lazy" decoding="async"><figcaption class="work-label">Campaign / 04</figcaption></figure>
-          <!-- Brand / print -->
-          <figure class="work-item" data-cat="print"><img src="c1.png" alt="Brand application 1" loading="lazy" decoding="async"><figcaption class="work-label">Brand / 01</figcaption></figure>
-          <figure class="work-item" data-cat="print"><img src="c2.png" alt="Brand application 2" loading="lazy" decoding="async"><figcaption class="work-label">Brand / 02</figcaption></figure>
-          <figure class="work-item" data-cat="print"><img src="c3.png" alt="Brand application 3" loading="lazy" decoding="async"><figcaption class="work-label">Brand / 03</figcaption></figure>
-          <figure class="work-item" data-cat="print"><img src="c4.png" alt="Brand application 4" loading="lazy" decoding="async"><figcaption class="work-label">Brand / 04</figcaption></figure>
-          <figure class="work-item" data-cat="print"><img src="c6.png" alt="Brand application 6" loading="lazy" decoding="async"><figcaption class="work-label">Brand / 06</figcaption></figure>
-          <figure class="work-item" data-cat="print"><img src="c7.png" alt="Brand application 7" loading="lazy" decoding="async"><figcaption class="work-label">Brand / 07</figcaption></figure>
-          <figure class="work-item" data-cat="print"><img src="c8.png" alt="Brand application 8" loading="lazy" decoding="async"><figcaption class="work-label">Brand / 08</figcaption></figure>
-          <!-- AI -->
-          <figure class="work-item wide" data-cat="ai"><img src="ai1.jpg" alt="AI-assisted visual 1" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 01</figcaption></figure>
-          <figure class="work-item" data-cat="ai"><img src="ai2.jpg" alt="AI-assisted visual 2" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 02</figcaption></figure>
-          <figure class="work-item" data-cat="ai"><img src="ai3.jpg" alt="AI-assisted visual 3" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 03</figcaption></figure>
-          <figure class="work-item" data-cat="ai"><img src="ai4.jpg" alt="AI-assisted visual 4" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 04</figcaption></figure>
-          <figure class="work-item" data-cat="ai"><img src="ai5.jpg" alt="AI-assisted visual 5" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 05</figcaption></figure>
-          <figure class="work-item" data-cat="ai"><img src="ai6.jpg" alt="AI-assisted visual 6" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 06</figcaption></figure>
-          <figure class="work-item" data-cat="ai"><img src="ai7.jpg" alt="AI-assisted visual 7" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 07</figcaption></figure>
-          <figure class="work-item" data-cat="ai"><img src="ai8.jpg" alt="AI-assisted visual 8" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 08</figcaption></figure>
-          <figure class="work-item" data-cat="ai"><img src="ai9.jpg" alt="AI-assisted visual 9" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 09</figcaption></figure>
-          <!-- Technology -->
-          <figure class="work-item wide" data-cat="tech"><img src="g1.png" alt="Technology product visual 1" loading="lazy" decoding="async"><figcaption class="work-label">Tech / 01</figcaption></figure>
-          <figure class="work-item" data-cat="tech"><img src="g2.png" alt="Technology product visual 2" loading="lazy" decoding="async"><figcaption class="work-label">Tech / 02</figcaption></figure>
-          <figure class="work-item" data-cat="tech"><img src="g3.png" alt="Technology product visual 3" loading="lazy" decoding="async"><figcaption class="work-label">Tech / 03</figcaption></figure>
-          <figure class="work-item" data-cat="tech"><img src="g4.png" alt="Technology product visual 4" loading="lazy" decoding="async"><figcaption class="work-label">Tech / 04</figcaption></figure>
-          <figure class="work-item" data-cat="tech"><img src="g5.png" alt="Technology product visual 5" loading="lazy" decoding="async"><figcaption class="work-label">Tech / 05</figcaption></figure>
-          <figure class="work-item" data-cat="tech"><img src="g6.png" alt="Technology product visual 6" loading="lazy" decoding="async"><figcaption class="work-label">Tech / 06</figcaption></figure>
-          <figure class="work-item" data-cat="tech"><img src="g7.png" alt="Technology product visual 7" loading="lazy" decoding="async"><figcaption class="work-label">Tech / 07</figcaption></figure>
-          <figure class="work-item" data-cat="tech"><img src="g8.png" alt="Technology product visual 8" loading="lazy" decoding="async"><figcaption class="work-label">Tech / 08</figcaption></figure>
-          <figure class="work-item" data-cat="tech"><img src="g9.png" alt="Technology product visual 9" loading="lazy" decoding="async"><figcaption class="work-label">Tech / 09</figcaption></figure>
-          <!-- Product campaign -->
-          <figure class="work-item wide" data-cat="tech"><img src="h1.JPG" alt="Product campaign visual 1" loading="lazy" decoding="async"><figcaption class="work-label">Product / 01</figcaption></figure>
-          <figure class="work-item wide" data-cat="tech"><img src="h2.JPG" alt="Product campaign visual 2" loading="lazy" decoding="async"><figcaption class="work-label">Product / 02</figcaption></figure>
-          <figure class="work-item wide" data-cat="tech"><img src="h3.JPG" alt="Product campaign visual 3" loading="lazy" decoding="async"><figcaption class="work-label">Product / 03</figcaption></figure>
-
-          <!-- Additional portfolio images — filenames kept exactly as provided -->
-          <figure class="work-item tall" data-cat="social"><img src="العرض.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 25</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="Artboard 5.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 26</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="Artboard 2.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 27</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="Artboard 3.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 28</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="Artboard 4.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 29</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="Artboard 6.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 30</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="01.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 31</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="زيادة الأرباح.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 32</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="نسبة السلات.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 33</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="أرباح السلات.png" alt="Additional social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 34</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="تصوير المناسبات - رأسي.png" alt="Event campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 35</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="تفاصيل اللقاء.png" alt="Event campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 36</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="أسعار Full Body.png" alt="Healthcare social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 37</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="أسعار ليزر المناطق.png" alt="Healthcare social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 38</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="أسعار الهيدرافيشال.png" alt="Healthcare social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 39</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="إطلالة الفلل.png" alt="Real estate social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 40</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="تفاصيل الفلل.png" alt="Real estate social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 41</figcaption></figure>
-          <figure class="work-item tall" data-cat="social"><img src="عرض الفلل.png" alt="Real estate social campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">Social / 42</figcaption></figure>
-          <figure class="work-item wide" data-cat="social"><img src="دعم ما بعد البيع.png" alt="After-sales support campaign banner" loading="lazy" decoding="async"><figcaption class="work-label">Campaign / 05</figcaption></figure>
-          <figure class="work-item wide" data-cat="social"><img src="Artboard 1.png" alt="Additional digital campaign banner" loading="lazy" decoding="async"><figcaption class="work-label">Campaign / 06</figcaption></figure>
-          <figure class="work-item wide" data-cat="social"><img src="Artboard 2 2.png" alt="Additional digital campaign banner" loading="lazy" decoding="async"><figcaption class="work-label">Campaign / 07</figcaption></figure>
-
-          <figure class="work-item wide" data-cat="ai"><img src="01_brand_nature_rituals.png" alt="AI-assisted product campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 10</figcaption></figure>
-          <figure class="work-item wide" data-cat="ai"><img src="07_natural_origins.png" alt="AI-assisted product campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 11</figcaption></figure>
-          <figure class="work-item tall" data-cat="ai"><img src="٠٣.jpg" alt="AI-assisted product campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 12</figcaption></figure>
-          <figure class="work-item tall" data-cat="ai"><img src="٠٢.jpg" alt="AI-assisted product campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 13</figcaption></figure>
-          <figure class="work-item tall" data-cat="ai"><img src="٠٤.png" alt="AI-assisted product campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 14</figcaption></figure>
-          <figure class="work-item tall" data-cat="ai"><img src="٠٥.png" alt="AI-assisted product campaign visual" loading="lazy" decoding="async"><figcaption class="work-label">AI-assisted / 15</figcaption></figure>
-          <figure class="work-item tall" data-cat="editorial"><img src="الإبداع-و.png" alt="Editorial visual exploration" loading="lazy" decoding="async"><figcaption class="work-label">Editorial / 07</figcaption></figure>
-        </div>
-        <div class="archive-more"><button class="load-more" id="loadMore" type="button" aria-controls="workWall" data-en="Show more work ↓" data-ar="عرض المزيد من الأعمال ↓">Show more work ↓</button></div>
       </section>
 
-      
+      <section id="projects" class="block hairline">
+        <div class="section-head">
+          <div class="section-no" data-en="02 / CASE STUDIES" data-ar="02 / دراسات مشاريع">02 / CASE STUDIES</div>
+          <div><h2 class="section-title" data-en="Not just images. <em>How I think through the work.</em>" data-ar="ليست صوراً فقط. <em>كيف أفكر في المشروع.</em>">Not just images. <em>How I think through the work.</em></h2><p class="section-lead" data-en="A recruiter or creative lead should be able to see what the brief was asking for, what I owned, and how a direction carries across more than one asset." data-ar="يجب أن يستطيع مسؤول التوظيف أو المدير الإبداعي فهم ما كان يطلبه البريف، وما الذي كنت مسؤولاً عنه، وكيف يمتد الاتجاه البصري عبر أكثر من مادة.">A recruiter or creative lead should be able to see what the brief was asking for, what I owned, and how a direction carries across more than one asset.</p></div>
+        </div>
 
+        <div class="case-stack">
+          <article class="case">
+            <div><div class="case-kicker">Case 01 / Technology</div><h3>Orient Detectors</h3><p class="case-copy" data-en="Product-focused visual communication for technology products. The work balances product clarity, feature hierarchy and commercial impact across campaign and marketing formats." data-ar="تواصل بصري يركز على منتجات تقنية، مع موازنة وضوح المنتج وتراتبية الخصائص والتأثير التجاري عبر مواد الحملات والتسويق.">Product-focused visual communication for technology products. The work balances product clarity, feature hierarchy and commercial impact across campaign and marketing formats.</p><div class="case-list"><div><span>Role</span><span>Graphic Designer</span></div><div><span>Focus</span><span>Product communication · Campaign visuals · Marketing assets</span></div><div><span>Value</span><span>Clear product-first hierarchy across multiple formats</span></div></div><a class="case-link" href="https://www.behance.net/gallery/238580093/Orient-Detectors" target="_blank" rel="noopener">Detailed project on Behance ↗</a></div>
+            <div class="case-gallery"><img src="g1.png" alt="Orient Detectors product communication" loading="lazy"><div class="case-side"><img src="g2.png" alt="Orient Detectors design detail" loading="lazy"><img src="g3.png" alt="Orient Detectors campaign visual" loading="lazy"></div></div>
+          </article>
+
+          <article class="case">
+            <div><div class="case-kicker">Case 02 / Campaign</div><h3 data-en="Product Campaign Direction" data-ar="اتجاه بصري لحملة منتج">Product Campaign Direction</h3><p class="case-copy" data-en="A set of commercial product visuals built around a stronger hero image, clear product presence and enough flexibility to expand into a wider campaign system." data-ar="مجموعة تصميمات تجارية مبنية حول صورة رئيسية أقوى، وحضور واضح للمنتج، ومرونة كافية للتوسع إلى نظام حملة متكامل.">A set of commercial product visuals built around a stronger hero image, clear product presence and enough flexibility to expand into a wider campaign system.</p><div class="case-list"><div><span>Role</span><span>Visual / Graphic Designer</span></div><div><span>Focus</span><span>Key visual · Composition · Product hierarchy</span></div><div><span>Value</span><span>One visual language across related campaign assets</span></div></div></div>
+            <div class="case-gallery"><img src="h1.JPG" alt="Product campaign key visual" loading="lazy"><div class="case-side"><img src="h2.JPG" alt="Product campaign adaptation" loading="lazy"><img src="h3.JPG" alt="Product campaign adaptation" loading="lazy"></div></div>
+          </article>
+
+          <article class="case">
+            <div><div class="case-kicker">Case 03 / AI-Assisted</div><h3 data-en="AI as a production tool" data-ar="الذكاء الاصطناعي كأداة إنتاج">AI as a production tool</h3><p class="case-copy" data-en="AI is used here for image exploration and generation, then treated as source material: selection, compositing, cleanup, retouching, typography and brand adaptation remain design decisions." data-ar="يُستخدم الذكاء الاصطناعي هنا لاستكشاف وتوليد الصور، ثم يتم التعامل مع الناتج كمادة أولية: الاختيار، الدمج، التنظيف، الريتاتش، التايبوجرافي وتكييف الصورة مع البراند تظل قرارات تصميمية.">AI is used here for image exploration and generation, then treated as source material: selection, compositing, cleanup, retouching, typography and brand adaptation remain design decisions.</p><div class="case-list"><div><span>Role</span><span>Concept + Art Direction + Final Design</span></div><div><span>Workflow</span><span>Explore → Generate → Refine → Composite → Adapt</span></div><div><span>Goal</span><span>Use AI to increase visual options without giving up design control</span></div></div></div>
+            <div class="case-gallery"><img src="ai1.jpg" alt="AI-assisted commercial hero visual" loading="lazy"><div class="case-side"><img src="ai2.jpg" alt="AI-assisted product design" loading="lazy"><img src="ai3.jpg" alt="AI-assisted commercial design" loading="lazy"></div></div>
+          </article>
+        </div>
+      </section>
     </div>
 
-    <section id="experience" class="block experience reveal">
-      <div class="site-shell">
+    <section id="experience" class="block experience">
+      <div class="shell">
         <div class="section-head">
-          <div class="section-index" data-en="02 / EXPERIENCE" data-ar="02 / الخبرة">02 / EXPERIENCE</div>
-          <div>
-            <h2 class="section-title" data-en="Experience across <em>different environments.</em>" data-ar="خبرة عبر <em>بيئات عمل مختلفة.</em>">Experience across <em>different environments.</em></h2>
-            <p class="section-lead" data-en="Agency, in-house, freelance and media experience — with graphic design as the consistent thread across the career path." data-ar="خبرة في الوكالات والعمل الداخلي والعمل المستقل والإعلام، مع تصميم الجرافيك كخط ثابت عبر المسار المهني.">Agency, in-house, freelance and media experience — with graphic design as the consistent thread across the career path.</p>
-          </div>
+          <div class="section-no" data-en="03 / EXPERIENCE" data-ar="03 / الخبرة">03 / EXPERIENCE</div>
+          <div><h2 class="section-title" data-en="A design career across <em>different environments.</em>" data-ar="مسار تصميم عبر <em>بيئات عمل مختلفة.</em>">A design career across <em>different environments.</em></h2><p class="section-lead" data-en="Agency, in-house, freelance and media experience — with graphic design as the consistent thread." data-ar="خبرة في الوكالات والعمل الداخلي والعمل المستقل والإعلام، مع تصميم الجرافيك كخيط ثابت في المسار.">Agency, in-house, freelance and media experience — with graphic design as the consistent thread.</p></div>
         </div>
         <div class="career">
-          <div class="career-row"><div class="career-period">2026</div><div><div class="career-company">Brief Agency</div><div class="career-role" data-en="Visual & Graphic Designer" data-ar="مصمم بصري وجرافيك">Visual & Graphic Designer</div></div><p class="career-desc" data-en="Client work across websites, company profiles, presentations, social campaigns and email/WhatsApp assets, with AI used when it supports concept exploration and production." data-ar="أعمال عملاء تشمل المواقع وبروفايلات الشركات والعروض والحملات الاجتماعية ومواد البريد وواتساب، مع استخدام AI عندما يخدم تطوير الفكرة والإنتاج.">Client work across websites, company profiles, presentations, social campaigns and email/WhatsApp assets, with AI used when it supports concept exploration and production.</p></div>
-          <div class="career-row"><div class="career-period">2022—2025</div><div><div class="career-company">Orient Detectors</div><div class="career-role" data-en="Graphic Designer" data-ar="مصمم جرافيك">Graphic Designer</div></div><p class="career-desc" data-en="Campaign visuals, catalogs, brochures, social media and digital/print marketing materials for technology products." data-ar="تصميمات حملات وكتالوجات وبروشورات وسوشيال ميديا ومواد تسويقية رقمية ومطبوعة لمنتجات تقنية.">Campaign visuals, catalogs, brochures, social media and digital/print marketing materials for technology products.</p></div>
-          <div class="career-row"><div class="career-period">2023—2025</div><div><div class="career-company" data-en="Jewelry Brand" data-ar="براند مجوهرات">Jewelry Brand</div><div class="career-role" data-en="Freelance Graphic Designer" data-ar="مصمم جرافيك مستقل">Freelance Graphic Designer</div></div><p class="career-desc" data-en="Product-focused visual content with attention to premium composition, product presentation and consistent brand language." data-ar="محتوى بصري يركز على المنتج مع اهتمام بالتكوين الراقي وعرض المنتج واتساق اللغة البصرية للعلامة.">Product-focused visual content with attention to premium composition, product presentation and consistent brand language.</p></div>
-          <div class="career-row"><div class="career-period">2024</div><div><div class="career-company">PHC Elixir</div><div class="career-role" data-en="Designer" data-ar="مصمم">Designer</div></div><p class="career-desc" data-en="Selected design support across brand and promotional applications." data-ar="دعم تصميمي مختار عبر تطبيقات الهوية والمواد الترويجية.">Selected design support across brand and promotional applications.</p></div>
-          <div class="career-row"><div class="career-period">2021—2022</div><div><div class="career-company">Al Sharq TV</div><div class="career-role" data-en="Video Editor / Multimedia Designer" data-ar="مونتير / مصمم ملتيميديا">Video Editor / Multimedia Designer</div></div><p class="career-desc" data-en="Earlier multimedia experience across news and social video, thumbnails and supporting visual content." data-ar="خبرة سابقة في محتوى الأخبار والسوشيال بالفيديو والصور المصغرة والعناصر البصرية المساندة.">Earlier multimedia experience across news and social video, thumbnails and supporting visual content.</p></div>
+          <div class="career-row"><div class="career-time">2026</div><div><div class="career-company">Brief Agency</div><div class="career-role">Visual & Graphic Designer</div></div><p class="career-desc" data-en="Client work across campaign visuals, social content, websites, company profiles, presentations and digital assets, with AI integrated where it improves concept exploration or production." data-ar="أعمال عملاء تشمل الحملات والسوشيال والمواقع وبروفايلات الشركات والعروض والمواد الرقمية، مع دمج AI عندما يحسن استكشاف الأفكار أو الإنتاج.">Client work across campaign visuals, social content, websites, company profiles, presentations and digital assets, with AI integrated where it improves concept exploration or production.</p></div>
+          <div class="career-row"><div class="career-time">2022—2025</div><div><div class="career-company">Orient Detectors</div><div class="career-role">Graphic Designer</div></div><p class="career-desc" data-en="Campaign visuals, catalogs, brochures, social media and digital/print marketing materials for technology products." data-ar="تصميمات حملات وكتالوجات وبروشورات وسوشيال ميديا ومواد تسويقية رقمية ومطبوعة لمنتجات تقنية.">Campaign visuals, catalogs, brochures, social media and digital/print marketing materials for technology products.</p></div>
+          <div class="career-row"><div class="career-time">2023—2025</div><div><div class="career-company">Jewelry Brand</div><div class="career-role">Freelance Graphic Designer</div></div><p class="career-desc" data-en="Premium product-focused visual content with attention to composition, product presentation and consistent brand language." data-ar="محتوى بصري راقٍ يركز على المنتج مع اهتمام بالتكوين وعرض المنتج واتساق اللغة البصرية.">Premium product-focused visual content with attention to composition, product presentation and consistent brand language.</p></div>
+          <div class="career-row"><div class="career-time">2024</div><div><div class="career-company">PHC Elixir</div><div class="career-role">Designer</div></div><p class="career-desc" data-en="Design support across selected brand and promotional applications." data-ar="دعم تصميمي عبر تطبيقات مختارة للهوية والمواد الترويجية.">Design support across selected brand and promotional applications.</p></div>
+          <div class="career-row"><div class="career-time">2021—2022</div><div><div class="career-company">Al Sharq TV</div><div class="career-role">Video Editor / Multimedia Designer</div></div><p class="career-desc" data-en="Earlier multimedia experience across news and social video, thumbnails and supporting visual content." data-ar="خبرة سابقة في الفيديو الإخباري والسوشيال والصور المصغرة والمحتوى البصري المساند.">Earlier multimedia experience across news and social video, thumbnails and supporting visual content.</p></div>
         </div>
-        <div class="education-note">
-          <div class="career-period" data-en="EDUCATION" data-ar="التعليم">EDUCATION</div>
-          <div><div class="career-role education-degree" data-en="B.Sc. Mining Engineering · Muğla Sıtkı Koçman University" data-ar="بكالوريوس هندسة التعدين · جامعة Muğla Sıtkı Koçman">B.Sc. Mining Engineering · Muğla Sıtkı Koçman University</div></div>
-        </div>
+        <div class="education"><div class="career-time">EDUCATION</div><div class="career-role">B.Sc. Mining Engineering · Muğla Sıtkı Koçman University</div></div>
       </div>
     </section>
 
-    <div class="site-shell">
-      <section id="capabilities" class="block reveal">
+    <div class="shell">
+      <section class="block">
         <div class="section-head">
-          <div class="section-index" data-en="03 / RESPONSIBILITIES" data-ar="03 / المسؤوليات">03 / RESPONSIBILITIES</div>
-          <div>
-            <h2 class="section-title" data-en="What I bring to a <em>graphic design role.</em>" data-ar="ما أقدمه في <em>دور مصمم جرافيك.</em>">What I bring to a <em>graphic design role.</em></h2>
-            <p class="section-lead" data-en="Six recurring areas that show up across my recent roles, client work and freelance projects." data-ar="ستة مجالات تتكرر عبر خبراتي الأخيرة وأعمال العملاء والمشاريع المستقلة.">Six recurring areas that show up across my recent roles, client work and freelance projects.</p>
-          </div>
+          <div class="section-no" data-en="04 / CAPABILITIES" data-ar="04 / القدرات">04 / CAPABILITIES</div>
+          <div><h2 class="section-title" data-en="What I bring to a <em>graphic design role.</em>" data-ar="ما أقدمه في <em>دور مصمم جرافيك.</em>">What I bring to a <em>graphic design role.</em></h2></div>
         </div>
-        <div class="cap-grid">
-          <article class="cap"><span class="cap-kicker" data-en="01 / PRIMARY" data-ar="01 / أساسي">01 / PRIMARY</span><h3 data-en="Campaign Key Visuals" data-ar="Key Visuals للحملات">Campaign Key Visuals</h3><p data-en="Developing a clear visual direction from a marketing brief and carrying it across campaign assets." data-ar="تطوير اتجاه بصري واضح من البريف التسويقي وتطبيقه عبر مواد الحملة.">Developing a clear visual direction from a marketing brief and carrying it across campaign assets.</p></article>
-          <article class="cap"><span class="cap-kicker" data-en="02 / PRIMARY" data-ar="02 / أساسي">02 / PRIMARY</span><h3 data-en="Social & Digital Design" data-ar="تصميم السوشيال والديجيتال">Social & Digital Design</h3><p data-en="Social systems, promotional posts, paid-media formats and digital adaptations." data-ar="أنظمة سوشيال، منشورات ترويجية، صيغ إعلانات مدفوعة وتطبيقات رقمية.">Social systems, promotional posts, paid-media formats and digital adaptations.</p></article>
-          <article class="cap"><span class="cap-kicker" data-en="03 / PRIMARY" data-ar="03 / أساسي">03 / PRIMARY</span><h3 data-en="Brand Applications" data-ar="تطبيقات الهوية">Brand Applications</h3><p data-en="Applying existing identities consistently across presentations, profiles, brochures and campaign formats." data-ar="تطبيق الهويات الموجودة باتساق عبر العروض والبروفايلات والبروشورات وصيغ الحملات.">Applying existing identities consistently across presentations, profiles, brochures and campaign formats.</p></article>
-          <article class="cap"><span class="cap-kicker" data-en="04 / DIGITAL" data-ar="04 / ديجيتال">04 / DIGITAL</span><h3 data-en="Website Visual Design" data-ar="التصميم البصري للمواقع">Website Visual Design</h3><p data-en="Visual direction, layout and graphic assets for marketing websites and landing pages." data-ar="اتجاه بصري وتخطيط وعناصر جرافيكية للمواقع التسويقية وصفحات الهبوط.">Visual direction, layout and graphic assets for marketing websites and landing pages.</p></article>
-          <article class="cap"><span class="cap-kicker" data-en="05 / PRODUCTION" data-ar="05 / إنتاج">05 / PRODUCTION</span><h3 data-en="Print & Layout" data-ar="الطباعة والـLayout">Print & Layout</h3><p data-en="Catalogs, company profiles, brochures and production-ready layout work." data-ar="كتالوجات وبروفايلات شركات وبروشورات وملفات Layout جاهزة للإنتاج.">Catalogs, company profiles, brochures and production-ready layout work.</p></article>
-          <article class="cap"><span class="cap-kicker" data-en="06 / WORKFLOW" data-ar="06 / سير العمل">06 / WORKFLOW</span><h3 data-en="AI-Assisted Production" data-ar="إنتاج بمساعدة AI">AI-Assisted Production</h3><p data-en="Using AI for concept exploration and image generation, then refining outputs to fit the brand and final application." data-ar="استخدام AI في استكشاف الأفكار وتوليد الصور ثم تنقيح النتائج لتناسب البراند والتطبيق النهائي.">Using AI for concept exploration and image generation, then refining outputs to fit the brand and final application.</p></article>
+        <div class="skills-grid">
+          <article class="skill"><span class="mono">01 / Campaign</span><h3>Key Visuals & Campaign Systems</h3><p data-en="Translating a brief into a visual direction, then adapting it without losing hierarchy or consistency." data-ar="تحويل البريف إلى اتجاه بصري ثم تطبيقه على المقاسات المختلفة دون فقدان التراتبية أو الاتساق.">Translating a brief into a visual direction, then adapting it without losing hierarchy or consistency.</p></article>
+          <article class="skill"><span class="mono">02 / Product</span><h3>Product Communication</h3><p data-en="Commercial compositions that keep the product clear while supporting feature, value and promotional messaging." data-ar="تكوينات تجارية تحافظ على وضوح المنتج وتدعم الخصائص والقيمة والرسالة الترويجية.">Commercial compositions that keep the product clear while supporting feature, value and promotional messaging.</p></article>
+          <article class="skill"><span class="mono">03 / Digital</span><h3>Social, Brand & Digital Applications</h3><p data-en="Social systems, brand applications, print layouts and visual design for marketing websites and landing pages." data-ar="أنظمة سوشيال وتطبيقات هوية وتخطيطات طباعة وتصميم بصري للمواقع التسويقية وصفحات الهبوط.">Social systems, brand applications, print layouts and visual design for marketing websites and landing pages.</p></article>
         </div>
-        <div class="tool-line" aria-label="Design tools">
-          <span class="tool" data-en="CORE / Photoshop" data-ar="أساسي / Photoshop">CORE / Photoshop</span><span class="tool">Illustrator</span><span class="tool">InDesign</span><span class="tool">Figma</span>
-          <span class="tool" data-en="WORKFLOW / AI Image Generation" data-ar="سير العمل / AI Image Generation">WORKFLOW / AI Image Generation</span>
-          <span class="tool" data-en="EARLIER MULTIMEDIA / Premiere Pro · After Effects" data-ar="خبرة ملتيميديا سابقة / Premiere Pro · After Effects">EARLIER MULTIMEDIA / Premiere Pro · After Effects</span>
-        </div>
-      </section>
-
-      <section id="process" class="block reveal hairline">
-        <div class="section-head">
-          <div class="section-index" data-en="04 / PROCESS" data-ar="04 / طريقة العمل">04 / PROCESS</div>
-          <div>
-            <h2 class="section-title" data-en="How the work moves from <em>brief to delivery.</em>" data-ar="كيف ينتقل العمل من <em>البريف إلى التسليم.</em>">How the work moves from <em>brief to delivery.</em></h2>
-          </div>
-        </div>
-        <div class="process-grid">
-          <article class="step"><span class="step-n">01</span><div><h3 data-en="Understand" data-ar="أفهم">Understand</h3><p data-en="I clarify the objective, audience, brand requirements, channels and final deliverables before designing." data-ar="أحدد الهدف والجمهور ومتطلبات البراند والقنوات والمخرجات المطلوبة قبل التصميم.">I clarify the objective, audience, brand requirements, channels and final deliverables before designing.</p></div></article>
-          <article class="step"><span class="step-n">02</span><div><h3 data-en="Define" data-ar="أحدد">Define</h3><p data-en="I translate the brief into a key visual or visual direction with clear composition, type and image logic." data-ar="أحوّل البريف إلى Key Visual أو اتجاه بصري له منطق واضح في التكوين والخط والصورة.">I translate the brief into a key visual or visual direction with clear composition, type and image logic.</p></div></article>
-          <article class="step"><span class="step-n">03</span><div><h3 data-en="Adapt" data-ar="أطبّق">Adapt</h3><p data-en="I carry the direction across required formats while keeping hierarchy and brand consistency intact." data-ar="أطبّق الاتجاه عبر المقاسات المطلوبة مع الحفاظ على الـHierarchy واتساق الهوية.">I carry the direction across required formats while keeping hierarchy and brand consistency intact.</p></div></article>
-          <article class="step"><span class="step-n">04</span><div><h3 data-en="Deliver" data-ar="أسلّم">Deliver</h3><p data-en="I handle revisions, prepare final assets and make sure files are production-ready for publishing or handoff." data-ar="أتعامل مع التعديلات وأجهز الملفات النهائية لتكون جاهزة للنشر أو التسليم.">I handle revisions, prepare final assets and make sure files are production-ready for publishing or handoff.</p></div></article>
-        </div>
-      </section>
-
-      <section id="work" class="block project-links-section reveal hairline">
-        <div class="project-links-head">
-          <div>
-            <div class="section-index" data-en="05 / PROJECT LINKS" data-ar="05 / روابط المشاريع">05 / PROJECT LINKS</div>
-            <h2 class="project-links-title" data-en="Detailed projects, <em>when you need them.</em>" data-ar="مشاريع تفصيلية <em>عند الحاجة.</em>">Detailed projects, <em>when you need them.</em></h2>
-          </div>
-          <p class="project-links-note" data-en="The portfolio above is the primary review. These Behance pages are optional deeper references." data-ar="العرض الموجود بالأعلى هو المراجعة الأساسية. روابط Behance هنا مراجع إضافية لمن يريد تفاصيل أكثر.">The portfolio above is the primary review. These Behance pages are optional deeper references.</p>
-        </div>
-        <div class="project-link-list">
-          <a class="project-link-row" href="https://www.behance.net/gallery/238580093/Orient-Detectors" target="_blank" rel="noopener noreferrer">
-            <span class="project-link-no">01</span>
-            <strong>Orient Detectors</strong>
-            <span data-en="Campaign & Product Communication" data-ar="حملات وتواصل المنتجات">Campaign & Product Communication</span>
-            <span class="project-link-arrow">↗</span>
-          </a>
-          <a class="project-link-row" href="https://www.behance.net/gallery/181868927/Real-Estate-Social-Media" target="_blank" rel="noopener noreferrer">
-            <span class="project-link-no">02</span>
-            <strong data-en="Real Estate Social Media" data-ar="سوشيال ميديا للعقارات">Real Estate Social Media</strong>
-            <span data-en="Social & Campaign Design" data-ar="سوشيال وتصميم حملات">Social & Campaign Design</span>
-            <span class="project-link-arrow">↗</span>
-          </a>
-          <a class="project-link-row" href="https://www.behance.net/gallery/223143539/Food-Industry-Socials" target="_blank" rel="noopener noreferrer">
-            <span class="project-link-no">03</span>
-            <strong data-en="Food Industry Socials" data-ar="سوشيال لقطاع الأغذية">Food Industry Socials</strong>
-            <span data-en="Social & Promotional Design" data-ar="سوشيال وتصميم ترويجي">Social & Promotional Design</span>
-            <span class="project-link-arrow">↗</span>
-          </a>
-        </div>
-      </section>
-
-      <section id="video" class="block reveal hairline">
-        <div class="section-head">
-          <div class="section-index" data-en="06 / MULTIMEDIA" data-ar="06 / ملتيميديا">06 / MULTIMEDIA</div>
-          <div>
-            <h2 class="section-title" data-en="Earlier <em>multimedia work.</em>" data-ar="أعمال <em>ملتيميديا سابقة.</em>">Earlier <em>multimedia work.</em></h2>
-            <p class="section-lead" data-en="Editing and supporting visual content from my earlier media experience." data-ar="مونتاج ومحتوى بصري مساند من خبرتي السابقة في الإعلام.">Editing and supporting visual content from my earlier media experience.</p>
-          </div>
-        </div>
-        <div class="video-strip">
-          <a class="video-card" href="https://youtu.be/F-lmawsIKEI?si=2MgJwd1Ed0SXhOLS" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/F-lmawsIKEI/maxresdefault.jpg" alt="Selected video work 1" loading="lazy" decoding="async"><span class="video-meta" data-en="Video 01" data-ar="فيديو 01">Video 01</span></a>
-          <a class="video-card" href="https://youtube.com/shorts/Z9xVIlCuQpA?si=DHSiELlq60Z5zI90" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/Z9xVIlCuQpA/maxresdefault.jpg" alt="Selected video work 2" loading="lazy" decoding="async"><span class="video-meta" data-en="Video 02" data-ar="فيديو 02">Video 02</span></a>
-          <a class="video-card" href="https://youtube.com/shorts/oKIJWxeoMZo?si=1WcOHeR8kMV42JmB" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/oKIJWxeoMZo/maxresdefault.jpg" alt="Selected video work 3" loading="lazy" decoding="async"><span class="video-meta" data-en="Video 03" data-ar="فيديو 03">Video 03</span></a>
-        </div>
+        <div class="tools">Photoshop · Illustrator · InDesign · Figma · AI Image Generation · Premiere Pro · After Effects</div>
       </section>
     </div>
 
-    <section id="contact" class="contact reveal">
-      <div class="site-shell">
-        <div class="contact-head">
-          <h2 data-en="OPEN TO<br>GRAPHIC DESIGN ROLES." data-ar="متاح لفرص<br>جرافيك ديزاين.">OPEN TO<br>GRAPHIC DESIGN ROLES.</h2>
-          <div class="contact-copy">
-            <p data-en="For full-time graphic design opportunities, freelance projects or portfolio questions, email me directly. Behance is available below for a deeper project review." data-ar="لفرص الجرافيك ديزاين بدوام كامل أو المشاريع المستقلة أو أي أسئلة عن البورتفوليو، راسلني مباشرة عبر البريد. رابط Behance موجود بالأسفل لمراجعة المشاريع بتفصيل أكبر.">For full-time graphic design opportunities, freelance projects or portfolio questions, email me directly. Behance is available below for a deeper project review.</p>
-            <a class="mail-link" href="mailto:mohadel0300@gmail.com">mohadel0300@gmail.com</a>
-            <div class="socials">
-              <a href="https://www.behance.net/mohamedadel526" target="_blank" rel="noopener noreferrer">Behance ↗</a>
-              <a href="https://wa.me/905534766703" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-              <a href="My cv English .pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
-            </div>
-          </div>
+    <section id="contact" class="contact">
+      <div class="shell">
+        <div class="contact-grid">
+          <h2 data-en="LET'S BUILD<br>THE NEXT ONE." data-ar="لنصنع<br>المشروع القادم.">LET'S BUILD<br>THE NEXT ONE.</h2>
+          <div class="contact-copy"><p data-en="Open to full-time Graphic / Visual Designer roles in Cairo or remote, as well as selected freelance projects." data-ar="متاح لفرص Graphic / Visual Designer بدوام كامل في القاهرة أو عن بُعد، بالإضافة إلى مشاريع فريلانس مختارة.">Open to full-time Graphic / Visual Designer roles in Cairo or remote, as well as selected freelance projects.</p><a class="email" href="mailto:mohadel0300@gmail.com">mohadel0300@gmail.com</a><div class="contact-links"><a href="https://www.behance.net/mohamedadel526" target="_blank" rel="noopener">Behance ↗</a><a href="https://wa.me/905534766703" target="_blank" rel="noopener">WhatsApp ↗</a><a href="My cv English .pdf" target="_blank" rel="noopener">CV ↗</a></div></div>
         </div>
-        <div class="contact-foot"><span>© 2026 Mohamed Amer</span><span data-en="Visual & Graphic Designer · Cairo / Remote" data-ar="مصمم بصري وجرافيك · القاهرة / عن بُعد">Visual & Graphic Designer · Cairo / Remote</span></div>
+        <div class="footer"><span>© 2026 Mohamed Amer</span><span>Visual & Graphic Designer · Cairo / Remote</span></div>
       </div>
     </section>
   </main>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightboxCaption">
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">←</button>
-    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">×</button>
-    <img id="lightboxImage" src="" alt="Portfolio image enlarged">
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">→</button>
-    <div class="lightbox-caption" id="lightboxCaption"></div>
-  </div>
+  <figure class="lightbox" id="lightbox" aria-hidden="true"><button id="lightboxClose" type="button" aria-label="Close">×</button><img id="lightboxImage" src="" alt=""><figcaption id="lightboxCaption"></figcaption></figure>
 
   <script>
-    (() => {
-      "use strict";
-
-      const root = document.documentElement;
-      const langToggle = document.getElementById('langToggle');
-      const metaDescription = document.querySelector('meta[name="description"]');
-      const ogDescription = document.querySelector('meta[property="og:description"]');
-      const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-      const ogTitle = document.querySelector('meta[property="og:title"]');
-      const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-      let lang = localStorage.getItem('portfolioLang') || 'en';
-
-      const pageCopy = {
-        en: {
-          title: 'Mohamed Amer — Visual & Graphic Designer',
-          description: 'Portfolio of Mohamed Amer, a Visual & Graphic Designer in Cairo. Campaign key visuals, social and digital design, brand applications, product communication, print, web visuals and AI-assisted production.',
-          archivePrefix: 'SHOWING',
-          close: 'Close image',
-          previous: 'Previous image',
-          next: 'Next image',
-          filterLabel: 'Filter portfolio archive'
-        },
-        ar: {
-          title: 'محمد عامر — مصمم بصري وجرافيك',
-          description: 'بورتفوليو محمد عامر، مصمم بصري وجرافيك في القاهرة. أعمال في الحملات والسوشيال وتطبيقات الهوية وتواصل المنتجات والطباعة والويب والإنتاج بمساعدة الذكاء الاصطناعي.',
-          archivePrefix: 'المعروض',
-          close: 'إغلاق الصورة',
-          previous: 'الصورة السابقة',
-          next: 'الصورة التالية',
-          filterLabel: 'تصفية أرشيف الأعمال'
-        }
-      };
-
-      function applyLanguage(){
-        const isAr = lang === 'ar';
-        root.lang = lang;
-        root.dir = isAr ? 'rtl' : 'ltr';
-        document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-          const value = el.getAttribute(isAr ? 'data-ar' : 'data-en');
-          if (value && value.includes('<')) el.innerHTML = value;
-          else if (value) el.textContent = value;
-        });
-        document.title = pageCopy[lang].title;
-        ogTitle?.setAttribute('content', pageCopy[lang].title);
-        twitterTitle?.setAttribute('content', pageCopy[lang].title);
-        metaDescription?.setAttribute('content', pageCopy[lang].description);
-        ogDescription?.setAttribute('content', pageCopy[lang].description);
-        twitterDescription?.setAttribute('content', pageCopy[lang].description);
-        langToggle.textContent = isAr ? 'EN' : 'AR';
-        langToggle.setAttribute('aria-label', isAr ? 'Switch language to English' : 'تغيير اللغة إلى العربية');
-        document.querySelector('.filters')?.setAttribute('aria-label', pageCopy[lang].filterLabel);
-        document.getElementById('workWall')?.setAttribute('aria-label', isAr ? 'فهرس الأعمال' : 'Portfolio work index');
-        document.getElementById('lightboxClose')?.setAttribute('aria-label', pageCopy[lang].close);
-        document.getElementById('lightboxPrev')?.setAttribute('aria-label', pageCopy[lang].previous);
-        document.getElementById('lightboxNext')?.setAttribute('aria-label', pageCopy[lang].next);
-        localStorage.setItem('portfolioLang', lang);
+    (()=>{
+      const root=document.documentElement;
+      const toggle=document.getElementById('langToggle');
+      let lang=localStorage.getItem('portfolioLang')||'en';
+      function applyLang(){
+        const ar=lang==='ar';root.lang=lang;root.dir=ar?'rtl':'ltr';toggle.textContent=ar?'EN':'AR';
+        document.querySelectorAll('[data-en][data-ar]').forEach(el=>{const v=el.getAttribute(ar?'data-ar':'data-en');if(v.includes('<'))el.innerHTML=v;else el.textContent=v});
+        localStorage.setItem('portfolioLang',lang);
       }
+      toggle.addEventListener('click',()=>{lang=lang==='en'?'ar':'en';applyLang()});applyLang();
 
-      langToggle.addEventListener('click', () => {
-        lang = lang === 'en' ? 'ar' : 'en';
-        applyLanguage();
-        renderArchive();
-      });
-
-      // Reveal with a no-IntersectionObserver fallback.
-      const revealTargets = [...document.querySelectorAll('.reveal')];
-      if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: .08, rootMargin: '0px 0px -40px' });
-        revealTargets.forEach(el => revealObserver.observe(el));
-      } else {
-        revealTargets.forEach(el => el.classList.add('in'));
-      }
-
-      // Active navigation state.
-      const navLinks = [...document.querySelectorAll('.nav-center a[href^="#"]')];
-      if ('IntersectionObserver' in window) {
-        const sectionObserver = new IntersectionObserver(entries => {
-          const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-          if (!visible) return;
-          navLinks.forEach(link => link.removeAttribute('aria-current'));
-          document.querySelector(`.nav-center a[href="#${visible.target.id}"]`)?.setAttribute('aria-current','true');
-        }, { rootMargin: '-25% 0px -60% 0px', threshold: [0,.25,.5] });
-        document.querySelectorAll('section[id]').forEach(section => sectionObserver.observe(section));
-      }
-
-      // Work archive: actual mixed order + filtering + progressive reveal.
-      const filters = [...document.querySelectorAll('.filter')];
-      const items = [...document.querySelectorAll('.work-item')];
-      const loadMore = document.getElementById('loadMore');
-      const count = document.getElementById('archiveCount');
-      let activeFilter = 'all';
-      let visibleLimit = 9;
-
-      function getMatching(){
-        if (activeFilter !== 'all') return items.filter(item => item.dataset.cat === activeFilter);
-        const categories = ['social','editorial','print','ai','tech'];
-        const groups = categories.map(cat => items.filter(item => item.dataset.cat === cat));
-        const mixed = [];
-        let index = 0;
-        while (groups.some(group => index < group.length)) {
-          groups.forEach(group => { if (index < group.length) mixed.push(group[index]); });
-          index += 1;
-        }
-        return mixed;
-      }
-
-      function updateArchiveLabels(){
-        const prefixMap = {
-          'Social': 'سوشيال',
-          'Editorial': 'تحريري',
-          'Brand': 'هوية',
-          'Campaign': 'حملة',
-          'AI-assisted': 'AI مساعد',
-          'Tech': 'تقنية',
-          'Product': 'منتج'
-        };
-        document.querySelectorAll('.work-label').forEach(label => {
-          if (!label.dataset.enLabel) label.dataset.enLabel = label.textContent.trim();
-          if (lang === 'en') { label.textContent = label.dataset.enLabel; return; }
-          const [prefix, number] = label.dataset.enLabel.split('/').map(part => part.trim());
-          label.textContent = `${prefixMap[prefix] || prefix} / ${number || ''}`;
-        });
-      }
-
-      function renderArchive(){
-        const matching = getMatching();
-        const wall = document.getElementById('workWall');
-        matching.forEach(item => wall.appendChild(item));
-        items.forEach(item => {
-          item.classList.remove('visible','mobile-feature');
-          item.setAttribute('aria-hidden','true');
-        });
-
-        matching.slice(0, visibleLimit).forEach((item, index) => {
-          item.classList.add('visible');
-          item.setAttribute('aria-hidden','false');
-          if ((index + 1) % 7 === 0) item.classList.add('mobile-feature');
-        });
-        updateArchiveLabels();
-
-        const shown = Math.min(visibleLimit, matching.length);
-        count.textContent = `${pageCopy[lang].archivePrefix} ${shown} / ${matching.length}`;
-        loadMore.style.display = shown >= matching.length ? 'none' : 'inline-block';
-      }
-
-      filters.forEach(button => {
-        button.addEventListener('click', () => {
-          filters.forEach(other => {
-            other.classList.remove('active');
-            other.setAttribute('aria-pressed','false');
-          });
-          button.classList.add('active');
-          button.setAttribute('aria-pressed','true');
-          activeFilter = button.dataset.filter;
-          visibleLimit = 9;
-          renderArchive();
-        });
-      });
-      loadMore.addEventListener('click', () => {
-        visibleLimit += 9;
-        renderArchive();
-      });
-
-      // Accessible lightbox with navigation and focus return.
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImage = document.getElementById('lightboxImage');
-      const lightboxCaption = document.getElementById('lightboxCaption');
-      const closeButton = document.getElementById('lightboxClose');
-      const prevButton = document.getElementById('lightboxPrev');
-      const nextButton = document.getElementById('lightboxNext');
-      let lastTrigger = null;
-      let currentItem = null;
-
-      function visibleItems(){
-        return items.filter(item => item.classList.contains('visible'));
-      }
-
-      function showItem(item){
-        if (!item) return;
-        currentItem = item;
-        const img = item.querySelector('img');
-        lightboxImage.src = img.currentSrc || img.src;
-        lightboxImage.alt = img.alt;
-        lightboxCaption.textContent = item.querySelector('.work-label')?.textContent || '';
-      }
-
-      function openItem(item){
-        lastTrigger = item;
-        showItem(item);
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
-        closeButton.focus();
-      }
-
-      function closeLightbox(){
-        lightbox.classList.remove('open');
-        lightbox.setAttribute('aria-hidden','true');
-        document.body.style.overflow = '';
-        lightboxImage.src = '';
-        lastTrigger?.focus();
-      }
-
-      function moveLightbox(direction){
-        const visible = visibleItems();
-        const currentIndex = visible.indexOf(currentItem);
-        if (currentIndex < 0 || !visible.length) return;
-        const nextIndex = (currentIndex + direction + visible.length) % visible.length;
-        showItem(visible[nextIndex]);
-      }
-
-      items.forEach(item => {
-        item.setAttribute('tabindex','0');
-        item.setAttribute('role','button');
-        item.setAttribute('aria-label', item.querySelector('img')?.alt || 'Open portfolio image');
-        item.addEventListener('click', () => openItem(item));
-        item.addEventListener('keydown', event => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            openItem(item);
-          }
-        });
-      });
-
-      closeButton.addEventListener('click', closeLightbox);
-      prevButton.addEventListener('click', () => moveLightbox(-1));
-      nextButton.addEventListener('click', () => moveLightbox(1));
-      lightbox.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
-      document.addEventListener('keydown', event => {
-        if (!lightbox.classList.contains('open')) return;
-        if (event.key === 'Escape') closeLightbox();
-        if (event.key === 'ArrowLeft') moveLightbox(root.dir === 'rtl' ? 1 : -1);
-        if (event.key === 'ArrowRight') moveLightbox(root.dir === 'rtl' ? -1 : 1);
-        if (event.key === 'Tab') {
-          const focusables = [prevButton, closeButton, nextButton];
-          const first = focusables[0];
-          const last = focusables[focusables.length - 1];
-          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-        }
-      });
-
-      applyLanguage();
-      renderArchive();
+      const box=document.getElementById('lightbox'),image=document.getElementById('lightboxImage'),caption=document.getElementById('lightboxCaption'),close=document.getElementById('lightboxClose');
+      document.querySelectorAll('.work-card').forEach(card=>{card.tabIndex=0;card.setAttribute('role','button');const open=()=>{const img=card.querySelector('img');image.src=img.src;image.alt=img.alt;caption.textContent=card.dataset.label||'';box.classList.add('open');box.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';close.focus()};card.addEventListener('click',open);card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
+      function closeBox(){box.classList.remove('open');box.setAttribute('aria-hidden','true');image.src='';document.body.style.overflow=''}
+      close.addEventListener('click',closeBox);box.addEventListener('click',e=>{if(e.target===box)closeBox()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&box.classList.contains('open'))closeBox()});
     })();
   </script>
 </body>
