@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Brief project cover</title><desc id="desc">Editorial cover for the Brief company profile project.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07194D"/><stop offset="1" stop-color="#0047BB"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<path d="M-120 -50H310L-70 950H-500Z" fill="#51B2F8"/>
+<path d="M255 -50H405L25 950H-125Z" fill="#193D70" opacity=".9"/>
+<path d="M430 -50H475L95 950H50Z" fill="#fff" opacity=".08"/>
+<g fill="#fff" font-family="Arial, Helvetica, sans-serif">
+<text x="765" y="180" font-size="24" letter-spacing="7" opacity=".55">BRIEF / COMPANY PROFILE</text>
+<text x="765" y="405" font-size="152" font-weight="700" letter-spacing="-8">BRIEF</text>
+<text x="770" y="480" font-size="38" letter-spacing="5" opacity=".95">STUDIO · PRESENTATION</text>
+<line x1="770" y1="545" x2="1450" y2="545" stroke="#51B2F8" stroke-width="3"/>
+<text x="770" y="610" font-size="26" opacity=".7">Company profile · Editorial layout · Visual system</text>
+</g>
+<g transform="translate(1250 730)"><rect x="0" y="24" width="42" height="72" fill="#000"/><rect x="32" y="48" width="72" height="72" fill="#51B2F8"/><text x="130" y="83" fill="#51B2F8" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700">BRIEF</text></g>
+<text x="70" y="835" fill="#fff" opacity=".35" font-family="Arial, Helvetica, sans-serif" font-size="16" letter-spacing="5">SELECTED WORK / 2026</text>
+</svg>
