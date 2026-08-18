@@ -1,3 +1,7 @@
+/* Lightweight numbered navigation is used until optimized thumbnail assets are available. */
+.thumb.text-thumb{display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);font-family:var(--mono);font-size:.52rem;opacity:1;color:var(--muted)}
+.thumb.text-thumb.active{background:var(--ink);border-color:var(--ink);color:var(--paper);opacity:1}
+
 /* Mobile recruiter pass: keep desktop stable and make the phone experience intentional. */
 @media(max-width:820px){
   .nav{position:sticky;top:0}
@@ -39,6 +43,7 @@
   .hero-frame img{width:100%;height:100%;max-height:none!important;object-fit:contain!important}
   .filmstrip{gap:9px!important;padding:0 0 7px!important;scroll-snap-type:x proximity}
   .thumb{flex:0 0 76px!important;width:76px;height:58px!important;min-height:58px;scroll-snap-align:start;opacity:.7!important}
+  .thumb.text-thumb{opacity:1!important}
   .thumb.active{opacity:1!important}
   .viewer-meta{font-size:.5rem!important;padding-bottom:6px}
   #fileName{display:none}
