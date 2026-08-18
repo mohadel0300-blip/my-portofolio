@@ -2,9 +2,9 @@ const projects=[
 {id:"sociallab",title:"Social Lab",eyebrow:"SaaS Product Story / 2026",story:"A persuasive product narrative that explains an AI sales platform with direct language, clear proof and a confident visual system.",scope:"Web experience · Content hierarchy · Presentation design",files:["social-lab.png"],featured:true},
 {id:"briefstudio",title:"Brief Studio",eyebrow:"Company Profile / Presentation",story:"BRIEF — Company Profile.",scope:"Company profile · Editorial layout · Presentation design",files:["brief-project-cover.svg"],featured:true},
 {id:"realestate",title:"Real Estate Social Campaign",eyebrow:"Real Estate / Social",story:"A campaign that moves from introducing the property to details and then the offer. The message changes from post to post, while the visual language keeps the series connected.",scope:"Visual direction · Social layouts · Campaign adaptations",files:["إطلالة الفلل.png","تفاصيل الفلل.png","عرض الفلل.png"],featured:true},
+{id:"orient",title:"Orient Detectors",eyebrow:"Technology / 2022—2025",story:"I worked with Orient Detectors for nearly three years across campaigns, product visuals, social media, catalogs and brochures. Technical products often carry too much information for one layout, so a recurring part of the job was deciding what needed to be understood first.",scope:"Campaigns · Product communication · Social · Catalogs · Brochures",files:["g1.png","g2.png","g3.png","g4.png","g5.png","g6.png","g7.png","g8.png","g9.png"],featured:true},
 {id:"natural",title:"Natural Product Visual Studies",eyebrow:"Product / Image-making",story:"A set of product-led visual studies built around ingredients, texture and atmosphere, with a consistent focus on product staging and composition.",scope:"Image direction · Product staging · Compositing",files:["01_brand_nature_rituals.png","07_natural_origins.png","٠٢.jpg","٠٣.png","٠٤.png"],featured:true},
 {id:"ecommerce",title:"E-commerce Performance Content",eyebrow:"E-commerce / Arabic Content",story:"A content series around store performance and sales. The system stays familiar while headlines, numbers and supporting details change from one post to the next.",scope:"Social series · Arabic typography · Information hierarchy",files:["زيادة الأرباح.png","نسبة السلات.png","أرباح السلات.png"],featured:true},
-{id:"orient",title:"Orient Detectors",eyebrow:"Technology / 2022—2025",story:"I worked with Orient Detectors for nearly three years across campaigns, product visuals, social media, catalogs and brochures. Technical products often carry too much information for one layout, so a recurring part of the job was deciding what needed to be understood first.",scope:"Campaigns · Product communication · Social · Catalogs · Brochures",files:["g1.png","g2.png","g3.png","g4.png","g5.png","g6.png","g7.png","g8.png","g9.png"],featured:true},
 {id:"healthcare",title:"Healthcare Pricing Series",eyebrow:"Healthcare / Social",story:"A repeatable pricing format for different services, designed to stay easy to scan on a phone while the service names, prices and supporting content change.",scope:"Social design · Arabic layout · Pricing hierarchy",files:["أسعار Full Body.png","أسعار ليزر المناطق.png","أسعار الهيدرافيشيال.png"],featured:true},
 {id:"event",title:"Event Campaign",eyebrow:"Event / Social",story:"Two connected pieces from the same event communication set: one introduces the event, while the second carries the practical details.",scope:"Campaign layout · Event communication · Arabic typography",files:["تصوير المناسبات - رأسي.png","تفاصيل اللقاء.png"],featured:true},
 {id:"huggies",title:"Huggies — Product Campaign Study",eyebrow:"Product / Portfolio Study",story:"A three-piece product campaign study built around one Huggies product.",scope:"Art direction · Composition · Product presentation",files:["h1.JPG","h2.JPG","h3.JPG"]},
@@ -22,22 +22,97 @@ const $=s=>document.querySelector(s);
 const fullSrc=f=>f.endsWith('.svg')?f:`web/full/${f}.webp`;
 const selected=projects.filter(p=>p.featured);
 const additional=projects.filter(p=>!p.featured);
-let openId=null;
 
-function projectMarkup(p,i,offset=0){return `<article class="project-item" data-id="${p.id}"><button class="project-trigger" type="button" aria-expanded="false"><span class="project-no">${String(i+1+offset).padStart(2,'0')}</span><span class="project-title">${p.title}</span><span class="project-meta">${p.eyebrow}<br>${p.files.length} ${p.files.length===1?'piece':'pieces'}</span><span class="project-arrow">+</span></button><div class="project-panel"><div class="project-panel-inner"><div class="project-content"><div class="project-copy"><p>${p.story}</p><div class="scope"><span class="scope-label">Scope</span><p class="scope-text">${p.scope}</p></div></div><div><div class="project-gallery" data-gallery></div><div class="gallery-count">${p.files.length} / ${p.files.length===1?'piece':'pieces'}</div></div></div></div></div></article>`}
+function imgMarkup(file,alt,priority='lazy'){
+  const src=fullSrc(file);
+  return `<img src="${src}" data-original="${file}" alt="${alt}" loading="${priority}" decoding="async">`;
+}
+function addFallbacks(root=document){
+  root.querySelectorAll('img[data-original]').forEach(img=>{
+    img.onerror=()=>{img.onerror=null;img.src=img.dataset.original};
+  });
+}
 
-function renderLists(){ $('#selectedProjects').innerHTML=selected.map((p,i)=>projectMarkup(p,i)).join(''); $('#additionalProjects').innerHTML=additional.map((p,i)=>projectMarkup(p,i,selected.length)).join(''); document.querySelectorAll('.project-trigger').forEach(btn=>btn.addEventListener('click',()=>toggleProject(btn.closest('.project-item')))); }
+function cardMarkup(p,i){
+  return `<article class="project-card" data-id="${p.id}">
+    <div class="project-card-visual" role="button" tabindex="0" aria-label="Open ${p.title}">${imgMarkup(p.files[0],`${p.title} cover`,i===0?'eager':'lazy')}</div>
+    <div class="project-card-copy">
+      <div class="project-card-top"><span class="project-card-no">${String(i+1).padStart(2,'0')}</span><span class="project-card-meta">${p.eyebrow}</span></div>
+      <h3>${p.title}</h3>
+      <p class="project-card-story">${p.story}</p>
+      <div class="project-card-scope"><span>Scope</span><p>${p.scope}</p></div>
+      <div class="project-card-footer"><span>${p.files.length} ${p.files.length===1?'piece':'pieces'}</span><button class="view-project" type="button">View project ↗</button></div>
+    </div>
+  </article>`;
+}
+function archiveMarkup(p,i){
+  return `<article class="archive-row" data-id="${p.id}"><button class="archive-row-button" type="button"><span class="archive-no">${String(i+1+selected.length).padStart(2,'0')}</span><span class="archive-title">${p.title}</span><span class="archive-meta">${p.eyebrow}<br>${p.files.length} ${p.files.length===1?'piece':'pieces'}</span><span class="archive-arrow">↗</span></button></article>`;
+}
 
-function buildGallery(item,p){const gallery=item.querySelector('[data-gallery]');if(gallery.dataset.ready)return;gallery.dataset.ready='1';gallery.innerHTML=p.files.map((f,i)=>`<figure class="work-figure" data-file="${f}" data-title="${p.title}"><img src="${fullSrc(f)}" data-original="${f}" alt="${p.title} — work ${i+1}" loading="lazy" decoding="async"></figure>`).join('');gallery.querySelectorAll('img').forEach(img=>{img.onerror=()=>{img.onerror=null;img.src=img.dataset.original}});gallery.querySelectorAll('.work-figure').forEach(fig=>fig.addEventListener('click',()=>openLightbox(fig.dataset.file,fig.dataset.title)))}
+function renderProjects(){
+  $('#selectedProjects').innerHTML=`<div class="deck-shell"><div class="deck-tools"><div class="deck-progress"><span id="deckCurrent">01</span><i></i><span>${String(selected.length).padStart(2,'0')}</span></div><div class="deck-buttons"><button type="button" id="deckPrev" aria-label="Previous project">←</button><button type="button" id="deckNext" aria-label="Next project">→</button></div></div><div class="project-deck" id="projectDeck">${selected.map(cardMarkup).join('')}</div></div>`;
+  $('#additionalProjects').innerHTML=additional.map(archiveMarkup).join('');
+  addFallbacks($('#selectedProjects'));
 
-function toggleProject(item){const id=item.dataset.id;const p=projects.find(x=>x.id===id);if(openId===id){item.classList.remove('open');item.querySelector('.project-trigger').setAttribute('aria-expanded','false');openId=null;return}document.querySelectorAll('.project-item.open').forEach(el=>{el.classList.remove('open');el.querySelector('.project-trigger').setAttribute('aria-expanded','false')});buildGallery(item,p);item.classList.add('open');item.querySelector('.project-trigger').setAttribute('aria-expanded','true');openId=id;setTimeout(()=>item.scrollIntoView({behavior:'smooth',block:'nearest'}),120)}
+  document.querySelectorAll('.project-card').forEach(card=>{
+    const open=()=>openProject(projects.find(p=>p.id===card.dataset.id));
+    card.querySelector('.view-project').addEventListener('click',open);
+    const visual=card.querySelector('.project-card-visual');
+    visual.addEventListener('click',open);
+    visual.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  });
+  document.querySelectorAll('.archive-row-button').forEach(btn=>btn.addEventListener('click',()=>openProject(projects.find(p=>p.id===btn.closest('.archive-row').dataset.id))));
+
+  const deck=$('#projectDeck');
+  const cards=[...deck.children];
+  const updateProgress=()=>{
+    let best=0,bestDist=Infinity;
+    cards.forEach((card,i)=>{const d=Math.abs(card.offsetLeft-deck.scrollLeft);if(d<bestDist){best=i;bestDist=d}});
+    $('#deckCurrent').textContent=String(best+1).padStart(2,'0');
+  };
+  const step=dir=>deck.scrollBy({left:dir*Math.min(deck.clientWidth*.9,1100),behavior:'smooth'});
+  $('#deckPrev').addEventListener('click',()=>step(-1));
+  $('#deckNext').addEventListener('click',()=>step(1));
+  deck.addEventListener('scroll',()=>requestAnimationFrame(updateProgress),{passive:true});
+  updateProgress();
+}
+
+function ensureProjectView(){
+  if($('#projectView'))return;
+  const view=document.createElement('section');
+  view.id='projectView';view.className='project-view';view.setAttribute('aria-hidden','true');
+  view.innerHTML=`<div class="project-view-bar"><button class="project-view-close" id="projectViewClose" type="button" aria-label="Close project">×</button><span id="projectViewBarTitle"></span><span id="projectViewCount"></span></div><div class="project-view-inner"><header class="project-view-head"><div><div class="project-view-kicker" id="projectViewKicker"></div><h2 id="projectViewTitle"></h2></div><div class="project-view-copy"><p id="projectViewStory"></p><div class="project-view-scope"><span>Scope</span><p id="projectViewScope"></p></div></div></header><div class="project-view-gallery" id="projectViewGallery"></div></div>`;
+  document.body.appendChild(view);
+  $('#projectViewClose').addEventListener('click',closeProject);
+}
+function openProject(p){
+  ensureProjectView();
+  $('#projectViewBarTitle').textContent=p.title;
+  $('#projectViewCount').textContent=`${p.files.length} ${p.files.length===1?'piece':'pieces'}`;
+  $('#projectViewKicker').textContent=p.eyebrow;
+  $('#projectViewTitle').textContent=p.title;
+  $('#projectViewStory').textContent=p.story;
+  $('#projectViewScope').textContent=p.scope;
+  $('#projectViewGallery').innerHTML=p.files.map((f,i)=>`<figure class="project-view-figure" data-file="${f}" data-title="${p.title}">${imgMarkup(f,`${p.title} — work ${i+1}`)}</figure>`).join('');
+  addFallbacks($('#projectViewGallery'));
+  document.querySelectorAll('.project-view-figure').forEach(fig=>fig.addEventListener('click',()=>openLightbox(fig.dataset.file,fig.dataset.title)));
+  const view=$('#projectView');
+  view.classList.add('open');view.setAttribute('aria-hidden','false');
+  document.body.classList.add('modal-open');
+  view.scrollTop=0;
+}
+function closeProject(){
+  const view=$('#projectView');if(!view)return;
+  view.classList.remove('open');view.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');
+}
 
 const lightbox=$('#lightbox'),lightboxImage=$('#lightboxImage'),lightboxCaption=$('#lightboxCaption');
-function openLightbox(file,title){lightboxImage.onerror=()=>{lightboxImage.onerror=null;lightboxImage.src=file};lightboxImage.src=fullSrc(file);lightboxCaption.textContent=title;lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
-function closeLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');lightboxImage.src='';document.body.style.overflow=''}
-$('#lightboxClose').addEventListener('click',closeLightbox);lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lightbox.classList.contains('open'))closeLightbox()});
+function openLightbox(file,title){lightboxImage.onerror=()=>{lightboxImage.onerror=null;lightboxImage.src=file};lightboxImage.src=fullSrc(file);lightboxCaption.textContent=title;lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');document.body.classList.add('modal-open')}
+function closeLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');lightboxImage.src='';if(!$('#projectView')?.classList.contains('open'))document.body.classList.remove('modal-open')}
+$('#lightboxClose').addEventListener('click',closeLightbox);lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(lightbox.classList.contains('open'))closeLightbox();else if($('#projectView')?.classList.contains('open'))closeProject()}});
 
 const root=document.documentElement,langToggle=$('#langToggle');let lang=localStorage.getItem('portfolioLang')||'en';
 function applyLang(){const ar=lang==='ar';root.lang=lang;root.dir=ar?'rtl':'ltr';langToggle.textContent=ar?'EN':'AR';document.querySelectorAll('[data-en][data-ar]').forEach(el=>{const v=el.getAttribute(ar?'data-ar':'data-en');if(v.includes('<'))el.innerHTML=v;else el.textContent=v});localStorage.setItem('portfolioLang',lang)}
 langToggle.addEventListener('click',()=>{lang=lang==='en'?'ar':'en';applyLang()});
-renderLists();applyLang();
+renderProjects();applyLang();
