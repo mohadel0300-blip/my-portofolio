@@ -5,6 +5,7 @@ on:
     paths:
       - 'tools/optimize_portfolio_images.py'
       - 'tools/audit_brand_colors.py'
+      - 'tools/audit_brand_similarity.py'
       - '.github/workflows/optimize-portfolio-images.yml'
   workflow_dispatch:
 
@@ -21,16 +22,18 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install Pillow
-        run: pip install pillow
+      - name: Install image tools
+        run: pip install pillow opencv-python-headless
       - name: Generate web images
         run: python tools/optimize_portfolio_images.py
       - name: Audit brand colors
         run: python tools/audit_brand_colors.py
-      - name: Commit optimized images and audit
+      - name: Audit brand similarity
+        run: python tools/audit_brand_similarity.py
+      - name: Commit optimized images and audits
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/ brand-color-audit.json
-          git diff --cached --quiet || git commit -m "Generate web assets and brand color audit [skip ci]"
+          git add web/ brand-color-audit.json brand-similarity-audit.json
+          git diff --cached --quiet || git commit -m "Generate web assets and brand audits [skip ci]"
           git push
