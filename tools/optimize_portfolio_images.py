@@ -1,6 +1,7 @@
 from pathlib import Path
 from PIL import Image, ImageOps
 
+# Generates lightweight display copies while keeping every original source file untouched.
 ROOT = Path(__file__).resolve().parents[1]
 FULL_DIR = ROOT / "web" / "full"
 THUMB_DIR = ROOT / "web" / "thumb"
