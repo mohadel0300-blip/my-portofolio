@@ -1,0 +1,36 @@
+name: Brand logo OCR audit
+
+on:
+  push:
+    branches: [brand-logo-audit]
+    paths:
+      - 'tools/ocr_brand_logos.py'
+      - '.github/workflows/brand-logo-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install OCR dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-ara
+          python -m pip install --upgrade pip
+          pip install pillow pytesseract
+      - name: OCR portfolio images
+        run: python tools/ocr_brand_logos.py
+      - name: Commit audit output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .review/brand-ocr.txt
+          git diff --cached --quiet || git commit -m "Generate brand OCR audit"
+          git push
