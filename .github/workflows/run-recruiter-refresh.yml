@@ -1,0 +1,78 @@
+name: Run recruiter portfolio refresh
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/run-recruiter-refresh.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: recruiter-portfolio-refresh
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Apply recruiter-focused edits
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+          replacements = {
+            'Portfolio of Mohamed Amer, a Visual & Graphic Designer in Cairo. Campaign key visuals, social and digital design, brand applications, product communication, print, web visuals and AI-assisted production.': 'Portfolio of Mohamed Amer, a Visual & Graphic Designer in Cairo focused on campaign key visuals, product communication, social and digital systems, brand applications and AI-assisted production.',
+            'Selected graphic design work by Mohamed Amer across campaigns, social media, brand applications, product communication, digital, print and web visuals.': 'Selected graphic design work by Mohamed Amer focused on campaign systems, product communication, social and digital design, brand applications and production.',
+            'I turn briefs into visual directions that stay clear across campaign, social, digital and print.': 'I turn marketing briefs into campaign visuals and product communication systems built to stay clear across every format.',
+            'أحوّل البريف إلى اتجاه بصري واضح يظل متماسكًا عبر الحملات والسوشيال والديجيتال والطباعة.': 'أحوّل البريف التسويقي إلى حملات وأنظمة بصرية للمنتجات تظل واضحة ومتسقة عبر مختلف المقاسات والمنصات.',
+            'Experience since 2021 across agency, technology, retail and media — spanning key visuals, social systems, brand applications, product communication, website visuals and layout.': 'Graphic design experience since 2021 across agency, technology, retail and media, with a focus on key visuals, product-led campaigns, social systems and production-ready brand applications.',
+            'خبرة منذ 2021 عبر الوكالات والتقنية والتجزئة والإعلام، تشمل الـKey Visuals وأنظمة السوشيال وتطبيقات الهوية وتواصل المنتجات والتصميم البصري للمواقع والـLayout.': 'خبرة في تصميم الجرافيك منذ 2021 عبر الوكالات والتقنية والتجزئة والإعلام، مع تركيز على الـKey Visuals وحملات المنتجات وأنظمة السوشيال وتطبيقات الهوية الجاهزة للإنتاج.',
+            'A curated view across campaign, social, editorial, print, AI-assisted and product-focused work. Filter by category when you want to go deeper.': 'A focused selection led by campaign, product and social communication work. Use the filters for additional brand, editorial and AI-assisted explorations.',
+            'عرض مختار من أعمال الحملات والسوشيال والتحريري والطباعة والأعمال المدعومة بالذكاء الاصطناعي وتصميمات المنتجات. استخدم الفلاتر للتعمق في نوع محدد.': 'اختيار مركز يقوده شغل الحملات والمنتجات والتواصل على السوشيال. استخدم الفلاتر لمشاهدة المزيد من أعمال الهوية والتحريري وتجارب AI.',
+            'Selected <em>visual work.</em>': 'Selected <em>campaign & product work.</em>',
+            'أعمال بصرية <em>مختارة.</em>': 'أعمال <em>حملات ومنتجات مختارة.</em>',
+            'Tech & Product Visuals': 'Product & Tech',
+            'تقنية وتصميمات منتجات': 'منتجات وتقنية',
+            'let visibleLimit = 9;': 'let visibleLimit = 12;',
+            'visibleLimit = 9;': 'visibleLimit = 12;'
+          }
+          for old, new in replacements.items():
+              text = text.replace(old, new)
+          old_logic = '''      function getMatching(){
+        if (activeFilter !== 'all') return items.filter(item => item.dataset.cat === activeFilter);
+        const categories = ['social','editorial','print','ai','tech'];
+        const groups = categories.map(cat => items.filter(item => item.dataset.cat === cat));
+        const mixed = [];
+        let index = 0;
+        while (groups.some(group => index < group.length)) {
+          groups.forEach(group => { if (index < group.length) mixed.push(group[index]); });
+          index += 1;
+        }
+        return mixed;
+      }'''
+          new_logic = '''      function getMatching(){
+        if (activeFilter !== 'all') return items.filter(item => item.dataset.cat === activeFilter);
+        const priorityFiles = [
+          'g1.png', 'h1.JPG', 'ai1.jpg', 'b1.png',
+          'g2.png', 'h2.JPG', 's8.png', 'b2.png',
+          'g3.png', 'h3.JPG', 'ai2.jpg', 's4.png'
+        ];
+        const priority = priorityFiles
+          .map(file => items.find(item => item.querySelector('img')?.getAttribute('src') === file))
+          .filter(Boolean);
+        const remaining = items.filter(item => !priority.includes(item));
+        return [...priority, ...remaining];
+      }'''
+          text = text.replace(old_logic, new_logic)
+          path.write_text(text, encoding='utf-8')
+      - name: Commit changes to review branch
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Refine portfolio positioning for recruiter review"
+          git push origin recruiter-portfolio-refresh
