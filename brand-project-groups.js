@@ -1,15 +1,21 @@
 // Recruiter-first project curation. The personal hero remains untouched.
 (() => {
   const byId=id=>projects.find(p=>p.id===id);
-  const socialLab=byId('sociallab'),briefStudio=byId('briefstudio'),socialArchive=byId('social'),bannerArchive=byId('campaignbanners');
-  const socialLabFiles=['s16.png','s20.png','s21.png','s3.png','s4.png','s5.png'];
+  const socialLab=byId('sociallab'),briefStudio=byId('briefstudio'),healthcare=byId('healthcare');
+  const socialArchive=byId('social'),bannerArchive=byId('campaignbanners'),digitalArtboards=byId('digitalartboards');
+
+  // Brand ownership is based on visible brand identity, not colour alone.
+  // s20 is a clinic offer and therefore does not belong to Social Lab.
+  // The two Digital Campaign Artboards are Social Lab executions and belong inside that project.
+  const socialLabFiles=['s16.png','s21.png','Artboard 1.png','Artboard 2 2.png'];
   const briefStudioFiles=['s6.png','s8.png','b3.png','b4.png'];
+  const clinicExtraFiles=['s20.png'];
 
   if(socialLab){
     socialLab.files=socialLabFiles;
     socialLab.eyebrow='Campaign / Social / Product';socialLab.eyebrowAr='حملة / سوشيال / منتج';
     socialLab.story='A connected visual series for Social Lab, built around a recognisable green system while each piece explains a different part of the product story.';
-    socialLab.storyAr='سلسلة بصرية مترابطة لسوشيال لاب، مبنية على نظام أخضر واضح، مع اختلاف الفكرة والرسالة من تصميم لآخر حسب جزء المنتج الذي يتم شرحه.';
+    socialLab.storyAr='سلسلة بصرية مترابطة لسوشيال لاب، مبنية على نظام بصري أخضر واضح، مع اختلاف الفكرة والرسالة من تصميم لآخر حسب جزء المنتج الذي يتم شرحه.';
     socialLab.scope='Campaign art direction · Social design · Product communication · 3D-led visuals';
     socialLab.scopeAr='إخراج الحملة · تصميم سوشيال · تواصل بصري للمنتج · صور ثلاثية الأبعاد';
   }
@@ -21,10 +27,15 @@
     briefStudio.scope='Visual direction · Campaign design · Social content · Adaptations';
     briefStudio.scopeAr='اتجاه بصري · تصميم حملات · محتوى سوشيال · تطبيقات متعددة';
   }
+  if(healthcare){
+    healthcare.files=[...clinicExtraFiles,...healthcare.files.filter(f=>!clinicExtraFiles.includes(f))];
+  }
 
-  const assigned=new Set([...socialLabFiles,...briefStudioFiles]);
+  // Remove files that now have a verified project owner from generic archive buckets.
+  const assigned=new Set([...socialLabFiles,...briefStudioFiles,...clinicExtraFiles]);
   if(socialArchive) socialArchive.files=socialArchive.files.filter(f=>!assigned.has(f));
   if(bannerArchive) bannerArchive.files=bannerArchive.files.filter(f=>!assigned.has(f));
+  if(digitalArtboards) digitalArtboards.files=[];
 
   const loadCss=(href,key)=>{
     if(document.querySelector(`link[data-${key}]`))return;
@@ -33,12 +44,14 @@
   loadCss('recruiter-projects-v3.css','recruiter-projects-v3');
   loadCss('recruiter-categories.css','recruiter-categories');
 
+  // These four stay as the visual recruiter hits and are not repeated below.
   const topIds=['sociallab','briefstudio','realestate','orient'];
   const topProjects=topIds.map(byId).filter(Boolean);
+
+  // The grouped index contains only additional work, so the recruiter never sees the same project twice.
   const categoryDefs=[
-    {id:'technology',en:'Technology & Digital Solutions',ar:'التكنولوجيا والحلول الرقمية',ids:['sociallab','orient','ecommerce','digitalartboards']},
-    {id:'campaigns',en:'Campaigns & Social',ar:'الحملات والسوشيال',ids:['briefstudio','event','socialartboards','social','campaignbanners']},
-    {id:'realestate',en:'Real Estate',ar:'العقارات',ids:['realestate']},
+    {id:'technology',en:'Technology & Digital Solutions',ar:'التكنولوجيا والحلول الرقمية',ids:['ecommerce']},
+    {id:'campaigns',en:'Campaigns & Social',ar:'الحملات والسوشيال',ids:['event','socialartboards','social','campaignbanners']},
     {id:'healthcare',en:'Healthcare & Clinics',ar:'العيادات والرعاية الصحية',ids:['healthcare']},
     {id:'image',en:'AI & Image-making',ar:'الذكاء الاصطناعي وصناعة الصورة',ids:['natural','aiarchive']},
     {id:'product',en:'Product & Brand',ar:'المنتجات والهوية',ids:['huggies','brandapps','covers']},
@@ -46,9 +59,9 @@
   ];
 
   const C=()=>lang==='ar'?{
-    browseTitle:'استعرض حسب المجال',browseText:'نفس الأعمال مرتبة حسب المجال لسهولة الوصول.',view:'عرض المشروع ↗',note:'عن المشروع',projects:'مشاريع'
+    browseTitle:'أعمال أخرى حسب المجال',browseText:'أقوى أربعة مشاريع بالأعلى، وباقي الشغل هنا مرتب حسب المجال بدون تكرار.',view:'عرض المشروع ↗',note:'عن المشروع',projects:'مشاريع'
   }:{
-    browseTitle:'Browse by field',browseText:'The same work, grouped by field for faster scanning.',view:'View project ↗',note:'Project note',projects:'projects'
+    browseTitle:'More work by field',browseText:'The four strongest projects are above. The rest is grouped here by field without repetition.',view:'View project ↗',note:'Project note',projects:'projects'
   };
   const thumbSrc=f=>f.endsWith('.svg')?f:`web/thumb/${f}.webp`;
   const previewImage=(file,alt,hero=false)=>`<img src="${hero?fullSrc(file):thumbSrc(file)}" data-original="${file}" alt="${alt}" loading="${hero?'eager':'lazy'}" decoding="async"${hero?' fetchpriority="high"':''}>`;
@@ -62,7 +75,8 @@
     return `<article class="category-project" data-id="${p.id}"><div class="category-project-visual" role="button" tabindex="0" aria-label="${C().view.replace(' ↗','')}: ${title}">${previewImage(p.files[0],`${title} — 01`)}</div><div class="category-project-copy"><div><h4>${title}</h4><p>${pText(p,'eyebrow')} · ${countLabel(p.files.length)}</p></div><button type="button" aria-label="${C().view.replace(' ↗','')}: ${title}">↗</button></div></article>`;
   };
   const categoryMarkup=def=>{
-    const list=def.ids.map(byId).filter(Boolean),title=lang==='ar'?def.ar:def.en;
+    const list=def.ids.map(byId).filter(p=>p&&p.files&&p.files.length),title=lang==='ar'?def.ar:def.en;
+    if(!list.length)return '';
     return `<section class="work-category" data-category="${def.id}"><header class="work-category-head"><h4>${title}</h4><span>${list.length} ${C().projects}</span></header><div class="work-category-grid">${list.map(categoryProjectMarkup).join('')}</div></section>`;
   };
   const bindOpen=(scope,selector,buttonSelector)=>scope.querySelectorAll(selector).forEach(card=>{
