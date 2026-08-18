@@ -1,0 +1,84 @@
+/* Recruiter-first project experience: work is the interface. Hero remains untouched. */
+.project-list#selectedProjects{display:block}
+.recruiter-featured{display:grid;gap:clamp(52px,7vw,96px)}
+.impact-project{min-width:0}
+.impact-visual{position:relative;width:100%;aspect-ratio:16/9;background:#fff;border-radius:32px;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 1px rgba(0,0,0,.02),0 14px 40px rgba(0,0,0,.035)}
+.impact-visual:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.impact-visual img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+@media(hover:hover){.impact-project:hover .impact-visual img{transform:scale(1.012)}}
+.impact-info{display:grid;grid-template-columns:54px minmax(0,1fr) auto auto;gap:18px;align-items:end;padding:18px 4px 0}
+.impact-no,.impact-type,.impact-count{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.impact-no{font-size:.5rem;padding-bottom:7px}.impact-type{font-size:.49rem;line-height:1.45;margin-top:6px}.impact-count{font-size:.48rem;padding-bottom:7px;white-space:nowrap}
+.impact-info h3{margin:0;font-size:clamp(2rem,3.4vw,4rem);font-weight:600;line-height:.94;letter-spacing:-.05em}
+.impact-open{border:0;background:none;color:var(--blue);padding:8px 0 7px;font-size:.72rem;font-weight:550;cursor:pointer;white-space:nowrap}
+
+.recruiter-more{margin-top:clamp(72px,8vw,118px)}
+.recruiter-more-head,.recruiter-archive-head{display:flex;justify-content:space-between;align-items:end;gap:24px;border-top:1px solid var(--line);padding:18px 0 22px}
+.recruiter-more-head h3,.recruiter-archive-head h3{margin:0;font-size:clamp(1.8rem,3vw,3.3rem);font-weight:600;letter-spacing:-.04em}
+.recruiter-more-head p,.recruiter-archive-head p{margin:0;color:var(--muted);font-size:.74rem;line-height:1.55;max-width:42ch;text-align:right}
+.more-selected-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px}
+.more-project{min-width:0}
+.more-project-visual{aspect-ratio:16/10;background:#fff;border-radius:26px;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.more-project-visual img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .35s ease}
+@media(hover:hover){.more-project:hover .more-project-visual img{transform:scale(1.015)}}
+.more-project-info{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:start;padding:14px 3px 0}
+.more-project-info h4{font-size:clamp(1.15rem,1.8vw,1.55rem);font-weight:580;letter-spacing:-.03em;line-height:1.05;margin:0 0 6px}
+.more-project-info p{font-size:.52rem;line-height:1.45;color:var(--muted);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;margin:0}
+.more-project-info button{border:0;background:none;color:var(--blue);padding:3px 0;font-size:.68rem;cursor:pointer;white-space:nowrap}
+
+.recruiter-archive{margin-top:clamp(64px,7vw,100px)}
+.recruiter-archive-list{background:var(--surface);border-radius:26px;overflow:hidden}
+.recruiter-archive-row{border-bottom:1px solid var(--line)}.recruiter-archive-row:last-child{border-bottom:0}
+.recruiter-archive-row button{width:100%;border:0;background:none;display:grid;grid-template-columns:54px minmax(0,1fr) minmax(150px,.32fr) 28px;gap:16px;align-items:center;text-align:left;padding:18px 22px;cursor:pointer}
+.recruiter-archive-row button:hover{background:#fafafa}
+.recruiter-archive-no,.recruiter-archive-meta{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-size:.46rem;line-height:1.5}
+.recruiter-archive-title{font-size:1.08rem;font-weight:550;letter-spacing:-.02em}.recruiter-archive-arrow{color:var(--blue);text-align:right}
+
+/* Project view: title, then work immediately. Explanation is optional and lives at the end. */
+.project-view-inner{padding-top:clamp(36px,5vw,70px)}
+.project-view-head{display:block;margin-bottom:30px}
+.project-view-head>div:first-child{max-width:1100px}
+.project-view-copy{display:none!important}
+.project-view h2{font-size:clamp(3.6rem,7vw,8rem);margin-top:0}
+.project-view-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;overflow:visible;scroll-snap-type:none;padding:0;direction:ltr}
+.project-view-figure{width:100%;height:auto;min-height:0;aspect-ratio:auto;display:block;flex:none;margin:0;background:#fff;border-radius:28px;padding:clamp(10px,1.5vw,22px);overflow:hidden;cursor:zoom-in}
+.project-view-figure:nth-child(4n+1){grid-column:1/-1}
+.project-view-figure img{width:100%;height:auto;max-height:none;object-fit:contain;display:block}
+.project-view-note{border-top:1px solid var(--line);margin-top:46px;padding-top:18px;display:grid;grid-template-columns:120px minmax(0,640px);gap:24px}
+.project-view-note span{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-size:.47rem}
+.project-view-note p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.65}
+
+[dir="rtl"] .impact-info,[dir="rtl"] .more-project-info,[dir="rtl"] .recruiter-archive-row button{text-align:right;direction:rtl}
+[dir="rtl"] .impact-no,[dir="rtl"] .impact-type,[dir="rtl"] .impact-count,[dir="rtl"] .more-project-info p,[dir="rtl"] .recruiter-archive-no,[dir="rtl"] .recruiter-archive-meta,[dir="rtl"] .project-view-note span{font-family:'IBM Plex Sans Arabic',sans-serif;text-transform:none;letter-spacing:0}
+[dir="rtl"] .impact-info h3,[dir="rtl"] .more-project-info h4{letter-spacing:-.025em}
+[dir="rtl"] .recruiter-more-head p,[dir="rtl"] .recruiter-archive-head p{text-align:left}
+[dir="rtl"] .recruiter-archive-arrow{text-align:left}
+
+@media(max-width:760px){
+  /* The recruiter should see the work, not interface chrome. */
+  .projects{padding-top:30px}
+  .projects .section-intro{display:none}
+  .recruiter-featured{gap:46px}
+  .impact-visual{aspect-ratio:4/5;border-radius:22px;box-shadow:0 1px 1px rgba(0,0,0,.02),0 7px 20px rgba(0,0,0,.025)}
+  .impact-info{grid-template-columns:34px minmax(0,1fr) auto;grid-template-areas:"no title count" ". title open";gap:4px 10px;padding:13px 2px 0;align-items:start}
+  .impact-no{grid-area:no;padding-top:5px;font-size:.52rem}.impact-info>div{grid-area:title}.impact-count{grid-area:count;padding-top:5px;font-size:.5rem}.impact-open{grid-area:open;padding:4px 0;min-height:34px;font-size:.7rem}
+  .impact-info h3{font-size:clamp(1.85rem,8vw,2.35rem);line-height:1;margin:0}.impact-type{font-size:.5rem;margin-top:7px;line-height:1.4}
+  [dir="rtl"] .impact-info h3{line-height:1.18}
+
+  .recruiter-more{margin-top:64px}.recruiter-more-head,.recruiter-archive-head{display:block;padding:15px 0 18px}.recruiter-more-head h3,.recruiter-archive-head h3{font-size:1.75rem;margin-bottom:5px}.recruiter-more-head p,.recruiter-archive-head p{font-size:.7rem;text-align:start}
+  .more-selected-grid{grid-template-columns:1fr;gap:30px}
+  .more-project-visual{aspect-ratio:4/3;border-radius:20px}
+  .more-project-info{padding:11px 2px 0}.more-project-info h4{font-size:1.2rem}.more-project-info p{font-size:.48rem}.more-project-info button{min-height:32px;font-size:.67rem}
+
+  .recruiter-archive{margin-top:58px}.recruiter-archive-list{border-radius:20px}
+  .recruiter-archive-row button{grid-template-columns:34px minmax(0,1fr) 24px;gap:9px;padding:15px 13px;min-height:56px}.recruiter-archive-meta{display:none}.recruiter-archive-title{font-size:.96rem;line-height:1.22}
+
+  .project-view-inner{width:calc(100% - 24px);padding:26px 0 calc(42px + env(safe-area-inset-bottom))}
+  .project-view-head{margin-bottom:20px}.project-view-kicker{margin-bottom:9px}.project-view h2{font-size:2.55rem;line-height:.96;margin:0}
+  [dir="rtl"] .project-view h2{font-size:2.2rem;line-height:1.15}
+  .project-view-gallery{grid-template-columns:1fr;gap:10px}.project-view-figure,.project-view-figure:nth-child(4n+1){grid-column:auto;border-radius:18px;padding:7px}
+  .project-view-note{margin-top:34px;padding:14px 3px 0;display:block}.project-view-note span{display:block;margin-bottom:8px}.project-view-note p{font-size:.78rem;line-height:1.65}
+}
+
+@media(max-width:380px){.impact-visual{border-radius:19px}.impact-info h3{font-size:1.75rem}.more-project-visual{border-radius:18px}}
+@media(prefers-reduced-motion:reduce){.impact-visual img,.more-project-visual img{transition:none!important}}
