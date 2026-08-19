@@ -16,16 +16,15 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install pillow
-      - name: Extract verified assets
-        run: unzip -o brand-assets-pack.zip
+      - name: Extract verified assets to repository root
+        run: unzip -oj brand-assets-pack.zip -d .
       - name: Optimize imported images
         run: python tools/optimize_portfolio_images.py
       - name: Commit imported assets
         run: |
-          # Keep the imported originals plus optimized WebP versions.
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add sociallab-conversation.jpg sociallab-ai-market.jpg brief-agency-search.jpg brief-agency-sales.jpg brief-agency-growth.jpg brief-agency-visual.jpg web/
-          git rm -f brand-assets-pack.zip
+          git add -A
+          git rm -f --ignore-unmatch brand-assets-pack.zip
           git diff --cached --quiet || git commit -m 'Import verified Social Lab and Brief assets [skip ci]'
           git push
