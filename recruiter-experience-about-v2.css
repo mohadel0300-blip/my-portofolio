@@ -1,0 +1,308 @@
+/* Recruiter-first Experience + About redesign. Scan first, read second. */
+
+/* EXPERIENCE */
+.experience{
+  background:#0b0b0c!important;
+  color:#f5f5f7!important;
+  margin-top:clamp(56px,6vw,92px)!important;
+  padding:clamp(72px,8vw,124px) 0!important;
+}
+.experience>.shell{
+  background:transparent!important;
+  border-radius:0!important;
+  padding:0!important;
+}
+.experience .compact-head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  gap:24px!important;
+  align-items:end!important;
+  margin-bottom:clamp(34px,4vw,54px)!important;
+  padding-bottom:22px!important;
+  border-bottom:1px solid #2c2c2e!important;
+}
+.experience .compact-head .section-no{
+  grid-column:2!important;
+  grid-row:1!important;
+  align-self:end!important;
+  padding:0 0 7px!important;
+  color:#6e6e73!important;
+  text-align:right!important;
+  white-space:nowrap;
+}
+.experience .compact-head h2{
+  grid-column:1!important;
+  grid-row:1!important;
+  margin:0!important;
+  color:#f5f5f7!important;
+  font-size:clamp(3.7rem,6.6vw,7.3rem)!important;
+  line-height:.86!important;
+  letter-spacing:-.065em!important;
+  font-weight:610!important;
+}
+.experience .career-grid{
+  display:block!important;
+}
+.experience .career-list{
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+.experience .career-row{
+  position:relative;
+  display:flex!important;
+  flex-direction:column!important;
+  min-width:0;
+  min-height:286px;
+  padding:24px!important;
+  border:1px solid #2f2f32!important;
+  border-radius:24px!important;
+  background:#151516!important;
+  overflow:hidden;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease;
+}
+.experience .career-row:nth-child(1){grid-column:span 7!important;min-height:324px;background:#f5f5f7!important;color:#1d1d1f!important;border-color:#f5f5f7!important}
+.experience .career-row:nth-child(2){grid-column:span 5!important;min-height:324px}
+.experience .career-row:nth-child(n+3){grid-column:span 4!important}
+.experience .career-time{
+  display:inline-flex!important;
+  align-items:center!important;
+  align-self:flex-start!important;
+  width:auto!important;
+  min-height:27px!important;
+  margin-bottom:auto!important;
+  padding:0 10px!important;
+  border-radius:999px!important;
+  background:#252527!important;
+  color:#2997ff!important;
+  font-size:.47rem!important;
+  line-height:1!important;
+  letter-spacing:.045em!important;
+}
+.experience .career-row:nth-child(1) .career-time{background:#e8e8ed!important;color:#0071e3!important}
+.experience .career-row>div:nth-child(2){margin-top:clamp(38px,5vh,68px)!important}
+.experience .career-company{
+  color:inherit!important;
+  font-size:clamp(1.35rem,1.7vw,2rem)!important;
+  line-height:1!important;
+  font-weight:620!important;
+  letter-spacing:-.035em!important;
+}
+.experience .career-role{
+  margin-top:7px!important;
+  color:#a1a1a6!important;
+  font-size:.75rem!important;
+  line-height:1.35!important;
+}
+.experience .career-row:nth-child(1) .career-role{color:#6e6e73!important}
+.experience .career-desc{
+  order:3;
+  grid-column:auto!important;
+  margin:14px 0 0!important;
+  max-width:48ch!important;
+  color:#a1a1a6!important;
+  font-size:.78rem!important;
+  line-height:1.55!important;
+}
+.experience .career-row:nth-child(1) .career-desc{color:#6e6e73!important}
+.experience .career-row::after{
+  display:block;
+  margin-top:20px;
+  padding-top:15px;
+  border-top:1px solid #303033;
+  color:#86868b;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.43rem;
+  line-height:1.45;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.experience .career-row:nth-child(1)::after{content:"Campaigns  ·  Social  ·  Presentations";border-color:#d2d2d7;color:#6e6e73}
+.experience .career-row:nth-child(2)::after{content:"Product  ·  Catalogs  ·  B2B"}
+.experience .career-row:nth-child(3)::after{content:"Social  ·  Product-led  ·  Freelance"}
+.experience .career-row:nth-child(4)::after{content:"Brand  ·  Promotional"}
+.experience .career-row:nth-child(5)::after{content:"Media  ·  Video  ·  Editorial"}
+@media (hover:hover){
+  .experience .career-row:hover{transform:translateY(-3px);border-color:#48484c;background:#19191a!important}
+  .experience .career-row:nth-child(1):hover{background:#fff!important;border-color:#fff!important}
+}
+
+/* Core capabilities become a horizontal strip, not a separate side card. */
+.experience .skills-card{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:0 24px!important;
+  margin-top:clamp(40px,5vw,70px)!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+.experience .skill-label{
+  grid-column:1/-1!important;
+  margin-bottom:14px!important;
+  padding:0 0 14px!important;
+  border-bottom:1px solid #2c2c2e!important;
+  color:#86868b!important;
+}
+.experience .skill-row{
+  border:0!important;
+  padding:15px 0 4px!important;
+}
+.experience .skill-row strong{
+  color:#f5f5f7!important;
+  font-size:clamp(.95rem,1.1vw,1.2rem)!important;
+  letter-spacing:-.02em;
+}
+.experience .skill-row p{
+  max-width:35ch;
+  color:#86868b!important;
+  font-size:.72rem!important;
+  line-height:1.5!important;
+}
+.experience .tools{
+  grid-column:1/-1!important;
+  margin-top:22px!important;
+  padding:18px 0 0!important;
+  border-top:1px solid #2c2c2e!important;
+  color:#6e6e73!important;
+  font-size:.64rem!important;
+}
+
+/* ABOUT */
+.about{
+  padding:clamp(78px,8vw,128px) 0!important;
+  background:#f5f5f7!important;
+}
+.about>.shell{
+  position:relative;
+  overflow:hidden;
+  background:#fff!important;
+  border-radius:34px!important;
+  padding:clamp(38px,5vw,76px)!important;
+  box-shadow:none!important;
+}
+.about .compact-head{
+  display:flex!important;
+  justify-content:space-between!important;
+  align-items:flex-end!important;
+  gap:24px!important;
+  margin-bottom:clamp(46px,5vw,74px)!important;
+  padding-bottom:18px!important;
+  border-bottom:1px solid #e5e5e7!important;
+}
+.about .compact-head .section-no{
+  order:2;
+  padding:0 0 7px!important;
+  color:#86868b!important;
+}
+.about .compact-head h2{
+  margin:0!important;
+  max-width:10ch;
+  font-size:clamp(3.4rem,5.7vw,6.4rem)!important;
+  line-height:.88!important;
+  letter-spacing:-.06em!important;
+}
+.about .about-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr)!important;
+  gap:clamp(46px,7vw,112px)!important;
+  align-items:start!important;
+}
+.about .about-lead{
+  position:relative;
+  margin:0!important;
+  max-width:20ch!important;
+  padding-top:36px!important;
+  font-size:clamp(2.25rem,4.2vw,5rem)!important;
+  line-height:.98!important;
+  letter-spacing:-.052em!important;
+  font-weight:590!important;
+}
+.about .about-lead::before{
+  content:"01 / BACKGROUND";
+  position:absolute;
+  top:0;
+  left:0;
+  color:#86868b;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.46rem;
+  letter-spacing:.06em;
+}
+.about .about-copy{
+  position:relative;
+  margin:0!important;
+  padding:36px 0 0 28px!important;
+  border-left:1px solid #e5e5e7!important;
+  color:#6e6e73!important;
+  font-size:1rem!important;
+  line-height:1.72!important;
+  max-width:46ch!important;
+}
+.about .about-copy::before{
+  content:"02 / HOW I WORK";
+  position:absolute;
+  top:0;
+  left:28px;
+  color:#86868b;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.46rem;
+  letter-spacing:.06em;
+}
+.about>.shell::after{
+  content:"CAMPAIGNS   ·   PRODUCT COMMUNICATION   ·   SOCIAL & DIGITAL   ·   CAIRO / REMOTE";
+  display:block;
+  margin-top:clamp(54px,6vw,84px);
+  padding-top:18px;
+  border-top:1px solid #e5e5e7;
+  color:#86868b;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.47rem;
+  line-height:1.5;
+  letter-spacing:.055em;
+}
+
+/* RTL */
+[dir="rtl"] .experience .compact-head .section-no{text-align:left!important}
+[dir="rtl"] .experience .career-row::after,
+[dir="rtl"] .about>.shell::after{letter-spacing:0}
+[dir="rtl"] .about .about-copy{padding:36px 28px 0 0!important;border-left:0!important;border-right:1px solid #e5e5e7!important}
+[dir="rtl"] .about .about-lead::before{left:auto;right:0;content:"01 / الخلفية";letter-spacing:0}
+[dir="rtl"] .about .about-copy::before{left:auto;right:28px;content:"02 / طريقة العمل";letter-spacing:0}
+[dir="rtl"] .about>.shell::after{content:"حملات   ·   تواصل بصري للمنتجات   ·   سوشيال وتصميم رقمي   ·   القاهرة / عن بُعد"}
+[dir="rtl"] .experience .career-row:nth-child(1)::after{content:"حملات  ·  سوشيال  ·  عروض تقديمية"}
+[dir="rtl"] .experience .career-row:nth-child(2)::after{content:"منتجات  ·  كتالوجات  ·  B2B"}
+[dir="rtl"] .experience .career-row:nth-child(3)::after{content:"سوشيال  ·  محتوى منتج  ·  فريلانس"}
+[dir="rtl"] .experience .career-row:nth-child(4)::after{content:"هوية  ·  تصميم ترويجي"}
+[dir="rtl"] .experience .career-row:nth-child(5)::after{content:"ميديا  ·  فيديو  ·  تحريري"}
+
+/* Mobile */
+@media (max-width:980px){
+  .experience{margin-top:42px!important;padding:60px 0!important}
+  .experience>.shell{width:min(100% - 32px,720px)!important}
+  .experience .compact-head{grid-template-columns:1fr!important;margin-bottom:28px!important}
+  .experience .compact-head h2{grid-column:1!important;grid-row:1!important;font-size:clamp(3.4rem,15vw,5.7rem)!important}
+  .experience .compact-head .section-no{grid-column:1!important;grid-row:2!important;text-align:left!important;padding:0!important}
+  [dir="rtl"] .experience .compact-head .section-no{text-align:right!important}
+  .experience .career-list{display:grid!important;grid-template-columns:1fr!important;gap:12px!important}
+  .experience .career-row,.experience .career-row:nth-child(n){grid-column:1!important;min-height:0!important;padding:22px!important;border-radius:22px!important}
+  .experience .career-row>div:nth-child(2){margin-top:34px!important}
+  .experience .career-desc{font-size:.82rem!important}
+  .experience .skills-card{grid-template-columns:1fr!important;margin-top:38px!important}
+  .experience .skill-label,.experience .tools,.experience .skill-row{grid-column:1!important}
+  .experience .skill-row{border-bottom:1px solid #252527!important;padding:16px 0!important}
+  .experience .skill-row:last-of-type{border-bottom:0!important}
+
+  .about{padding:58px 0!important}
+  .about>.shell{width:min(100% - 32px,720px)!important;padding:28px 22px 30px!important;border-radius:26px!important}
+  .about .compact-head{display:block!important;margin-bottom:38px!important}
+  .about .compact-head h2{font-size:clamp(3.2rem,14vw,5.3rem)!important;max-width:8ch!important}
+  .about .compact-head .section-no{margin-top:14px!important;padding:0!important}
+  .about .about-grid{grid-template-columns:1fr!important;gap:40px!important}
+  .about .about-lead{font-size:clamp(2rem,9.4vw,3.7rem)!important;max-width:18ch!important}
+  .about .about-copy{padding:34px 0 0!important;border-left:0!important;border-right:0!important;border-top:1px solid #e5e5e7!important;font-size:.93rem!important}
+  .about .about-copy::before{left:0!important;right:auto!important;top:12px!important}
+  [dir="rtl"] .about .about-copy::before{left:auto!important;right:0!important}
+  .about>.shell::after{margin-top:44px;font-size:.43rem}
+}
+
+@media (prefers-reduced-motion:reduce){.experience .career-row{transition:none!important}}
