@@ -55,7 +55,7 @@
 
   const socialLabFiles=['s16.png','s15.png','s3.png','s4.png','s5.png','Artboard 1.png','Artboard 2 2.png','social-lab.png'];
   const briefStudioFiles=['s6.png','s7.png','s8.png','b3.png'];
-  const healthcareBeautyFiles=['s21.png','s20.png','s19.png','s17.png','s22.jpg','s14.png','أسعار Full Body.png','أسعار ليزر المناطق.png','أسعار الهيدرافيشيال.png','tab-beauty.png'];
+  const healthcareBeautyFiles=['s21.png','s20.png','s19.png','s17.png','s22.jpg','s14.png','s2.png','أسعار Full Body.png','أسعار ليزر المناطق.png','أسعار الهيدرافيشيال.png','tab-beauty.png'];
   const communityFiles=['Artboard 2.png','Artboard 3.png','Artboard 4.png','Artboard 5.png','Artboard 6.png'];
   const perfumeFiles=['العرض.png','01.png'];
   const technologySingles=['s1.png','b4.png'];
@@ -82,8 +82,8 @@
   if(healthcare){
     healthcare.title='Healthcare & Beauty';healthcare.titleAr='العيادات والتجميل';
     healthcare.eyebrow='Clinics / Beauty / Social';healthcare.eyebrowAr='عيادات / تجميل / سوشيال';
-    healthcare.story='Selected clinic, medical and beauty social design grouped together as one category of work.';
-    healthcare.storyAr='مجموعة مختارة من تصميمات العيادات والمجال الطبي والتجميل مجمعة معًا كفئة واحدة من الأعمال.';
+    healthcare.story='Selected clinic, medical, spa and beauty social design grouped together as one category of work.';
+    healthcare.storyAr='مجموعة مختارة من تصميمات العيادات والمجال الطبي والسبا والتجميل مجمعة معًا كفئة واحدة من الأعمال.';
     healthcare.scope='Healthcare social · Beauty content · Promotional design';
     healthcare.scopeAr='سوشيال للعيادات · محتوى تجميل · تصميمات ترويجية';
     healthcare.files=healthcareBeautyFiles;
@@ -122,25 +122,24 @@
     if(document.querySelector(`link[data-${key}]`))return;
     const link=document.createElement('link');link.rel='stylesheet';link.href=href;link.setAttribute(`data-${key}`,'true');document.head.appendChild(link);
   };
-  loadCss('recruiter-projects-v3.css?v=20260819-0445','recruiter-projects-v3');
-  loadCss('recruiter-categories.css?v=20260819-0445','recruiter-categories');
+  loadCss('recruiter-projects-v3.css?v=20260819-0545','recruiter-projects-v3');
+  loadCss('recruiter-categories.css?v=20260819-0545','recruiter-categories');
 
-  // New work leads, followed by the strongest recruiter-facing categories.
-  const topIds=['briefagency','sociallab','editorial','briefstudio','realestate','orient'];
+  // Selected projects are the recruiter-facing lead work. Everything else moves to the compact archive.
+  const topIds=['briefagency','sociallab','editorial','briefstudio','realestate','healthcare','alluriv','communitycampaign','orient'];
   const topProjects=topIds.map(byId).filter(Boolean);
 
   const categoryDefs=[
     {id:'technology',en:'Technology & Digital Solutions',ar:'التكنولوجيا والحلول الرقمية',ids:['lenstech','classtech','ecommerce']},
-    {id:'campaigns',en:'Campaigns & Social',ar:'الحملات والسوشيال',ids:['communitycampaign','event','social','campaignbanners']},
-    {id:'healthcare',en:'Healthcare & Beauty',ar:'العيادات والتجميل',ids:['healthcare']},
+    {id:'campaigns',en:'Campaigns & Social',ar:'الحملات والسوشيال',ids:['event','social','campaignbanners']},
     {id:'image',en:'AI & Image-making',ar:'الذكاء الاصطناعي وصناعة الصورة',ids:['natural','aiarchive']},
-    {id:'product',en:'Product & Brand',ar:'المنتجات والهوية',ids:['alluriv','huggies','brandapps','covers']}
+    {id:'product',en:'Product & Brand',ar:'المنتجات والهوية',ids:['huggies','brandapps','covers']}
   ];
 
   const C=()=>lang==='ar'?{
-    browseTitle:'أعمال أخرى حسب المجال',browseText:'المشاريع الرئيسية بالأعلى، وباقي الأعمال هنا مجمعة حسب البراند أو المجال بدون خلط غير مؤكد.',view:'عرض المشروع ↗',note:'عن المشروع',projects:'مشاريع'
+    browseTitle:'أعمال أخرى حسب المجال',browseText:'باقي الأعمال متاحة في الأرشيف المضغوط بالأسفل.',view:'عرض المشروع ↗',note:'عن المشروع',projects:'مشاريع'
   }:{
-    browseTitle:'More work by field',browseText:'The main projects are above. The rest is grouped by verified brand or field without forcing unrelated work together.',view:'View project ↗',note:'Project note',projects:'projects'
+    browseTitle:'More work by field',browseText:'The remaining work is available in the compact archive below.',view:'View project ↗',note:'Project note',projects:'projects'
   };
 
   const isDirect=f=>/\.(svg|webp)$/i.test(f);
