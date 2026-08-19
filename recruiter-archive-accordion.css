@@ -1,3 +1,5 @@
+@import url('recruiter-affordance.css?v=20260819-0550');
+
 /* Compact Apple-inspired archive. Desktop = split preview, mobile = inline preview. */
 .archive-replaced-fields{display:none!important}
 .archive-mobile-preview{display:none}
@@ -31,7 +33,6 @@
   .archive-accordion-preview{min-width:0;display:grid;align-items:center;justify-items:center}
   .archive-preview-stage{position:relative;width:100%;height:clamp(390px,37vw,560px);border-radius:clamp(24px,2vw,34px);overflow:hidden;display:grid;place-items:center;isolation:isolate;background:#dddde2;cursor:pointer}
   .archive-preview-stage::before{content:"";position:absolute;inset:-6%;background-image:var(--archive-preview-bg);background-size:cover;background-position:center;filter:blur(24px) saturate(.88);transform:scale(1.08);opacity:.48;z-index:0}
-  .archive-preview-stage::after{content:"";position:absolute;inset:0;background:rgba(245,245,247,.08);z-index:1;pointer-events:none}
   .archive-preview-stage img{position:relative;z-index:2;display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transform:none}
   .archive-preview-meta{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:16px}
   .archive-preview-meta div{min-width:0}
@@ -68,7 +69,8 @@
 
   .archive-accordion-preview{display:none}
   .archive-mobile-preview{display:block;padding:0 0 18px}
-  .archive-mobile-image{display:block;width:100%;padding:0;border:0;background:#fff;border-radius:18px;overflow:hidden;text-align:inherit}
+  .archive-mobile-image{display:block;position:relative;width:100%;padding:0;border:0;background:#fff;border-radius:18px;overflow:hidden;text-align:inherit;cursor:pointer}
+  .archive-mobile-image::after{content:"";position:absolute;right:14px;bottom:14px;width:27px;height:21px;border:2px solid rgba(255,255,255,.98);border-radius:6px;background:rgba(20,20,22,.16);box-shadow:-4px -4px 0 -2px rgba(255,255,255,.95),-8px -8px 0 -4px rgba(255,255,255,.8),0 3px 11px rgba(0,0,0,.16);pointer-events:none}
   .archive-mobile-image img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;transform:none}
   .archive-mobile-meta{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:10px}
   .archive-mobile-meta span{min-width:0;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:.53rem;line-height:1.4;text-transform:uppercase;letter-spacing:.035em}
