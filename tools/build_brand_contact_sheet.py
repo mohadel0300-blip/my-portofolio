@@ -4,7 +4,7 @@ from PIL import Image, ImageOps, ImageDraw, ImageFont
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'brand-audit-contact-sheet.pdf'
 
-# Focus on files that are most likely to contain social/campaign/brand groupings.
+# Visual audit source: inspect brand/logo/content relationships, never group by colour alone.
 files=[]
 for pattern in ['s*.*','b*.*','Artboard*.png','*.jpg','*.JPG']:
     for p in sorted(ROOT.glob(pattern), key=lambda x:x.name.lower()):
@@ -41,7 +41,6 @@ for start in range(0,len(files),cols*rows):
             page.paste(frame,(x,y))
         except Exception:
             draw.rectangle((x,y,x+cell_w,y+box_h),outline='red',width=3)
-        # ASCII-safe label keeps filenames readable in the generated PDF.
         label=p.name.encode('ascii','backslashreplace').decode('ascii')
         draw.text((x+4,y+box_h+12),f'{start+i+1:02d}  {label}',fill='black',font=font)
     pages.append(page)
