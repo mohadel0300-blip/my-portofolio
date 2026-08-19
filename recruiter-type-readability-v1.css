@@ -1,0 +1,102 @@
+/* Readability guardrail: keep secondary text genuinely readable and give Arabic its own vertical rhythm. */
+
+/* Small metadata should never collapse into 7px microcopy. */
+.section-no,
+.eyebrow,
+.selected-shape-rail .impact-type,
+.selected-shape-rail .impact-count,
+.recruiter-featured>.impact-project .impact-type,
+.recruiter-featured>.impact-project .impact-count,
+.category-project-copy p,
+.work-category-head>span,
+.archive-accordion-count,
+.archive-preview-meta p,
+.archive-mobile-meta span,
+.experience .career-time,
+.experience .career-row::after,
+.experience .skill-label,
+.project-view-kicker,
+.project-view-note span{
+  font-size:max(.56rem,9px)!important;
+}
+
+/* Slightly more generous body-small text where it carries actual meaning. */
+.experience .career-role{font-size:.8rem!important}
+.experience .career-desc{font-size:.84rem!important}
+.experience .skill-row p{font-size:.76rem!important}
+.experience .tools{font-size:.68rem!important}
+.archive-accordion-detail p{font-size:.76rem!important}
+.archive-accordion-head p{font-size:.8rem!important}
+
+@media (max-width:980px){
+  .section-no,
+  .eyebrow,
+  .recruiter-featured>.impact-project .impact-type,
+  .recruiter-featured>.impact-project .impact-count,
+  .category-project-copy p,
+  .work-category-head>span,
+  .archive-accordion-count,
+  .archive-mobile-meta span,
+  .experience .career-time,
+  .experience .career-row::after,
+  .experience .skill-label,
+  .project-view-kicker,
+  .project-view-note span{
+    font-size:max(.6rem,10px)!important;
+  }
+}
+
+/* Arabic needs more vertical breathing room than the Latin settings above.
+   Do not alter English line-height. */
+[dir="rtl"] .selected-shape-rail .impact-info h3,
+[dir="rtl"] .recruiter-featured>.impact-project .impact-info h3,
+[dir="rtl"] .category-project-copy h4,
+[dir="rtl"] .archive-accordion-trigger strong,
+[dir="rtl"] .archive-preview-meta h4,
+[dir="rtl"] .experience .career-company{
+  line-height:1.28!important;
+  letter-spacing:0!important;
+}
+
+[dir="rtl"] .experience .compact-head h2,
+[dir="rtl"] .archive-accordion-head h3{
+  line-height:1.12!important;
+  letter-spacing:0!important;
+}
+
+[dir="rtl"] .selected-shape-rail .impact-type,
+[dir="rtl"] .selected-shape-rail .impact-count,
+[dir="rtl"] .recruiter-featured>.impact-project .impact-type,
+[dir="rtl"] .recruiter-featured>.impact-project .impact-count,
+[dir="rtl"] .category-project-copy p,
+[dir="rtl"] .archive-accordion-count,
+[dir="rtl"] .archive-preview-meta p,
+[dir="rtl"] .archive-mobile-meta span,
+[dir="rtl"] .experience .career-time,
+[dir="rtl"] .experience .career-row::after,
+[dir="rtl"] .experience .skill-label,
+[dir="rtl"] .project-view-kicker,
+[dir="rtl"] .project-view-note span{
+  line-height:1.65!important;
+  letter-spacing:0!important;
+}
+
+[dir="rtl"] .experience .career-role,
+[dir="rtl"] .experience .career-desc,
+[dir="rtl"] .experience .skill-row p,
+[dir="rtl"] .experience .tools,
+[dir="rtl"] .archive-accordion-head p,
+[dir="rtl"] .archive-accordion-detail p,
+[dir="rtl"] .project-view-note p{
+  line-height:1.8!important;
+}
+
+/* Keep Arabic card titles from feeling vertically compressed on mobile. */
+@media (max-width:980px){
+  [dir="rtl"] .recruiter-featured>.impact-project .impact-info h3,
+  [dir="rtl"] .category-project-copy h4,
+  [dir="rtl"] .archive-accordion-trigger strong,
+  [dir="rtl"] .experience .career-company{
+    line-height:1.34!important;
+  }
+}
