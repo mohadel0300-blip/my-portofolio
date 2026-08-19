@@ -1,0 +1,140 @@
+/* Hero refinement — desktop only. The hero reads as three deliberate zones: identity, name, recruiter summary. */
+@media (min-width:981px){
+  .hero{
+    min-height:0!important;
+    grid-template-columns:minmax(0,1.06fr) minmax(360px,.94fr)!important;
+    gap:14px!important;
+    padding:18px 0 clamp(46px,5vw,72px)!important;
+    align-items:stretch!important;
+  }
+
+  .hero-copy,
+  .hero-photo{
+    height:clamp(680px,calc(100svh - 108px),860px)!important;
+    min-height:0!important;
+    border-radius:clamp(28px,2.25vw,36px)!important;
+  }
+
+  .hero-copy{
+    display:block!important;
+    padding:0!important;
+  }
+
+  .hero-inner{
+    width:100%!important;
+    height:100%!important;
+    display:grid!important;
+    grid-template-rows:auto minmax(0,1fr) auto!important;
+    padding:clamp(38px,4.6vw,72px)!important;
+  }
+
+  .hero .eyebrow{
+    align-self:start!important;
+    gap:12px!important;
+    font-size:.48rem!important;
+    line-height:1.35!important;
+    letter-spacing:.065em!important;
+  }
+  .hero .eyebrow i{width:24px!important;opacity:.72}
+
+  .hero h1{
+    align-self:center!important;
+    margin:0!important;
+    width:100%!important;
+    font-size:clamp(5.2rem,7.25vw,8.65rem)!important;
+    line-height:.79!important;
+    letter-spacing:-.078em!important;
+    font-weight:600!important;
+  }
+  .hero h1 span{display:block!important}
+  .hero h1 span:last-child{
+    margin-left:clamp(42px,6.6vw,108px)!important;
+  }
+
+  .hero-message{
+    align-self:end!important;
+    display:grid!important;
+    grid-template-columns:minmax(190px,.78fr) minmax(250px,1fr)!important;
+    gap:clamp(26px,3vw,48px)!important;
+    align-items:start!important;
+    border-top:1px solid rgba(29,29,31,.16)!important;
+    padding-top:18px!important;
+  }
+
+  .hero-lead{
+    max-width:25ch!important;
+    font-size:clamp(1.08rem,1.38vw,1.48rem)!important;
+    line-height:1.18!important;
+    letter-spacing:-.025em!important;
+    font-weight:560!important;
+  }
+  .hero-message p{
+    max-width:43ch!important;
+    margin:0!important;
+    color:var(--muted)!important;
+    font-size:clamp(.78rem,.78vw,.88rem)!important;
+    line-height:1.62!important;
+  }
+  .hero-actions{
+    display:flex!important;
+    align-items:center!important;
+    gap:14px!important;
+    margin-top:16px!important;
+  }
+  .hero-action.primary{
+    display:inline-flex!important;
+    align-items:center!important;
+    min-height:32px!important;
+    font-size:.74rem!important;
+    font-weight:600!important;
+    border-bottom:1px solid rgba(0,113,227,.28);
+  }
+
+  .hero-photo{
+    background:#e9e9eb!important;
+  }
+  .hero-photo img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center 13%!important;
+    transform:none!important;
+  }
+
+  [dir="rtl"] .hero h1{
+    letter-spacing:-.025em!important;
+    line-height:.9!important;
+  }
+  [dir="rtl"] .hero h1 span:last-child{
+    margin-left:0!important;
+    margin-right:clamp(42px,6.6vw,108px)!important;
+  }
+  [dir="rtl"] .hero-message{text-align:right}
+  [dir="rtl"] .hero .eyebrow{letter-spacing:0!important}
+}
+
+@media (min-width:981px) and (max-width:1199px){
+  .hero{
+    grid-template-columns:minmax(0,1.08fr) minmax(330px,.92fr)!important;
+  }
+  .hero-copy,
+  .hero-photo{
+    height:clamp(640px,calc(100svh - 92px),760px)!important;
+  }
+  .hero-inner{padding:36px!important}
+  .hero h1{
+    font-size:clamp(4.8rem,7.7vw,6.3rem)!important;
+  }
+  .hero h1 span:last-child{margin-left:clamp(34px,5vw,62px)!important}
+  [dir="rtl"] .hero h1 span:last-child{margin-left:0!important;margin-right:clamp(34px,5vw,62px)!important}
+  .hero-message{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+  }
+  .hero-lead{max-width:32ch!important}
+  .hero-message p{max-width:54ch!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hero *{scroll-behavior:auto!important}
+}
