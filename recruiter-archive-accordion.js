@@ -18,7 +18,24 @@
   }
   if(eventProject) eventProject.files=[];
 
-  if(typeof window.renderProjects==='function') window.renderProjects();
+  const fullPreviewSrc=file=>/\.(svg|webp)$/i.test(file)?file:`web/full/${file}.webp`;
+  const upgradeSelectedCovers=()=>{
+    document.querySelectorAll('.recruiter-featured > .impact-project img[data-original]').forEach((img,i)=>{
+      const file=img.dataset.original;
+      if(!file)return;
+      const src=fullPreviewSrc(file);
+      if(img.getAttribute('src')!==src)img.src=src;
+      img.removeAttribute('srcset');
+      img.loading=i<4?'eager':'lazy';
+      if(i<2)img.setAttribute('fetchpriority','high');
+      else img.removeAttribute('fetchpriority');
+    });
+  };
+
+  if(typeof window.renderProjects==='function'){
+    window.renderProjects();
+    upgradeSelectedCovers();
+  }
 
   const byId=id=>projects.find(p=>p.id===id);
   const t=(p,key)=>pText(p,key);
@@ -31,7 +48,7 @@
     intro:'The rest of the work lives in one compact space. Open only the project you want to inspect.',
     open:'View project ↗'
   };
-  const previewSrc=file=>/\.(svg|webp)$/i.test(file)?file:`web/full/${file}.webp`;
+  const previewSrc=fullPreviewSrc;
   const preferred=['lenstech','classtech','ecommerce','natural','aiarchive','huggies','social','campaignbanners','brandapps','covers'];
   let lastMode='';
 
@@ -153,7 +170,7 @@
     let queued=false;
     const observer=new MutationObserver(()=>{
       if(queued)return;queued=true;
-      requestAnimationFrame(()=>{queued=false;build();});
+      requestAnimationFrame(()=>{queued=false;upgradeSelectedCovers();build();});
     });
     observer.observe(projectsRoot,{childList:true,subtree:true});
   }
@@ -161,6 +178,7 @@
     const mode=window.matchMedia('(max-width:980px)').matches?'mobile':'desktop';
     if(mode!==lastMode)build();
   },{passive:true});
-  window.addEventListener('load',build,{once:true});
+  window.addEventListener('load',()=>{upgradeSelectedCovers();build();},{once:true});
+  upgradeSelectedCovers();
   build();
 })();
