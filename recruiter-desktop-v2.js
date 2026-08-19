@@ -1,6 +1,5 @@
 (() => {
   const isDesktop=()=>window.matchMedia('(min-width:981px)').matches;
-  const SHAPES=['square','portrait','landscape','tall'];
   let buildToken=0;
 
   const imageRatio=img=>new Promise(resolve=>{
@@ -20,11 +19,20 @@
     return 'landscape';
   };
 
-  const projectById=id=>window.projects?.find?.(p=>p.id===id)||null;
+  const originalFor=card=>{
+    const id=card.dataset.id;
+    if(!id)return null;
+    if(card.classList.contains('impact-project'))return document.querySelector(`.recruiter-featured > .impact-project[data-id="${CSS.escape(id)}"]`);
+    const section=card.closest('.work-category');
+    return section?.querySelector(`:scope > .work-category-grid > .category-project[data-id="${CSS.escape(id)}"]`)||null;
+  };
+
   const bindClone=card=>{
-    const p=projectById(card.dataset.id);
-    if(!p||typeof window.openProject!=='function')return;
-    const open=()=>window.openProject(p);
+    const open=()=>{
+      const original=originalFor(card);
+      const target=original?.querySelector('[role="button"]')||original?.querySelector('button');
+      target?.click();
+    };
     const visual=card.querySelector('[role="button"]');
     const button=card.querySelector('button');
     visual?.addEventListener('click',open);
@@ -61,7 +69,6 @@
     next.addEventListener('click',()=>move(1));
     rail.addEventListener('scroll',update,{passive:true});
     requestAnimationFrame(update);
-    return update;
   };
 
   const groupCards=async cards=>{
