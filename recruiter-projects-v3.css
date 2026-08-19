@@ -48,6 +48,21 @@
 .project-view-note span{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-size:.47rem}
 .project-view-note p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.65}
 
+/* Experience becomes a deliberate dark chapter rather than another floating white card. */
+.experience{background:#0b0b0c;color:#f5f5f7;padding:clamp(72px,8vw,126px) 0;margin-top:clamp(58px,7vw,104px)}
+.experience>.shell{background:transparent;border-radius:0;padding:0}
+.experience .compact-head{border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:clamp(28px,3vw,42px);margin-bottom:10px}
+.experience .compact-head h2{color:#f5f5f7}
+.experience .section-no,.experience .career-role,.experience .career-desc,.experience .skill-label,.experience .skill-row p,.experience .tools{color:#a1a1a6}
+.experience .career-time{color:#2997ff}
+.experience .career-row{border-color:rgba(255,255,255,.14);padding:24px 0}
+.experience .career-company,.experience .skill-row strong{color:#f5f5f7}
+.experience .career-company{font-size:1.02rem}
+.experience .skills-card{align-self:start;background:#171719;border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:10px 24px 22px}
+.experience .skills-card,.experience .skill-row,.experience .tools{border-color:rgba(255,255,255,.12)}
+.experience .skill-row{padding:20px 0}
+.experience .tools{padding-top:20px}
+
 [dir="rtl"] .impact-info,[dir="rtl"] .more-project-info,[dir="rtl"] .recruiter-archive-row button{text-align:right;direction:rtl}
 [dir="rtl"] .impact-no,[dir="rtl"] .impact-type,[dir="rtl"] .impact-count,[dir="rtl"] .more-project-info p,[dir="rtl"] .recruiter-archive-no,[dir="rtl"] .recruiter-archive-meta,[dir="rtl"] .project-view-note span{font-family:'IBM Plex Sans Arabic',sans-serif;text-transform:none;letter-spacing:0}
 [dir="rtl"] .impact-info h3,[dir="rtl"] .more-project-info h4{letter-spacing:-.025em}
@@ -78,6 +93,12 @@
   [dir="rtl"] .project-view h2{font-size:2.2rem;line-height:1.15}
   .project-view-gallery{grid-template-columns:1fr;gap:10px}.project-view-figure,.project-view-figure:nth-child(4n+1){grid-column:auto;border-radius:18px;padding:7px}
   .project-view-note{margin-top:34px;padding:14px 3px 0;display:block}.project-view-note span{display:block;margin-bottom:8px}.project-view-note p{font-size:.78rem;line-height:1.65}
+
+  .experience{margin-top:62px;padding:62px 0 72px}
+  .experience>.shell{width:calc(100% - 32px)}
+  .experience .compact-head{padding-bottom:24px;margin-bottom:0}
+  .experience .career-row{padding:20px 0}
+  .experience .skills-card{margin-top:18px;border-radius:22px;padding:8px 18px 20px}
 }
 
 @media(max-width:380px){.impact-visual{border-radius:19px}.impact-info h3{font-size:1.75rem}.more-project-visual{border-radius:18px}}
