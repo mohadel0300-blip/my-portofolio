@@ -1,6 +1,16 @@
 (() => {
   const isDesktop=()=>window.matchMedia('(min-width:981px)').matches;
+  const archiveIds=new Set(['social','campaignbanners','brandapps','covers']);
   let buildToken=0;
+
+  const ensureArchiveAssets=()=>{
+    if(!document.querySelector('link[data-archive-accordion]')){
+      const link=document.createElement('link');link.rel='stylesheet';link.href='recruiter-archive-accordion.css?v=20260819-0532';link.dataset.archiveAccordion='true';document.head.appendChild(link);
+    }
+    if(!document.querySelector('script[data-archive-accordion]')){
+      const script=document.createElement('script');script.src='recruiter-archive-accordion.js?v=20260819-0532';script.defer=true;script.dataset.archiveAccordion='true';document.body.appendChild(script);
+    }
+  };
 
   const imageRatio=img=>new Promise(resolve=>{
     if(!img){resolve(1);return;}
@@ -105,8 +115,9 @@
     section.querySelector(':scope > .category-shape-groups')?.remove();
     const source=section.querySelector(':scope > .work-category-grid');
     if(!source)return;
-    const originals=[...source.querySelectorAll(':scope > .category-project')];
-    if(!originals.length)return;
+    const originals=[...source.querySelectorAll(':scope > .category-project')].filter(card=>!archiveIds.has(card.dataset.id));
+    if(!originals.length){section.classList.add('archive-emptied');return;}
+    section.classList.remove('archive-emptied');
     const {groups,order}=await groupCards(originals);
     if(token!==buildToken||!isDesktop())return;
     const host=document.createElement('div');host.className='category-shape-groups';
@@ -121,6 +132,7 @@
 
   const build=async()=>{
     if(!isDesktop())return;
+    ensureArchiveAssets();
     const token=++buildToken;
     await buildSelected(token);
     if(token!==buildToken)return;
@@ -144,5 +156,6 @@
 
   window.addEventListener('resize',schedule,{passive:true});
   window.addEventListener('load',schedule,{once:true});
+  ensureArchiveAssets();
   schedule();
 })();
