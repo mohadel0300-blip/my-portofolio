@@ -1,0 +1,137 @@
+/* Legibility pass: readable microcopy + Arabic-specific rhythm. English spacing stays unchanged. */
+
+/* Never let recruiter-facing metadata fall into unreadable 7–8px territory. */
+.section-no,
+.eyebrow,
+.impact-type,
+.impact-count,
+.work-category-head>span,
+.category-project-copy p,
+.archive-accordion-count,
+.archive-preview-meta p,
+.archive-mobile-meta span,
+.project-view-kicker,
+.project-view-note span,
+.experience .career-time,
+.experience .career-row::after,
+.experience .skill-label{
+  font-size:max(.6rem,10px)!important;
+}
+
+.selected-shape-rail .impact-type,
+.selected-shape-rail .impact-count{
+  font-size:max(.62rem,10.5px)!important;
+  line-height:1.45!important;
+}
+
+.experience .career-time{
+  font-size:max(.6rem,10px)!important;
+}
+.experience .career-row::after{
+  font-size:max(.56rem,9.5px)!important;
+  line-height:1.55!important;
+}
+.experience .skill-label{
+  font-size:max(.58rem,10px)!important;
+}
+.experience .tools{
+  font-size:max(.7rem,11.5px)!important;
+  line-height:1.6!important;
+}
+.experience .skill-row p{
+  font-size:max(.76rem,12px)!important;
+}
+
+.archive-accordion-count,
+.archive-preview-meta p,
+.archive-mobile-meta span{
+  font-size:max(.58rem,10px)!important;
+  line-height:1.5!important;
+}
+
+.category-project-copy p,
+.work-category-head>span{
+  font-size:max(.58rem,10px)!important;
+  line-height:1.5!important;
+}
+
+.project-view-kicker,
+.project-view-note span{
+  font-size:max(.6rem,10px)!important;
+}
+
+.footer{
+  font-size:max(.58rem,10px)!important;
+}
+
+/* Arabic needs more vertical breathing room and no Latin-style negative tracking. */
+[dir="rtl"] .hero h1,
+[dir="rtl"] .section-head h2,
+[dir="rtl"] .compact-head h2,
+[dir="rtl"] .about-lead,
+[dir="rtl"] .contact h2,
+[dir="rtl"] .project-view h2{
+  letter-spacing:0!important;
+}
+
+[dir="rtl"] .hero h1{line-height:1.08!important}
+[dir="rtl"] .section-head h2,
+[dir="rtl"] .compact-head h2{line-height:1.15!important}
+[dir="rtl"] .about-lead{line-height:1.35!important}
+[dir="rtl"] .contact h2{line-height:1.12!important}
+[dir="rtl"] .project-view h2{line-height:1.18!important}
+
+[dir="rtl"] .selected-shape-rail .impact-info h3,
+[dir="rtl"] .recruiter-featured>.impact-project .impact-info h3,
+[dir="rtl"] .category-project-copy h4,
+[dir="rtl"] .archive-preview-meta h4,
+[dir="rtl"] .archive-accordion-trigger strong,
+[dir="rtl"] .career-company{
+  letter-spacing:0!important;
+  line-height:1.28!important;
+}
+
+[dir="rtl"] .selected-shape-rail .impact-type,
+[dir="rtl"] .selected-shape-rail .impact-count,
+[dir="rtl"] .recruiter-featured>.impact-project .impact-type,
+[dir="rtl"] .recruiter-featured>.impact-project .impact-count,
+[dir="rtl"] .category-project-copy p,
+[dir="rtl"] .archive-accordion-count,
+[dir="rtl"] .archive-preview-meta p,
+[dir="rtl"] .archive-mobile-meta span,
+[dir="rtl"] .section-no,
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .experience .career-time,
+[dir="rtl"] .experience .career-row::after,
+[dir="rtl"] .experience .skill-label{
+  letter-spacing:0!important;
+  line-height:1.65!important;
+}
+
+[dir="rtl"] .hero-message p,
+[dir="rtl"] .section-intro,
+[dir="rtl"] .career-role,
+[dir="rtl"] .career-desc,
+[dir="rtl"] .experience .skill-row p,
+[dir="rtl"] .about-copy,
+[dir="rtl"] .contact p,
+[dir="rtl"] .project-view-note p,
+[dir="rtl"] .archive-accordion-detail p{
+  line-height:1.85!important;
+}
+
+@media (max-width:980px){
+  .section-no,
+  .eyebrow,
+  .recruiter-featured>.impact-project .impact-type,
+  .recruiter-featured>.impact-project .impact-count,
+  .archive-accordion-count,
+  .archive-mobile-meta span,
+  .project-view-kicker,
+  .project-view-note span{
+    font-size:max(.64rem,10.5px)!important;
+  }
+  [dir="rtl"] .recruiter-featured>.impact-project .impact-info h3{line-height:1.3!important}
+  [dir="rtl"] .section-head h2,
+  [dir="rtl"] .compact-head h2{line-height:1.18!important}
+}
