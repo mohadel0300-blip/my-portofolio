@@ -1,0 +1,145 @@
+/* Project caption system — desktop only. Keeps artwork untouched and gives all cards one consistent information hierarchy. */
+@media (min-width:981px){
+  /* Selected projects */
+  .selected-shape-rail .impact-info{
+    position:relative;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 42px!important;
+    grid-template-rows:auto 42px!important;
+    grid-template-areas:"title count" "title open"!important;
+    column-gap:16px!important;
+    row-gap:8px!important;
+    align-items:start!important;
+    padding:15px 2px 0!important;
+    margin-top:12px!important;
+    min-height:118px!important;
+    border-top:1px solid rgba(29,29,31,.14);
+  }
+  .selected-shape-rail .impact-info>div{
+    grid-area:title!important;
+    min-width:0;
+    align-self:start;
+  }
+  .selected-shape-rail .impact-info h3{
+    margin:0!important;
+    max-width:18ch;
+    font-size:clamp(1.38rem,1.58vw,1.9rem)!important;
+    line-height:1.04!important;
+    font-weight:610!important;
+    letter-spacing:-.04em!important;
+  }
+  .selected-shape-rail .impact-type{
+    margin:8px 0 0!important;
+    color:var(--muted)!important;
+    font-size:.45rem!important;
+    line-height:1.45!important;
+    letter-spacing:.055em!important;
+  }
+  .selected-shape-rail .impact-count{
+    grid-area:count!important;
+    justify-self:center!important;
+    align-self:end!important;
+    padding:0!important;
+    color:var(--muted)!important;
+    font-size:.43rem!important;
+    line-height:1!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+  }
+  .selected-shape-rail .impact-open{
+    grid-area:open!important;
+    justify-self:center!important;
+    align-self:start!important;
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:50%!important;
+    background:#e8e8ed!important;
+    color:var(--blue)!important;
+    display:grid!important;
+    place-items:center!important;
+    font-size:0!important;
+    line-height:1!important;
+    transition:background .18s ease,transform .18s ease!important;
+  }
+  .selected-shape-rail .impact-open::after{
+    content:"↗";
+    font-size:1rem;
+    font-weight:500;
+    transform:translate(-1px,1px);
+  }
+  @media (hover:hover){
+    .selected-shape-rail .impact-project:hover .impact-open{background:#dcdce1!important;transform:none!important}
+    .selected-shape-rail .impact-open:hover{background:#d2d2d7!important;transform:translateY(-1px)!important}
+  }
+  .selected-shape-rail .impact-open:active{transform:scale(.94)!important}
+
+  /* Smaller field cards use the same visual grammar. */
+  .category-shape-rail .category-project-copy{
+    position:relative;
+    min-height:98px!important;
+    margin-top:11px!important;
+    padding:13px 2px 0!important;
+    border-top:1px solid rgba(29,29,31,.13);
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 36px!important;
+    grid-template-rows:auto auto!important;
+    column-gap:12px!important;
+    row-gap:5px!important;
+    align-items:start!important;
+  }
+  .category-shape-rail .category-project-copy h4{
+    grid-column:1!important;
+    grid-row:1!important;
+    margin:0!important;
+    max-width:18ch;
+    font-size:clamp(1.05rem,1.2vw,1.35rem)!important;
+    line-height:1.05!important;
+    font-weight:600!important;
+    letter-spacing:-.032em!important;
+  }
+  .category-shape-rail .category-project-copy p{
+    grid-column:1!important;
+    grid-row:2!important;
+    margin:2px 0 0!important;
+    color:var(--muted)!important;
+    font-size:.42rem!important;
+    line-height:1.45!important;
+  }
+  .category-shape-rail .category-project-copy button{
+    grid-column:2!important;
+    grid-row:1/3!important;
+    align-self:start!important;
+    justify-self:end!important;
+    width:34px!important;
+    height:34px!important;
+    min-width:34px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:50%!important;
+    background:#e8e8ed!important;
+    color:var(--blue)!important;
+    display:grid!important;
+    place-items:center!important;
+    font-size:0!important;
+    transition:background .18s ease,transform .18s ease!important;
+  }
+  .category-shape-rail .category-project-copy button::after{content:"↗";font-size:.9rem;transform:translate(-1px,1px)}
+  @media (hover:hover){
+    .category-shape-rail .category-project-copy button:hover{background:#d2d2d7!important;transform:translateY(-1px)!important}
+  }
+
+  [dir="rtl"] .selected-shape-rail .impact-info,
+  [dir="rtl"] .category-shape-rail .category-project-copy{direction:rtl;text-align:right}
+  [dir="rtl"] .selected-shape-rail .impact-type,
+  [dir="rtl"] .selected-shape-rail .impact-count,
+  [dir="rtl"] .category-shape-rail .category-project-copy p{letter-spacing:0!important}
+  [dir="rtl"] .selected-shape-rail .impact-open::after,
+  [dir="rtl"] .category-shape-rail .category-project-copy button::after{content:"↖";transform:translate(1px,1px)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .selected-shape-rail .impact-open,.category-shape-rail .category-project-copy button{transition:none!important}
+}
