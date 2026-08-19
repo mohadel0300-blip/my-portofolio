@@ -6,6 +6,7 @@ on:
       - 'tools/optimize_portfolio_images.py'
       - 'tools/audit_brand_colors.py'
       - 'tools/audit_brand_similarity.py'
+      - 'tools/audit_brand_text.py'
       - 'tools/build_visual_audit_thumbs.py'
       - 'tools/build_image_fingerprints.py'
       - '.github/workflows/optimize-portfolio-images.yml'
@@ -24,14 +25,19 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install image tools
-        run: pip install pillow opencv-python-headless
+      - name: Install OCR and image tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-ara
+          pip install pillow opencv-python-headless pytesseract
       - name: Generate web images
         run: python tools/optimize_portfolio_images.py
       - name: Audit brand colors
         run: python tools/audit_brand_colors.py
       - name: Audit brand similarity
         run: python tools/audit_brand_similarity.py
+      - name: Audit visible brand text
+        run: python tools/audit_brand_text.py
       - name: Generate visual audit thumbs
         run: python tools/build_visual_audit_thumbs.py
       - name: Generate image fingerprints
@@ -40,6 +46,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/ brand-color-audit.json brand-similarity-audit.json brand-audit-thumbs/ brand-audit-contact-sheet.pdf image-fingerprints.json
+          git add web/ brand-color-audit.json brand-similarity-audit.json brand-text-audit.json brand-audit-thumbs/ brand-audit-contact-sheet.pdf image-fingerprints.json
           git diff --cached --quiet || git commit -m "Generate web assets and brand audits [skip ci]"
           git push
