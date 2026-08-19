@@ -1,4 +1,25 @@
 (() => {
+  /* Final curation overrides requested after visual review. */
+  const projectById=id=>projects.find(p=>p.id===id);
+  const socialLabProject=projectById('sociallab');
+  const editorialProject=projectById('editorial');
+  const briefStudioProject=projectById('briefstudio');
+  const eventProject=projectById('event');
+
+  if(editorialProject) editorialProject.cover='p1.png';
+  if(socialLabProject) socialLabProject.cover='s15.png';
+  if(briefStudioProject){
+    const eventFiles=['تصوير المناسبات - رأسي.png','تفاصيل اللقاء.png'];
+    briefStudioProject.files=[...new Set([...(briefStudioProject.files||[]),...eventFiles])];
+    briefStudioProject.story='Brief Studio campaign, social and event communication pieces grouped as one visual series.';
+    briefStudioProject.storyAr='تصميمات بريف ستوديو للحملات والسوشيال وتواصل الفعاليات مجمعة كسلسلة بصرية واحدة.';
+    briefStudioProject.scope='Visual direction · Campaign design · Social content · Event communication';
+    briefStudioProject.scopeAr='اتجاه بصري · تصميم حملات · محتوى سوشيال · تواصل الفعاليات';
+  }
+  if(eventProject) eventProject.files=[];
+
+  if(typeof window.renderProjects==='function') window.renderProjects();
+
   const byId=id=>projects.find(p=>p.id===id);
   const t=(p,key)=>pText(p,key);
   const strings=()=>lang==='ar'?{
@@ -11,7 +32,7 @@
     open:'View project ↗'
   };
   const previewSrc=file=>/\.(svg|webp)$/i.test(file)?file:`web/full/${file}.webp`;
-  const preferred=['lenstech','classtech','ecommerce','natural','aiarchive','huggies','event','social','campaignbanners','brandapps','covers'];
+  const preferred=['lenstech','classtech','ecommerce','natural','aiarchive','huggies','social','campaignbanners','brandapps','covers'];
   let lastMode='';
 
   const selectedIds=()=>new Set(
