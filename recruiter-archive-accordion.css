@@ -1,0 +1,46 @@
+/* Compact Apple-inspired archive for ungrouped/secondary work. Desktop only. */
+@media (min-width:981px){
+  .archive-accordion{margin-top:clamp(92px,8vw,138px)}
+  .archive-accordion-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:clamp(28px,3vw,42px)}
+  .archive-accordion-head h3{margin:0;font-size:clamp(2.8rem,4.2vw,5.1rem);line-height:.96;letter-spacing:-.055em;font-weight:620}
+  .archive-accordion-head p{margin:0;max-width:38ch;color:var(--muted);font-size:.75rem;line-height:1.6;text-align:right}
+  [dir="rtl"] .archive-accordion-head p{text-align:left}
+
+  .archive-accordion-shell{background:#ececef;border-radius:clamp(28px,2.4vw,40px);padding:clamp(34px,4vw,62px);display:grid;grid-template-columns:minmax(280px,.38fr) minmax(0,.62fr);gap:clamp(42px,5vw,82px);align-items:center;min-height:clamp(520px,48vw,700px)}
+  .archive-accordion-list{align-self:center}
+  .archive-accordion-item{border-bottom:1px solid rgba(29,29,31,.14)}
+  .archive-accordion-item:first-child{border-top:1px solid rgba(29,29,31,.14)}
+  .archive-accordion-trigger{width:100%;border:0;background:none;padding:21px 0;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:14px;align-items:center;text-align:left;cursor:pointer;color:var(--ink)}
+  [dir="rtl"] .archive-accordion-trigger{text-align:right;direction:rtl}
+  .archive-accordion-trigger strong{font-size:clamp(1.25rem,1.55vw,1.72rem);line-height:1.08;font-weight:590;letter-spacing:-.035em}
+  [dir="rtl"] .archive-accordion-trigger strong{letter-spacing:-.015em}
+  .archive-accordion-count{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.055em;color:var(--muted);font-size:.45rem;white-space:nowrap}
+  [dir="rtl"] .archive-accordion-count{font-family:'IBM Plex Sans Arabic',sans-serif;text-transform:none;letter-spacing:0}
+  .archive-accordion-icon{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:#dedee3;font-size:1.1rem;line-height:1;transition:transform .24s ease,background .2s ease}
+  .archive-accordion-item.is-active .archive-accordion-icon{transform:rotate(45deg);background:#d2d2d7}
+  .archive-accordion-detail{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s cubic-bezier(.2,.7,.2,1)}
+  .archive-accordion-item.is-active .archive-accordion-detail{grid-template-rows:1fr}
+  .archive-accordion-detail-inner{overflow:hidden}
+  .archive-accordion-detail p{margin:0;padding:0 44px 20px 0;color:var(--muted);font-size:.72rem;line-height:1.55;max-width:38ch}
+  [dir="rtl"] .archive-accordion-detail p{padding:0 0 20px 44px}
+
+  .archive-accordion-preview{min-width:0;display:grid;align-items:center;justify-items:center}
+  .archive-preview-stage{position:relative;width:100%;height:clamp(390px,37vw,560px);border-radius:clamp(24px,2vw,34px);overflow:hidden;display:grid;place-items:center;isolation:isolate;background:#dddde2;cursor:pointer}
+  .archive-preview-stage::before{content:"";position:absolute;inset:-6%;background-image:var(--archive-preview-bg);background-size:cover;background-position:center;filter:blur(24px) saturate(.88);transform:scale(1.08);opacity:.48;z-index:0}
+  .archive-preview-stage::after{content:"";position:absolute;inset:0;background:rgba(245,245,247,.08);z-index:1;pointer-events:none}
+  .archive-preview-stage img{position:relative;z-index:2;display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transform:none}
+  .archive-preview-meta{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:16px}
+  .archive-preview-meta div{min-width:0}
+  .archive-preview-meta h4{margin:0 0 5px;font-size:clamp(1.25rem,1.5vw,1.65rem);font-weight:590;letter-spacing:-.035em;line-height:1.05}
+  .archive-preview-meta p{margin:0;color:var(--muted);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;font-size:.44rem;line-height:1.45}
+  [dir="rtl"] .archive-preview-meta{text-align:right;direction:rtl}
+  [dir="rtl"] .archive-preview-meta p{font-family:'IBM Plex Sans Arabic',sans-serif;text-transform:none;letter-spacing:0}
+  .archive-preview-open{border:0;background:none;color:var(--blue);font-size:.72rem;white-space:nowrap;cursor:pointer;padding:8px 0}
+
+  /* The generic archive cards are represented here instead of repeating in the field rails. */
+  .work-category-grid>.category-project[data-id="social"],
+  .work-category-grid>.category-project[data-id="campaignbanners"],
+  .work-category-grid>.category-project[data-id="brandapps"],
+  .work-category-grid>.category-project[data-id="covers"]{display:none!important}
+}
+@media (max-width:980px){.archive-accordion{display:none!important}}
