@@ -2,8 +2,20 @@
 
 @media (min-width:981px){
   .selected-shape-rail{
+    --selected-card-gap:clamp(18px,1.55vw,24px);
     align-items:stretch!important;
+    gap:var(--selected-card-gap)!important;
     padding-bottom:12px!important;
+  }
+
+  /* Recruiter view: three complete cards plus half of the next card. */
+  .selected-shape-rail .impact-project,
+  .selected-shape-rail[data-shape="square"] .impact-project,
+  .selected-shape-rail[data-shape="portrait"] .impact-project,
+  .selected-shape-rail[data-shape="tall"] .impact-project,
+  .selected-shape-rail[data-shape="landscape"] .impact-project{
+    width:calc((100% - (3 * var(--selected-card-gap))) / 3.5)!important;
+    flex:0 0 calc((100% - (3 * var(--selected-card-gap))) / 3.5)!important;
   }
 
   .selected-shape-rail .impact-project{
