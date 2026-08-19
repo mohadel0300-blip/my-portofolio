@@ -1,0 +1,453 @@
+{
+  "social_green": {
+    "pairs": [
+      {
+        "a": "s4.png",
+        "b": "s5.png",
+        "score": 0.2525
+      },
+      {
+        "a": "s3.png",
+        "b": "s15.png",
+        "score": 0.2267
+      },
+      {
+        "a": "s4.png",
+        "b": "s15.png",
+        "score": 0.1417
+      },
+      {
+        "a": "s3.png",
+        "b": "s4.png",
+        "score": 0.1242
+      },
+      {
+        "a": "s3.png",
+        "b": "s5.png",
+        "score": 0.1067
+      },
+      {
+        "a": "s4.png",
+        "b": "s16.png",
+        "score": 0.0992
+      },
+      {
+        "a": "s3.png",
+        "b": "s16.png",
+        "score": 0.0898
+      },
+      {
+        "a": "s16.png",
+        "b": "s15.png",
+        "score": 0.087
+      },
+      {
+        "a": "s5.png",
+        "b": "s16.png",
+        "score": 0.0742
+      },
+      {
+        "a": "s20.png",
+        "b": "s21.png",
+        "score": 0.0703
+      },
+      {
+        "a": "s5.png",
+        "b": "s15.png",
+        "score": 0.0583
+      },
+      {
+        "a": "s3.png",
+        "b": "s12.png",
+        "score": 0.0479
+      },
+      {
+        "a": "s4.png",
+        "b": "s12.png",
+        "score": 0.0426
+      },
+      {
+        "a": "s12.png",
+        "b": "s15.png",
+        "score": 0.0368
+      },
+      {
+        "a": "s16.png",
+        "b": "s12.png",
+        "score": 0.0319
+      },
+      {
+        "a": "s5.png",
+        "b": "s12.png",
+        "score": 0.0266
+      },
+      {
+        "a": "s4.png",
+        "b": "s21.png",
+        "score": 0.0227
+      },
+      {
+        "a": "s20.png",
+        "b": "s15.png",
+        "score": 0.0225
+      },
+      {
+        "a": "s20.png",
+        "b": "s12.png",
+        "score": 0.0221
+      },
+      {
+        "a": "s21.png",
+        "b": "s12.png",
+        "score": 0.0213
+      },
+      {
+        "a": "s3.png",
+        "b": "s21.png",
+        "score": 0.0208
+      },
+      {
+        "a": "s21.png",
+        "b": "s15.png",
+        "score": 0.0202
+      },
+      {
+        "a": "s4.png",
+        "b": "s20.png",
+        "score": 0.0201
+      },
+      {
+        "a": "s5.png",
+        "b": "s20.png",
+        "score": 0.0201
+      },
+      {
+        "a": "s16.png",
+        "b": "s20.png",
+        "score": 0.0168
+      },
+      {
+        "a": "s3.png",
+        "b": "s20.png",
+        "score": 0.0151
+      },
+      {
+        "a": "s5.png",
+        "b": "s21.png",
+        "score": 0.0075
+      },
+      {
+        "a": "s16.png",
+        "b": "s21.png",
+        "score": 0.0075
+      }
+    ],
+    "cohesion": [
+      {
+        "file": "s4.png",
+        "mean_pair_score": 0.1004,
+        "max_pair_score": 0.2525
+      },
+      {
+        "file": "s3.png",
+        "mean_pair_score": 0.0902,
+        "max_pair_score": 0.2267
+      },
+      {
+        "file": "s15.png",
+        "mean_pair_score": 0.0847,
+        "max_pair_score": 0.2267
+      },
+      {
+        "file": "s5.png",
+        "mean_pair_score": 0.078,
+        "max_pair_score": 0.2525
+      },
+      {
+        "file": "s16.png",
+        "mean_pair_score": 0.0581,
+        "max_pair_score": 0.0992
+      },
+      {
+        "file": "s12.png",
+        "mean_pair_score": 0.0327,
+        "max_pair_score": 0.0479
+      },
+      {
+        "file": "s20.png",
+        "mean_pair_score": 0.0267,
+        "max_pair_score": 0.0703
+      },
+      {
+        "file": "s21.png",
+        "mean_pair_score": 0.0243,
+        "max_pair_score": 0.0703
+      }
+    ]
+  },
+  "brief_red_black": {
+    "pairs": [
+      {
+        "a": "s7.png",
+        "b": "s24.jpg",
+        "score": 0.0658
+      },
+      {
+        "a": "s6.png",
+        "b": "s8.png",
+        "score": 0.0645
+      },
+      {
+        "a": "s22.jpg",
+        "b": "s23.jpg",
+        "score": 0.0596
+      },
+      {
+        "a": "s8.png",
+        "b": "b4.png",
+        "score": 0.046
+      },
+      {
+        "a": "s6.png",
+        "b": "s22.jpg",
+        "score": 0.0352
+      },
+      {
+        "a": "s8.png",
+        "b": "s22.jpg",
+        "score": 0.0349
+      },
+      {
+        "a": "s2.png",
+        "b": "b4.png",
+        "score": 0.0287
+      },
+      {
+        "a": "s7.png",
+        "b": "s22.jpg",
+        "score": 0.0271
+      },
+      {
+        "a": "s8.png",
+        "b": "s7.png",
+        "score": 0.0267
+      },
+      {
+        "a": "s6.png",
+        "b": "s7.png",
+        "score": 0.025
+      },
+      {
+        "a": "s6.png",
+        "b": "s23.jpg",
+        "score": 0.0233
+      },
+      {
+        "a": "s7.png",
+        "b": "b4.png",
+        "score": 0.0211
+      },
+      {
+        "a": "b3.png",
+        "b": "b4.png",
+        "score": 0.0211
+      },
+      {
+        "a": "s7.png",
+        "b": "b3.png",
+        "score": 0.02
+      },
+      {
+        "a": "s6.png",
+        "b": "s2.png",
+        "score": 0.0183
+      },
+      {
+        "a": "s7.png",
+        "b": "s23.jpg",
+        "score": 0.0175
+      },
+      {
+        "a": "s6.png",
+        "b": "b4.png",
+        "score": 0.0172
+      },
+      {
+        "a": "s23.jpg",
+        "b": "b4.png",
+        "score": 0.0172
+      },
+      {
+        "a": "s22.jpg",
+        "b": "b4.png",
+        "score": 0.0153
+      },
+      {
+        "a": "s24.jpg",
+        "b": "b4.png",
+        "score": 0.0146
+      },
+      {
+        "a": "s6.png",
+        "b": "b3.png",
+        "score": 0.0142
+      },
+      {
+        "a": "s23.jpg",
+        "b": "s24.jpg",
+        "score": 0.0142
+      },
+      {
+        "a": "s2.png",
+        "b": "s24.jpg",
+        "score": 0.0133
+      },
+      {
+        "a": "s2.png",
+        "b": "s23.jpg",
+        "score": 0.0125
+      },
+      {
+        "a": "s22.jpg",
+        "b": "s24.jpg",
+        "score": 0.0125
+      },
+      {
+        "a": "s8.png",
+        "b": "s23.jpg",
+        "score": 0.0108
+      },
+      {
+        "a": "s2.png",
+        "b": "s7.png",
+        "score": 0.0108
+      },
+      {
+        "a": "s24.jpg",
+        "b": "b3.png",
+        "score": 0.0108
+      },
+      {
+        "a": "s8.png",
+        "b": "s2.png",
+        "score": 0.01
+      },
+      {
+        "a": "s23.jpg",
+        "b": "b3.png",
+        "score": 0.0093
+      },
+      {
+        "a": "s22.jpg",
+        "b": "b3.png",
+        "score": 0.009
+      },
+      {
+        "a": "s2.png",
+        "b": "b3.png",
+        "score": 0.0083
+      },
+      {
+        "a": "s8.png",
+        "b": "s24.jpg",
+        "score": 0.0081
+      },
+      {
+        "a": "s8.png",
+        "b": "b3.png",
+        "score": 0.0081
+      },
+      {
+        "a": "s6.png",
+        "b": "s24.jpg",
+        "score": 0.0075
+      },
+      {
+        "a": "s2.png",
+        "b": "s22.jpg",
+        "score": 0.0075
+      }
+    ],
+    "cohesion": [
+      {
+        "file": "s7.png",
+        "mean_pair_score": 0.0267,
+        "max_pair_score": 0.0658
+      },
+      {
+        "file": "s8.png",
+        "mean_pair_score": 0.0261,
+        "max_pair_score": 0.0645
+      },
+      {
+        "file": "s6.png",
+        "mean_pair_score": 0.0256,
+        "max_pair_score": 0.0645
+      },
+      {
+        "file": "s22.jpg",
+        "mean_pair_score": 0.0251,
+        "max_pair_score": 0.0596
+      },
+      {
+        "file": "b4.png",
+        "mean_pair_score": 0.0226,
+        "max_pair_score": 0.046
+      },
+      {
+        "file": "s23.jpg",
+        "mean_pair_score": 0.0205,
+        "max_pair_score": 0.0596
+      },
+      {
+        "file": "s24.jpg",
+        "mean_pair_score": 0.0183,
+        "max_pair_score": 0.0658
+      },
+      {
+        "file": "s2.png",
+        "mean_pair_score": 0.0137,
+        "max_pair_score": 0.0287
+      },
+      {
+        "file": "b3.png",
+        "mean_pair_score": 0.0126,
+        "max_pair_score": 0.0211
+      }
+    ]
+  },
+  "social_cover_matches": [
+    {
+      "file": "s4.png",
+      "score": 0.0552
+    },
+    {
+      "file": "s15.png",
+      "score": 0.0436
+    },
+    {
+      "file": "s5.png",
+      "score": 0.0328
+    },
+    {
+      "file": "s16.png",
+      "score": 0.0323
+    },
+    {
+      "file": "s3.png",
+      "score": 0.0276
+    },
+    {
+      "file": "s12.png",
+      "score": 0.0266
+    },
+    {
+      "file": "s21.png",
+      "score": 0.0155
+    },
+    {
+      "file": "s20.png",
+      "score": 0.0151
+    }
+  ]
+}
