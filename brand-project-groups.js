@@ -2,40 +2,47 @@
 (() => {
   const byId=id=>projects.find(p=>p.id===id);
   const socialLab=byId('sociallab'),briefStudio=byId('briefstudio'),healthcare=byId('healthcare');
-  const socialArchive=byId('social'),bannerArchive=byId('campaignbanners'),digitalArtboards=byId('digitalartboards');
+  const socialArchive=byId('social'),bannerArchive=byId('campaignbanners'),digitalArtboards=byId('digitalartboards'),covers=byId('covers');
 
-  // Brand ownership is based on visible brand identity, not colour alone.
-  // s20 is a clinic offer and therefore does not belong to Social Lab.
-  // The two Digital Campaign Artboards are Social Lab executions and belong inside that project.
-  const socialLabFiles=['s16.png','s21.png','Artboard 1.png','Artboard 2 2.png'];
-  const briefStudioFiles=['s6.png','s8.png','b3.png','b4.png'];
-  const clinicExtraFiles=['s20.png'];
+  // Group by visible brand identity/text, not colour alone.
+  const socialLabFiles=['s16.png','s15.png','s3.png','s4.png','s5.png','Artboard 1.png','Artboard 2 2.png','social-lab.png'];
+  const briefStudioFiles=['s6.png','s7.png','s8.png','b3.png'];
+  const healthcareBeautyFiles=['s21.png','s20.png','s19.png','s17.png','s22.jpg','s14.png','أسعار Full Body.png','أسعار ليزر المناطق.png','أسعار الهيدرافيشيال.png','tab-beauty.png'];
 
   if(socialLab){
     socialLab.files=socialLabFiles;
     socialLab.eyebrow='Campaign / Social / Product';socialLab.eyebrowAr='حملة / سوشيال / منتج';
-    socialLab.story='A connected visual series for Social Lab, built around a recognisable green system while each piece explains a different part of the product story.';
-    socialLab.storyAr='سلسلة بصرية مترابطة لسوشيال لاب، مبنية على نظام بصري أخضر واضح، مع اختلاف الفكرة والرسالة من تصميم لآخر حسب جزء المنتج الذي يتم شرحه.';
-    socialLab.scope='Campaign art direction · Social design · Product communication · 3D-led visuals';
-    socialLab.scopeAr='إخراج الحملة · تصميم سوشيال · تواصل بصري للمنتج · صور ثلاثية الأبعاد';
+    socialLab.story='A connected Social Lab visual system across campaign, product and social executions.';
+    socialLab.storyAr='نظام بصري مترابط لسوشيال لاب عبر تصميمات الحملة والمنتج والسوشيال.';
+    socialLab.scope='Campaign art direction · Social design · Product communication';
+    socialLab.scopeAr='إخراج الحملة · تصميم سوشيال · تواصل بصري للمنتج';
   }
+
   if(briefStudio){
     briefStudio.files=briefStudioFiles;
     briefStudio.eyebrow='Campaign / Social';briefStudio.eyebrowAr='حملات / سوشيال';
-    briefStudio.story='A set of Brief Studio pieces held together by a restrained red-and-black visual language across different formats.';
-    briefStudio.storyAr='مجموعة تصميمات لبريف ستوديو تجمعها لغة بصرية حمراء وسوداء واضحة، مع تطبيقها على أكثر من مقاس ونوع محتوى.';
-    briefStudio.scope='Visual direction · Campaign design · Social content · Adaptations';
-    briefStudio.scopeAr='اتجاه بصري · تصميم حملات · محتوى سوشيال · تطبيقات متعددة';
-  }
-  if(healthcare){
-    healthcare.files=[...clinicExtraFiles,...healthcare.files.filter(f=>!clinicExtraFiles.includes(f))];
+    briefStudio.story='Brief Studio social and campaign pieces grouped as one red-and-black visual series.';
+    briefStudio.storyAr='تصميمات بريف ستوديو للحملات والسوشيال مجمعة كسلسلة بصرية واحدة بالأحمر والأسود.';
+    briefStudio.scope='Visual direction · Campaign design · Social content';
+    briefStudio.scopeAr='اتجاه بصري · تصميم حملات · محتوى سوشيال';
   }
 
-  // Remove files that now have a verified project owner from generic archive buckets.
-  const assigned=new Set([...socialLabFiles,...briefStudioFiles,...clinicExtraFiles]);
+  if(healthcare){
+    healthcare.title='Healthcare & Beauty';healthcare.titleAr='العيادات والتجميل';
+    healthcare.eyebrow='Clinics / Beauty / Social';healthcare.eyebrowAr='عيادات / تجميل / سوشيال';
+    healthcare.story='Selected clinic, medical and beauty social design grouped together as one category of work.';
+    healthcare.storyAr='مجموعة مختارة من تصميمات العيادات والمجال الطبي والتجميل مجمعة معًا كفئة واحدة من الأعمال.';
+    healthcare.scope='Healthcare social · Beauty content · Promotional design';
+    healthcare.scopeAr='سوشيال للعيادات · محتوى تجميل · تصميمات ترويجية';
+    healthcare.files=healthcareBeautyFiles;
+  }
+
+  // Remove verified project files from generic archive buckets so every design has one clear owner.
+  const assigned=new Set([...socialLabFiles,...briefStudioFiles,...healthcareBeautyFiles]);
   if(socialArchive) socialArchive.files=socialArchive.files.filter(f=>!assigned.has(f));
   if(bannerArchive) bannerArchive.files=bannerArchive.files.filter(f=>!assigned.has(f));
   if(digitalArtboards) digitalArtboards.files=[];
+  if(covers) covers.files=covers.files.filter(f=>!assigned.has(f));
 
   const loadCss=(href,key)=>{
     if(document.querySelector(`link[data-${key}]`))return;
@@ -44,15 +51,14 @@
   loadCss('recruiter-projects-v3.css','recruiter-projects-v3');
   loadCss('recruiter-categories.css','recruiter-categories');
 
-  // These four stay as the visual recruiter hits and are not repeated below.
   const topIds=['sociallab','briefstudio','realestate','orient'];
   const topProjects=topIds.map(byId).filter(Boolean);
 
-  // The grouped index contains only additional work, so the recruiter never sees the same project twice.
+  // Top four are not repeated below. Additional work is grouped for fast recruiter scanning.
   const categoryDefs=[
     {id:'technology',en:'Technology & Digital Solutions',ar:'التكنولوجيا والحلول الرقمية',ids:['ecommerce']},
     {id:'campaigns',en:'Campaigns & Social',ar:'الحملات والسوشيال',ids:['event','socialartboards','social','campaignbanners']},
-    {id:'healthcare',en:'Healthcare & Clinics',ar:'العيادات والرعاية الصحية',ids:['healthcare']},
+    {id:'healthcare',en:'Healthcare & Beauty',ar:'العيادات والتجميل',ids:['healthcare']},
     {id:'image',en:'AI & Image-making',ar:'الذكاء الاصطناعي وصناعة الصورة',ids:['natural','aiarchive']},
     {id:'product',en:'Product & Brand',ar:'المنتجات والهوية',ids:['huggies','brandapps','covers']},
     {id:'editorial',en:'Editorial & Media',ar:'التصميم التحريري والميديا',ids:['editorial']}
