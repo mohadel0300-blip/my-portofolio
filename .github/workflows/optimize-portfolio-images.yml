@@ -7,6 +7,7 @@ on:
       - 'tools/audit_brand_colors.py'
       - 'tools/audit_brand_similarity.py'
       - 'tools/build_visual_audit_thumbs.py'
+      - 'tools/build_image_fingerprints.py'
       - '.github/workflows/optimize-portfolio-images.yml'
   workflow_dispatch:
 
@@ -33,10 +34,12 @@ jobs:
         run: python tools/audit_brand_similarity.py
       - name: Generate visual audit thumbs
         run: python tools/build_visual_audit_thumbs.py
+      - name: Generate image fingerprints
+        run: python tools/build_image_fingerprints.py
       - name: Commit optimized images and audits
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/ brand-color-audit.json brand-similarity-audit.json brand-audit-thumbs/
+          git add web/ brand-color-audit.json brand-similarity-audit.json brand-audit-thumbs/ image-fingerprints.json
           git diff --cached --quiet || git commit -m "Generate web assets and brand audits [skip ci]"
           git push
