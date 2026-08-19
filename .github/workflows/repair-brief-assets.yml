@@ -1,0 +1,58 @@
+name: Repair Brief Agency assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'asset-repair/**'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Decode staged images
+        shell: bash
+        run: |
+          set -euo pipefail
+          found=0
+          for name in signs strategy execution; do
+            src="asset-repair/brief-agency-${name}.b64"
+            if [ -f "$src" ]; then
+              base64 --decode "$src" > "brief-agency-${name}.webp"
+              found=1
+            fi
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "No staged assets to repair."
+            exit 0
+          fi
+          python - <<'PY'
+          from pathlib import Path
+          for name in ('signs','strategy','execution'):
+              p=Path(f'brief-agency-{name}.webp')
+              data=p.read_bytes()
+              if len(data) < 8000 or data[:4] != b'RIFF' or data[8:12] != b'WEBP':
+                  raise SystemExit(f'Invalid repaired WebP: {p}')
+              print(p, len(data))
+          PY
+
+      - name: Commit repaired images
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! compgen -G 'asset-repair/*.b64' > /dev/null; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add brief-agency-signs.webp brief-agency-strategy.webp brief-agency-execution.webp
+          git rm -f asset-repair/*.b64
+          git commit -m "Repair Brief Agency image assets"
+          git push
