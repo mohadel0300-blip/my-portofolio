@@ -1,0 +1,149 @@
+/* Desktop-only recruiter pass. Mobile stays untouched. */
+
+@media (min-width: 761px) {
+  /* Give the selected work an editorial rhythm instead of six identical full-width panels. */
+  .projects .recruiter-featured {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(18px, 1.7vw, 28px);
+    row-gap: clamp(58px, 6vw, 92px);
+    align-items: start;
+  }
+
+  .projects .recruiter-featured > .impact-project { min-width: 0; }
+  .projects .recruiter-featured > .impact-project:nth-child(1) { grid-column: 1 / -1; }
+  .projects .recruiter-featured > .impact-project:nth-child(2) { grid-column: 1 / span 7; }
+  .projects .recruiter-featured > .impact-project:nth-child(3) { grid-column: 8 / -1; }
+  .projects .recruiter-featured > .impact-project:nth-child(4) { grid-column: 1 / span 5; }
+  .projects .recruiter-featured > .impact-project:nth-child(5) { grid-column: 6 / -1; }
+  .projects .recruiter-featured > .impact-project:nth-child(6) { grid-column: 3 / 11; }
+
+  .projects .recruiter-featured > .impact-project:nth-child(1) .impact-visual {
+    aspect-ratio: 16 / 8.6;
+    border-radius: 34px;
+  }
+  .projects .recruiter-featured > .impact-project:nth-child(2) .impact-visual,
+  .projects .recruiter-featured > .impact-project:nth-child(5) .impact-visual {
+    aspect-ratio: 4 / 3;
+  }
+  .projects .recruiter-featured > .impact-project:nth-child(3) .impact-visual,
+  .projects .recruiter-featured > .impact-project:nth-child(4) .impact-visual {
+    aspect-ratio: 1 / 1;
+  }
+  .projects .recruiter-featured > .impact-project:nth-child(6) .impact-visual {
+    aspect-ratio: 16 / 10;
+  }
+
+  .projects .recruiter-featured > .impact-project:not(:first-child) .impact-visual {
+    border-radius: 27px;
+  }
+  .projects .recruiter-featured > .impact-project:not(:first-child) .impact-info {
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    grid-template-areas: "no title count" ". title open";
+    gap: 5px 12px;
+    padding-top: 14px;
+    align-items: start;
+  }
+  .projects .recruiter-featured > .impact-project:not(:first-child) .impact-no { grid-area: no; padding-top: 5px; }
+  .projects .recruiter-featured > .impact-project:not(:first-child) .impact-info > div { grid-area: title; }
+  .projects .recruiter-featured > .impact-project:not(:first-child) .impact-count { grid-area: count; padding-top: 5px; }
+  .projects .recruiter-featured > .impact-project:not(:first-child) .impact-open { grid-area: open; justify-self: end; padding-top: 3px; }
+  .projects .recruiter-featured > .impact-project:not(:first-child) .impact-info h3 {
+    font-size: clamp(1.7rem, 2.45vw, 3rem);
+    line-height: .98;
+  }
+
+  /* The first project still lands as the single visual hit. */
+  .projects .recruiter-featured > .impact-project:first-child .impact-info {
+    padding-top: 20px;
+  }
+  .projects .recruiter-featured > .impact-project:first-child .impact-info h3 {
+    font-size: clamp(2.7rem, 4.1vw, 4.8rem);
+  }
+
+  /* Project view: portrait posts should fit within one desktop viewport instead of becoming giant pages. */
+  .project-view .project-view-inner {
+    width: min(1380px, calc(100% - max(48px, 5vw)));
+  }
+  .project-view .project-view-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 2vw, 30px);
+    align-items: stretch;
+  }
+  .project-view .project-view-figure,
+  .project-view .project-view-figure:nth-child(4n+1) {
+    grid-column: auto;
+    height: min(76vh, 820px);
+    min-height: 520px;
+    padding: clamp(16px, 1.6vw, 26px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+  .project-view .project-view-figure:nth-child(5n+1) {
+    grid-column: 1 / -1;
+    height: min(82vh, 900px);
+  }
+  .project-view .project-view-figure img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .project-view .project-view-note {
+    margin-top: clamp(38px, 4vw, 58px);
+  }
+}
+
+/* Common laptop widths: keep the personal hero intact, but stop its copy from feeling squeezed. */
+@media (min-width: 761px) and (max-width: 1280px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.12fr) minmax(340px, .88fr);
+    gap: 14px;
+  }
+  .hero .hero-copy {
+    padding: clamp(34px, 4.2vw, 58px);
+  }
+  .hero h1 {
+    font-size: clamp(5rem, 8.2vw, 7.2rem);
+    margin: clamp(44px, 6vw, 72px) 0 34px;
+  }
+  .hero .hero-message {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .hero .hero-lead { max-width: 34ch; }
+  .hero .hero-message p { max-width: 58ch; }
+  .hero .hero-photo { min-height: 590px; }
+}
+
+/* At smaller desktop/tablet widths, simplify the asymmetric grid before the mobile layout takes over. */
+@media (min-width: 761px) and (max-width: 980px) {
+  .projects .recruiter-featured {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 50px 16px;
+  }
+  .projects .recruiter-featured > .impact-project,
+  .projects .recruiter-featured > .impact-project:nth-child(n) {
+    grid-column: auto;
+  }
+  .projects .recruiter-featured > .impact-project:first-child {
+    grid-column: 1 / -1;
+  }
+  .projects .recruiter-featured > .impact-project:not(:first-child) .impact-visual {
+    aspect-ratio: 4 / 3;
+  }
+  .projects .recruiter-featured > .impact-project:last-child {
+    grid-column: 1 / -1;
+    width: 76%;
+    justify-self: center;
+  }
+  .project-view .project-view-figure,
+  .project-view .project-view-figure:nth-child(5n+1) {
+    height: min(70vh, 680px);
+    min-height: 440px;
+  }
+}
