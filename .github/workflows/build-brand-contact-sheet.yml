@@ -17,10 +17,10 @@ jobs:
           python-version: '3.12'
       - run: pip install pillow
       - run: python tools/build_brand_contact_sheet.py
-      - name: Commit contact sheet
+      - name: Commit contact sheet and thumbs
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add brand-audit-contact-sheet.pdf
+          git add brand-audit-contact-sheet.pdf brand-audit-thumbs/
           git diff --cached --quiet || git commit -m 'Add visual brand audit contact sheet [skip ci]'
           git push
