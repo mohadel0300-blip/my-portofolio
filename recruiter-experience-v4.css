@@ -1,0 +1,240 @@
+/* Compact recruiter-first Experience. No cards, no dashboard chrome. */
+.experience{
+  background:#f5f5f7!important;
+  color:#1d1d1f!important;
+  margin-top:clamp(58px,6vw,92px)!important;
+  padding:clamp(72px,7vw,108px) 0 clamp(80px,8vw,118px)!important;
+}
+.experience>.shell{
+  background:transparent!important;
+  padding:0!important;
+  border-radius:0!important;
+}
+
+/* Header */
+.experience .compact-head{
+  position:relative;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-areas:"title no" "sub no"!important;
+  gap:8px 28px!important;
+  align-items:end!important;
+  margin:0 0 clamp(38px,4.5vw,62px)!important;
+  padding:0 0 24px!important;
+  border-bottom:1px solid rgba(29,29,31,.18)!important;
+}
+.experience .compact-head h2{
+  grid-area:title!important;
+  margin:0!important;
+  color:#1d1d1f!important;
+  font-size:clamp(4rem,6vw,6.8rem)!important;
+  line-height:.88!important;
+  letter-spacing:-.065em!important;
+  font-weight:620!important;
+}
+.experience .compact-head .section-no{
+  grid-area:no!important;
+  align-self:end!important;
+  padding:0 0 9px!important;
+  color:#86868b!important;
+  text-align:right!important;
+  white-space:nowrap;
+}
+.experience .compact-head::after{
+  content:"The places I worked — and the kind of work I became known for.";
+  grid-area:sub;
+  color:#6e6e73;
+  font-size:.78rem;
+  line-height:1.5;
+  max-width:52ch;
+}
+
+/* Timeline */
+.experience .career-grid{display:block!important}
+.experience .career-list{
+  display:block!important;
+  border-top:1px solid rgba(29,29,31,.14)!important;
+}
+.experience .career-row,
+.experience .career-row:nth-child(n){
+  position:relative;
+  display:grid!important;
+  grid-template-columns:130px minmax(240px,.72fr) minmax(0,1.28fr)!important;
+  grid-template-areas:"time identity desc" ". identity tags"!important;
+  gap:8px clamp(28px,4vw,70px)!important;
+  align-items:start!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:clamp(24px,2.5vw,36px) 0!important;
+  border:0!important;
+  border-bottom:1px solid rgba(29,29,31,.14)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#1d1d1f!important;
+  overflow:visible!important;
+  transform:none!important;
+  box-shadow:none!important;
+}
+.experience .career-time{
+  grid-area:time!important;
+  display:flex!important;
+  align-items:center!important;
+  width:auto!important;
+  min-height:0!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#0071e3!important;
+  font-size:.48rem!important;
+  line-height:1.3!important;
+  letter-spacing:.045em!important;
+}
+.experience .career-time::before{
+  content:"";
+  width:6px;
+  height:6px;
+  margin-right:10px;
+  border-radius:50%;
+  background:#0071e3;
+  box-shadow:0 0 0 4px rgba(0,113,227,.08);
+  flex:0 0 auto;
+}
+.experience .career-row>div:nth-child(2){
+  grid-area:identity!important;
+  margin:0!important;
+  min-width:0;
+}
+.experience .career-company{
+  margin:0!important;
+  color:#1d1d1f!important;
+  font-size:clamp(1.25rem,1.55vw,1.65rem)!important;
+  line-height:1.02!important;
+  font-weight:620!important;
+  letter-spacing:-.035em!important;
+}
+.experience .career-row:nth-child(-n+2) .career-company{
+  font-size:clamp(1.45rem,1.8vw,1.9rem)!important;
+}
+.experience .career-role{
+  margin:6px 0 0!important;
+  color:#6e6e73!important;
+  font-size:.76rem!important;
+  line-height:1.35!important;
+}
+.experience .career-desc{
+  grid-area:desc!important;
+  margin:1px 0 0!important;
+  max-width:58ch!important;
+  color:#6e6e73!important;
+  font-size:.8rem!important;
+  line-height:1.55!important;
+}
+.experience .career-row::after{
+  grid-area:tags!important;
+  display:block!important;
+  margin:8px 0 0!important;
+  padding:0!important;
+  border:0!important;
+  color:#86868b!important;
+  font-family:'IBM Plex Mono',monospace!important;
+  font-size:.42rem!important;
+  line-height:1.45!important;
+  letter-spacing:.05em!important;
+  text-transform:uppercase!important;
+}
+.experience .career-row:nth-child(1)::after{content:"Campaigns  ·  Social  ·  Presentations"}
+.experience .career-row:nth-child(2)::after{content:"Product  ·  Catalogs  ·  B2B"}
+.experience .career-row:nth-child(3)::after{content:"Social  ·  Product-led  ·  Freelance"}
+.experience .career-row:nth-child(4)::after{content:"Brand  ·  Promotional"}
+.experience .career-row:nth-child(5)::after{content:"Media  ·  Video  ·  Editorial"}
+
+/* Strengths: simple editorial footer, never a floating panel. */
+.experience .skills-card{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:0 clamp(28px,4vw,64px)!important;
+  margin:clamp(42px,5vw,68px) 0 0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.experience .skill-label{
+  grid-column:1/-1!important;
+  margin:0 0 4px!important;
+  padding:0 0 13px!important;
+  border-bottom:1px solid rgba(29,29,31,.18)!important;
+  color:#86868b!important;
+  font-size:.46rem!important;
+}
+.experience .skill-row{
+  padding:18px 0 20px!important;
+  border:0!important;
+}
+.experience .skill-row strong{
+  display:block;
+  margin-bottom:6px;
+  color:#1d1d1f!important;
+  font-size:clamp(.95rem,1.05vw,1.12rem)!important;
+  line-height:1.2!important;
+  letter-spacing:-.02em!important;
+}
+.experience .skill-row p{
+  margin:0!important;
+  max-width:35ch!important;
+  color:#6e6e73!important;
+  font-size:.7rem!important;
+  line-height:1.5!important;
+}
+.experience .tools{
+  grid-column:1/-1!important;
+  margin:0!important;
+  padding:16px 0 0!important;
+  border-top:1px solid rgba(29,29,31,.18)!important;
+  color:#86868b!important;
+  font-size:.62rem!important;
+  line-height:1.5!important;
+}
+
+/* RTL */
+[dir="rtl"] .experience .compact-head .section-no{text-align:left!important}
+[dir="rtl"] .experience .compact-head::after{content:"أماكن اشتغلت فيها — ونوع الشغل اللي بنيت فيه خبرتي."}
+[dir="rtl"] .experience .career-time::before{margin-right:0;margin-left:10px}
+[dir="rtl"] .experience .career-row::after{letter-spacing:0!important;text-transform:none!important;font-family:'IBM Plex Sans Arabic',sans-serif!important}
+[dir="rtl"] .experience .career-row:nth-child(1)::after{content:"حملات  ·  سوشيال  ·  عروض تقديمية"}
+[dir="rtl"] .experience .career-row:nth-child(2)::after{content:"منتجات  ·  كتالوجات  ·  B2B"}
+[dir="rtl"] .experience .career-row:nth-child(3)::after{content:"سوشيال  ·  محتوى منتج  ·  فريلانس"}
+[dir="rtl"] .experience .career-row:nth-child(4)::after{content:"هوية  ·  تصميم ترويجي"}
+[dir="rtl"] .experience .career-row:nth-child(5)::after{content:"ميديا  ·  فيديو  ·  تحريري"}
+
+/* Mobile: stacked, compact, no nested cards. */
+@media (max-width:980px){
+  .experience{margin-top:44px!important;padding:58px 0 72px!important}
+  .experience>.shell{width:min(100% - 32px,720px)!important}
+  .experience .compact-head{
+    grid-template-columns:1fr!important;
+    grid-template-areas:"title" "sub" "no"!important;
+    gap:8px!important;
+    margin-bottom:28px!important;
+    padding-bottom:20px!important;
+  }
+  .experience .compact-head h2{font-size:clamp(3.4rem,15vw,5.5rem)!important}
+  .experience .compact-head .section-no{text-align:left!important;padding:4px 0 0!important}
+  [dir="rtl"] .experience .compact-head .section-no{text-align:right!important}
+  .experience .compact-head::after{font-size:.8rem}
+  .experience .career-row,.experience .career-row:nth-child(n){
+    grid-template-columns:86px minmax(0,1fr)!important;
+    grid-template-areas:"time identity" ". desc" ". tags"!important;
+    gap:7px 14px!important;
+    padding:22px 0!important;
+  }
+  .experience .career-company,.experience .career-row:nth-child(-n+2) .career-company{font-size:1.25rem!important}
+  .experience .career-role{font-size:.76rem!important}
+  .experience .career-desc{font-size:.8rem!important;max-width:100%!important}
+  .experience .skills-card{grid-template-columns:1fr!important;gap:0!important;margin-top:34px!important}
+  .experience .skill-label,.experience .skill-row,.experience .tools{grid-column:1!important}
+  .experience .skill-row{padding:15px 0!important;border-bottom:1px solid rgba(29,29,31,.12)!important}
+  .experience .skill-row:last-of-type{border-bottom:0!important}
+}
