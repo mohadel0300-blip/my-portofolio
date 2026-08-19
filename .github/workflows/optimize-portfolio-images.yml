@@ -40,6 +40,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/ brand-color-audit.json brand-similarity-audit.json brand-audit-thumbs/ image-fingerprints.json
+          git add web/ brand-color-audit.json brand-similarity-audit.json brand-audit-thumbs/ brand-audit-contact-sheet.pdf image-fingerprints.json
           git diff --cached --quiet || git commit -m "Generate web assets and brand audits [skip ci]"
           git push
