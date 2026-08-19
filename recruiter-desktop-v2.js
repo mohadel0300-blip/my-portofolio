@@ -8,8 +8,11 @@
   const ensureCuration=()=>{
     const healthcare=projects.find(p=>p.id==='healthcare');
     const social=projects.find(p=>p.id==='social');
-    if(healthcare&&!healthcare.files.includes('s2.png')) healthcare.files.push('s2.png');
-    if(social) social.files=social.files.filter(f=>f!=='s2.png');
+    const beautyFiles=['s2.png','s9.png','s10.png','s11.png','s12.png'];
+    if(healthcare){
+      beautyFiles.forEach(file=>{if(!healthcare.files.includes(file))healthcare.files.push(file);});
+    }
+    if(social) social.files=social.files.filter(file=>!beautyFiles.includes(file));
   };
 
   const directSrc=file=>/\.(svg|webp)$/i.test(file)?file:fullSrc(file);
