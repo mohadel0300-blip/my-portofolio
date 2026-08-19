@@ -1,0 +1,30 @@
+name: Import verified brand assets
+on:
+  push:
+    paths:
+      - 'brand-assets-pack.zip'
+      - '.github/workflows/import-brand-assets.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - name: Extract verified assets
+        run: unzip -o brand-assets-pack.zip
+      - name: Optimize imported images
+        run: python tools/optimize_portfolio_images.py
+      - name: Commit imported assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add sociallab-conversation.jpg sociallab-ai-market.jpg brief-agency-search.jpg brief-agency-sales.jpg brief-agency-growth.jpg brief-agency-visual.jpg web/
+          git rm -f brand-assets-pack.zip
+          git diff --cached --quiet || git commit -m 'Import verified Social Lab and Brief assets [skip ci]'
+          git push
