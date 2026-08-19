@@ -1,0 +1,78 @@
+/* Natural-ratio project covers everywhere.
+   Goal: no side letterboxing, no crop, no zoom on desktop or mobile. */
+
+.impact-visual,
+.selected-shape-rail .impact-visual,
+.more-project-visual,
+.category-project-visual,
+.category-shape-rail .category-project-visual,
+.archive-preview-stage,
+.archive-mobile-image{
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  padding:0 !important;
+  background:transparent !important;
+  display:block !important;
+  align-items:initial !important;
+  justify-content:initial !important;
+}
+
+/* The desktop archive used a fixed-height blurred stage to fill unused space.
+   Remove it so the cover itself defines the stage height. */
+.archive-preview-stage::before{
+  content:none !important;
+  display:none !important;
+  background:none !important;
+}
+
+.impact-visual img,
+.selected-shape-rail .impact-visual img,
+.more-project-visual img,
+.category-project-visual img,
+.category-shape-rail .category-project-visual img,
+.archive-preview-stage img,
+.archive-mobile-image img{
+  position:relative !important;
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  transform:none !important;
+  margin:0 !important;
+}
+
+/* Explicitly neutralize old hover zoom rules. */
+@media (hover:hover){
+  .impact-project:hover .impact-visual img,
+  .more-project:hover .more-project-visual img,
+  .category-project:hover .category-project-visual img{
+    transform:none !important;
+  }
+}
+
+/* Keep rounded corners, but let the image itself fill the full cover box. */
+.impact-visual,
+.selected-shape-rail .impact-visual,
+.more-project-visual,
+.category-project-visual,
+.category-shape-rail .category-project-visual,
+.archive-preview-stage,
+.archive-mobile-image{
+  overflow:hidden !important;
+}
+
+@media (max-width:980px){
+  .impact-visual,
+  .more-project-visual,
+  .category-project-visual,
+  .archive-mobile-image{
+    height:auto !important;
+    min-height:0 !important;
+    aspect-ratio:auto !important;
+  }
+}
