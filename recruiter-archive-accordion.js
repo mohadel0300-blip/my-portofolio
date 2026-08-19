@@ -1,27 +1,47 @@
 (() => {
-  const archiveIds=['social','campaignbanners','brandapps','covers'];
   const isDesktop=()=>window.matchMedia('(min-width:981px)').matches;
   const byId=id=>projects.find(p=>p.id===id);
   const t=(p,key)=>pText(p,key);
   const strings=()=>lang==='ar'?{
     title:'المزيد من الأرشيف',
-    intro:'أعمال إضافية مجمعة في مساحة واحدة لتقليل التمرير. افتح المجموعة التي تهمك.',
+    intro:'باقي الأعمال في مساحة واحدة مضغوطة. افتح المشروع الذي تريد رؤيته بدون تمرير طويل.',
     open:'عرض المشروع ↗'
   }:{
     title:'More from the archive',
-    intro:'Additional work kept in one compact space. Open only the group you want to inspect.',
+    intro:'The rest of the work lives in one compact space. Open only the project you want to inspect.',
     open:'View project ↗'
   };
   const previewSrc=file=>/\.(svg|webp)$/i.test(file)?file:`web/full/${file}.webp`;
 
-  const updateFieldCounts=()=>{
-    document.querySelectorAll('.work-category').forEach(section=>{
-      const cards=[...section.querySelectorAll('.category-project')].filter(card=>!archiveIds.includes(card.dataset.id));
-      const count=cards.length;
-      section.classList.toggle('archive-emptied',count===0);
-      const counter=section.querySelector('.work-category-head>span');
-      if(counter)counter.textContent=`${count} ${lang==='ar'?'مشاريع':'projects'}`;
+  const selectedIds=()=>new Set(
+    [...document.querySelectorAll('.recruiter-featured > .impact-project')]
+      .map(card=>card.dataset.id)
+      .filter(Boolean)
+  );
+
+  const archiveProjects=()=>{
+    const selected=selectedIds();
+    const seen=new Set();
+    return projects.filter(p=>{
+      if(!p?.id||!p.files?.length||selected.has(p.id)||seen.has(p.id))return false;
+      seen.add(p.id);
+      return true;
     });
+  };
+
+  const hideFieldBrowse=()=>{
+    const more=document.querySelector('.more-work');
+    if(!more)return;
+    const fields=more.querySelector('.browse-fields');
+    if(fields)fields.classList.add('archive-replaced-fields');
+    more.querySelectorAll('.work-category').forEach(section=>section.classList.add('archive-emptied'));
+  };
+
+  const restoreFieldBrowse=()=>{
+    const more=document.querySelector('.more-work');
+    if(!more)return;
+    more.querySelector('.browse-fields')?.classList.remove('archive-replaced-fields');
+    more.querySelectorAll('.work-category.archive-emptied').forEach(section=>section.classList.remove('archive-emptied'));
   };
 
   const renderPreview=(root,p)=>{
@@ -47,13 +67,14 @@
     if(!more)return;
     if(!isDesktop()){
       more.querySelector('.archive-accordion')?.remove();
-      document.querySelectorAll('.work-category.archive-emptied').forEach(x=>x.classList.remove('archive-emptied'));
+      restoreFieldBrowse();
       return;
     }
-    updateFieldCounts();
-    if(more.querySelector('.archive-accordion'))return;
 
-    const list=archiveIds.map(byId).filter(p=>p&&p.files&&p.files.length);
+    hideFieldBrowse();
+    more.querySelector('.archive-accordion')?.remove();
+
+    const list=archiveProjects();
     if(!list.length)return;
     const s=strings();
     const section=document.createElement('section');
@@ -66,7 +87,7 @@
             <button class="archive-accordion-trigger" type="button" aria-expanded="${i===0?'true':'false'}">
               <strong>${t(p,'title')}</strong><span class="archive-accordion-count">${countLabel(p.files.length)}</span><span class="archive-accordion-icon">+</span>
             </button>
-            <div class="archive-accordion-detail"><div class="archive-accordion-detail-inner"><p>${t(p,'story')}</p></div></div>
+            <div class="archive-accordion-detail"><div class="archive-accordion-detail-inner"><p>${t(p,'story')||''}</p></div></div>
           </div>`).join('')}</div>
         <div class="archive-accordion-preview">
           <div class="archive-preview-stage"><img alt="" decoding="async" loading="lazy"></div>
@@ -77,11 +98,15 @@
 
     const activate=p=>{
       section.querySelectorAll('.archive-accordion-item').forEach(item=>{
-        const active=item.dataset.id===p.id;item.classList.toggle('is-active',active);item.querySelector('.archive-accordion-trigger').setAttribute('aria-expanded',String(active));
+        const active=item.dataset.id===p.id;
+        item.classList.toggle('is-active',active);
+        item.querySelector('.archive-accordion-trigger').setAttribute('aria-expanded',String(active));
       });
       renderPreview(section,p);
     };
-    section.querySelectorAll('.archive-accordion-item').forEach(item=>item.querySelector('.archive-accordion-trigger').addEventListener('click',()=>activate(byId(item.dataset.id))));
+    section.querySelectorAll('.archive-accordion-item').forEach(item=>
+      item.querySelector('.archive-accordion-trigger').addEventListener('click',()=>activate(byId(item.dataset.id)))
+    );
     activate(list[0]);
   };
 
@@ -89,7 +114,8 @@
   if(projectsRoot){
     let queued=false;
     const observer=new MutationObserver(()=>{
-      if(queued)return;queued=true;
+      if(queued)return;
+      queued=true;
       requestAnimationFrame(()=>{queued=false;build();});
     });
     observer.observe(projectsRoot,{childList:true,subtree:true});
