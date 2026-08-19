@@ -1,10 +1,27 @@
 (() => {
-  const isDesktop=()=>window.matchMedia('(min-width: 981px)').matches;
+  const isDesktop=()=>window.matchMedia('(min-width:981px)').matches;
+
+  const setStageImage=visual=>{
+    if(!visual)return;
+    const img=visual.querySelector('img');
+    if(!img)return;
+    const apply=()=>{
+      const src=img.currentSrc||img.src;
+      if(src)visual.style.setProperty('--cover-image',`url(${JSON.stringify(src)})`);
+    };
+    if(img.complete)apply();
+    else img.addEventListener('load',apply,{once:true});
+  };
+
   const enhanceCategory=section=>{
     if(!section)return;
     const head=section.querySelector('.work-category-head');
     const rail=section.querySelector('.work-category-grid');
     if(!head||!rail)return;
+
+    section.querySelectorAll('.category-project-visual').forEach(setStageImage);
+    const cards=rail.querySelectorAll('.category-project');
+    section.classList.toggle('is-single',cards.length===1);
 
     let nav=head.querySelector('.category-nav');
     if(!nav){
@@ -34,7 +51,7 @@
       const rtl=document.documentElement.dir==='rtl';
       const sign=rtl?-1:1;
       rail.scrollBy({left:dir*step()*sign,behavior:'smooth'});
-      window.setTimeout(update,280);
+      window.setTimeout(update,320);
     };
 
     if(!nav.dataset.bound){
@@ -43,14 +60,26 @@
       rail.addEventListener('scroll',update,{passive:true});
       nav.dataset.bound='true';
     }
+
+    if(isDesktop()&&!rail.dataset.desktopStart){
+      rail.scrollLeft=0;
+      rail.dataset.desktopStart='true';
+    }
     window.requestAnimationFrame(update);
   };
 
-  const enhanceAll=()=>document.querySelectorAll('.work-category').forEach(enhanceCategory);
-  const more=document.querySelector('.more-work');
-  if(more){
+  const enhanceSelected=()=>{
+    document.querySelectorAll('.impact-visual').forEach(setStageImage);
+  };
+  const enhanceAll=()=>{
+    enhanceSelected();
+    document.querySelectorAll('.work-category').forEach(enhanceCategory);
+  };
+
+  const projects=document.querySelector('#projects');
+  if(projects){
     const observer=new MutationObserver(()=>enhanceAll());
-    observer.observe(more,{childList:true,subtree:true});
+    observer.observe(projects,{childList:true,subtree:true});
   }
   window.addEventListener('resize',enhanceAll,{passive:true});
   window.addEventListener('load',enhanceAll,{once:true});
