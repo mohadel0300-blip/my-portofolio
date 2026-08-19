@@ -1,4 +1,28 @@
-/* Desktop-only recruiter pass. Mobile stays untouched. */
+/* Natural project covers on every viewport: no crop, no zoom, no letterboxing. */
+.impact-visual,
+.more-project-visual,
+.category-project-visual {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+  background: transparent !important;
+}
+
+.impact-visual img,
+.more-project-visual img,
+.category-project-visual img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+
+/* Desktop-only recruiter pass. Mobile stays untouched except the natural-cover rule above. */
 
 @media (min-width: 761px) {
   /* Give the selected work an editorial rhythm instead of six identical full-width panels. */
@@ -19,19 +43,19 @@
   .projects .recruiter-featured > .impact-project:nth-child(6) { grid-column: 3 / 11; }
 
   .projects .recruiter-featured > .impact-project:nth-child(1) .impact-visual {
-    aspect-ratio: 16 / 8.6;
+    aspect-ratio: auto !important;
     border-radius: 34px;
   }
   .projects .recruiter-featured > .impact-project:nth-child(2) .impact-visual,
   .projects .recruiter-featured > .impact-project:nth-child(5) .impact-visual {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: auto !important;
   }
   .projects .recruiter-featured > .impact-project:nth-child(3) .impact-visual,
   .projects .recruiter-featured > .impact-project:nth-child(4) .impact-visual {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: auto !important;
   }
   .projects .recruiter-featured > .impact-project:nth-child(6) .impact-visual {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: auto !important;
   }
 
   .projects .recruiter-featured > .impact-project:not(:first-child) .impact-visual {
@@ -134,7 +158,7 @@
     grid-column: 1 / -1;
   }
   .projects .recruiter-featured > .impact-project:not(:first-child) .impact-visual {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: auto !important;
   }
   .projects .recruiter-featured > .impact-project:last-child {
     grid-column: 1 / -1;
