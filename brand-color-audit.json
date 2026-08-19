@@ -33,6 +33,12 @@
     "c7.png",
     "p3.png"
   ],
+  "unmapped_images": [
+    "mohamed-amer-portrait.png",
+    "og.png"
+  ],
+  "root_image_count": 94,
+  "mapped_image_count": 92,
   "rows": [
     {
       "file": "s13.png",
