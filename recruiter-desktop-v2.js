@@ -20,7 +20,7 @@
     const article=document.createElement('article');
     article.className='impact-project';article.dataset.id=p.id;
     const title=pText(p,'title'),type=pText(p,'eyebrow'),cover=p.cover||p.files[0],view=lang==='ar'?'عرض المشروع ↗':'View project ↗';
-    article.innerHTML=`<div class="impact-visual" role="button" tabindex="0" aria-label="${view.replace(' ↗','')}: ${title}"><img src="${directSrc(cover)}" data-original="${cover}" alt="${title} — cover" loading="lazy" decoding="async"></div><div class="impact-info"><span class="impact-no">${String(index+1).padStart(2,'0')}</span><div><h3>${title}</h3><p class="impact-type">${type}</p></div><span class="impact-count">${countLabel(p.files.length)}</span><button class="impact-open" type="button">${view}</button></div>`;
+    article.innerHTML=`<div class="impact-visual" role="button" tabindex="0" aria-label="${view.replace(' ↗','')}: ${title}"><img src="${directSrc(cover)}" data-original="${cover}" alt="${title} — cover" loading="lazy" decoding="async"></div><div class="impact-info"><span class="impact-no">${String(index+1).padStart(2,'0')}</span><div><h3>${title}</h3><p class="impact-type">${type}</p></div><span class="impact-count">${countLabel(p.files.length)}</span><button class="impact-open" type="button" aria-label="${view.replace(' ↗','')}: ${title}">${view}</button></div>`;
     addFallbacks(article);
     const open=()=>openProject(p),visual=article.querySelector('.impact-visual'),button=article.querySelector('.impact-open');
     visual.addEventListener('click',open);

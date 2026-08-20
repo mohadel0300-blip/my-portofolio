@@ -1,0 +1,126 @@
+/* Motion and resilience pass. Keeps the existing layout, palette and artwork intact. */
+
+#top{scroll-margin-top:54px}
+
+:where(a,button,[role="button"],.project-view-figure):focus-visible{
+  outline:3px solid var(--blue);
+  outline-offset:3px;
+}
+.lightbox :where(button,[role="button"]):focus-visible{
+  outline-color:#fff;
+}
+.project-view-figure[role="button"]{cursor:zoom-in}
+
+.experience .compact-head::after{
+  content:"Where I worked — and what I was responsible for."!important;
+}
+[dir="rtl"] .experience .compact-head::after{
+  content:"أماكن اشتغلت فيها — والمسؤوليات التي كنت أتعامل معها."!important;
+}
+.about .about-lead::before{content:"HOW I GOT HERE"!important}
+[dir="rtl"] .about .about-lead::before{content:"كيف وصلت للتصميم"!important}
+
+.motion-ready .motion-reveal{
+  opacity:0;
+  transform:translate3d(0,20px,0);
+  transition:
+    opacity .68s cubic-bezier(.22,.61,.36,1),
+    transform .78s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(var(--motion-order,0) * 55ms);
+  will-change:opacity,transform;
+}
+.motion-ready .motion-reveal.motion-soft{
+  transform:translate3d(0,12px,0) scale(.992);
+}
+.motion-ready .motion-reveal.is-visible{
+  opacity:1;
+  transform:none;
+  will-change:auto;
+}
+.motion-ready .hero h1>span.motion-reveal{
+  transform:translate3d(0,.18em,0);
+}
+.motion-ready .hero h1>span.motion-reveal.is-visible{transform:none}
+.motion-ready .project-view.open .project-view-bar{
+  animation:portfolio-bar-in .42s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes portfolio-bar-in{
+  from{opacity:0;transform:translate3d(0,-10px,0)}
+  to{opacity:1;transform:none}
+}
+
+.project-view-head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)!important;
+  gap:clamp(36px,6vw,92px)!important;
+  align-items:end!important;
+  margin-bottom:clamp(34px,4vw,58px)!important;
+}
+.project-view-copy{
+  display:block!important;
+  max-width:54ch;
+  align-self:end;
+}
+.project-view-copy>p{
+  margin:0 0 24px;
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.68;
+}
+.project-view-scope{
+  padding-top:15px;
+  border-top:1px solid var(--line);
+}
+
+.project-view-copy>p{max-width:58ch}
+.project-view-scope p{max-width:62ch}
+.lightbox-close{min-width:44px;min-height:44px}
+.project-view-close{min-width:40px;min-height:40px}
+
+@media (max-width:980px){
+  .project-view-head{display:block!important;margin-bottom:28px!important}
+  .project-view-copy{max-width:100%;margin-top:22px}
+  .project-view-copy>p{font-size:.86rem;line-height:1.7;margin-bottom:18px}
+  .motion-ready .motion-reveal{
+    transform:translate3d(0,13px,0);
+    transition-duration:.56s,.64s;
+    transition-delay:calc(var(--motion-order,0) * 38ms);
+  }
+  .motion-ready .motion-reveal.motion-soft{
+    transform:translate3d(0,8px,0) scale(.996);
+  }
+  .eyebrow span{line-height:1.45}
+  .nav-btn,.cv-btn{min-width:44px;min-height:44px;justify-content:center}
+  .archive-accordion-trigger{min-height:56px}
+  .archive-mobile-open,.impact-open{min-height:44px}
+}
+
+@media (max-width:430px){
+  .experience .career-row,
+  .experience .career-row:nth-child(n){
+    grid-template-columns:1fr!important;
+    grid-template-areas:"time" "identity" "desc" "tags"!important;
+    gap:8px!important;
+  }
+  .experience .career-time,
+  .experience .career-row>div:nth-child(2),
+  .experience .career-desc,
+  .experience .career-row::after{
+    grid-column:1!important;
+  }
+  .experience .career-time{margin-bottom:4px!important}
+  .experience .career-desc{margin-top:5px!important}
+  .project-view-copy>p{font-size:.86rem!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .motion-ready .motion-reveal,
+  .motion-ready .motion-reveal.motion-soft,
+  .motion-ready .hero h1>span.motion-reveal,
+  .motion-ready .project-view.open .project-view-bar{
+    opacity:1!important;
+    transform:none!important;
+    animation:none!important;
+    transition:none!important;
+  }
+}

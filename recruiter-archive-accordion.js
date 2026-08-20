@@ -11,8 +11,8 @@
   if(briefStudioProject){
     const eventFiles=['تصوير المناسبات - رأسي.png','تفاصيل اللقاء.png'];
     briefStudioProject.files=[...new Set([...(briefStudioProject.files||[]),...eventFiles])];
-    briefStudioProject.story='Brief Studio campaign, social and event communication pieces grouped as one visual series.';
-    briefStudioProject.storyAr='تصميمات بريف ستوديو للحملات والسوشيال وتواصل الفعاليات مجمعة كسلسلة بصرية واحدة.';
+    briefStudioProject.story='These pieces cover campaign, social and event communication for Brief Studio. I kept the overall voice recognizable, then adjusted the composition and pacing to suit each message and format.';
+    briefStudioProject.storyAr='تغطي هذه الأعمال حملات وسوشيال وتواصل فعاليات لـBrief Studio. حافظت على صوت بصري معروف، ثم عدّلت التكوين والإيقاع حسب كل رسالة ومقاس.';
     briefStudioProject.scope='Visual direction · Campaign design · Social content · Event communication';
     briefStudioProject.scopeAr='اتجاه بصري · تصميم حملات · محتوى سوشيال · تواصل الفعاليات';
   }
@@ -95,7 +95,7 @@
     stage.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}};
     stage.tabIndex=0;stage.setAttribute('role','button');stage.setAttribute('aria-label',`${strings().open.replace(' ↗','')}: ${title}`);
     const btn=root.querySelector('.archive-preview-open');
-    btn.textContent=strings().open;btn.onclick=open;
+    btn.textContent=strings().open;btn.setAttribute('aria-label',`${strings().open.replace(' ↗','')}: ${title}`);btn.onclick=open;
   };
 
   const mobilePreviewMarkup=p=>{
@@ -104,7 +104,7 @@
       <button class="archive-mobile-image" type="button" aria-label="${strings().open.replace(' ↗','')}: ${title}">
         <img src="${previewSrc(file)}" data-original="${file}" alt="${title} — preview" loading="lazy" decoding="async">
       </button>
-      <div class="archive-mobile-meta"><span>${meta} · ${countLabel(p.files.length)}</span><button class="archive-mobile-open" type="button">${strings().open}</button></div>
+      <div class="archive-mobile-meta"><span>${meta} · ${countLabel(p.files.length)}</span><button class="archive-mobile-open" type="button" aria-label="${strings().open.replace(' ↗','')}: ${title}">${strings().open}</button></div>
     </div>`;
   };
 
@@ -129,10 +129,10 @@
       <div class="archive-accordion-shell">
         <div class="archive-accordion-list">${list.map((p,i)=>`
           <div class="archive-accordion-item${i===0?' is-active':''}" data-id="${p.id}">
-            <button class="archive-accordion-trigger" type="button" aria-expanded="${i===0?'true':'false'}">
-              <strong>${t(p,'title')}</strong><span class="archive-accordion-count">${countLabel(p.files.length)}</span><span class="archive-accordion-icon">+</span>
+            <button class="archive-accordion-trigger" type="button" aria-expanded="${i===0?'true':'false'}" aria-controls="archive-panel-${p.id}">
+              <strong>${t(p,'title')}</strong><span class="archive-accordion-count">${countLabel(p.files.length)}</span><span aria-hidden="true" class="archive-accordion-icon">+</span>
             </button>
-            <div class="archive-accordion-detail"><div class="archive-accordion-detail-inner">
+            <div class="archive-accordion-detail" id="archive-panel-${p.id}"><div class="archive-accordion-detail-inner">
               <p>${t(p,'story')||''}</p>${mobilePreviewMarkup(p)}
             </div></div>
           </div>`).join('')}</div>
