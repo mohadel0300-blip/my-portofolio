@@ -1,0 +1,36 @@
+/* Direct website launch cards. These are links, not screenshots or case-study modals. */
+.web-launches{margin-top:0}
+.web-launch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.web-launch-card{position:relative;min-height:clamp(390px,38vw,540px);padding:clamp(26px,3.2vw,48px);border-radius:34px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;isolation:isolate;box-shadow:0 1px 1px rgba(0,0,0,.03),0 18px 50px rgba(0,0,0,.045);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.web-launch-card:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+.web-launch-card:hover{transform:translateY(-5px);box-shadow:0 2px 2px rgba(0,0,0,.035),0 26px 65px rgba(0,0,0,.08)}
+.web-launch-tabbeauty{background:linear-gradient(145deg,#fff 8%,#faf7ff 54%,#efe6ff);color:#28314a}
+.web-launch-almashraq{background:linear-gradient(145deg,#0b101c,#16223b 64%,#223354);color:#fff}
+.web-launch-glow{position:absolute;z-index:-1;width:52%;aspect-ratio:1;border-radius:50%;filter:blur(18px);opacity:.72;pointer-events:none}
+.web-launch-tabbeauty .web-launch-glow{right:-10%;bottom:-16%;background:radial-gradient(circle,#d8b9ff 0,rgba(214,239,255,.72) 43%,transparent 72%)}
+.web-launch-almashraq .web-launch-glow{left:-12%;top:-16%;background:radial-gradient(circle,rgba(195,154,92,.44),rgba(235,246,255,.08) 46%,transparent 72%)}
+.web-launch-top{display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.07em;text-transform:uppercase}
+.web-launch-no{opacity:.58}
+.web-launch-status{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid currentColor;border-radius:999px;opacity:.78}
+.web-launch-status i{width:7px;height:7px;border-radius:50%;background:#27c36a;box-shadow:0 0 0 4px rgba(39,195,106,.13)}
+.web-launch-name{max-width:9ch;font-size:clamp(3.2rem,6vw,7.2rem);font-weight:650;line-height:.82;letter-spacing:-.075em}
+.web-launch-almashraq .web-launch-name{color:#dfbe8c}
+.web-launch-footer{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:end;border-top:1px solid currentColor;padding-top:18px}
+.web-launch-footer>div>span{display:block;font-size:.66rem;font-weight:600;line-height:1.45;opacity:.68}
+.web-launch-footer p{margin:7px 0 0;font-size:.72rem;line-height:1.5;opacity:.62}
+.web-launch-footer strong{font-size:.78rem;white-space:nowrap}
+.restored-projects{margin-top:clamp(78px,10vw,150px)}
+[dir="rtl"] .web-launch-top{font-family:'IBM Plex Sans Arabic',sans-serif;letter-spacing:0;text-transform:none}
+[dir="rtl"] .web-launch-name{max-width:11ch;letter-spacing:-.045em;line-height:.98}
+[dir="rtl"] .web-launch-footer>div>span,[dir="rtl"] .web-launch-footer p{line-height:1.75}
+
+@media(max-width:760px){
+  .web-launch-grid{grid-template-columns:1fr;gap:12px}
+  .web-launch-card{min-height:360px;padding:24px;border-radius:24px}
+  .web-launch-name{font-size:clamp(3.2rem,16vw,5.2rem)}
+  .web-launch-footer{grid-template-columns:1fr;gap:18px}
+  .web-launch-footer strong{justify-self:start}
+  .restored-projects{margin-top:74px}
+}
+
+@media(prefers-reduced-motion:reduce){.web-launch-card{transition:none}.web-launch-card:hover{transform:none}}

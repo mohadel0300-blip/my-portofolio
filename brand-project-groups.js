@@ -18,14 +18,14 @@
           contribution:'Product visual system · Packaging specification · Arabic content hierarchy · Interface design · Front-end prototype',
           constraints:'120 × 72 × 18 mm pack; six fixed pattern colors; Arabic-first flow; product proportions had to remain accurate.',
           decisions:'Linked every lash type to one non-editable pattern color, corrected product proportions, strengthened Arabic type and spacing, then repeated the same comparison logic across product cards, eye previews and cart.',
-          outcome:'An interactive Arabic commerce prototype with selectable variants, favourites, working cart, FAQ and policy content, supported by a detailed manufacturing specification brief.'
+          outcome:'An interactive Arabic commerce prototype with selectable variants, a working in-session cart, FAQ and policy content, supported by a detailed manufacturing specification brief. Orders and payments are simulated.'
         },
         ar:{
           problem:'ستة أشكال للرموش كان يجب أن تبدو مختلفة بوضوح، من غير أن تتحول العبوة أو رحلة الاختيار إلى تجربة مربكة.',
           contribution:'نظام بصري للمنتج · مواصفات العبوة · ترتيب المحتوى العربي · تصميم الواجهة · النموذج الأمامي التفاعلي',
           constraints:'عبوة 120 × 72 × 18 مم؛ ستة ألوان نقش ثابتة؛ تجربة عربية أولًا؛ والحفاظ على نسب المنتج من دون تشويه.',
           decisions:'ربطت كل نوع بلون نقش ثابت غير قابل للاختيار منفصلًا، صححت نسب المنتج، قوّيت الخطوط والمسافات العربية، ثم كررت منطق المقارنة نفسه في كروت المنتج ومعاينة العين والسلة.',
-          outcome:'نموذج تجارة إلكترونية عربي تفاعلي يضم اختيار الأنواع والمفضلة وسلة تعمل والأسئلة والسياسات، ومدعوم بملف تفصيلي لمواصفات التصنيع.'
+          outcome:'نموذج تجارة إلكترونية عربي تفاعلي يضم اختيار الأنواع وسلة تعمل داخل الجلسة والأسئلة والسياسات، ومدعوم بملف تفصيلي لمواصفات التصنيع. الطلبات والدفع محاكاة وليسا حقيقيين.'
         }
       },
       links:[
@@ -319,27 +319,34 @@
   loadCss('recruiter-projects-v3.css?v=20260819-0545','recruiter-projects-v3');
   loadCss('recruiter-categories.css?v=20260819-0545','recruiter-categories');
 
-  // Two verified web builds lead, followed by the strongest brand and campaign systems.
+  // Live web prototypes lead with direct links. The portfolio work then returns to
+  // the previous ratio-based presentation and the order the owner preferred.
   const digitalIds=['tabbeauty','almashraq'];
-  const brandIds=['briefagency','orient','alluriv','realestate'];
   const digitalProjects=digitalIds.map(byId).filter(Boolean);
-  const brandProjects=brandIds.map(byId).filter(Boolean);
+  const topIds=['briefagency','orient','sociallab','editorial','briefstudio','realestate','healthcare','alluriv','communitycampaign'];
+  const topProjects=topIds.map(byId).filter(Boolean);
+  const webUrls={
+    tabbeauty:'https://mohadel0300-blip.github.io/tab-beauty/',
+    almashraq:'https://mohadel0300-blip.github.io/my-portofolio/almashraq/'
+  };
 
   const categoryDefs=[
-    {id:'digital',en:'Arabic Digital Experiences',ar:'تجارب رقمية عربية',ids:['khairzad','ecommerce']},
-    {id:'campaigns',en:'Campaigns & Social',ar:'الحملات والسوشيال',ids:['briefagency','briefstudio','realestate','healthcare','alluriv','communitycampaign']},
-    {id:'editorial',en:'Editorial & Company Communication',ar:'التصميم التحريري وتواصل الشركات',ids:['editorial','brandapps']},
-    {id:'image',en:'Image-making & Product Studies',ar:'صناعة الصورة ودراسات المنتج',ids:['natural','huggies','aiarchive']}
+    {id:'technology',en:'Technology & Digital Solutions',ar:'التكنولوجيا والحلول الرقمية',ids:['lenstech','classtech','ecommerce','khairzad']},
+    {id:'campaigns',en:'Campaigns & Social',ar:'الحملات والسوشيال',ids:['event','social','campaignbanners']},
+    {id:'image',en:'AI & Image-making',ar:'الذكاء الاصطناعي وصناعة الصورة',ids:['natural','aiarchive']},
+    {id:'product',en:'Product & Brand',ar:'المنتجات والهوية',ids:['huggies','brandapps','covers']}
   ];
 
   const C=()=>lang==='ar'?{
-    browseTitle:'أعمال أخرى حسب المجال',browseText:'باقي الأعمال متاحة في الأرشيف المضغوط بالأسفل.',view:'عرض دراسة الحالة ↗',note:'عن المشروع',projects:'مشاريع',
-    digitalLabel:'01A / مواقع ومنتجات رقمية',digitalTitle:'موقعان يستحقان الفتح.',digitalText:'تاب بيوتي والمشرق: مشروعان يوضحان الانتقال من القيود والمحتوى إلى تجربة عربية تعمل.',
-    brandLabel:'01B / براندات وحملات',brandTitle:'أنظمة بصرية لبريفات مختلفة.',brandText:'أعمال توضح كيف تتحول الفكرة إلى تسلسل وتطبيقات، وليس مجرد تصميمات منفصلة.'
+    browseTitle:'أعمال أخرى حسب المجال',browseText:'باقي الأعمال متاحة في الأرشيف المضغوط بالأسفل.',view:'عرض المشروع ↗',note:'عن المشروع',projects:'مشاريع',
+    digitalLabel:'01A / مواقع مباشرة',digitalTitle:'افتح الموقع، لا تشاهد صورة له.',digitalText:'تاب بيوتي والمشرق نموذجان تفاعليان يُفتحان مباشرة في تبويب جديد.',
+    brandLabel:'01B / المشاريع بالترتيب الأصلي',brandTitle:'البراندات والحملات.',brandText:'رجعنا طريقة العرض السابقة: المشاريع مرتبة حسب شكل العمل ويمكن تصفحها أفقيًا.',
+    openWebsite:'فتح الموقع الحي ↗',prototype:'نموذج تفاعلي',tabNote:'لا توجد طلبات أو مدفوعات حقيقية',mashraqNote:'نموذج الطلب لا يرسل بيانات حقيقية'
   }:{
-    browseTitle:'More work by field',browseText:'The remaining work is available in the compact archive below.',view:'View case study ↗',note:'Project note',projects:'projects',
-    digitalLabel:'01A / WEB & DIGITAL PRODUCTS',digitalTitle:'Two builds worth opening.',digitalText:'TAB Beauty and Almashraq show how constraints and content became working Arabic experiences.',
-    brandLabel:'01B / BRAND & CAMPAIGN WORK',brandTitle:'Visual systems for different briefs.',brandText:'Work that shows how one idea becomes a sequence and a usable system — not isolated pieces.'
+    browseTitle:'More work by field',browseText:'The remaining work is available in the compact archive below.',view:'View project ↗',note:'Project note',projects:'projects',
+    digitalLabel:'01A / DIRECT WEB LINKS',digitalTitle:'Open the site, not a screenshot.',digitalText:'TAB Beauty and Almashraq are interactive prototypes that open directly in a new tab.',
+    brandLabel:'01B / ORIGINAL PROJECT ORDER',brandTitle:'Brand and campaign work.',brandText:'The previous project presentation is back: work is grouped by artwork ratio and browsed horizontally.',
+    openWebsite:'Open live website ↗',prototype:'Interactive prototype',tabNote:'No real orders or payments',mashraqNote:'The lead form does not send real data'
   };
   const caseStrings=()=>lang==='ar'?{
     problem:'المشكلة',contribution:'نطاق المساهمة',constraints:'القيود',decisions:'القرارات الرئيسية',outcome:'النتيجة',overview:'ملخص الحالة'
@@ -355,9 +362,13 @@
   const previewImage=(file,alt,hero=false)=>`<img src="${hero?projectSrc(file):thumbSrc(file)}" data-original="${file}" alt="${alt}" loading="${hero?'eager':'lazy'}" decoding="async"${hero?' fetchpriority="high"':''}>`;
   const projectImgMarkup=(file,alt,priority='lazy')=>`<img src="${projectSrc(file)}" data-original="${file}" alt="${alt}" loading="${priority}" decoding="async">`;
 
-  const impactMarkup=(p,i,offset=0)=>{
-    const title=pText(p,'title'),type=pText(p,'eyebrow'),cover=coverFile(p),summary=pText(p,'card')||pText(p,'story'),count=p.caseStudy?(lang==='ar'?'دراسة حالة':'Case study'):countLabel(p.files.length);
-    return `<article class="impact-project" data-id="${p.id}"><div class="impact-visual" role="button" tabindex="0" aria-label="${C().view.replace(' ↗','')}: ${title}">${previewImage(cover,`${title} — cover`,offset+i===0)}</div><div class="impact-info"><span class="impact-no">${String(offset+i+1).padStart(2,'0')}</span><div><h3>${title}</h3><p class="impact-type">${type}</p><p class="impact-summary">${summary}</p></div><span class="impact-count">${count}</span><button class="impact-open" type="button" aria-label="${C().view.replace(' ↗','')}: ${title}">${C().view}</button></div></article>`;
+  const impactMarkup=(p,i)=>{
+    const title=pText(p,'title'),type=pText(p,'eyebrow'),cover=coverFile(p);
+    return `<article class="impact-project" data-id="${p.id}"><div class="impact-visual" role="button" tabindex="0" aria-label="${C().view.replace(' ↗','')}: ${title}">${previewImage(cover,`${title} — cover`,i===0)}</div><div class="impact-info"><span class="impact-no">${String(i+1).padStart(2,'0')}</span><div><h3>${title}</h3><p class="impact-type">${type}</p></div><span class="impact-count">${countLabel(p.files.length)}</span><button class="impact-open" type="button" aria-label="${C().view.replace(' ↗','')}: ${title}">${C().view}</button></div></article>`;
+  };
+  const webMarkup=(p,i)=>{
+    const title=pText(p,'title'),url=webUrls[p.id],note=p.id==='tabbeauty'?C().tabNote:C().mashraqNote;
+    return `<a class="web-launch-card web-launch-${p.id}" href="${url}" target="_blank" rel="noopener" aria-label="${C().openWebsite.replace(' ↗','')}: ${title}"><span class="web-launch-glow" aria-hidden="true"></span><div class="web-launch-top"><span class="web-launch-no">0${i+1}</span><span class="web-launch-status"><i aria-hidden="true"></i>${C().prototype}</span></div><div class="web-launch-name">${title}</div><div class="web-launch-footer"><div><span>${pText(p,'eyebrow')}</span><p>${note}</p></div><strong>${C().openWebsite}</strong></div></a>`;
   };
   const categoryProjectMarkup=p=>{
     const title=pText(p,'title'),cover=coverFile(p);
@@ -377,13 +388,13 @@
   renderProjects=function(){
     const selectedRoot=$('#selectedProjects'),moreRoot=document.querySelector('.more-work');
     selectedRoot.innerHTML=`
-      <section class="case-cluster case-cluster-digital">
+      <section class="web-launches">
         <header class="case-cluster-head"><span>${C().digitalLabel}</span><div><h3>${C().digitalTitle}</h3><p>${C().digitalText}</p></div></header>
-        <div class="recruiter-featured recruiter-featured-digital">${digitalProjects.map((p,i)=>impactMarkup(p,i,0)).join('')}</div>
+        <div class="web-launch-grid">${digitalProjects.map(webMarkup).join('')}</div>
       </section>
-      <section class="case-cluster case-cluster-brands">
+      <section class="restored-projects">
         <header class="case-cluster-head"><span>${C().brandLabel}</span><div><h3>${C().brandTitle}</h3><p>${C().brandText}</p></div></header>
-        <div class="recruiter-featured recruiter-featured-brands">${brandProjects.map((p,i)=>impactMarkup(p,i,digitalProjects.length)).join('')}</div>
+        <div class="recruiter-featured">${topProjects.map(impactMarkup).join('')}</div>
       </section>`;
     moreRoot.innerHTML=`<div class="recruiter-browse"><div class="recruiter-browse-head"><h3>${C().browseTitle}</h3><p>${C().browseText}</p></div><div class="work-categories">${categoryDefs.map(categoryMarkup).join('')}</div></div>`;
     addFallbacks(selectedRoot);addFallbacks(moreRoot);

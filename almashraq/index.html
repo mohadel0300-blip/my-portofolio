@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="نموذج تفاعلي لموقع المشرق للاستثمار ضمن بورتفوليو محمد عامر.">
+    <title>المشرق للاستثمار | مستودعات جاهزة راقية</title>
+    
+    <!-- خطوط الويب الفاخرة لتمثيل Madani Arabic و Blackpast بدقة متناهية مع البدائل الهندسية الراقية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Almarai:wght@300;400;700;800&family=Readex+Pro:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة FontAwesome للأيقونات الفاخرة الموحدة -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- مكتبة AOS للأنيميشن وتأثيرات التمرير الإبداعية -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#0c101b', // قاعدة كحلي داكن عميق جداً من الهوية
+                            900: '#141b2d', 
+                            800: '#1e2942',
+                            700: '#2a395c',
+                            600: '#343647'  
+                        },
+                        gold: {
+                            DEFAULT: '#C39A5C', // ذهبي هوية المشرق للاستثمار الرسمي
+                            light: '#dfbe8c',
+                            dark: '#9d7639'
+                        },
+                        skyAureo: {
+                            50: '#F4FAFF',
+                            100: '#EBF6FF',
+                            200: '#D6EDFF',
+                            300: '#AFD8FF',
+                            DEFAULT: '#EBF6FF'
+                        },
+                        charcoal: '#262730', // Charcoal Black من الهوية
+                        stoneGray: '#F3F4F6', 
+                        warmOffWhite: '#F9FAF6', // Warm Off-White من الهوية
+                        sandyBeige: '#EFECE6', // Sandy Beige من الهوية
+                        burgundy: '#522521', // Earthy Burgundy من الهوية
+                    },
+                    fontFamily: {
+                        madani: ['"Madani Arabic"', 'Almarai', '"Readex Pro"', 'Cairo', 'sans-serif'],
+                        blackpast: ['Blackpast', '"Space Grotesk"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'aureo-soft': '0 15px 45px -10px rgba(12, 16, 27, 0.04)',
+                        'aureo-deep': '0 35px 80px -15px rgba(12, 16, 27, 0.08)',
+                        'gold-glow': '0 15px 35px -5px rgba(195, 154, 92, 0.2)',
+                        'card-glow': '0 20px 50px -12px rgba(175, 216, 255, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Almarai', 'Cairo', sans-serif; background-color: #F9FAF6; color: #262730; overflow-x: hidden; }
+        
+        /* منع تقطع وتفكك الحروف العربية في كامل الملف نهائياً وبشكل صارم */
+        *:lang(ar) {
+            letter-spacing: normal !important;
+            word-spacing: normal !important;
+        }
+
+        /* تطبيق خطوط الهوية الرسمية */
+        .brand-title {
+            font-family: 'Blackpast', 'Space Grotesk', sans-serif;
+        }
+        .brand-arabic {
+            font-family: 'Madani Arabic', 'Almarai', 'Cairo', sans-serif;
+        }
+
+        /* حركات التمرير التفاعلية المعمارية */
+        .img-zoom {
+            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .group:hover .img-zoom {
+            transform: scale(1.06);
+        }
+
+        /* حركات الأزرار الدائرية الفخمة */
+        .btn-arrow-circle {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .group:hover .btn-arrow-circle {
+            transform: scale(1.1) rotate(-45deg);
+            background-color: #C39A5C;
+            color: #ffffff;
+            border-color: #C39A5C;
+        }
+
+        /* تنسيق الأكورديون الفاخر للأسئلة الشائعة */
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary i {
+            transform: rotate(180deg);
+        }
+
+        /* تخصيص مؤشر التمرير (Scrollbar) الفاخر */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9FAF6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C39A5C;
+            border-radius: 10px;
+        }
+
+        /* تأثير بلور فخم مع شفافية Aureo */
+        .glass-header {
+            background: rgba(249, 250, 246, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* تدرج هيرو Aureo الإبداعي */
+        .hero-sky-gradient {
+            background: linear-gradient(180deg, #EBF6FF 0%, #F4FAFF 40%, #FAFDFE 70%, #F9FAF6 100%);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-navy-950 text-charcoal">
+    <div role="status" class="bg-navy-950 text-white text-center text-xs sm:text-sm font-bold px-4 py-3">نموذج تفاعلي لأغراض العرض ضمن البورتفوليو — لا يرسل طلبات أو بيانات حقيقية.</div>
+
+    <!-- Minimalist AUREO Floating Navbar -->
+    <nav class="fixed w-full z-50 top-0 py-5 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center w-full pb-4 border-b border-navy-950/5 transition-all duration-500" id="nav-border">
+                
+                <!-- شعار المشرق للاستثمار المعتمد الأصيل المأخوذ من الصورة المرفقة مباشرة -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-12 h-12 bg-white flex items-center justify-center p-0.5 rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                        <img src="assets/logo.png" loading="lazy" decoding="async" alt="شعار المشرق" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col font-madani">
+                        <span class="font-bold text-2xl text-navy-950 leading-none mb-1">المشرق</span>
+                        <span class="text-[9px] text-gold font-bold uppercase leading-none">للاستثمار • <span class="tracking-widest inline-block">AL-MASHRIQ</span></span>
+                    </div>
+                </div>
+
+                <!-- الروابط العلوية البسيطة والراقية جداً لتصميم AUREO (حذف رابط إرث التخزين) -->
+                <div class="hidden lg:flex space-x-10 space-x-reverse items-center font-bold text-navy-950/90 text-sm font-madani">
+                    <a href="#hero" class="hover:text-gold transition-colors duration-300 relative group py-2">
+                        الرئيسية
+                        <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#locations" class="hover:text-gold transition-colors duration-300 relative group py-2">
+                        المواقع اللوجستية
+                        <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="hover:text-gold transition-colors duration-300 relative group py-2">
+                        الخدمات والمساحات
+                        <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#faq" class="hover:text-gold transition-colors duration-300 relative group py-2">
+                        الأسئلة الشائعة
+                        <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+
+                <!-- زر الاتصال السريع والحجز المباشر -->
+                <div class="flex items-center gap-4 font-madani">
+                    <a href="tel:920015243" class="hidden md:flex text-navy-950 font-bold text-sm gap-2 items-center hover:text-gold transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-navy-950/5 flex items-center justify-center text-gold">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <span class="tracking-normal">920015243</span>
+                    </a>
+                    <a href="#register" class="bg-navy-950 hover:bg-gold text-white hover:text-navy-950 font-bold px-7 py-3 rounded-full transition duration-300 text-xs sm:text-sm shadow-md hover:shadow-lg">
+                        <span>احجز جولة ميدانية</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Emulating the stunning light-blue architecture of AUREO) -->
+    <section id="hero" class="relative min-h-screen flex flex-col justify-between pt-44 pb-20 overflow-hidden hero-sky-gradient">
+        
+        <!-- غطاء خفيف مع عناصر شبكية هندسية للعمق المعماري الفخم -->
+        <div class="absolute inset-0 z-0 opacity-40">
+            <div class="absolute top-1/4 right-10 w-96 h-96 bg-skyAureo-300 rounded-full blur-[120px] mix-blend-multiply filter"></div>
+            <div class="absolute bottom-10 left-1/4 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[150px] mix-blend-multiply filter"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-6 mb-12">
+            <div class="text-center max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                
+                <!-- كبسولة الأمان الفاخرة المماثلة لـ Screenshot 5.43.29 تماماً بالدوت الذهبي على اليسار بلغة RTL -->
+                <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#EBF6FF]/70 border border-[#D6EDFF] text-gray-700 text-xs sm:text-sm font-bold mb-8 font-madani">
+                    <span>جاهزية فورية وأمان متكامل للتشغيل اللوجستي والمالي</span>
+                    <span class="w-2 h-2 rounded-full bg-gold"></span>
+                </div>
+
+                <!-- العنوان العريض الأنيق بتناسق خطوط Aureo وبدون خاصية tracking-tight لحل تداخل الحروف -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-950 leading-[1.25] mb-8 font-madani">
+                    المساحات اللوجستية <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-dark to-gold font-bold">الاستثنائية تبدأ هنا</span>
+                </h1>
+                
+                <!-- الوصف الفئوي التفصيلي للفئات المستهدفة -->
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-semibold leading-relaxed font-madani mb-10">
+                    مساحات تخزين مطابقة للاشتراطات الفنية، مخصصة للتجار، أصحاب المتاجر الإلكترونية، والشركات الكبرى الساعية لتأمين سلاسل إمدادها بموثوقية كاملة.
+                </p>
+
+                <!-- أزرار الهيرو التفاعلية الفخمة والمنسقة مثل لقطة الشاشة تماماً -->
+                <div class="flex flex-wrap justify-center gap-4 mb-16 font-madani">
+                    <a href="#register" class="bg-navy-950 hover:bg-gold text-white hover:text-navy-950 font-bold px-9 py-4 rounded-full transition duration-300 shadow-md text-sm sm:text-base">
+                        <span>احجز جولتك الميدانية الآن</span>
+                    </a>
+                    <a href="#locations" class="bg-white hover:bg-gray-50 border border-gray-200 text-navy-950 font-bold px-9 py-4 rounded-full transition duration-300 text-sm sm:text-base shadow-sm">
+                        <span>اكتشف مستودعاتنا اللوجستية</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- الكارت المعماري المعلق الضخم المماثل لفيلا Aureo بالصورة تماماً -->
+            <div class="relative max-w-6xl mx-auto mt-12" data-aos="zoom-in" data-aos-delay="300">
+                <div class="bg-white rounded-[2.5rem] shadow-card-glow p-4 border border-skyAureo-200 relative overflow-hidden group">
+                    <div class="h-[350px] sm:h-[450px] md:h-[550px] rounded-[2rem] overflow-hidden relative">
+                        <!-- الخلفية المعمارية العريضة الفخمة (1).png (ترميز وحل انفصال الصورة) -->
+                        <img src="assets/hero.jpg" fetchpriority="high" decoding="async" alt="واجهة مستودعات المشرق الفخمة" class="w-full h-full object-cover img-zoom">
+                        
+                        <!-- غطاء خفيف مع زر تشغيل الفيديو الفخم -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-transparent flex items-center justify-center">
+                            <!-- تشغيل النافذة المنبثقة التفاعلية للفيديو عند الضغط -->
+                            <button onclick="toggleVideoModal(true)" class="w-20 h-20 bg-white/95 text-navy-950 rounded-full flex items-center justify-center text-xl shadow-gold-glow hover:scale-110 hover:bg-gold hover:text-white transition duration-300 z-10 cursor-pointer">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الكبسولات المعلقة للميزات الـ 5 المذكورة في المستند -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-20 relative z-20 font-madani" data-aos="fade-up" data-aos-delay="400">
+                <!-- ميزة 1 -->
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl flex items-start gap-4 hover:border-gold/30 hover:shadow-aureo-soft transition duration-300">
+                    <div class="text-gold text-2xl mt-1"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+                    <div>
+                        <h4 class="text-navy-950 font-bold text-sm mb-1">1: مساحات مرنة</h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed mt-0.5">من 489م لـ 20,000م وجاهزية فورية للتشغيل.</p>
+                    </div>
+                </div>
+                <!-- ميزة 2 -->
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl flex items-start gap-4 hover:border-gold/30 hover:shadow-aureo-soft transition duration-300">
+                    <div class="text-gold text-2xl mt-1"><i class="fa-solid fa-bolt"></i></div>
+                    <div>
+                        <h4 class="text-navy-950 font-bold text-sm mb-1">2: بنية تحتية</h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed mt-0.5">أبواب كهربائية حديثة وكهرباء 200 أمبير.</p>
+                    </div>
+                </div>
+                <!-- ميزة 3 -->
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl flex items-start gap-4 hover:border-gold/30 hover:shadow-aureo-soft transition duration-300">
+                    <div class="text-gold text-2xl mt-1"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <h4 class="text-navy-950 font-bold text-sm mb-1">3: أمان كامل</h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed mt-0.5">تراخيص الدفاع المدني ومطابقة للكود السعودي.</p>
+                    </div>
+                </div>
+                <!-- ميزة 4 -->
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl flex items-start gap-4 hover:border-gold/30 hover:shadow-aureo-soft transition duration-300">
+                    <div class="text-gold text-2xl mt-1"><i class="fa-solid fa-trowel-bricks"></i></div>
+                    <div>
+                        <h4 class="text-navy-950 font-bold text-sm mb-1">4: جودة بناء</h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed mt-0.5">صبة تتحمل الأوزان وعزل حراري ممتاز.</p>
+                    </div>
+                </div>
+                <!-- ميزة 5 -->
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl flex items-start gap-4 hover:border-gold/30 hover:shadow-aureo-soft transition duration-300">
+                    <div class="text-gold text-2xl mt-1"><i class="fa-solid fa-door-open"></i></div>
+                    <div>
+                        <h4 class="text-navy-950 font-bold text-sm mb-1">5: تصميم عملي</h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed mt-0.5">بوجود مكتب إداري ودورة مياه خاصة لكل مستودع.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- شريط محتوى توضيحي للنموذج الفخم المرفوع لأعلى مباشرة بعد الهيرو لبناء مصداقية فورية (متناسق مع Screenshot 5.42.00) -->
+    <div class="py-16 bg-white border-y border-gray-100 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+            <p class="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-8 font-madani">
+                أمثلة توضيحية لقطاعات السوق المستهدفة
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-75 text-gray-500 font-madani">
+                <span class="text-2xl font-bold tracking-normal">الأغذية</span>
+                <span class="text-2xl font-bold font-sans tracking-widest brand-title">LOGISTICS</span>
+                <span class="text-2xl font-bold tracking-wider brand-title">RETAIL</span>
+                <span class="text-2xl font-bold tracking-normal">التوزيع</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Legacy Design Block ("Your Home, Your Legacy, Designed Forever" Style) -->
+    <section id="heritage" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- هيكل Asymmetric الفريد من صورة Aureo تماماً (توازن معلق) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- الجانب الأيمن (نصوص عريضة وبدون تضييق الحروف وتصحيح الأخطاء اللغوية) -->
+                <div class="lg:col-span-5 font-madani order-first lg:order-last" data-aos="fade-up" data-aos-delay="100">
+                    <span class="text-gold font-bold uppercase text-xs mb-4 block">إرث وتطوير مستمر</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-950 leading-[1.25] mb-6">
+                        مستودعك اللوجستي، <br>إرث أعمالك، صُمم ليبقى
+                    </h2>
+                    <p class="text-gray-500 font-semibold text-base leading-relaxed mb-8">
+                        نؤمن في شركة المشرق للاستثمار بأن تأسيس منشأتك التخزينية في موقع استراتيجي هو حجر الأساس لنمو أعمالك التجارية. لذلك، دمجنا البنية الهندسية القوية مع تراخيص الدفاع المدني الفورية لتنعم بالموثوقية الكاملة والتشغيل المتواصل.
+                    </p>
+
+                    <!-- الفئات المستهدفة الأربعة المذكورة في المستند بتصميم أنيق ومطابق لـ Screenshot 5.42.27 تماماً -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center gap-3 p-4 bg-[#F9FAF6] rounded-2xl border border-gray-100 hover:border-gold/30 hover:shadow-sm transition-all duration-300">
+                            <span class="w-2.5 h-2.5 rounded-full bg-gold flex-shrink-0"></span>
+                            <span class="font-bold text-xs sm:text-sm text-navy-950">أصحاب الشركات القائمة</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-[#F9FAF6] rounded-2xl border border-gray-100 hover:border-gold/30 hover:shadow-sm transition-all duration-300">
+                            <span class="w-2.5 h-2.5 rounded-full bg-gold flex-shrink-0"></span>
+                            <span class="font-bold text-xs sm:text-sm text-navy-950">المستثمرون ورواد الأعمال</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-[#F9FAF6] rounded-2xl border border-gray-100 hover:border-gold/30 hover:shadow-sm transition-all duration-300">
+                            <span class="w-2.5 h-2.5 rounded-full bg-gold flex-shrink-0"></span>
+                            <span class="font-bold text-xs sm:text-sm text-navy-950">مديرو العمليات واللوجستيات</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-[#F9FAF6] rounded-2xl border border-gray-100 hover:border-gold/30 hover:shadow-sm transition-all duration-300">
+                            <span class="w-2.5 h-2.5 rounded-full bg-gold flex-shrink-0"></span>
+                            <span class="font-bold text-xs sm:text-sm text-navy-950">الموردون والموزعون</span>
+                        </div>
+                    </div>
+
+                    <!-- صباع الصورتين المصغرتين أسفل النص لتطابق صورة Aureo (تمت إزالة صورة الأرفف واستبدالها باللقطة الجوية البانورامية للمستودعات 6.png) -->
+                    <div class="flex gap-4 mt-8">
+                        <!-- مستودع السلي فارغ (2).png (ترميز وحل انفصال الصورة) -->
+                        <div class="w-1/2 rounded-2xl overflow-hidden shadow-aureo-soft bg-white p-2 border border-gray-100 group">
+                            <div class="h-28 rounded-xl overflow-hidden bg-gray-50">
+                                <img src="assets/location-sulai.jpg" loading="lazy" decoding="async" alt="مستودع السلي" class="w-full h-full object-cover img-zoom">
+                            </div>
+                        </div>
+                        <!-- منظومة سدوس البانورامية من الأعلى (6).png كبديل معتمد وخالٍ من الأرفف تماماً -->
+                        <div class="w-1/2 rounded-2xl overflow-hidden shadow-aureo-soft bg-white p-2 border border-gray-100 group">
+                            <div class="h-28 rounded-xl overflow-hidden bg-gray-50">
+                                <img src="assets/location-sudous.jpg" loading="lazy" decoding="async" alt="منظومة سدوس المتكاملة" class="w-full h-full object-cover img-zoom">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الجانب الأيسر (الهيكل المعماري الفخم العائم المماثل لصورة Aureo الكبيرة) -->
+                <div class="lg:col-span-7 relative order-last lg:order-first" data-aos="fade-left" data-aos-delay="200">
+                    <div class="rounded-[2.5rem] overflow-hidden shadow-aureo-deep bg-white p-4 border border-gray-100 group">
+                        <div class="h-80 md:h-[500px] rounded-[2rem] overflow-hidden bg-gray-50">
+                            <!-- الشاحنات والأرصفة (4).png (ترميز وحل انفصال الصورة) -->
+                            <img src="assets/operations.jpg" loading="lazy" decoding="async" alt="منظومة لوجستية متكاملة" class="w-full h-full object-cover img-zoom">
+                        </div>
+                    </div>
+                    <!-- بطاقة معلقة لعقد الثقة والتطوير المعماري -->
+                    <div class="absolute -bottom-8 -right-8 bg-white border border-gray-100 shadow-aureo-deep p-6 rounded-3xl hidden md:flex items-center gap-4 max-w-xs font-madani z-10">
+                        <div class="w-12 h-12 rounded-2xl bg-gold/10 text-gold-dark flex items-center justify-center text-xl flex-shrink-0">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-navy-950 text-sm">أعلى جودة تشييد وبناء</h4>
+                            <p class="text-[11px] text-gray-400 mt-1">كود البناء السعودي ومعايير هندسية معاصرة ومستدامة.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Curated Grid & Interactive Location Map Switcher (New UX Upgrade) -->
+    <section id="locations" class="py-32 bg-stoneGray/30 border-y border-gray-200/40 relative overflow-hidden">
+        
+        <!-- خلفية Aureo هندسية خفيفة جداً -->
+        <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 font-madani" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <span class="text-gold font-bold bg-gold/10 px-4 py-2 rounded-full text-xs uppercase mb-4 inline-block">المميزات التنافسية ومواقعنا</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-950">تجربة تخزين مثالية في كل تفصيل فني</h2>
+                </div>
+                <p class="text-gray-500 font-semibold text-sm sm:text-base max-w-sm mt-4 md:mt-0 leading-relaxed border-r-2 border-gold pr-4">
+                    نختار مواقعنا بعناية فائقة لنضمن انسيابية الحركة وسهولة الوصول إلى الطرق اللوجستية الرئيسية بمدينة الرياض.
+                </p>
+            </div>
+
+            <!-- لوحة التحكم التفاعلية لتبديل الخرائط وعرض تفاصيل المواقع مباشرة -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 font-madani">
+                
+                <!-- تبويب التحكم باليسار واليمين للتنقل بين المواقع -->
+                <div class="lg:col-span-4 flex flex-col gap-4">
+                    <!-- موقع السلي التفاعلي -->
+                    <div id="btn-loc-suli" onclick="switchLocation('suli')" class="cursor-pointer p-6 rounded-2xl border-2 border-gold bg-white shadow-aureo-soft transition-all duration-300">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-bold text-navy-950">📍 حي السلي اللوجستي</h3>
+                            <span class="text-[10px] font-bold text-gold bg-gold/10 px-2.5 py-1 rounded-full">شرق الرياض</span>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed">المستودعات الأكثر طلباً، جاهزية للتشغيل تبدأ من مساحة 489م² حتى 20,200م².</p>
+                    </div>
+
+                    <!-- موقع جنوب الرياض التفاعلي -->
+                    <div id="btn-loc-south" onclick="switchLocation('south')" class="cursor-pointer p-6 rounded-2xl border border-gray-150 bg-white hover:border-gold/30 hover:shadow-aureo-soft transition-all duration-300">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-bold text-navy-950">📍 جنوب الرياض</h3>
+                            <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">جنوب الرياض</span>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed">بنية تحتية كهربائية تصل إلى 200 أمبير لتغذية خطوط التشغيل والتخزين المبرد.</p>
+                    </div>
+
+                    <!-- موقع سدوس التفاعلي -->
+                    <div id="btn-loc-sadus" onclick="switchLocation('sadus')" class="cursor-pointer p-6 rounded-2xl border border-gray-150 bg-white hover:border-gold/30 hover:shadow-aureo-soft transition-all duration-300">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-bold text-navy-950">📍 سدوس الاستراتيجي</h3>
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">شمال الرياض</span>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed">اتصال مباشر بالطرق السريعة وتراخيص دفاع مدني فئة (أ) لكافة الأنشطة.</p>
+                    </div>
+                </div>
+
+                <!-- الخريطة واللوحة التوضيحية الديناميكية التي تتغير حسب الموقع المحدد -->
+                <div class="lg:col-span-8 flex flex-col justify-between bg-white border border-gray-100 rounded-[2rem] p-6 shadow-aureo-deep relative overflow-hidden">
+                    <div class="absolute -top-10 -left-10 w-36 h-36 bg-skyAureo-100 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-6 border-b border-gray-100">
+                        <div>
+                            <h4 id="active-loc-title" class="text-xl font-bold text-navy-950">📍 السلي – شرق الرياض</h4>
+                            <p id="active-loc-desc" class="text-xs text-gray-400 mt-1">تتميز باتصالها الوثيق بوسط الرياض ومخارج الدائري الشرقي.</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span id="active-loc-tag-1" class="text-xs font-bold text-navy-950 bg-stoneGray px-3 py-1.5 rounded-lg">مساحات حتى 20,200م²</span>
+                            <span id="active-loc-tag-2" class="text-xs font-bold text-gold-dark bg-gold/10 px-3 py-1.5 rounded-lg">كهرباء 200 أمبير</span>
+                        </div>
+                    </div>
+
+                    <!-- إطار خريطة غوغل الديناميكي المتغير -->
+                    <div class="h-80 w-full rounded-2xl overflow-hidden shadow-inner border border-gray-100 relative">
+                        <iframe id="active-loc-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.502844883446!2d46.7937409!3d24.6983796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQxJzU0LjIiTiA0NsKwNDcnMzMuNSJF!5e0!3m2!1sar!2ssa!4v1690000000000!5m2!1sar!2ssa" 
+                                width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9) contrast(1.2);" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- الكارت التوضيحي العريض للمزايا المشتركة -->
+            <div class="bg-white border border-gray-100 rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden shadow-aureo-soft" data-aos="zoom-in-up">
+                <div class="absolute -top-12 -left-12 w-48 h-48 bg-gold/5 rounded-full blur-3xl"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-4 border-l border-gray-100 pl-6">
+                        <h4 class="text-xl sm:text-2xl font-bold text-navy-950 mb-2">مزايا مشتركة في جميع المواقع</h4>
+                        <p class="text-sm sm:text-base text-gold font-bold">تأتيكم متكاملة ومجهزة للتشغيل الفوري</p>
+                    </div>
+                    <div class="lg:col-span-8 text-sm sm:text-base text-gray-500 leading-relaxed font-semibold">
+                        في كل مواقعنا، نحرص على تقديم جودة بناء عالية، وعزل حراري ومائي متكامل، وتصميم عملي يشمل مكتباً إدارياً فخماً ملحقاً ودورة مياه خاصة بكل مستودع، لتوفير بيئة عمل مريحة تدعم نمو أعمالك وتحقق أعلى معايير الأمان والسلامة.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 4: تفاصيل المساحات والخدمات (باقات المستودعات المرنة) -->
+    <section id="services" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-madani">
+            <div class="text-center max-w-4xl mx-auto mb-20" data-aos="fade-up">
+                <!-- كبسولة خيارات مرنة ومدروسة متناسقة تماماً مع Screenshot 5.42.18 وبدون تقطع للخط -->
+                <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FAFDFE] border border-gray-150 text-gold font-bold text-xs uppercase mb-4">
+                    خيارات مرنة ومدروسة
+                </div>
+                <!-- العنوان مع تعديل إملائي لـ (تبدأ) والخط الخالي من التداخل وتضييق الحروف -->
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-950 leading-normal mb-6">
+                    تفاصيل المساحات والخدمات (تبدأ من ٤٨٩ م² إلى ٢٠,٠٠٠ م²)
+                </h2>
+                <!-- النص التوضيحي مع تصحيح كافة الأخطاء اللغوية وتأكيد التاء المربوطة والهمزات -->
+                <p class="text-gray-500 font-semibold text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+                    نوفر مستودعات حديثة مجهزة بأعلى معايير الأمان والسلامة مع أنظمة تحكم متقدمة تضمن سهولة إدارة المخزون ورفع كفاءة التشغيل وتقليل التكاليف. خياراتنا مرنة لتناسب احتياجات الشركات الناشئة والكبيرة.
+                </p>
+            </div>
+
+            <!-- مخططات الباقات اللوجستية الراقية بتصميم AUREO الفاخر -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
+                
+                <!-- الباقة الأولى: الشركات الناشئة والمتوسطة -->
+                <div class="bg-stoneGray/20 rounded-[2.5rem] p-8 sm:p-10 border border-gray-100 flex flex-col justify-between hover:shadow-aureo-deep transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="px-4 py-1.5 bg-navy-950 text-white font-bold text-xs rounded-full">الشركات والناشئة</span>
+                            <span class="text-gold font-bold text-lg brand-title">من 489م²</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy-950 mb-4">باقة المساحات المرنة</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                            مثالية للمتاجر الإلكترونية والشركات الناشئة التي تحتاج تشغيل فوري مع مرونة للتوسع لاحقاً.
+                        </p>
+                        <div class="border-t border-gray-200/50 pt-6">
+                            <ul class="space-y-4 text-sm text-gray-700 font-bold mb-8">
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> مكتب إداري مدمج مجهز بالكامل</li>
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> دورة مياه خاصة في المستودع</li>
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> عزل حراري ومائي ممتاز</li>
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> أبواب كهربائية أوتوماتيكية</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#register" class="w-full py-4 text-center bg-navy-950 text-white hover:bg-gold hover:text-navy-950 rounded-2xl font-bold transition duration-300">
+                        طلب عرض أسعار
+                    </a>
+                </div>
+
+                <!-- الباقة الثانية: الشركات اللوجستية والتوزيع الكبرى (الأكثر طلباً) -->
+                <div class="bg-white rounded-[2.5rem] p-8 sm:p-10 border-2 border-gold flex flex-col justify-between relative shadow-aureo-deep transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gold text-white font-bold px-6 py-2 rounded-full text-[10px] uppercase shadow-md">
+                        الخيار الأكثر طلباً
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="px-4 py-1.5 bg-gold/10 text-gold font-bold text-xs rounded-full">الشركات الكبرى</span>
+                            <span class="text-gold font-bold text-lg brand-title">حتى 5,000م²</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy-950 mb-4">باقة الامتياز اللوجستي</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                            مخصصة للشركات والموردين الكبار مع قدرة عالية للتخزين والتوزيع وانسيابية كاملة للحركة.
+                        </p>
+                        <div class="border-t border-gray-100 pt-6">
+                            <ul class="space-y-4 text-sm text-gray-700 font-bold mb-8">
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> طاقة كهربائية تصل لـ 200 أمبير</li>
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> صبة خرسانية تتحمل الشاحنات الثقيلة</li>
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> تراخيص كاملة من الدفاع المدني</li>
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> مكاتب إدارية ملحقة واسعة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#register" class="w-full py-4 text-center bg-gold text-navy-950 hover:bg-navy-950 hover:text-white rounded-2xl font-bold transition duration-300 shadow-gold-glow">
+                        اطلب هذه الباقة الآن
+                    </a>
+                </div>
+
+                <!-- الباقة الثالثة: المستودعات الصناعية والعملاقة -->
+                <div class="bg-stoneGray/20 rounded-[2.5rem] p-8 sm:p-10 border border-gray-100 flex flex-col justify-between hover:shadow-aureo-deep transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="px-4 py-1.5 bg-navy-950 text-white font-bold text-xs rounded-full">المستودعات العملاقة</span>
+                            <span class="text-gold font-bold text-lg brand-title">حتى 20,000م²</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy-950 mb-4">الباقة الصناعية الكبرى</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                            مساحات تخزين عملاقة للتوزيع الإقليمي وسلاسل التوريد الكبرى بأنظمة تحكم وسلامة متطورة.
+                        </p>
+                        <div class="border-t border-gray-200/50 pt-6">
+                            <ul class="space-y-4 text-sm text-gray-700 font-bold mb-8">
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> مساحات مفتوحة تصل إلى 20 ألف م²</li>
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> أبواب تشغيلية وتفريغ متعددة</li>
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> مطابقة متكاملة للكود السعودي</li>
+                                <li><i class="fa-solid fa-check text-gold ml-2"></i> غرف تحكم ومكتب إداري رئيسي</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#register" class="w-full py-4 text-center bg-navy-950 text-white hover:bg-gold hover:text-navy-950 rounded-2xl font-bold transition duration-300">
+                        طلب عرض أسعار مخصص
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- قسم الخدمات العقارية المترابطة -->
+            <div class="pt-24 border-t border-gray-100" data-aos="fade-up">
+                <div class="text-center mb-16">
+                    <span class="text-gold font-bold bg-gold/10 px-4 py-2 rounded-full text-xs mb-4 inline-block">خدماتنا الشاملة في قطاع الاستثمار العقاري</span>
+                    <h3 class="text-3xl font-bold text-navy-950">نظام لوجستي واستثماري متكامل</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- الخدمة 1 -->
+                    <div class="bg-warmOffWhite p-8 rounded-3xl border border-gray-100 text-center hover:border-gold/30 hover:shadow-aureo-soft transition-all duration-300">
+                        <div class="w-14 h-14 bg-gold/10 text-gold-dark rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <h4 class="font-bold text-navy-950 text-base mb-3">شراء وبيع الأراضي</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">خبرة واسعة في عمليات الاستثمار العقاري والتبادل المالي الذكي للأراضي والعقارات بالرياض.</p>
+                    </div>
+                    <!-- الخدمة 2 -->
+                    <div class="bg-warmOffWhite p-8 rounded-3xl border border-gray-100 text-center hover:border-gold/30 hover:shadow-aureo-soft transition-all duration-300">
+                        <div class="w-14 h-14 bg-gold/10 text-gold-dark rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h4 class="font-bold text-navy-950 text-base mb-3">الوساطة العقارية</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">ربط متطور واحترافي بين رغبات المستثمرين والمطورين لتحقيق أعلى عوائد ربحية وعملية.</p>
+                    </div>
+                    <!-- الخدمة 3 -->
+                    <div class="bg-warmOffWhite p-8 rounded-3xl border border-gray-100 text-center hover:border-gold/30 hover:shadow-aureo-soft transition-all duration-300">
+                        <div class="w-14 h-14 bg-gold/10 text-gold-dark rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                            <i class="fa-solid fa-warehouse"></i>
+                        </div>
+                        <h4 class="font-bold text-navy-950 text-base mb-3">إدارة وتأجير المستودعات</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">تشغيل وإدارة المستودعات والمخازن التجارية والعقارية ومطابقتها للمعايير والأنظمة الأمنية واللوجستية.</p>
+                    </div>
+                    <!-- الخدمة 4 -->
+                    <div class="bg-warmOffWhite p-8 rounded-3xl border border-gray-100 text-center hover:border-gold/30 hover:shadow-aureo-soft transition-all duration-300">
+                        <div class="w-14 h-14 bg-gold/10 text-gold-dark rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                            <i class="fa-solid fa-city"></i>
+                        </div>
+                        <h4 class="font-bold text-navy-950 text-base mb-3">التطوير العقاري</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">تخطيط وتأسيس وبناء للمشاريع السكنية والتجارية والصناعية بمعايير هندسية معاصرة ومستدامة.</p>
+                    </div>
+                    <!-- الخدمة 5 -->
+                    <div class="bg-warmOffWhite p-8 rounded-3xl border border-gray-100 text-center hover:border-gold/30 hover:shadow-aureo-soft transition-all duration-300">
+                        <div class="w-14 h-14 bg-gold/10 text-gold-dark rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                            <i class="fa-solid fa-folder-tree"></i>
+                        </div>
+                        <h4 class="font-bold text-navy-950 text-base mb-3">إدارة الأملاك</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">رعاية وافية ومتكاملة لشؤون العقار والمتابعة التنظيمية والمالية مع كافة الجهات ذات العلاقة.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 5: مكاتب المشرق للاستثمار الإدارية الفاخرة (Showcase) -->
+    <section class="py-32 bg-stoneGray/20 border-t border-gray-200/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- الجانب الأيمن: صورة مكاتب المشرق الفاخرة الملحقة (5).png (ترميز وحل انفصال الصورة) -->
+                <div class="lg:col-span-6 relative" data-aos="fade-right">
+                    <div class="bg-white rounded-[2.5rem] p-4 shadow-aureo-deep overflow-hidden relative group border border-gray-200">
+                        <div class="h-96 rounded-[2rem] overflow-hidden bg-gray-50">
+                            <img src="assets/office.jpg" loading="lazy" decoding="async" alt="مكتب إداري فخم ملحق" class="w-full h-full object-cover">
+                        </div>
+                        <!-- غطاء داكن فخم مدمج بذكاء -->
+                        <div class="absolute bottom-10 right-10 left-10 bg-navy-950/90 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-white font-madani">
+                            <h3 class="text-lg font-bold mb-1">مكتب إداري مدمج مجهز بالكامل</h3>
+                            <p class="text-xs text-gray-300">تصميم عملي بوجود مكتب خاص ودورة مياه مستقلة لخدمة الموظفين وإدارة المنشأة بخصوصية تامة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الجانب الأيسر: النصوص والتقسيم المعماري المطور -->
+                <div class="lg:col-span-6 font-madani" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-10">
+                        <span class="text-gold font-bold bg-gold/10 px-4 py-2 rounded-full text-xs uppercase mb-4 inline-block">بيئة لوجستية متكاملة</span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-950 leading-[1.2] mb-6">
+                            بيئة عمل إدارية وصناعية متطورة لضمان كفاءة سلاسل التوريد
+                        </h2>
+                        <p class="text-gray-500 font-semibold text-base leading-relaxed">
+                            نلتزم في شركة المشرق للاستثمار بتقديم مستويات تجهيز فني متكاملة، تلبي تطلعات واشتراطات الشركات الكبرى من خلال دمج المكاتب الإدارية الأنيقة مباشرة داخل المنشأة التخزينية لتسهيل الأعمال وتسيير المهام اليومية بكفاءة تامة.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- ميزة 1 -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-gold/10 text-gold-dark border border-gold/10 flex items-center justify-center text-xl font-bold flex-shrink-0">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-lg mb-1">تسهيل الإدارة الميدانية والتشغيل</h4>
+                                <p class="text-sm text-gray-500 font-semibold leading-relaxed">تكامل المكاتب ودورة المياه المستقلة يزيد من انتاجية فريق العمل ويضمن رقابة ميدانية مستمرة على المخزون اللوجستي.</p>
+                            </div>
+                        </div>
+
+                        <!-- ميزة 2 -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-gold/10 text-gold-dark border border-gold/10 flex items-center justify-center text-xl font-bold flex-shrink-0">
+                                <i class="fa-solid fa-building-circle-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-lg mb-1">تصاميم مطابقة للاشتراطات بالكامل</h4>
+                                <p class="text-sm text-gray-500 font-semibold leading-relaxed">تراخيص معتمدة وحاضرة للدفاع المدني، وكود بناء سعودي يطابق كافة المتطلبات التنظيمية بمدينة الرياض لسلامة الأصول والأرواح.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- آراء العملاء + الأسئلة الشائعة -->
+    <section id="faq" class="py-32 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                
+                <!-- الجانب الأيمن: آراء العملاء الموثوقة (AUREO Style) -->
+                <div class="lg:col-span-5 font-madani" data-aos="fade-up">
+                    <span class="text-gold font-bold bg-gold/10 px-4 py-2 rounded-full text-xs uppercase mb-4 inline-block">محتوى تجريبي للنموذج</span>
+                    <h2 class="text-3xl font-bold text-navy-950 mb-12">سيناريوهات تجربة العميل</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- الرأي 1 -->
+                        <div class="bg-warmOffWhite p-8 rounded-3xl border border-gray-100 relative shadow-aureo-soft" data-aos="fade-up" data-aos-delay="100">
+                            <div class="absolute top-4 left-8 font-black text-6xl text-gold/10 select-none brand-title">01</div>
+                            <div class="text-gold text-sm mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 font-semibold text-base leading-relaxed mb-6">
+                                "تجربتنا مع مستودعات المشرق في السلي كانت ممتازة. الجاهزية الفورية والتراخيص الكاملة للدفاع المدني وفرت علينا الكثير من الوقت والجهد لبدء عملياتنا اللوجستية وتوسعنا المتسارع."
+                            </p>
+                            <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
+                                <div class="w-10 h-10 bg-navy-950 text-gold font-bold flex items-center justify-center rounded-xl">م</div>
+                                <div>
+                                    <h4 class="font-bold text-navy-950 text-sm">سيناريو عميل تجريبي</h4>
+                                    <p class="text-xs text-gray-400 font-semibold">حالة تشغيل افتراضية</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- الرأي 2 -->
+                        <div class="bg-warmOffWhite p-8 rounded-3xl border border-gray-100 relative shadow-aureo-soft" data-aos="fade-up" data-aos-delay="200">
+                            <div class="absolute top-4 left-8 font-black text-6xl text-gold/10 select-none brand-title">02</div>
+                            <div class="text-gold text-sm mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 font-semibold text-base leading-relaxed mb-6">
+                                "البنية التحتية للمواقع مهيأة ومطابقة بدقة، الكهرباء العالية وقدرة الأبواب الكهربائية ساهمت في تنظيم وتفريغ الشحنات بسلاسة مطلقة وبدون أي عقبات."
+                            </p>
+                            <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
+                                <div class="w-10 h-10 bg-navy-950 text-gold font-bold flex items-center justify-center rounded-xl">ش</div>
+                                <div>
+                                    <h4 class="font-bold text-navy-950 text-sm">سيناريو عميل تجريبي</h4>
+                                    <p class="text-xs text-gray-400 font-semibold">حالة لوجستية افتراضية</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الجانب الأيسر: الأسئلة الشائعة الأكورديون المطور -->
+                <div class="lg:col-span-7 font-madani" data-aos="fade-up" data-aos-delay="100">
+                    <span class="text-gold font-bold bg-gold/10 px-4 py-2 rounded-full text-xs uppercase mb-4 inline-block">الاستفسارات والتعليمات</span>
+                    <h2 class="text-3xl font-bold text-navy-950 mb-12 border-r-4 border-gold pr-4">الأسئلة الشائعة</h2>
+                    
+                    <div class="space-y-4">
+                        <!-- سؤال 1 -->
+                        <details class="bg-white border border-gray-200 rounded-2xl overflow-hidden group shadow-sm transition-all duration-300" open>
+                            <summary class="font-bold text-navy-950 text-base sm:text-lg px-6 py-5 cursor-pointer flex justify-between items-center bg-warmOffWhite group-open:bg-navy-950 group-open:text-white transition-all duration-300 select-none">
+                                <span>هل المستودعات مرخصة بالكامل من الدفاع المدني؟</span>
+                                <i class="fa-solid fa-chevron-down transform group-open:rotate-180 transition-transform duration-300 text-gold"></i>
+                            </summary>
+                            <div class="px-6 py-5 text-gray-500 font-semibold leading-relaxed border-t border-gray-200 bg-warmOffWhite/40">
+                                نعم، جميع مستودعاتنا في كافة المواقع مرخصة بالكامل ومطابقة لاشتراطات الدفاع المدني ومتوافقة بشكل تام مع الكود السعودي للبناء لمنحك أقصى درجات الأمان الممكنة.
+                            </div>
+                        </details>
+
+                        <!-- سؤال 2 -->
+                        <details class="bg-white border border-gray-200 rounded-2xl overflow-hidden group shadow-sm transition-all duration-300">
+                            <summary class="font-bold text-navy-950 text-base sm:text-lg px-6 py-5 cursor-pointer flex justify-between items-center bg-warmOffWhite group-open:bg-navy-950 group-open:text-white transition-all duration-300 select-none">
+                                <span>ما هي أقل مساحة متوفرة للاستئجار؟</span>
+                                <i class="fa-solid fa-chevron-down transform group-open:rotate-180 transition-transform duration-300 text-gold"></i>
+                            </summary>
+                            <div class="px-6 py-5 text-gray-500 font-semibold leading-relaxed border-t border-gray-200 bg-warmOffWhite/40">
+                                نوفر مساحات تخزينية مرنة جداً تبدأ من مساحات متوسطة بحجم 489 متر مربع وتصل إلى مساحات عملاقة تزيد عن 20,000 متر مربع لتلبي متطلبات نمو منشأتك.
+                            </div>
+                        </details>
+
+                        <!-- سؤال 3 -->
+                        <details class="bg-white border border-gray-200 rounded-2xl overflow-hidden group shadow-sm transition-all duration-300">
+                            <summary class="font-bold text-navy-950 text-base sm:text-lg px-6 py-5 cursor-pointer flex justify-between items-center bg-warmOffWhite group-open:bg-navy-950 group-open:text-white transition-all duration-300 select-none">
+                                <span>هل يوجد مكاتب إدارية ودورة مياه مستقلة؟</span>
+                                <i class="fa-solid fa-chevron-down transform group-open:rotate-180 transition-transform duration-300 text-gold"></i>
+                            </summary>
+                            <div class="px-6 py-5 text-gray-500 font-semibold leading-relaxed border-t border-gray-200 bg-warmOffWhite/40">
+                                نعم، نحرص في كافة مواقعنا على تقديم تصميم عملي مميز يتضمن مكتباً إدارياً مجهزاً ومستقلاً بالإضافة إلى دورة مياه خاصة لخدمة فريق العمل والإدارة بكفاءة.
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- اللوحة التوضيحية البانورامية للمستودعات 6.png كبديل معتمد وخالٍ من الأرفف تماماً (ترميز وحل انفصال الصورة) -->
+                    <div class="h-64 rounded-[2.5rem] overflow-hidden shadow-aureo-deep mt-10 relative border border-gray-200">
+                        <img src="assets/location-sudous.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="تنظيم المستودعات الفني">
+                        <div class="absolute inset-0 bg-[#0c101b]/10"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- استمارة التسجيل والتسجيل التفاعلي -->
+    <section id="register" class="py-32 bg-stoneGray/20 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[3rem] p-8 sm:p-12 md:p-16 flex flex-col lg:flex-row items-center gap-12 shadow-aureo-deep border border-gray-200/50 relative overflow-hidden" data-aos="zoom-in">
+                <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-gold/5 rounded-full blur-[100px]"></div>
+                
+                <!-- تفاصيل ومعلومات التواصل المباشر مع حل تقطع الكلمات -->
+                <div class="lg:w-1/2 text-navy-950 font-madani">
+                    <span class="text-gold font-bold bg-gold/10 px-4 py-2 rounded-full text-xs uppercase mb-4 inline-block">الشركاء والمستثمرون</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-navy-950 font-madani">ابدأ أعمالك اللوجستية بأمان واحترافية متناهية</h2>
+                    <p class="text-gray-500 font-semibold text-sm sm:text-base leading-relaxed mb-10">
+                        استكشف نموذج الاهتمام التفاعلي كما سيظهر للعميل. هذه النسخة لأغراض العرض فقط ولا ترسل بيانات أو طلبات حقيقية.
+                    </p>
+                    
+                    <div class="flex items-center gap-4 text-navy-950 font-bold">
+                        <div class="w-14 h-14 bg-navy-950 text-gold flex items-center justify-center text-2xl rounded-2xl shadow-md">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">تواصل مباشر وسريع</p>
+                            <p class="text-xl brand-title" dir="ltr">920015243</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- استمارة التسجيل الفاخرة تماثل تصميم Aureo الفخم للفلل الاستثمارية -->
+                <div class="lg:w-1/2 w-full bg-warmOffWhite p-6 sm:p-10 rounded-[2rem] shadow-aureo-soft border border-gray-100 font-madani">
+                    <h3 class="text-xl sm:text-2xl font-bold text-navy-950 mb-6 border-r-4 border-gold pr-3">استمارة التسجيل والاهتمام</h3>
+                    
+                    <!-- رسالة النجاح التفاعلية المتطورة والفاخرة -->
+                    <div id="form-success-modal" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-800 p-5 rounded-2xl mb-6 text-sm font-semibold animate-bounce">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-xl text-emerald-600"></i>
+                            <div>
+                                <p class="font-bold">تمت محاكاة الطلب بنجاح</p>
+                                <p class="text-xs text-emerald-700/80 mt-0.5">هذا نموذج بورتفوليو تفاعلي ولا يتم إرسال أي بيانات.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="landing-contact-form" class="space-y-5" onsubmit="handleFormSubmission(event)">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">الاسم الكريم أو اسم الشركة</label>
+                            <input type="text" id="form-name" required class="w-full bg-white border border-gray-200 rounded-xl py-4 px-4 text-navy-950 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-bold shadow-sm" placeholder="أدخل اسمك الكريم هنا...">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">رقم الجوال (الواتساب)</label>
+                            <input type="tel" id="form-phone" required dir="ltr" class="w-full text-right bg-white border border-gray-200 rounded-xl py-4 px-4 text-navy-950 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-bold shadow-sm" placeholder="05XXXXXXXX">
+                        </div>
+                        
+                        <!-- زر معالج تفاعلي يظهر حالة التحميل الفخمة -->
+                        <button type="submit" id="submit-btn" class="w-full bg-navy-950 hover:bg-gold text-white hover:text-navy-950 font-bold py-4 rounded-xl shadow-md transition-all duration-300 flex justify-center items-center gap-3 cursor-pointer">
+                            <span id="btn-text">جرّب نموذج الطلب</span>
+                            <span id="btn-spinner" class="hidden"><i class="fa-solid fa-circle-notch animate-spin text-xl"></i></span>
+                            <i id="btn-arrow" class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة والخريطة اللوجستية -->
+    <footer class="bg-navy-950 text-white border-t border-white/5 pt-24 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+                
+                <!-- معلومات الشركة والتواصل مع الشعار المعتمد الأصيل المأخوذ من الصورة المرفقة مباشرة -->
+                <div class="lg:col-span-5 font-madani">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-white flex items-center justify-center p-0.5 rounded-xl shadow-sm border border-gray-150 overflow-hidden">
+                            <img src="assets/logo.png" loading="lazy" decoding="async" alt="شعار المشرق" class="w-full h-full object-cover">
+                        </div>
+                        <div class="font-bold text-2xl tracking-normal">المشرق <span class="text-gold">للاستثمار</span></div>
+                    </div>
+                    <p class="text-gray-400 text-sm font-semibold leading-relaxed mb-6">
+                        شركة المشرق للاستثمار هي رائدتكم لتوفير أرقى المساحات اللوجستية والتخزينية الجاهزة والمطابقة لأعلى مواصفات البناء والأمان في مواقع حيوية واستراتيجية بمدينة الرياض لخدمة مختلف القطاعات التجارية والصناعية.
+                    </p>
+                    <div class="space-y-4 text-sm text-gray-300 font-bold">
+                        <p><i class="fa-solid fa-phone text-gold ml-2"></i> 920015243</p>
+                        <p><i class="fa-solid fa-envelope text-gold ml-2"></i> social@almashraq-sa.com</p>
+                    </div>
+                </div>
+
+                <!-- خريطة الموقع والوصول التفاعلية المعتمة تناسب الطابع الفخم -->
+                <div class="lg:col-span-7 w-full font-madani">
+                    <h4 class="text-lg font-bold text-white mb-6 border-r-4 border-gold pr-3">خريطة الموقع والوصول والفرع الرئيسي</h4>
+                    <div class="w-full h-56 bg-gray-900 rounded-[2rem] overflow-hidden border border-white/10 shadow-inner relative group">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.502844883446!2d46.7937409!3d24.6983796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQxJzU0LjIiTiA0NsKwNDcnMzMuNSJF!5e0!3m2!1sar!2ssa!4v1690000000000!5m2!1sar!2ssa" 
+                                width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9) contrast(1.2);" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- خط الحقوق الختامي المتناسق -->
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-xs text-gray-500 font-bold font-madani">
+                <p>&copy; 2026 شركة المشرق للاستثمار. جميع الحقوق محفوظة.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gold transition-colors">تويتر</a>
+                    <a href="#" class="hover:text-gold transition-colors">انستجرام</a>
+                    <a href="#" class="hover:text-gold transition-colors">لينكد إن</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر عائم للانتقال إلى نموذج الاهتمام التجريبي -->
+    <a href="#register" aria-label="انتقل إلى نموذج الاهتمام" class="fixed bottom-6 left-6 z-50 bg-gold text-navy-950 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-gold-glow hover:scale-110 transition-transform duration-300 border-2 border-white cursor-pointer">
+        <i class="fa-regular fa-message"></i>
+    </a>
+
+    <!-- النافذة المنبثقة التفاعلية الفاخرة لتشغيل الفيديو (Interactive Video Modal) -->
+    <div id="video-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-navy-950/90 backdrop-blur-md p-4 transition-all duration-500 opacity-0">
+        <div class="bg-white rounded-[2rem] overflow-hidden max-w-4xl w-full border border-skyAureo-200 shadow-aureo-deep relative p-3">
+            <button onclick="toggleVideoModal(false)" class="absolute top-6 left-6 w-10 h-10 bg-navy-950 text-white hover:bg-gold hover:text-navy-950 rounded-full flex items-center justify-center text-sm shadow-md transition duration-300 z-10 cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="relative rounded-2xl overflow-hidden aspect-video bg-gray-900">
+                <!-- استخدام صورة معمارية كبديل فخم للتشغيل مع لوحة تزيينية تفاعلية (ترميز وحل انفصال الصورة) -->
+                <img src="assets/operations.jpg" loading="lazy" decoding="async" alt="فيديو تشغيلي معتمد" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-navy-950/40 flex flex-col items-center justify-center text-center p-8 font-madani">
+                    <div class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center text-xl animate-ping mb-6">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">عرض حي للمستودعات الجاهزة</h3>
+                    <p class="text-sm text-gray-300 max-w-md">شاهد البنية التحتية المتكاملة، وأنظمة الدفاع المدني، وجودة البناء عن قرب.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- مكتبة AOS جافا سكريبت وتفعيل الأنيميشن -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // تهيئة مكتبة تأثيرات التمرير بمرونة كاملة وبدون تباطؤ
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // التعامل مع تأثير التمرير لتغيير حجم وتصميم الهيدر (Navbar) تماشيًا مع Aureo الفخم
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const navBorder = document.getElementById('nav-border');
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-header', 'shadow-sm', 'py-3');
+                navbar.classList.remove('py-5');
+                navBorder.classList.add('border-transparent');
+                navBorder.classList.remove('border-navy-950/5');
+            } else {
+                navbar.classList.remove('glass-header', 'shadow-sm', 'py-3');
+                navbar.classList.add('py-5');
+                navBorder.classList.remove('border-transparent');
+                navBorder.classList.add('border-navy-950/5');
+            }
+        });
+
+        // بيانات المواقع اللوجستية للتبديل التفاعلي الذكي
+        const locationData = {
+            suli: {
+                title: "📍 السلي – شرق الرياض",
+                desc: "يقع في أحد أهم الشرايين اللوجستية بالشرق، مع ميزة البدء الفوري للتراخيص وبناء ممتاز مقاوم للحرارة والرطوبة.",
+                tag1: "مساحات حتى 20,200م²",
+                tag2: "قرب الدائري الثاني",
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.502844883446!2d46.7937409!3d24.6983796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQxJzU0LjIiTiA0NsKwNDcnMzMuNSJF!5e0!3m2!1sar!2ssa!4v1690000000000!5m2!1sar!2ssa"
+            },
+            south: {
+                title: "📍 جنوب الرياض الاستراتيجي",
+                desc: "تتمركز في منطقة التوزيع الكبرى المغذية لقطاعات الصناعة والتجزئة بجنوب العاصمة، مجهزة بطاقة كهربائية قصوى وقدرة تحمل شاحنات ممتازة.",
+                tag1: "كهرباء 200 أمبير",
+                tag2: "أبواب تفريغ هيدروليكية",
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3629.418731309825!2d46.7214539!3d24.5321528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDMxJzU1LjciTiA0NsKwNDcnMzMuNSJF!5e0!3m2!1sar!2ssa!4v1690000000000!5m2!1sar!2ssa"
+            },
+            sadus: {
+                title: "📍 سدوس – شمال الرياض",
+                desc: "وجهتكم المستقبلية للتوسع والاتصال المباشر بطريق الملك فهد الشمالي، مجهزة بأنظمة حماية ذكية ومساحات تخزين مرنة وقوية البناء.",
+                tag1: "تراخيص دفاع مدني فئة أ",
+                tag2: "عزل حراري 100%",
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.234123565123!2d46.2131234!3d24.9123412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDU0JzQ0LjQiTiA0NsKwMTInNDcuMiJF!5e0!3m2!1sar!2ssa!4v1690000000000!5m2!1sar!2ssa"
+            }
+        };
+
+        // وظيفة التبديل التفاعلي للمواقع والخرائط
+        function switchLocation(locKey) {
+            // تحديث تصميم التبويبات النشطة وغير النشطة
+            const keys = ['suli', 'south', 'sadus'];
+            keys.forEach(k => {
+                const btn = document.getElementById('btn-loc-' + k);
+                if (k === locKey) {
+                    btn.classList.add('border-gold', 'border-2');
+                    btn.classList.remove('border-gray-150');
+                } else {
+                    btn.classList.remove('border-gold', 'border-2');
+                    btn.classList.add('border-gray-150');
+                }
+            });
+
+            // تحديث البيانات في لوحة العرض
+            const data = locationData[locKey];
+            document.getElementById('active-loc-title').innerText = data.title;
+            document.getElementById('active-loc-desc').innerText = data.desc;
+            document.getElementById('active-loc-tag-1').innerText = data.tag1;
+            document.getElementById('active-loc-tag-2').innerText = data.tag2;
+            document.getElementById('active-loc-map').src = data.map;
+        }
+
+        // التحكم في فتح وإغلاق النافذة المنبثقة للفيديو
+        function toggleVideoModal(show) {
+            const modal = document.getElementById('video-modal');
+            if (show) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.add('opacity-100');
+                    modal.classList.remove('opacity-0');
+                }, 50);
+            } else {
+                modal.classList.add('opacity-0');
+                modal.classList.remove('opacity-100');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 500);
+            }
+        }
+
+        // معالجة إرسال استمارة التسجيل بأداء محاكاة تحميل فخم وتفاعلي
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnSpinner = document.getElementById('btn-spinner');
+            const btnArrow = document.getElementById('btn-arrow');
+            const successModal = document.getElementById('form-success-modal');
+
+            // تفعيل حالة التحميل المؤقتة
+            submitBtn.disabled = true;
+            btnText.innerText = "جاري محاكاة الطلب...";
+            btnSpinner.classList.remove('hidden');
+            btnArrow.classList.add('hidden');
+
+            setTimeout(() => {
+                // إظهار حالة النجاح وإرجاع الزر لوضعه الطبيعي
+                submitBtn.disabled = false;
+                btnText.innerText = "جرّب نموذج الطلب";
+                btnSpinner.classList.add('hidden');
+                btnArrow.classList.remove('hidden');
+
+                successModal.classList.remove('hidden');
+                document.getElementById('landing-contact-form').reset();
+
+                // إخفاء التنبيه بنعومة بعد 6 ثوانٍ
+                setTimeout(() => {
+                    successModal.classList.add('hidden');
+                }, 6000);
+            }, 1800);
+        }
+    </script>
+</body>
+</html>

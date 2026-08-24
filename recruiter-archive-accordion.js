@@ -40,16 +40,16 @@
   const byId=id=>projects.find(p=>p.id===id);
   const t=(p,key)=>pText(p,key);
   const strings=()=>lang==='ar'?{
-    title:'أعمال مساندة',
-    intro:'مشروعات إضافية تثبت اتساع الخبرة من غير أن تنافس دراسات الحالة الرئيسية.',
+    title:'المزيد من الأرشيف',
+    intro:'باقي الأعمال في مساحة واحدة مضغوطة. افتح المشروع الذي تريد رؤيته فقط.',
     open:'عرض المشروع ↗'
   }:{
-    title:'Supporting work',
-    intro:'Additional projects that show range without competing with the main case studies.',
+    title:'More from the archive',
+    intro:'The rest of the work lives in one compact space. Open only the project you want to inspect.',
     open:'View project ↗'
   };
   const previewSrc=fullPreviewSrc;
-  const preferred=['sociallab','briefstudio','healthcare','communitycampaign','natural','ecommerce','huggies','editorial'];
+  const preferred=['lenstech','classtech','ecommerce','natural','aiarchive','huggies','social','campaignbanners','brandapps','covers'];
   let lastMode='';
 
   const selectedIds=()=>new Set(
@@ -60,7 +60,14 @@
 
   const archiveProjects=()=>{
     const selected=selectedIds();
-    return preferred.map(byId).filter(p=>p?.files?.length&&!selected.has(p.id));
+    const seen=new Set();
+    const list=projects.filter(p=>{
+      if(!p?.id||!p.files?.length||selected.has(p.id)||seen.has(p.id))return false;
+      seen.add(p.id);
+      return true;
+    });
+    const rank=id=>{const i=preferred.indexOf(id);return i<0?999:i;};
+    return list.sort((a,b)=>rank(a.id)-rank(b.id));
   };
 
   const hideFieldBrowse=()=>{
