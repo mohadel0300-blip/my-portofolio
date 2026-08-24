@@ -34,6 +34,33 @@
       ]
     },
     {
+      id:'almashraq',title:'Almashraq Investment',titleAr:'المشرق للاستثمار',
+      eyebrow:'Arabic Web Experience / Logistics Real Estate',eyebrowAr:'تجربة ويب عربية / عقارات لوجستية',
+      story:'A premium Arabic website for ready-to-operate warehouses in Riyadh, structured around location, technical readiness, space options and one clear field-visit conversion path.',
+      storyAr:'موقع عربي راقٍ لمستودعات جاهزة للتشغيل في الرياض، منظم حول الموقع والجاهزية الفنية وخيارات المساحات ومسار واضح لحجز جولة ميدانية.',
+      scope:'Content architecture · Arabic UX/UI · Responsive front end · Conversion flow',
+      scopeAr:'هيكلة المحتوى · تجربة وواجهة عربية · تنفيذ متجاوب · مسار التحويل',
+      files:['almashraq-website.png?v=20260824-01'],cover:'almashraq-website.png?v=20260824-01',
+      card:'Warehouse specifications, locations and service packages turned into a premium Arabic lead-generation journey.',
+      cardAr:'تحويل مواصفات المستودعات والمواقع والباقات إلى رحلة عربية راقية لتوليد طلبات العملاء.',
+      caseStudy:{
+        en:{
+          problem:'Dense warehouse specifications, several Riyadh locations and different customer sizes had to become easy to compare without losing the premium investment positioning.',
+          contribution:'Content architecture · Arabic visual direction · Responsive page design · Front-end build · Lead form and WhatsApp path',
+          constraints:'Arabic-first reading; 489–20,000 m² range; many technical and compliance details; desktop and mobile; the field-visit action had to remain prominent.',
+          decisions:'Led with immediate readiness, grouped technical proof into five scannable benefits, separated locations from space packages, then repeated one conversion action across the journey.',
+          outcome:'A complete responsive Arabic experience covering the hero, operational proof, locations, packages, services, testimonials, FAQs and a field-visit lead form.'
+        },
+        ar:{
+          problem:'مواصفات مستودعات كثيفة ومواقع متعددة في الرياض وشرائح عملاء مختلفة كان يجب أن تصبح سهلة المقارنة من غير فقدان الطابع الاستثماري الراقي.',
+          contribution:'هيكلة المحتوى · الاتجاه البصري العربي · تصميم الصفحة المتجاوبة · تنفيذ الواجهة · نموذج الطلب ومسار واتساب',
+          constraints:'قراءة عربية أولًا؛ مساحات من 489 إلى 20,000 م²؛ تفاصيل فنية وتنظيمية كثيرة؛ هاتف وكمبيوتر؛ وبقاء حجز الجولة واضحًا.',
+          decisions:'بدأت بالجاهزية الفورية، جمعت الدليل الفني في خمس فوائد سريعة، فصلت المواقع عن باقات المساحات، وكررت دعوة واحدة لحجز الجولة عبر الرحلة.',
+          outcome:'تجربة عربية متجاوبة كاملة تضم الهيرو والدليل التشغيلي والمواقع والباقات والخدمات وآراء العملاء والأسئلة ونموذج حجز الجولة.'
+        }
+      }
+    },
+    {
       id:'seredo',title:'SEREDO',titleAr:'سيريدو',
       eyebrow:'Arabic Landing Page / Event Experience',eyebrowAr:'صفحة عربية / تجربة فعالية',
       story:'A conversion-focused Arabic landing page that organizes dense event information, registration and a large partner ecosystem without losing the primary action.',
@@ -81,7 +108,25 @@
       scope:'Visual direction · Social design · Campaign communication',
       scopeAr:'اتجاه بصري · تصميم سوشيال · تواصل الحملة',
       files:['brief-agency-signs.webp','brief-agency-strategy.webp','brief-agency-execution.webp'],
-      cover:'brief-agency-signs.webp'
+      cover:'brief-agency-signs.webp',
+      card:'Strategy, execution and growth expressed as one connected campaign system.',
+      cardAr:'الاستراتيجية والتنفيذ والنمو داخل نظام حملة واحد مترابط.',
+      caseStudy:{
+        en:{
+          problem:'Three service messages risked looking like unrelated posts instead of one agency proposition.',
+          contribution:'Campaign concept · Visual metaphor · Social system · Copy hierarchy · Format adaptations',
+          constraints:'Three distinct messages; Arabic-first reading; immediate mobile recognition; one consistent agency voice.',
+          decisions:'Used road signs as the shared device, changed the directional message per post and kept type, spacing and image treatment consistent across the sequence.',
+          outcome:'A three-piece campaign that reads as one story: strategy sets direction, execution moves the work and growth is the destination.'
+        },
+        ar:{
+          problem:'ثلاث رسائل خدمية كانت معرضة لأن تبدو كمنشورات منفصلة بدل عرض واحد متماسك للوكالة.',
+          contribution:'فكرة الحملة · الاستعارة البصرية · نظام السوشيال · ترتيب النص · تطبيقات المقاسات',
+          constraints:'ثلاث رسائل مختلفة؛ قراءة عربية أولًا؛ وضوح فوري على الهاتف؛ وصوت واحد للوكالة.',
+          decisions:'استخدمت لافتات الطريق كعنصر مشترك، وغيّرت الرسالة الاتجاهية في كل تصميم مع تثبيت الخط والمسافات ومعالجة الصور.',
+          outcome:'حملة من ثلاث قطع تُقرأ كقصة واحدة: الاستراتيجية تحدد الاتجاه، والتنفيذ يحرك العمل، والنمو هو الوجهة.'
+        }
+      }
     },
     {
       id:'communitycampaign',title:'Community Awareness Campaign',titleAr:'حملة توعوية ومجتمعية',
@@ -99,7 +144,25 @@
       storyAr:'كان الهدف تقديم عدة عطور كعائلة واحدة من غير ما تضيع شخصية كل منتج. استخدمت مسرحًا بصريًا وإيقاعًا مشتركين، وتركت اللون والمكونات يميّزان كل عطر.',
       scope:'Product presentation · Social design · Campaign layouts',
       scopeAr:'عرض المنتج · تصميم سوشيال · تصميمات الحملة',
-      files:['العرض.png','01.png']
+      files:['العرض.png','01.png'],
+      card:'One product family, with color and ingredients giving every fragrance its own character.',
+      cardAr:'عائلة منتج واحدة، مع لون ومكونات تمنح كل عطر شخصيته.',
+      caseStudy:{
+        en:{
+          problem:'Several fragrances needed to feel related as one brand family while preserving a distinct mood for each bottle.',
+          contribution:'Product art direction · Compositing · Social layouts · Campaign consistency',
+          constraints:'Different bottle colors and ingredients; product legibility on mobile; a premium mood without visual clutter.',
+          decisions:'Kept one shared product stage and lighting rhythm, then used color, ingredients and atmosphere to distinguish each fragrance.',
+          outcome:'A repeatable premium campaign language that presents multiple perfumes consistently without flattening their individual character.'
+        },
+        ar:{
+          problem:'عدة عطور يجب أن تبدو كعائلة براند واحدة، مع الحفاظ على مزاج مختلف لكل زجاجة.',
+          contribution:'إخراج المنتج · تركيب الصور · تصميمات السوشيال · اتساق الحملة',
+          constraints:'ألوان زجاجات ومكونات مختلفة؛ وضوح المنتج على الهاتف؛ وطابع فاخر من غير ازدحام.',
+          decisions:'ثبتُّ مسرح المنتج وإيقاع الإضاءة، ثم استخدمت اللون والمكونات والأجواء لتمييز كل عطر.',
+          outcome:'لغة حملة فاخرة قابلة للتكرار تقدم عدة عطور باتساق من غير إلغاء شخصية كل منتج.'
+        }
+      }
     },
     {
       id:'lenstech',title:'Lens Tech',titleAr:'Lens Tech',
@@ -121,7 +184,7 @@
 
   const byId=id=>projects.find(p=>p.id===id);
   const socialLab=byId('sociallab'),briefStudio=byId('briefstudio'),healthcare=byId('healthcare');
-  const editorial=byId('editorial'),orient=byId('orient'),socialArchive=byId('social');
+  const editorial=byId('editorial'),orient=byId('orient'),realestate=byId('realestate'),socialArchive=byId('social');
   const bannerArchive=byId('campaignbanners'),socialArtboards=byId('socialartboards'),digitalArtboards=byId('digitalartboards'),covers=byId('covers');
 
   const socialLabFiles=['social-lab.png'];
@@ -134,27 +197,27 @@
   if(socialLab){
     socialLab.files=socialLabFiles;
     socialLab.cover='social-lab.png';
-    socialLab.eyebrow='SaaS Product Story / Web + PDF';socialLab.eyebrowAr='قصة منتج SaaS / ويب + PDF';
-    socialLab.story='A 35-page web and PDF sales story that turns a feature-heavy AI platform into a sequence a prospective customer can follow: problem, proof, solution, product engines, industries and action.';
-    socialLab.storyAr='قصة بيع من 35 صفحة للويب وPDF تحوّل منصة ذكاء اصطناعي كثيفة المزايا إلى تسلسل يمكن للعميل المحتمل متابعته: المشكلة، الدليل، الحل، محركات المنتج، القطاعات ثم الخطوة التالية.';
-    socialLab.scope='Content architecture · Arabic product storytelling · Web profile · PDF presentation';
-    socialLab.scopeAr='هيكلة المحتوى · سرد منتج عربي · بروفايل ويب · عرض PDF';
+    socialLab.eyebrow='Company Profile / Sales Presentation';socialLab.eyebrowAr='بروفايل شركة / عرض مبيعات';
+    socialLab.story='A 35-page company profile and sales presentation that turns a feature-heavy AI platform into a sequence a prospective customer can follow: problem, proof, solution, product engines, industries and action.';
+    socialLab.storyAr='بروفايل شركة وعرض مبيعات من 35 صفحة يحوّلان منصة ذكاء اصطناعي كثيفة المزايا إلى تسلسل يمكن للعميل المحتمل متابعته: المشكلة، الدليل، الحل، محركات المنتج، القطاعات ثم الخطوة التالية.';
+    socialLab.scope='Content architecture · Arabic product storytelling · Company profile · Presentation design';
+    socialLab.scopeAr='هيكلة المحتوى · سرد منتج عربي · بروفايل شركة · تصميم عرض';
     socialLab.card='A feature-heavy AI platform reorganized into one coherent 35-page sales narrative.';
     socialLab.cardAr='إعادة تنظيم منصة ذكاء اصطناعي كثيفة المزايا في قصة بيع مترابطة من 35 صفحة.';
     socialLab.caseStudy={
       en:{
         problem:'A platform with many features and industries risked reading like a long feature list instead of a persuasive product story.',
         contribution:'Content architecture · Arabic product storytelling · Visual system · Web/PDF presentation design',
-        constraints:'35 sections; many product engines and industries; Arabic-first sales language; one structure had to work on screen and in PDF.',
+        constraints:'35 sections; many product engines and industries; Arabic-first sales language; one structure had to work as a profile and presentation.',
         decisions:'Ordered the content as problem → proof → solution → product engines → industry use cases → pricing/action, while keeping a repeatable page system for scanning.',
-        outcome:'One coherent 35-page narrative that can be reviewed as an interactive web profile or exported as a structured sales presentation.'
+        outcome:'One coherent 35-page narrative that can be reviewed as a company profile or delivered as a structured sales presentation.'
       },
       ar:{
         problem:'منصة كثيرة المزايا والقطاعات كانت معرضة لأن تبدو كقائمة وظائف طويلة بدل قصة منتج مقنعة.',
         contribution:'هيكلة المحتوى · سرد المنتج بالعربية · النظام البصري · تصميم عرض للويب وPDF',
-        constraints:'35 قسمًا؛ محركات منتج وقطاعات كثيرة؛ لغة بيع عربية أولًا؛ وبنية واحدة يجب أن تعمل على الشاشة وداخل PDF.',
+        constraints:'35 قسمًا؛ محركات منتج وقطاعات كثيرة؛ لغة بيع عربية أولًا؛ وبنية واحدة يجب أن تعمل كبروفايل وعرض تقديمي.',
         decisions:'رتبت المحتوى من المشكلة إلى الدليل ثم الحل ومحركات المنتج وحالات القطاعات والتسعير أو الخطوة التالية، مع نظام صفحات متكرر يسهل مسحه.',
-        outcome:'قصة مترابطة من 35 صفحة يمكن مراجعتها كبروفايل ويب تفاعلي أو تصديرها كعرض بيع منظم.'
+        outcome:'قصة مترابطة من 35 صفحة يمكن مراجعتها كبروفايل شركة أو تقديمها كعرض بيع منظم.'
       }
     };
   }
@@ -211,6 +274,27 @@
     };
   }
 
+  if(realestate){
+    realestate.card='A three-step property campaign that moves from aspiration to detail to offer.';
+    realestate.cardAr='حملة عقارية من ثلاث خطوات تنتقل من الإحساس إلى التفاصيل ثم العرض.';
+    realestate.caseStudy={
+      en:{
+        problem:'The property needed emotional appeal, practical detail and a clear offer without putting every message into one crowded post.',
+        contribution:'Campaign sequence · Art direction · Information hierarchy · Social adaptations',
+        constraints:'Architecture had to remain central; three communication stages; mobile reading; consistent premium tone.',
+        decisions:'Separated the story into introduction, detail and offer, then kept the architecture and core framing consistent while changing the information priority.',
+        outcome:'A connected three-piece campaign that guides the audience from interest to evaluation to action.'
+      },
+      ar:{
+        problem:'العقار احتاج إحساسًا جذابًا وتفاصيل عملية وعرضًا واضحًا من غير وضع كل الرسائل داخل بوست مزدحم.',
+        contribution:'تسلسل الحملة · الإخراج الفني · ترتيب المعلومات · تطبيقات السوشيال',
+        constraints:'بقاء العمارة في المركز؛ ثلاث مراحل تواصل؛ قراءة الهاتف؛ وطابع فاخر متسق.',
+        decisions:'قسمت القصة إلى تقديم وتفاصيل وعرض، وثبتُّ العمارة والإطار العام مع تغيير أولوية المعلومات في كل مرحلة.',
+        outcome:'حملة مترابطة من ثلاث قطع تنقل الجمهور من الاهتمام إلى التقييم ثم اتخاذ الخطوة.'
+      }
+    };
+  }
+
   if(socialArchive){
     socialArchive.title='Additional Social Work';socialArchive.titleAr='أعمال سوشيال إضافية';
     socialArchive.story='These are standalone pieces from different briefs. I keep them in the archive rather than forcing them into one named case study.';
@@ -235,9 +319,11 @@
   loadCss('recruiter-projects-v3.css?v=20260819-0545','recruiter-projects-v3');
   loadCss('recruiter-categories.css?v=20260819-0545','recruiter-categories');
 
-  // Selected projects are the recruiter-facing lead work. Everything else moves to the compact archive.
-  const topIds=['tabbeauty','seredo','orient','sociallab'];
-  const topProjects=topIds.map(byId).filter(Boolean);
+  // Two verified web builds lead, followed by the strongest brand and campaign systems.
+  const digitalIds=['tabbeauty','almashraq'];
+  const brandIds=['briefagency','orient','alluriv','realestate'];
+  const digitalProjects=digitalIds.map(byId).filter(Boolean);
+  const brandProjects=brandIds.map(byId).filter(Boolean);
 
   const categoryDefs=[
     {id:'digital',en:'Arabic Digital Experiences',ar:'تجارب رقمية عربية',ids:['khairzad','ecommerce']},
@@ -247,9 +333,13 @@
   ];
 
   const C=()=>lang==='ar'?{
-    browseTitle:'أعمال أخرى حسب المجال',browseText:'باقي الأعمال متاحة في الأرشيف المضغوط بالأسفل.',view:'عرض دراسة الحالة ↗',note:'عن المشروع',projects:'مشاريع'
+    browseTitle:'أعمال أخرى حسب المجال',browseText:'باقي الأعمال متاحة في الأرشيف المضغوط بالأسفل.',view:'عرض دراسة الحالة ↗',note:'عن المشروع',projects:'مشاريع',
+    digitalLabel:'01A / مواقع ومنتجات رقمية',digitalTitle:'موقعان يستحقان الفتح.',digitalText:'تاب بيوتي والمشرق: مشروعان يوضحان الانتقال من القيود والمحتوى إلى تجربة عربية تعمل.',
+    brandLabel:'01B / براندات وحملات',brandTitle:'أنظمة بصرية لبريفات مختلفة.',brandText:'أعمال توضح كيف تتحول الفكرة إلى تسلسل وتطبيقات، وليس مجرد تصميمات منفصلة.'
   }:{
-    browseTitle:'More work by field',browseText:'The remaining work is available in the compact archive below.',view:'View case study ↗',note:'Project note',projects:'projects'
+    browseTitle:'More work by field',browseText:'The remaining work is available in the compact archive below.',view:'View case study ↗',note:'Project note',projects:'projects',
+    digitalLabel:'01A / WEB & DIGITAL PRODUCTS',digitalTitle:'Two builds worth opening.',digitalText:'TAB Beauty and Almashraq show how constraints and content became working Arabic experiences.',
+    brandLabel:'01B / BRAND & CAMPAIGN WORK',brandTitle:'Visual systems for different briefs.',brandText:'Work that shows how one idea becomes a sequence and a usable system — not isolated pieces.'
   };
   const caseStrings=()=>lang==='ar'?{
     problem:'المشكلة',contribution:'نطاق المساهمة',constraints:'القيود',decisions:'القرارات الرئيسية',outcome:'النتيجة',overview:'ملخص الحالة'
@@ -258,16 +348,16 @@
   };
   const localizedCase=p=>p.caseStudy?.[lang]||p.caseStudy?.en||null;
 
-  const isDirect=f=>/\.(svg|webp)$/i.test(f);
+  const isDirect=f=>f.startsWith('almashraq-website.png')||/^https?:\/\//i.test(f)||/\.(svg|webp)$/i.test(f);
   const projectSrc=f=>isDirect(f)?f:fullSrc(f);
   const thumbSrc=f=>isDirect(f)?f:`web/thumb/${f}.webp`;
   const coverFile=p=>p.cover||p.files[0];
   const previewImage=(file,alt,hero=false)=>`<img src="${hero?projectSrc(file):thumbSrc(file)}" data-original="${file}" alt="${alt}" loading="${hero?'eager':'lazy'}" decoding="async"${hero?' fetchpriority="high"':''}>`;
   const projectImgMarkup=(file,alt,priority='lazy')=>`<img src="${projectSrc(file)}" data-original="${file}" alt="${alt}" loading="${priority}" decoding="async">`;
 
-  const impactMarkup=(p,i)=>{
+  const impactMarkup=(p,i,offset=0)=>{
     const title=pText(p,'title'),type=pText(p,'eyebrow'),cover=coverFile(p),summary=pText(p,'card')||pText(p,'story'),count=p.caseStudy?(lang==='ar'?'دراسة حالة':'Case study'):countLabel(p.files.length);
-    return `<article class="impact-project" data-id="${p.id}"><div class="impact-visual" role="button" tabindex="0" aria-label="${C().view.replace(' ↗','')}: ${title}">${previewImage(cover,`${title} — cover`,i===0)}</div><div class="impact-info"><span class="impact-no">${String(i+1).padStart(2,'0')}</span><div><h3>${title}</h3><p class="impact-type">${type}</p><p class="impact-summary">${summary}</p></div><span class="impact-count">${count}</span><button class="impact-open" type="button" aria-label="${C().view.replace(' ↗','')}: ${title}">${C().view}</button></div></article>`;
+    return `<article class="impact-project" data-id="${p.id}"><div class="impact-visual" role="button" tabindex="0" aria-label="${C().view.replace(' ↗','')}: ${title}">${previewImage(cover,`${title} — cover`,offset+i===0)}</div><div class="impact-info"><span class="impact-no">${String(offset+i+1).padStart(2,'0')}</span><div><h3>${title}</h3><p class="impact-type">${type}</p><p class="impact-summary">${summary}</p></div><span class="impact-count">${count}</span><button class="impact-open" type="button" aria-label="${C().view.replace(' ↗','')}: ${title}">${C().view}</button></div></article>`;
   };
   const categoryProjectMarkup=p=>{
     const title=pText(p,'title'),cover=coverFile(p);
@@ -286,7 +376,15 @@
 
   renderProjects=function(){
     const selectedRoot=$('#selectedProjects'),moreRoot=document.querySelector('.more-work');
-    selectedRoot.innerHTML=`<div class="recruiter-featured">${topProjects.map(impactMarkup).join('')}</div>`;
+    selectedRoot.innerHTML=`
+      <section class="case-cluster case-cluster-digital">
+        <header class="case-cluster-head"><span>${C().digitalLabel}</span><div><h3>${C().digitalTitle}</h3><p>${C().digitalText}</p></div></header>
+        <div class="recruiter-featured recruiter-featured-digital">${digitalProjects.map((p,i)=>impactMarkup(p,i,0)).join('')}</div>
+      </section>
+      <section class="case-cluster case-cluster-brands">
+        <header class="case-cluster-head"><span>${C().brandLabel}</span><div><h3>${C().brandTitle}</h3><p>${C().brandText}</p></div></header>
+        <div class="recruiter-featured recruiter-featured-brands">${brandProjects.map((p,i)=>impactMarkup(p,i,digitalProjects.length)).join('')}</div>
+      </section>`;
     moreRoot.innerHTML=`<div class="recruiter-browse"><div class="recruiter-browse-head"><h3>${C().browseTitle}</h3><p>${C().browseText}</p></div><div class="work-categories">${categoryDefs.map(categoryMarkup).join('')}</div></div>`;
     addFallbacks(selectedRoot);addFallbacks(moreRoot);
     bindOpen(selectedRoot,'.impact-project','.impact-open');

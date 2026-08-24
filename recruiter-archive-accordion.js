@@ -18,7 +18,7 @@
   }
   if(eventProject) eventProject.files=[];
 
-  const fullPreviewSrc=file=>/\.(svg|webp)$/i.test(file)?file:`web/full/${file}.webp`;
+  const fullPreviewSrc=file=>file.startsWith('almashraq-website.png')||/^https?:\/\//i.test(file)||/\.(svg|webp)$/i.test(file)?file:`web/full/${file}.webp`;
   const upgradeSelectedCovers=()=>{
     document.querySelectorAll('.recruiter-featured > .impact-project img[data-original]').forEach((img,i)=>{
       const file=img.dataset.original;
@@ -49,7 +49,7 @@
     open:'View project ↗'
   };
   const previewSrc=fullPreviewSrc;
-  const preferred=['khairzad','briefagency','briefstudio','realestate','healthcare','alluriv','communitycampaign','editorial'];
+  const preferred=['sociallab','briefstudio','healthcare','communitycampaign','natural','ecommerce','huggies','editorial'];
   let lastMode='';
 
   const selectedIds=()=>new Set(

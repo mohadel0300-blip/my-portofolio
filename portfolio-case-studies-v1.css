@@ -8,6 +8,42 @@
   line-height:1.62;
 }
 
+.case-cluster{margin-top:clamp(54px,8vw,112px)}
+.case-cluster:first-child{margin-top:0}
+
+.case-cluster-head{
+  display:grid;
+  grid-template-columns:minmax(120px,.34fr) minmax(0,1fr);
+  gap:24px;
+  align-items:start;
+  margin-bottom:30px;
+  padding-top:18px;
+  border-top:1px solid var(--line);
+}
+
+.case-cluster-head>span{
+  color:var(--muted);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.56rem;
+  line-height:1.5;
+  letter-spacing:.05em;
+}
+
+.case-cluster-head h3{
+  margin:0;
+  font-size:clamp(1.8rem,3.3vw,3.9rem);
+  line-height:.98;
+  letter-spacing:-.055em;
+}
+
+.case-cluster-head p{
+  max-width:60ch;
+  margin:12px 0 0;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.65;
+}
+
 .project-view-copy{
   display:block!important;
   max-width:760px;
@@ -83,15 +119,13 @@
   }
 
   .projects .recruiter-featured>.impact-project{min-width:0}
-  .projects .recruiter-featured>.impact-project:nth-child(1){grid-column:1/-1}
-  .projects .recruiter-featured>.impact-project:nth-child(2){grid-column:1/span 7}
-  .projects .recruiter-featured>.impact-project:nth-child(3){grid-column:8/-1}
-  .projects .recruiter-featured>.impact-project:nth-child(4){grid-column:3/11}
+  .projects .recruiter-featured-digital>.impact-project:nth-child(1){grid-column:1/span 7}
+  .projects .recruiter-featured-digital>.impact-project:nth-child(2){grid-column:8/-1}
+  .projects .recruiter-featured-digital .impact-visual{aspect-ratio:4/3}
 
-  .projects .recruiter-featured>.impact-project:nth-child(1) .impact-visual{aspect-ratio:16/8.8}
-  .projects .recruiter-featured>.impact-project:nth-child(2) .impact-visual,
-  .projects .recruiter-featured>.impact-project:nth-child(3) .impact-visual{aspect-ratio:4/3}
-  .projects .recruiter-featured>.impact-project:nth-child(4) .impact-visual{aspect-ratio:16/10}
+  .projects .recruiter-featured-brands>.impact-project:nth-child(odd){grid-column:1/span 7}
+  .projects .recruiter-featured-brands>.impact-project:nth-child(even){grid-column:8/-1}
+  .projects .recruiter-featured-brands .impact-visual{aspect-ratio:4/3}
 
   .project-view-head{
     display:grid;
@@ -142,6 +176,12 @@
     font-size:.78rem;
     line-height:1.65;
   }
+
+  .case-cluster{margin-top:62px}
+  .case-cluster-head{display:block;margin-bottom:22px}
+  .case-cluster-head>span{display:block;margin-bottom:14px}
+  .case-cluster-head h3{font-size:2rem;line-height:1.02}
+  .case-cluster-head p{font-size:.75rem;line-height:1.7}
 
   .impact-info{
     grid-template-columns:32px minmax(0,1fr);

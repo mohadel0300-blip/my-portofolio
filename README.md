@@ -6,12 +6,14 @@ Recruiter-focused bilingual portfolio for Mohamed Amer, a Cairo-based Visual & D
 
 [mohadel0300-blip.github.io/my-portofolio](https://mohadel0300-blip.github.io/my-portofolio/)
 
-## Featured case studies
+## Featured work
 
 - **TAB Beauty** — packaging constraints, six-variant product system and interactive Arabic e-commerce prototype.
-- **SEREDO** — Arabic event landing page organized around registration and a large partner ecosystem.
+- **Almashraq Investment** — premium Arabic warehouse website organized around locations, technical readiness, space packages and field-visit conversion.
+- **Brief Agency** — one connected campaign system for strategy, execution and growth.
 - **Orient Detectors** — nearly three years of technical product communication across social, catalogues and brochures.
-- **Social Lab** — a 35-page SaaS product story structured for web and PDF.
+- **Alluriv Perfume** — repeatable product art direction that keeps one family while distinguishing each fragrance.
+- **Real Estate Campaign** — a three-step sequence from aspiration to detail to offer.
 
 ## Portfolio structure
 
@@ -23,7 +25,7 @@ Recruiter-focused bilingual portfolio for Mohamed Amer, a Cairo-based Visual & D
 
 ## Design principles
 
-1. Four evidence-led case studies before the wider archive.
+1. Two verified Arabic web builds, then the strongest brand and campaign systems.
 2. Clear separation between problem, contribution, constraints, decisions and outcome.
 3. Arabic and English versions share the same content hierarchy.
 4. Supporting work stays available without competing with the strongest projects.
