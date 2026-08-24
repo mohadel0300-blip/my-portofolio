@@ -7,7 +7,7 @@
   const eventProject=projectById('event');
 
   if(editorialProject) editorialProject.cover='p1.png';
-  if(socialLabProject) socialLabProject.cover='s15.png';
+  if(socialLabProject) socialLabProject.cover='social-lab.png';
   if(briefStudioProject){
     const eventFiles=['تصوير المناسبات - رأسي.png','تفاصيل اللقاء.png'];
     briefStudioProject.files=[...new Set([...(briefStudioProject.files||[]),...eventFiles])];
@@ -40,16 +40,16 @@
   const byId=id=>projects.find(p=>p.id===id);
   const t=(p,key)=>pText(p,key);
   const strings=()=>lang==='ar'?{
-    title:'المزيد من الأرشيف',
-    intro:'باقي الأعمال في مساحة واحدة مضغوطة. افتح المشروع الذي تريد رؤيته فقط.',
+    title:'أعمال مساندة',
+    intro:'مشروعات إضافية تثبت اتساع الخبرة من غير أن تنافس دراسات الحالة الرئيسية.',
     open:'عرض المشروع ↗'
   }:{
-    title:'More from the archive',
-    intro:'The rest of the work lives in one compact space. Open only the project you want to inspect.',
+    title:'Supporting work',
+    intro:'Additional projects that show range without competing with the main case studies.',
     open:'View project ↗'
   };
   const previewSrc=fullPreviewSrc;
-  const preferred=['lenstech','classtech','ecommerce','natural','aiarchive','huggies','social','campaignbanners','brandapps','covers'];
+  const preferred=['khairzad','briefagency','briefstudio','realestate','healthcare','alluriv','communitycampaign','editorial'];
   let lastMode='';
 
   const selectedIds=()=>new Set(
@@ -60,14 +60,7 @@
 
   const archiveProjects=()=>{
     const selected=selectedIds();
-    const seen=new Set();
-    const list=projects.filter(p=>{
-      if(!p?.id||!p.files?.length||selected.has(p.id)||seen.has(p.id))return false;
-      seen.add(p.id);
-      return true;
-    });
-    const rank=id=>{const i=preferred.indexOf(id);return i<0?999:i;};
-    return list.sort((a,b)=>rank(a.id)-rank(b.id));
+    return preferred.map(byId).filter(p=>p?.files?.length&&!selected.has(p.id));
   };
 
   const hideFieldBrowse=()=>{
@@ -132,7 +125,7 @@
             <button class="archive-accordion-trigger" type="button" aria-expanded="${i===0?'true':'false'}" aria-controls="archive-panel-${p.id}">
               <strong>${t(p,'title')}</strong><span class="archive-accordion-count">${countLabel(p.files.length)}</span><span aria-hidden="true" class="archive-accordion-icon">+</span>
             </button>
-            <div class="archive-accordion-detail" id="archive-panel-${p.id}"><div class="archive-accordion-detail-inner">
+            <div aria-hidden="${i===0?'false':'true'}" class="archive-accordion-detail" id="archive-panel-${p.id}"><div class="archive-accordion-detail-inner">
               <p>${t(p,'story')||''}</p>${mobilePreviewMarkup(p)}
             </div></div>
           </div>`).join('')}</div>
@@ -156,6 +149,7 @@
         const active=item.dataset.id===p.id;
         item.classList.toggle('is-active',active);
         item.querySelector('.archive-accordion-trigger').setAttribute('aria-expanded',String(active));
+        item.querySelector('.archive-accordion-detail').setAttribute('aria-hidden',String(!active));
       });
       renderDesktopPreview(section,p);
     };
