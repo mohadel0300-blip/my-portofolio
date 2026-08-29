@@ -183,6 +183,14 @@
   );
 
   const byId=id=>projects.find(p=>p.id===id);
+  const linkedProjectId=()=>new URL(window.location.href).searchParams.get('project');
+  const setProjectUrl=id=>{
+    const url=new URL(window.location.href);
+    if(id)url.searchParams.set('project',id);
+    else url.searchParams.delete('project');
+    if(id&&!url.hash)url.hash='projects';
+    history.replaceState(history.state,'',url);
+  };
   const socialLab=byId('sociallab'),briefStudio=byId('briefstudio'),healthcare=byId('healthcare');
   const editorial=byId('editorial'),orient=byId('orient'),realestate=byId('realestate'),socialArchive=byId('social');
   const bannerArchive=byId('campaignbanners'),socialArtboards=byId('socialartboards'),digitalArtboards=byId('digitalartboards'),covers=byId('covers');
@@ -432,5 +440,23 @@
     requestAnimationFrame(()=>$('#lightboxClose')?.focus());
   };
 
+  const openProjectBase=openProject;
+  const closeProjectBase=closeProject;
+  openProject=function(p,options={}){
+    openProjectBase(p);
+    if(p&&options.syncUrl!==false)setProjectUrl(p.id);
+  };
+  closeProject=function(options={}){
+    closeProjectBase();
+    if(options.syncUrl!==false)setProjectUrl(null);
+  };
+  const syncProjectFromUrl=()=>{
+    const id=linkedProjectId(),project=id&&byId(id);
+    if(project)openProject(project,{syncUrl:false});
+    else if(document.querySelector('#projectView')?.classList.contains('open'))closeProject({syncUrl:false});
+  };
+  window.addEventListener('popstate',syncProjectFromUrl);
+
   applyLang();
+  if(linkedProjectId())requestAnimationFrame(syncProjectFromUrl);
 })();
